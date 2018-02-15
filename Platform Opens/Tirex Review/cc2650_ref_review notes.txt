@@ -1,0 +1,22 @@
+@src 	D:\Documents\Ref\Platforms\TI\CC2650 - Single-Mode BLE\Ref
+@brief 	review notes from today, it's been awhile
+
+- Ref Boards
+	Launchpad	LAUNCHXL-CC2650 	Wireless MCU LaunchPad Kit (ACTIVE) 
+	SensorTag	CC-DEVPACK-DEBUG	SimpleLink SensorTag Debugger DevPack
+	SensorTag 	CC2650STK			SimpleLink Bluetooth low energy/Multi-standard SensorTag
+	Remote Ctrl CC2650RC 			SimpleLink BLE/ZigBee RF4CE CC2650 remote control
+	BLEDev 		CC2650RC-BLEDEV 	CC2650RC Bluetooth low energy Remote Control Development Bundle 
+	
+- Dual Mode Support
+	use CC2564 for dual mode support
+	
+- MAC Address
+	these are incomplete notes from awhile back. to return and complete!
+	
+- Project Zero
+	ran through, cleaned up, updated
+
+- sprintf & UART
+	wow I am missing here, strongly. This needs a new format, deprecating this content	
+	@new	XDC/ & Serial/ dirs and example. XDC/ includes a Log ref of some form

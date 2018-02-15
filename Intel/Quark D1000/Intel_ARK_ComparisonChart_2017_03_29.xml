@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<ss:Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+    <ss:Styles>
+        <ss:Style ss:ID="1">
+            <ss:Font ss:Bold="1" />
+        </ss:Style>
+        <ss:Style ss:ID="s21">
+            <NumberFormat ss:Format="dd\-mmm\-yyyy" />
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+                <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" /> 
+                <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+                <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+            </Borders>
+        </ss:Style>
+        <ss:Style ss:ID="s22">
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+                <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+                <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+                <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+            </Borders>
+        </ss:Style>
+        <ss:Style ss:ID="s23">
+            <ss:Font ss:Bold="1" ss:Underline="Single" />
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+                <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" /> 
+                <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+                <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+            </Borders>
+        </ss:Style>
+        <ss:Style ss:ID="s22link" ss:Parent="s22">
+            <ss:Font ss:Color="Blue" />
+        </ss:Style>
+    </ss:Styles>
+    <ss:Worksheet ss:Name="Sheet1">
+        <ss:Table>
+                <Column ss:autofitwidth="1" />
+                <Column ss:autofitwidth="1" />
+
+            <ss:Row ss:StyleID="1">
+                <ss:Cell ss:MergeAcross="2">
+                    <ss:Data ss:Type="String">
+                        ARK | Compare Intel&#174; Products
+                    </ss:Data>
+                </ss:Cell>
+            </ss:Row>
+            <ss:Row>
+                <ss:Cell ss:MergeAcross="2">
+                    <ss:Data ss:Type="String">
+                    <text>3/29/2017 9:52:27 AM</text>
+                </ss:Data>
+            </ss:Cell>
+        </ss:Row>
+        <ss:Row>
+            <ss:Cell></ss:Cell>
+                <ss:Cell ss:StyleID="s22link" ss:HRef="https://ark.intel.com/products/86826/Intel-Quark-Microcontroller-D1000"><ss:Data ss:Type="String">Intel&#174; Quark™ Microcontroller D1000</ss:Data></ss:Cell>
+        </ss:Row>
+        <ss:Row>
+            <ss:Cell ss:StyleID="s22"><ss:Data ss:Type="String">Code Name</ss:Data></ss:Cell>
+                <ss:Cell ss:StyleID="s22">
+                    <ss:Data ss:Type="String">
+Silver Butte                    </ss:Data>
+                </ss:Cell>
+        </ss:Row>
+
+            <ss:Row>
+                <ss:Cell ss:MergeAcross="1" ss:StyleID="s23">
+                    <ss:Data ss:Type="String">Essentials</ss:Data>
+                </ss:Cell>
+            </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Vertical Segment</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">Embedded</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Processor Number</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">D1000</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Status</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">Launched</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Launch Date</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">Q3&#39;15</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Recommended Customer Price</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">$2.54</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+            <ss:Row>
+                <ss:Cell ss:MergeAcross="1" ss:StyleID="s23">
+                    <ss:Data ss:Type="String">Performance</ss:Data>
+                </ss:Cell>
+            </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String"># of Cores</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">1</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String"># of Threads</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">1</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Processor Base Frequency</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">33.00 MHz</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">TDP</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">0.025 W</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Configurable TDP-up Frequency</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">32.00 MHz</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Configurable TDP-up</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">0.025 W</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Configurable TDP-down Frequency</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">1.00 MHz</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Configurable TDP-down</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">0.0016 W</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">VID Voltage Range</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">1.62v - 3.63v</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+            <ss:Row>
+                <ss:Cell ss:MergeAcross="1" ss:StyleID="s23">
+                    <ss:Data ss:Type="String">Supplemental Information</ss:Data>
+                </ss:Cell>
+            </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Embedded Options Available</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">Yes</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Datasheet</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:HRef="http://www.intel.com/content/www/us/en/embedded/products/quark/mcu-d1000/quark-d1000-datasheet.html" ss:StyleID="s22link">
+                                        <ss:Data ss:Type="String">Link</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Description</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">Datasheet describes all publicly disclosed specifications including electrical characteristics, mechanical, and component functionality, a list of major features, a functional description, and an architectural overview.</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Additional Information URL</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:HRef="http://www.intel.com/content/www/us/en/embedded/products/quark/mcu/d1000/documentation.html" ss:StyleID="s22link">
+                                        <ss:Data ss:Type="String">Link</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+            <ss:Row>
+                <ss:Cell ss:MergeAcross="1" ss:StyleID="s23">
+                    <ss:Data ss:Type="String">I/O Specifications</ss:Data>
+                </ss:Cell>
+            </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">General Purpose IO</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">SPI, I2C, 24GPIO</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">UART</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">2</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+            <ss:Row>
+                <ss:Cell ss:MergeAcross="1" ss:StyleID="s23">
+                    <ss:Data ss:Type="String">Package Specifications</ss:Data>
+                </ss:Cell>
+            </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Sockets Supported</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">QFN40</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Operating Temperature Range</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">-40&#176;C to 85&#176;C</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Package Size</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">6mm x 6mm</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Low Halogen Options Available</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">See MDDS</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+            <ss:Row>
+                <ss:Cell ss:MergeAcross="1" ss:StyleID="s23">
+                    <ss:Data ss:Type="String">Advanced Technologies</ss:Data>
+                </ss:Cell>
+            </ss:Row>
+                    <ss:Row>
+                        <ss:Cell ss:StyleID="s22">
+                            <ss:Data ss:Type="String">Instruction Set</ss:Data>
+                        </ss:Cell>
+                                    <ss:Cell ss:StyleID="s22">
+                                        <ss:Data ss:Type="String">32-bit</ss:Data>
+                                    </ss:Cell>
+                    </ss:Row>
+    </ss:Table>
+
+    </ss:Worksheet>
+</ss:Workbook>

@@ -1,0 +1,5 @@
+Proper Debugging of ATSAMD21 Processors
+
+- Install Atmel Studio 7.0
+
+- Put some slow blinky code to your board

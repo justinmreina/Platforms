@@ -1,0 +1,5 @@
+- msp430 is 16-bit, 8051 is
+
+- msp430 supports more features in core (?lcd controller, ADC, GPIO, RAM, ROM, WDT, Timers, UART)
+
+- msp430 very low poer

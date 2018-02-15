@@ -1,0 +1,115 @@
+@section 	Texas Instruments
+	MSP430F2132
+	MSP430F2274
+	MSP430FR4133 LP
+	MSP430F5529 LP
+	MSP432P410 LP
+	
+	TM4C1294 LP
+	TM4C123G LP
+
+	CC2650 LP
+	CC3200 LP
+	
+	Beaglebone Sitara
+
+@section 	Cypress	
+	FM0-100L-S6E1B8
+
+@section 	NXP
+	FRDM-KL25Z
+	FRDM-K64F
+	RS08-DEMO9RS08KA2
+	LPC433x-Xplorer
+
+@section 	Analog Devices
+	EVAL-7026
+
+@section 	Microchip
+	USB 32-bit Whacker PIC32MX795
+	chipKIT uC32
+	Olimex PIC32-WMZ144
+	Olimex Pinguino-Micro PIC32
+
+@section 	Nuvoton
+	Numaker Uni
+	NUC220V
+
+@section 	Espressif
+	ESP32
+	ESP8266
+
+@section 	Atmel
+	Feather M0 WINC1500
+	Feather ATSAMD21G18
+	XMEGA-A1 Xplained
+	UC3-A3 Xplained
+	ATMega 324B Xplained Pro
+	AT-Tiny84 (DIP IC)
+	AT-Tiny85 (Digispark, Trinket, OhNo)
+
+
+@section 	Silicon Labs
+	EFM32 - PCB2001
+	EFM8 - PCB5202
+	BGM121
+	BGM111-A
+	WGM110
+
+@section 	ST Micro
+	Nucleo F446RE
+
+@section 	Nuvoton
+
+
+@section 	Cypress Semiconductor
+
+
+@section 	Xilinx
+
+
+@section 	Marvell
+
+
+@section 	Analog Devices
+
+
+@section 	Maxim
+
+
+@section 	Renasas
+	SK-S7G2
+
+
+@section 	Raspberry Pi
+
+
+@section 	Omega2
+
+
+@section 	infineon
+	XMC 2Go
+
+@section 	ODroid
+	ODroid C2
+
+@section 	Tinkerboard
+
+
+@section 	Snapdragon
+
+
+@section 	Nordic
+	nRF8200
+	nRF8001
+	
+
+@section 	Intel
+	Galileo
+	Edison
+	D2000
+	D1000
+	Arduino 101
+
+@section 	Xilinx
+	Arty Artix-7 Dev Board

@@ -1,0 +1,8 @@
+Important Routines
+
+	gap.c:GAP_DeviceInit()				/* Initialization and Configuration - Called to setup 
+											the device.  Call just once on initialization 		*/
+	
+	gapbondmanager.c					/* this is who manages connections						*/
+	
+	gapgattserver.c						/* this is who sends out gatt data from a server		*/

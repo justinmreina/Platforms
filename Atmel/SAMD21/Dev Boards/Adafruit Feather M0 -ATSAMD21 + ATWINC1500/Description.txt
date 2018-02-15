@@ -1,0 +1,44 @@
+Description
+
+Feather is the new development board from Adafruit, and like its namesake it is thin, light, and lets you fly! We designed Feather to be a new standard for portable microcontroller cores. This is the Adafruit Feather M0 WiFi w/ATWINC1500 - our take on an 'all-in-one' Arduino-compatible + high speed, reliable WiFi with built in USB and battery charging. Its an Adafruit Feather M0 with a WiFi module, ready to rock! We have other boards in the Feather family, check'em out here.
+
+Connect your Feather to the Internet with this fine new FCC-certified WiFi module from Atmel. This 802.11bgn-capable WiFi module is the best new thing for networking your devices, with built-in low-power management capabilites, Soft-AP, SSL TSL 1.2 support and rock solid performance. We were running our adafruit.io MQTT demo for a full weekend straight with no hiccups (it would have run longer but we had to go to work, so we unplugged it). This module is very fast & easy to use in comparison to other WiFi modules we've used in the past.
+
+This module works with 802.11b, g, or n networks & supports WEP, WPA and WPA2 encryption.  You can connect to your own WiFi networks or create your own with "Soft AP" mode, where it becomes its own access point (we have an example of it creating a webserver that you can then control the Arduino's pins). You can clock it as fast as 12MHz for speedy, reliable packet streaming. And scanning/connecting to networks is very fast, just a second or two.
+
+You might be wondering why use this when you can get a HUZZAH Feather? Well, you get:
+
+    A highly-capable Cortex M0+ processor with ton more I/O pins, lots of 12-bit ADCs, a 10-bit DAC, 6 total SERCOMs that can each do SPI, I2C or UART (3 are used by the existing interfaces, leaving you 3), plenty of timers, PWMs, DMA, native USB, and more (check out the Datasheet)
+    The ATWINC has much lower power usage, about 12mA for the WINC & 10mA for the ATSAMD21 with auto-powermanagement on for the WiFi and no power management for the ARM. With manual power management, you can get the WiFi module to down to ~2mA by putting it to sleep.
+    This is compared to the ESP's ~70mA average current draw, and whose deep sleep mode requires a WDT reset.
+    We also found that we could stream more reliably (less 'bursty') with the ATWINC, although altogether the ESP has higher throughput.
+    You also dont have to 'yield' all the time to the WiFi core, since its a separate chip. You get full reign of the processor and timing
+
+Of course, both WiFi-capable Feathers have their strengths and tradeoffs, & we love both equally!
+
+At the Feather M0's heart is an ATSAMD21G18 ARM Cortex M0 processor, clocked at 48 MHz and at 3.3V logic, the same one used in the new Arduino Zero. This chip has a whopping 256K of FLASH (8x more than the Atmega328 or 32u4) and 32K of RAM (16x as much)! This chip comes with built in USB so it has USB-to-Serial program & debug capability built in with no need for an FTDI-like chip. For advanced users who are comfortable with ASF, the SWDIO/SWCLK pins are available on the bottom, and when connected to a CMSIS-DAP debugger can be used to use Atmel Studio for debugging.
+
+To make it easy to use for portable projects, we added a connector for any of our 3.7V Lithium polymer batteries and built in battery charging. You don't need to use a battery, it will run just fine straight from the micro USB connector. But, if you do have a battery, you can take it on the go, then plug in the USB to recharge. The Feather will automatically switch over to USB power when its available. We also tied the battery through a divider to an analog pin, so you can measure and monitor the battery voltage to detect when you need a recharge.
+
+Here's some handy specs! Like all Feather M0's you get:
+
+    Measures 2.1" x 0.9" x 0.3" (53.65mm x 23mm x 8mm) without headers soldered in. Note it is 0.1" longer than most Feathers
+    Light as a (large?) feather - 6.1 grams
+    ATSAMD21G18 @ 48MHz with 3.3V logic/power
+    256KB FLASH, 32KB SRAM, No EEPROM
+    3.3V regulator (AP2112K-3.3) with 600mA peak current output, WiFi can draw 300mA peak during xmit
+    USB native support, comes with USB bootloader and serial port debugging
+    You also get tons of pins - 20 GPIO pins
+    Hardware Serial, hardware I2C, hardware SPI support
+    8 x PWM pins
+    10 x analog inputs
+    1 x analog output
+    Built in 200mA lipoly charger with charging status indicator LED
+    Pin #13 red LED for general purpose blinking
+    Power/enable pin
+    4 mounting holes
+    Reset button
+
+Comes fully assembled and tested, with a USB bootloader that lets you quickly use it with the Arduino IDE. We also toss in some header so you can solder it in and plug into a solderless breadboard. Lipoly battery and MicroUSB cable not included (but we do have lots of options in the shop if you'd like!)
+
+Check out our tutorial for all sorts of details, including pinouts, power management, Arduino IDE setup and more!

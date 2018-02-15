@@ -1,0 +1,6 @@
+- learn how this project gets serial ccs output to work, writeup and store!
+
+- snatch GPIO toggling of LED pin, and push into Bare Template as well!
+
+
+	

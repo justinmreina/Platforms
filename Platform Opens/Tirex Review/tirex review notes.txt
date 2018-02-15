@@ -1,0 +1,53 @@
+@date 		5/22/17
+@author 	Justin
+
+Resource Explorer
+	Device Documentation
+		CC26X0
+			CC2650F128
+				Tech Ref Man
+				Data Sheet
+				Errata
+				App Notes
+				TI Design
+
+	Development Tools
+		Kits and Boards
+			CC2650 LaunchPad
+				Tools Page
+				Quick Start Guide
+				Schematic
+
+	Software
+		SimpleLinke CC2640R2 SDK
+			this appears to be a wrapper of other lib content you've already found for the CC250 LP, hold off here for now
+			@step 	download, src files, track here then move to lib/
+			@step 	depr and archive all the prev versions
+			
+		TI-RTOS for CC2650
+			Development Tools
+				CC2650 LaunchPad
+					Driver Examples
+						Empty Example!!!!!!!!!!!!!!!!!!!!
+						Display
+						PIN
+						PWM
+						RF
+						UART
+						ADCBug
+						ADCBug
+					Kernel Examples
+						Benchmark
+						C++
+						Clock
+						Error
+						Hello
+						Memory
+						Task Mutex
+						Swi
+						
+		@concl	You can use multiple sources for Tirex content
+			Direct (e.g. C:\ti\tirtos_cc13xx_cc26xx_2_21_00_06\examples\TI\CC2650_LAUNCHXL\empty)
+			Tirex (e.g. TI-RTOS for CC2650->Development Tools->CC2650 LaunchPad->Driver Examples->Empty Example)
+
+		@rec	It is strongly recommended to go directly through Tirex. There are more existing projs in the direct option however, consider looking here if ever needed

@@ -1,0 +1,18 @@
+What does ICall stand for?
+	Indirect function Call dispatcher implementation on top of TI-RTOS
+	How TI-RTOS tasks communicate with the BLE stack	
+	
+@section 	Opens
+	Download  rtos-task-example and review notifications
+				@src 	https://git.ti.com/rtos-task-example/rtos-task-example
+
+	Perform 'Adding a Custom RTOS Task to BLE', store notes and get working
+				@src 	http://processors.wiki.ti.com/index.php/Adding_Custom_RTOS_Task
+				@note 	You can use BTool to monitor the transmitted notifications?
+	
+
+@section 	Future Ideas
+	Try GATT_ExchangeMTU() with a Central, see what is reported
+	
+	Get Peripheral Template project discoverable in Windows BT again!
+	
