@@ -1,0 +1,5 @@
+supports
+	Android 5.1
+	Linux-Debian
+	Windows 10
+	
