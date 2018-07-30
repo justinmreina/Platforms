@@ -1,0 +1,15 @@
+- everything you need to kickstart your next energy friendly design
+
+	Cap Touch Fields
+	
+	LEDs
+	
+- Free Software from energymicro.com (EFM32 energyAware Software)
+	*CMSIS
+	*Designer, Profiler
+	*Schematics, User Guides
+	*Energy Profiler
+
+- Kit is programmed and debugged through the Segger J-Link USB
+
+   
