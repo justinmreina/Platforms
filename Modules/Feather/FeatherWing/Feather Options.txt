@@ -1,0 +1,23 @@
+@brief 		FeatherWing Options
+@details 	x
+@auth 		Justin Reina
+@date 		10/17/18
+
+@section 	FeatherWing Options
+	Ethernet https://www.adafruit.com/product/3201
+	Relay https://www.adafruit.com/product/2923
+	Power Relay https://www.adafruit.com/product/3191
+	LoRa https://www.adafruit.com/product/3231
+	TFT https://www.adafruit.com/product/3315
+	OLED https://www.adafruit.com/product/2900
+	SD-Card https://www.adafruit.com/product/2922
+	Audio https://www.adafruit.com/product/3357
+	GPS https://www.adafruit.com/product/3133
+	Speakers https://www.adafruit.com/product/3436
+	DC Motors https://www.adafruit.com/product/2927
+	Servo Motors https://www.adafruit.com/product/2928
+	GPIO Breakout https://www.adafruit.com/product/2926
+	RTC https://www.adafruit.com/product/3028
+	Proto https://www.adafruit.com/product/2884
+
+	

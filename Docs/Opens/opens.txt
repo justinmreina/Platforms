@@ -1,0 +1,29 @@
+SW Opens
+- Nuvoton NuTiny Nano100 Micro - (SW) Keil won't program and debug the dev board
+
+On Order
+
+
+Queued
+- Nordic nRF52 - Deploy custom firmware to board & install ide
+
+- Microchip PIC32 - Get new dev board running. Validate new PICkit3 solves ISP Olimex problems
+
+- Cypress FM4 - (HW) Purchase board (FM4-176L-S6E2CC-ETH, $50)
+
+- Broadcom BCM2837 - (HW) Purchase board, (Raspberry Pi 3 Model B Project Board Broadcom BCM2837, $36)
+
+- Marvel 88MW302 - (HW) Purchase board, (Globalscale MW302 AWS IOT Starter Kit)
+
+
+Opens
+- Analog Devices - (SW) Purchase board (EVAL-ADICUP360, $45)
+
+- Zilog ZNEO32! (HW) Purchase board (Z32F3840100KITG, $63)
+
+- Toshiba Allwinner A20 - (HW) Purchase board (Cubieboard2, $70)
+
+- Actions Semi S900 - (HW) Purchase board, 1.8GHz (Bubblegum-96, $89)
+
+- Cypress PSoC  (CY8CKIT-048 Analog Coprocessor Pioneer Kit, $49)
+

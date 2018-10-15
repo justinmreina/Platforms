@@ -1,0 +1,11 @@
+@brief 		x
+@details 	x
+@auth 		Justin Reina
+@date 		10/15/18
+
+@section 	Options
+	Maxim MAX32620FTHR
+	Particle Argon (Nordic nRF52840 w/Espressif ESP32-D0WD) - Wi-Fi + BLE			<- Rec. I
+	Particle Boron LTE (Nordic nRF52840) - BLE + LTE 
+	Particle Boron 2G/3G (Nordic nRF52840) - GSM + Mesh + BLE 
+	Particle Xenon (Nordic nRF52840) - Mesh + BLE 

@@ -1,0 +1,192 @@
+@brief 		ME Click Options - Summary for Xtag
+@details 	x
+@auth 		Justin Reina
+@date 		10/26/18
+
+@section 	Comm
+	BLE
+	CAN
+	LAN
+	Fiber Optic I/O
+	GSM
+	LoRa	
+	USB
+	NFC
+	RFID
+	RS232
+	RS485
+	Wi-Fi
+	Zigbee
+	Custom Radio
+	
+@section 	UI
+	Audio Amplifier
+	E-Paper
+	Joystick
+	LCD
+	Microphone
+	Speech Recognition
+	TFT Display
+	LCD Display
+	Barcode Scanner
+	MP3
+	
+@section 	Sense
+	Altitude
+	Oximeter
+	Heart Rate
+	ECG
+	EMG
+	Capacitive Touch
+	Current Measure
+	ADC/DAC
+	Digital Pot
+	CO
+	CO2
+	NO2
+	Alcohol
+	Air Quality
+	Pollution
+	Ozone
+	Hydrogen
+	Methance
+	LPG
+	Relative Humidity
+	Pressure
+	Temperature
+	VOC
+	Force Sense
+	Stretch Sense
+	GPS
+	Hall Effect Sense
+	Humidity
+	Inductance
+	IR Sensor/Transmitter
+	3D Magnetic Field
+	Magnetometer
+	Supply Monitor (20V 5A)
+	Multimeter
+	Signal Frequency
+	AC/DC Current
+	Resistance
+	Capacitance
+	Ambient Light
+	RGB Color
+	IR
+	UV
+	Spectral Photometer
+	IrDA
+	Smoke
+	Optical Encoder
+	Pressure
+	Proximity
+	RF Meter
+	Water Detect
+	Lightning Detect
+	Doppler motion detection
+	Velocity
+	Seismic
+	IR Gesture Recognition
+	Motion
+
+@section 	Control
+	Stepper Motor Control
+	Servo PWM
+	FLASH
+	PWM
+	Rotary Encoder
+
+@section 	Options
+	Altitude
+	Audio Amplifier
+	Biomedical Sense
+		Oximeter
+		Heart Rate
+		ECG
+		EMG
+	BLE
+	CAN
+	Capacitive Touch
+	Current Measure
+	DAC
+	Digital Pot
+	E-Paper
+	FLASH
+	Environmental Sense
+		Relative Humidity
+		Pressure
+		Temperature
+		VOC
+	LAN
+	Fiber Optic I/O
+	Gas
+		CO
+		CO2
+		NO2
+		Alcohol
+		Air Quality
+		Pollution
+		Ozone
+		Hydrogen
+		Methance
+		LPG
+	Force Sense
+	Stretch Sense
+	GPS
+	GSM
+	Hall Effect Sense
+	Humidity
+	Inductance
+	IR Sensor/Transmitter
+	Joystick
+	LCD
+	LoRa
+	3D Magnetic Field
+	Magnetometer
+	Measurements
+		Supply Monitor (20V 5A)
+		Multimeter
+		Signal Frequency
+		AC/DC Current
+		Resistance
+		Capacitance
+	USB
+	PWM
+	Microphone
+	Motion
+		Doppler motion detection
+		Servo PWM
+		Velocity
+		Seismic
+		IR Gesture Recognition
+		
+	MP3
+	NFC
+	Optical
+		Ambient Light
+		RGB Color
+		IR
+		UV
+		Spectral Photometer
+		IrDA
+		Smoke
+		Optical Encoder
+	Pressure
+	Proximity
+	Custom Radio
+	RF Meter
+	RFID
+	Rotary Encoder
+	RS232
+	RS485
+	Speech Recognition
+	Stepper Motor Control
+	TFT Display
+	LCD Display
+	Various
+		Barcode Scanner
+		Water Detect
+		Lightning Detect
+	Wi-Fi
+	Zigbee
+
