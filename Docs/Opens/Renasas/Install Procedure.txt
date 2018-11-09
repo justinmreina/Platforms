@@ -1,0 +1,8 @@
+Primarily followed the SK-S7G2 Quickstart 'Renesas In the box' printed guide, and the email from their support
+
+1. Install e2 studio
+
+
+notes today
+	- SK-S7G2 page is still down, let me know when back up! :)
+	

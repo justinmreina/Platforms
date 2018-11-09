@@ -1,0 +1,22 @@
+Process taken from 'UM_NuTiny-SDK-NUC200_EN_Rev1.00.pdf, Section 3'
+
+3. Starting to Use NuTiny-SDK-NUC200 on the Keil µVision IDE
+
+[X] 3.1 Downloading and Installing Keil µVision IDE Software
+	Please connect to the Keil company website (http://www.keil.com) to download the Keil µVision IDE and install the RVMDK.
+
+3.2 Downloading and Installing Nuvoton Nu-Link Driver
+	Please connect to Nuvoton NuMicro™ website (http://www.nuvoton.com/NuMicro) to download the “NuMicro™ Keil µVision® IDE driver” file. Please refer to section 6.1 for the detailed download flow. After the Nu-Link driver is downloaded, please unzip the file and execute the “Nu-Link_Keil_Driver.exe” to install the driver.
+
+3.3 Hardware Setup
+	The hardware setup is shown in the following figure.
+	
+- Open 
+	
+	D:\Desktop\Nuvoton\Getting Started\3_3 - SW Downloads\SW_NuMaker_Uni_V1.1\NuMaker_Uni_BSP\SampleCode\I2C_IMU_LCD_pingpong\KEIL\NuMaker_Uni_I2C_IMU_LCD_pingpong.uvproj
+	
+	or...
+	
+	D:\Desktop\Nuvoton\Getting Started\3_3 - SW Downloads\SW_NuMaker_Uni_V1.1\NuMaker_Uni_BSP\SampleCode\GPIO_RGBLED\KEIL\NuMaker_Uni_GPIO_RGBLED.uvproj
+	
+	

@@ -1,0 +1,2 @@
+“Nuvoton NuMicro™ IAR ICE Driver User Manual” or “Nuvoton NuMicro™ Keil ICE Driver User Manual” for details. The two documents will be stored in the local hard disk when each is installed.
+
