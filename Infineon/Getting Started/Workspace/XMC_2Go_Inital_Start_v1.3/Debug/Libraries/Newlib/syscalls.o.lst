@@ -1,0 +1,939 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,6
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "syscalls.c"
+  14              	 .text
+  15              	.Ltext0:
+  16              	 .cfi_sections .debug_frame
+  17              	 .section .text._open,"ax",%progbits
+  18              	 .align 2
+  19              	 .weak _open
+  20              	 .code 16
+  21              	 .thumb_func
+  23              	_open:
+  24              	.LFB0:
+  25              	 .file 1 "../Libraries/Newlib/syscalls.c"
+   1:../Libraries/Newlib/syscalls.c **** /****************************************************************************/
+   2:../Libraries/Newlib/syscalls.c **** /**
+   3:../Libraries/Newlib/syscalls.c **** * @file     System_LibcStubs.c
+   4:../Libraries/Newlib/syscalls.c **** *           XMC4000 Device Series
+   5:../Libraries/Newlib/syscalls.c **** * @version  V1.3
+   6:../Libraries/Newlib/syscalls.c **** * @date     Jan 2014
+   7:../Libraries/Newlib/syscalls.c **** *
+   8:../Libraries/Newlib/syscalls.c **** * Copyright (C) 2012-2014 Infineon Technologies AG. All rights reserved.
+   9:../Libraries/Newlib/syscalls.c **** *
+  10:../Libraries/Newlib/syscalls.c **** *
+  11:../Libraries/Newlib/syscalls.c **** * @par
+  12:../Libraries/Newlib/syscalls.c **** * Infineon Technologies AG (Infineon) is supplying this software for use with
+  13:../Libraries/Newlib/syscalls.c **** * Infineon's microcontrollers.  This file can be freely distributed within
+  14:../Libraries/Newlib/syscalls.c **** * development tools that are supporting such microcontrollers.
+  15:../Libraries/Newlib/syscalls.c **** *
+  16:../Libraries/Newlib/syscalls.c **** * @par
+  17:../Libraries/Newlib/syscalls.c **** * THIS SOFTWARE IS PROVIDED AS IS.  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
+  18:../Libraries/Newlib/syscalls.c **** * OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+  19:../Libraries/Newlib/syscalls.c **** * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
+  20:../Libraries/Newlib/syscalls.c **** * ARM SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR
+  21:../Libraries/Newlib/syscalls.c **** * CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+  22:../Libraries/Newlib/syscalls.c **** *
+  23:../Libraries/Newlib/syscalls.c **** ******************************************************************************/
+  24:../Libraries/Newlib/syscalls.c **** 
+  25:../Libraries/Newlib/syscalls.c **** /* ============================ REVISION HISTORY ==============================
+  26:../Libraries/Newlib/syscalls.c ****    1. Prakash Kalanjeri Balasubramanian , V0.1 , Initial draft
+  27:../Libraries/Newlib/syscalls.c ****    2. Prakash Kalanjeri Balasubramanian , V0.2 , Label updates
+  28:../Libraries/Newlib/syscalls.c ****    3. Prakash Kalanjeri Balasubramanian , V1.0 , Made _Sbrk device agnostic
+  29:../Libraries/Newlib/syscalls.c ****    3. Prakash Kalanjeri Balasubramanian , V1.1 , C++ support
+  30:../Libraries/Newlib/syscalls.c ****    3. Prakash Kalanjeri Balasubramanian , V1.2 , Restored compatibilty with old
+  31:../Libraries/Newlib/syscalls.c ****                                                  project files
+  32:../Libraries/Newlib/syscalls.c ****    4. Prakash Kalanjeri Balasubramanian, V1.3 ,  Encapsulating everything in
+  33:../Libraries/Newlib/syscalls.c ****                                                  this file for use only with
+  34:../Libraries/Newlib/syscalls.c ****                                                  GCC
+  35:../Libraries/Newlib/syscalls.c ****    ========================================================================= */
+  36:../Libraries/Newlib/syscalls.c **** 
+  37:../Libraries/Newlib/syscalls.c **** /*
+  38:../Libraries/Newlib/syscalls.c ****  * This file contains stubs for standard C library functionality that must
+  39:../Libraries/Newlib/syscalls.c ****  * typically be provided for the underlying platform.
+  40:../Libraries/Newlib/syscalls.c ****  *
+  41:../Libraries/Newlib/syscalls.c ****  * All routines are WEAKLY defined. This creates an opportunity for application
+  42:../Libraries/Newlib/syscalls.c ****  * developers to override the provided implementation and define a final
+  43:../Libraries/Newlib/syscalls.c ****  * implementation for their platforms.
+  44:../Libraries/Newlib/syscalls.c ****  */
+  45:../Libraries/Newlib/syscalls.c **** #if defined ( __GNUC__ )
+  46:../Libraries/Newlib/syscalls.c **** 
+  47:../Libraries/Newlib/syscalls.c **** #include <sys/stat.h>
+  48:../Libraries/Newlib/syscalls.c **** #include <sys/times.h>
+  49:../Libraries/Newlib/syscalls.c **** #include <unistd.h>
+  50:../Libraries/Newlib/syscalls.c **** 
+  51:../Libraries/Newlib/syscalls.c **** #ifdef __cplusplus
+  52:../Libraries/Newlib/syscalls.c **** extern "C" {
+  53:../Libraries/Newlib/syscalls.c **** #endif
+  54:../Libraries/Newlib/syscalls.c **** 
+  55:../Libraries/Newlib/syscalls.c **** /* ========================================================================= */
+  56:../Libraries/Newlib/syscalls.c **** /* =========================== File I/O related ============================ */
+  57:../Libraries/Newlib/syscalls.c **** /* ========================================================================= */
+  58:../Libraries/Newlib/syscalls.c **** /*
+  59:../Libraries/Newlib/syscalls.c ****  * File open
+  60:../Libraries/Newlib/syscalls.c ****  */
+  61:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _open(const char *name, int flags, int mode)
+  62:../Libraries/Newlib/syscalls.c **** {
+  26              	 .loc 1 62 0
+  27              	 .cfi_startproc
+  28 0000 80B5     	 push {r7,lr}
+  29              	.LCFI0:
+  30              	 .cfi_def_cfa_offset 8
+  31              	 .cfi_offset 7,-8
+  32              	 .cfi_offset 14,-4
+  33 0002 84B0     	 sub sp,sp,#16
+  34              	.LCFI1:
+  35              	 .cfi_def_cfa_offset 24
+  36 0004 00AF     	 add r7,sp,#0
+  37              	.LCFI2:
+  38              	 .cfi_def_cfa_register 7
+  39 0006 F860     	 str r0,[r7,#12]
+  40 0008 B960     	 str r1,[r7,#8]
+  41 000a 7A60     	 str r2,[r7,#4]
+  63:../Libraries/Newlib/syscalls.c ****  (void)flags;
+  64:../Libraries/Newlib/syscalls.c ****  (void)mode;
+  65:../Libraries/Newlib/syscalls.c ****  return -1;
+  42              	 .loc 1 65 0
+  43 000c 0123     	 mov r3,#1
+  44 000e 5B42     	 neg r3,r3
+  66:../Libraries/Newlib/syscalls.c **** }
+  45              	 .loc 1 66 0
+  46 0010 181C     	 mov r0,r3
+  47 0012 BD46     	 mov sp,r7
+  48 0014 04B0     	 add sp,sp,#16
+  49              	 
+  50 0016 80BD     	 pop {r7,pc}
+  51              	 .cfi_endproc
+  52              	.LFE0:
+  54              	 .section .text._lseek,"ax",%progbits
+  55              	 .align 2
+  56              	 .weak _lseek
+  57              	 .code 16
+  58              	 .thumb_func
+  60              	_lseek:
+  61              	.LFB1:
+  67:../Libraries/Newlib/syscalls.c **** 
+  68:../Libraries/Newlib/syscalls.c **** /*
+  69:../Libraries/Newlib/syscalls.c ****  * File position seek
+  70:../Libraries/Newlib/syscalls.c ****  */
+  71:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _lseek(int file, int offset, int whence)
+  72:../Libraries/Newlib/syscalls.c **** {
+  62              	 .loc 1 72 0
+  63              	 .cfi_startproc
+  64 0000 80B5     	 push {r7,lr}
+  65              	.LCFI3:
+  66              	 .cfi_def_cfa_offset 8
+  67              	 .cfi_offset 7,-8
+  68              	 .cfi_offset 14,-4
+  69 0002 84B0     	 sub sp,sp,#16
+  70              	.LCFI4:
+  71              	 .cfi_def_cfa_offset 24
+  72 0004 00AF     	 add r7,sp,#0
+  73              	.LCFI5:
+  74              	 .cfi_def_cfa_register 7
+  75 0006 F860     	 str r0,[r7,#12]
+  76 0008 B960     	 str r1,[r7,#8]
+  77 000a 7A60     	 str r2,[r7,#4]
+  73:../Libraries/Newlib/syscalls.c ****  (void)file;
+  74:../Libraries/Newlib/syscalls.c ****  (void)offset;
+  75:../Libraries/Newlib/syscalls.c ****  (void)whence;
+  76:../Libraries/Newlib/syscalls.c ****  return -1;
+  78              	 .loc 1 76 0
+  79 000c 0123     	 mov r3,#1
+  80 000e 5B42     	 neg r3,r3
+  77:../Libraries/Newlib/syscalls.c **** }
+  81              	 .loc 1 77 0
+  82 0010 181C     	 mov r0,r3
+  83 0012 BD46     	 mov sp,r7
+  84 0014 04B0     	 add sp,sp,#16
+  85              	 
+  86 0016 80BD     	 pop {r7,pc}
+  87              	 .cfi_endproc
+  88              	.LFE1:
+  90              	 .section .text._read,"ax",%progbits
+  91              	 .align 2
+  92              	 .weak _read
+  93              	 .code 16
+  94              	 .thumb_func
+  96              	_read:
+  97              	.LFB2:
+  78:../Libraries/Newlib/syscalls.c **** 
+  79:../Libraries/Newlib/syscalls.c **** /*
+  80:../Libraries/Newlib/syscalls.c ****  * File read
+  81:../Libraries/Newlib/syscalls.c ****  */
+  82:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _read(int file, char *ptr, int len)
+  83:../Libraries/Newlib/syscalls.c **** {
+  98              	 .loc 1 83 0
+  99              	 .cfi_startproc
+ 100 0000 80B5     	 push {r7,lr}
+ 101              	.LCFI6:
+ 102              	 .cfi_def_cfa_offset 8
+ 103              	 .cfi_offset 7,-8
+ 104              	 .cfi_offset 14,-4
+ 105 0002 84B0     	 sub sp,sp,#16
+ 106              	.LCFI7:
+ 107              	 .cfi_def_cfa_offset 24
+ 108 0004 00AF     	 add r7,sp,#0
+ 109              	.LCFI8:
+ 110              	 .cfi_def_cfa_register 7
+ 111 0006 F860     	 str r0,[r7,#12]
+ 112 0008 B960     	 str r1,[r7,#8]
+ 113 000a 7A60     	 str r2,[r7,#4]
+  84:../Libraries/Newlib/syscalls.c ****  (void)file;
+  85:../Libraries/Newlib/syscalls.c ****  (void)len;
+  86:../Libraries/Newlib/syscalls.c ****  return 0;
+ 114              	 .loc 1 86 0
+ 115 000c 0023     	 mov r3,#0
+  87:../Libraries/Newlib/syscalls.c **** }
+ 116              	 .loc 1 87 0
+ 117 000e 181C     	 mov r0,r3
+ 118 0010 BD46     	 mov sp,r7
+ 119 0012 04B0     	 add sp,sp,#16
+ 120              	 
+ 121 0014 80BD     	 pop {r7,pc}
+ 122              	 .cfi_endproc
+ 123              	.LFE2:
+ 125 0016 C046     	 .section .text._write,"ax",%progbits
+ 126              	 .align 2
+ 127              	 .weak _write
+ 128              	 .code 16
+ 129              	 .thumb_func
+ 131              	_write:
+ 132              	.LFB3:
+  88:../Libraries/Newlib/syscalls.c **** 
+  89:../Libraries/Newlib/syscalls.c **** /*
+  90:../Libraries/Newlib/syscalls.c ****  * File write
+  91:../Libraries/Newlib/syscalls.c ****  */
+  92:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _write(int file, char *buf, int nbytes)
+  93:../Libraries/Newlib/syscalls.c **** {
+ 133              	 .loc 1 93 0
+ 134              	 .cfi_startproc
+ 135 0000 80B5     	 push {r7,lr}
+ 136              	.LCFI9:
+ 137              	 .cfi_def_cfa_offset 8
+ 138              	 .cfi_offset 7,-8
+ 139              	 .cfi_offset 14,-4
+ 140 0002 84B0     	 sub sp,sp,#16
+ 141              	.LCFI10:
+ 142              	 .cfi_def_cfa_offset 24
+ 143 0004 00AF     	 add r7,sp,#0
+ 144              	.LCFI11:
+ 145              	 .cfi_def_cfa_register 7
+ 146 0006 F860     	 str r0,[r7,#12]
+ 147 0008 B960     	 str r1,[r7,#8]
+ 148 000a 7A60     	 str r2,[r7,#4]
+  94:../Libraries/Newlib/syscalls.c ****  return -1;
+ 149              	 .loc 1 94 0
+ 150 000c 0123     	 mov r3,#1
+ 151 000e 5B42     	 neg r3,r3
+  95:../Libraries/Newlib/syscalls.c **** }
+ 152              	 .loc 1 95 0
+ 153 0010 181C     	 mov r0,r3
+ 154 0012 BD46     	 mov sp,r7
+ 155 0014 04B0     	 add sp,sp,#16
+ 156              	 
+ 157 0016 80BD     	 pop {r7,pc}
+ 158              	 .cfi_endproc
+ 159              	.LFE3:
+ 161              	 .section .text._close,"ax",%progbits
+ 162              	 .align 2
+ 163              	 .weak _close
+ 164              	 .code 16
+ 165              	 .thumb_func
+ 167              	_close:
+ 168              	.LFB4:
+  96:../Libraries/Newlib/syscalls.c **** 
+  97:../Libraries/Newlib/syscalls.c **** /*
+  98:../Libraries/Newlib/syscalls.c ****  * File close
+  99:../Libraries/Newlib/syscalls.c ****  */
+ 100:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _close(void)
+ 101:../Libraries/Newlib/syscalls.c **** {
+ 169              	 .loc 1 101 0
+ 170              	 .cfi_startproc
+ 171 0000 80B5     	 push {r7,lr}
+ 172              	.LCFI12:
+ 173              	 .cfi_def_cfa_offset 8
+ 174              	 .cfi_offset 7,-8
+ 175              	 .cfi_offset 14,-4
+ 176 0002 00AF     	 add r7,sp,#0
+ 177              	.LCFI13:
+ 178              	 .cfi_def_cfa_register 7
+ 102:../Libraries/Newlib/syscalls.c ****  return -1;
+ 179              	 .loc 1 102 0
+ 180 0004 0123     	 mov r3,#1
+ 181 0006 5B42     	 neg r3,r3
+ 103:../Libraries/Newlib/syscalls.c **** }
+ 182              	 .loc 1 103 0
+ 183 0008 181C     	 mov r0,r3
+ 184 000a BD46     	 mov sp,r7
+ 185              	 
+ 186 000c 80BD     	 pop {r7,pc}
+ 187              	 .cfi_endproc
+ 188              	.LFE4:
+ 190 000e C046     	 .section .text._fstat,"ax",%progbits
+ 191              	 .align 2
+ 192              	 .weak _fstat
+ 193              	 .code 16
+ 194              	 .thumb_func
+ 196              	_fstat:
+ 197              	.LFB5:
+ 104:../Libraries/Newlib/syscalls.c **** 
+ 105:../Libraries/Newlib/syscalls.c **** /*
+ 106:../Libraries/Newlib/syscalls.c ****  * File status
+ 107:../Libraries/Newlib/syscalls.c ****  */
+ 108:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _fstat(int file, struct stat *st)
+ 109:../Libraries/Newlib/syscalls.c **** {
+ 198              	 .loc 1 109 0
+ 199              	 .cfi_startproc
+ 200 0000 80B5     	 push {r7,lr}
+ 201              	.LCFI14:
+ 202              	 .cfi_def_cfa_offset 8
+ 203              	 .cfi_offset 7,-8
+ 204              	 .cfi_offset 14,-4
+ 205 0002 82B0     	 sub sp,sp,#8
+ 206              	.LCFI15:
+ 207              	 .cfi_def_cfa_offset 16
+ 208 0004 00AF     	 add r7,sp,#0
+ 209              	.LCFI16:
+ 210              	 .cfi_def_cfa_register 7
+ 211 0006 7860     	 str r0,[r7,#4]
+ 212 0008 3960     	 str r1,[r7]
+ 110:../Libraries/Newlib/syscalls.c ****  (void)file;
+ 111:../Libraries/Newlib/syscalls.c ****  if(st)
+ 213              	 .loc 1 111 0
+ 214 000a 3B68     	 ldr r3,[r7]
+ 215 000c 002B     	 cmp r3,#0
+ 216 000e 02D0     	 beq .L12
+ 112:../Libraries/Newlib/syscalls.c ****   return -1;
+ 217              	 .loc 1 112 0
+ 218 0010 0123     	 mov r3,#1
+ 219 0012 5B42     	 neg r3,r3
+ 220 0014 01E0     	 b .L13
+ 221              	.L12:
+ 113:../Libraries/Newlib/syscalls.c ****  else
+ 114:../Libraries/Newlib/syscalls.c ****   return -2;
+ 222              	 .loc 1 114 0
+ 223 0016 0223     	 mov r3,#2
+ 224 0018 5B42     	 neg r3,r3
+ 225              	.L13:
+ 115:../Libraries/Newlib/syscalls.c **** }
+ 226              	 .loc 1 115 0
+ 227 001a 181C     	 mov r0,r3
+ 228 001c BD46     	 mov sp,r7
+ 229 001e 02B0     	 add sp,sp,#8
+ 230              	 
+ 231 0020 80BD     	 pop {r7,pc}
+ 232              	 .cfi_endproc
+ 233              	.LFE5:
+ 235 0022 C046     	 .section .text._link,"ax",%progbits
+ 236              	 .align 2
+ 237              	 .weak _link
+ 238              	 .code 16
+ 239              	 .thumb_func
+ 241              	_link:
+ 242              	.LFB6:
+ 116:../Libraries/Newlib/syscalls.c **** /*
+ 117:../Libraries/Newlib/syscalls.c ****  * File linking
+ 118:../Libraries/Newlib/syscalls.c ****  */
+ 119:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _link(char *oldname, char *newname)
+ 120:../Libraries/Newlib/syscalls.c **** {
+ 243              	 .loc 1 120 0
+ 244              	 .cfi_startproc
+ 245 0000 80B5     	 push {r7,lr}
+ 246              	.LCFI17:
+ 247              	 .cfi_def_cfa_offset 8
+ 248              	 .cfi_offset 7,-8
+ 249              	 .cfi_offset 14,-4
+ 250 0002 82B0     	 sub sp,sp,#8
+ 251              	.LCFI18:
+ 252              	 .cfi_def_cfa_offset 16
+ 253 0004 00AF     	 add r7,sp,#0
+ 254              	.LCFI19:
+ 255              	 .cfi_def_cfa_register 7
+ 256 0006 7860     	 str r0,[r7,#4]
+ 257 0008 3960     	 str r1,[r7]
+ 121:../Libraries/Newlib/syscalls.c ****  if (oldname == newname)
+ 258              	 .loc 1 121 0
+ 259 000a 7A68     	 ldr r2,[r7,#4]
+ 260 000c 3B68     	 ldr r3,[r7]
+ 261 000e 9A42     	 cmp r2,r3
+ 262 0010 02D1     	 bne .L15
+ 122:../Libraries/Newlib/syscalls.c ****   return -1;
+ 263              	 .loc 1 122 0
+ 264 0012 0123     	 mov r3,#1
+ 265 0014 5B42     	 neg r3,r3
+ 266 0016 01E0     	 b .L16
+ 267              	.L15:
+ 123:../Libraries/Newlib/syscalls.c ****  else
+ 124:../Libraries/Newlib/syscalls.c ****   return -2;
+ 268              	 .loc 1 124 0
+ 269 0018 0223     	 mov r3,#2
+ 270 001a 5B42     	 neg r3,r3
+ 271              	.L16:
+ 125:../Libraries/Newlib/syscalls.c **** }
+ 272              	 .loc 1 125 0
+ 273 001c 181C     	 mov r0,r3
+ 274 001e BD46     	 mov sp,r7
+ 275 0020 02B0     	 add sp,sp,#8
+ 276              	 
+ 277 0022 80BD     	 pop {r7,pc}
+ 278              	 .cfi_endproc
+ 279              	.LFE6:
+ 281              	 .section .text._unlink,"ax",%progbits
+ 282              	 .align 2
+ 283              	 .weak _unlink
+ 284              	 .code 16
+ 285              	 .thumb_func
+ 287              	_unlink:
+ 288              	.LFB7:
+ 126:../Libraries/Newlib/syscalls.c **** 
+ 127:../Libraries/Newlib/syscalls.c **** /*
+ 128:../Libraries/Newlib/syscalls.c ****  * Unlinking directory entry
+ 129:../Libraries/Newlib/syscalls.c ****  */
+ 130:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _unlink(char *name)
+ 131:../Libraries/Newlib/syscalls.c **** {
+ 289              	 .loc 1 131 0
+ 290              	 .cfi_startproc
+ 291 0000 80B5     	 push {r7,lr}
+ 292              	.LCFI20:
+ 293              	 .cfi_def_cfa_offset 8
+ 294              	 .cfi_offset 7,-8
+ 295              	 .cfi_offset 14,-4
+ 296 0002 82B0     	 sub sp,sp,#8
+ 297              	.LCFI21:
+ 298              	 .cfi_def_cfa_offset 16
+ 299 0004 00AF     	 add r7,sp,#0
+ 300              	.LCFI22:
+ 301              	 .cfi_def_cfa_register 7
+ 302 0006 7860     	 str r0,[r7,#4]
+ 132:../Libraries/Newlib/syscalls.c ****  return -1;
+ 303              	 .loc 1 132 0
+ 304 0008 0123     	 mov r3,#1
+ 305 000a 5B42     	 neg r3,r3
+ 133:../Libraries/Newlib/syscalls.c **** }
+ 306              	 .loc 1 133 0
+ 307 000c 181C     	 mov r0,r3
+ 308 000e BD46     	 mov sp,r7
+ 309 0010 02B0     	 add sp,sp,#8
+ 310              	 
+ 311 0012 80BD     	 pop {r7,pc}
+ 312              	 .cfi_endproc
+ 313              	.LFE7:
+ 315              	 .section .text._sbrk,"ax",%progbits
+ 316              	 .align 2
+ 317              	 .weak _sbrk
+ 318              	 .code 16
+ 319              	 .thumb_func
+ 321              	_sbrk:
+ 322              	.LFB8:
+ 134:../Libraries/Newlib/syscalls.c **** /* ========================================================================= */
+ 135:../Libraries/Newlib/syscalls.c **** /* =================== Dynamic memory management related =================== */
+ 136:../Libraries/Newlib/syscalls.c **** /* ========================================================================= */
+ 137:../Libraries/Newlib/syscalls.c **** /*
+ 138:../Libraries/Newlib/syscalls.c ****  * Heap break (position)
+ 139:../Libraries/Newlib/syscalls.c ****  */
+ 140:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) void *_sbrk(int RequestedSize)
+ 141:../Libraries/Newlib/syscalls.c **** {
+ 323              	 .loc 1 141 0
+ 324              	 .cfi_startproc
+ 325 0000 80B5     	 push {r7,lr}
+ 326              	.LCFI23:
+ 327              	 .cfi_def_cfa_offset 8
+ 328              	 .cfi_offset 7,-8
+ 329              	 .cfi_offset 14,-4
+ 330 0002 86B0     	 sub sp,sp,#24
+ 331              	.LCFI24:
+ 332              	 .cfi_def_cfa_offset 32
+ 333 0004 00AF     	 add r7,sp,#0
+ 334              	.LCFI25:
+ 335              	 .cfi_def_cfa_register 7
+ 336 0006 7860     	 str r0,[r7,#4]
+ 142:../Libraries/Newlib/syscalls.c ****  /* Heap limits from linker script file */
+ 143:../Libraries/Newlib/syscalls.c ****  extern unsigned int Heap_Bank1_Start;
+ 144:../Libraries/Newlib/syscalls.c ****  extern unsigned int Heap_Bank1_Size;
+ 145:../Libraries/Newlib/syscalls.c **** 
+ 146:../Libraries/Newlib/syscalls.c ****  unsigned char *CurrBreak, *NextBreak;
+ 147:../Libraries/Newlib/syscalls.c ****  unsigned int  HeapSize;
+ 148:../Libraries/Newlib/syscalls.c ****  static unsigned char *HeapBound;
+ 149:../Libraries/Newlib/syscalls.c ****  static unsigned char * heap= (unsigned char *)NULL;
+ 150:../Libraries/Newlib/syscalls.c **** 
+ 151:../Libraries/Newlib/syscalls.c **** 
+ 152:../Libraries/Newlib/syscalls.c ****  HeapSize   = (unsigned int)(&Heap_Bank1_Size);
+ 337              	 .loc 1 152 0
+ 338 0008 144B     	 ldr r3,.L23
+ 339 000a 7B61     	 str r3,[r7,#20]
+ 153:../Libraries/Newlib/syscalls.c **** 
+ 154:../Libraries/Newlib/syscalls.c ****  /*
+ 155:../Libraries/Newlib/syscalls.c ****   * If this is the first time malloc() was invoked, we start with the
+ 156:../Libraries/Newlib/syscalls.c ****   * begining of the heap.
+ 157:../Libraries/Newlib/syscalls.c ****   */
+ 158:../Libraries/Newlib/syscalls.c ****  if(heap == (unsigned char *)NULL)
+ 340              	 .loc 1 158 0
+ 341 000c 144B     	 ldr r3,.L23+4
+ 342 000e 1B68     	 ldr r3,[r3]
+ 343 0010 002B     	 cmp r3,#0
+ 344 0012 08D1     	 bne .L20
+ 159:../Libraries/Newlib/syscalls.c ****   {
+ 160:../Libraries/Newlib/syscalls.c ****    heap = (unsigned char *)&Heap_Bank1_Start;
+ 345              	 .loc 1 160 0
+ 346 0014 124B     	 ldr r3,.L23+4
+ 347 0016 134A     	 ldr r2,.L23+8
+ 348 0018 1A60     	 str r2,[r3]
+ 161:../Libraries/Newlib/syscalls.c ****    HeapBound  = (unsigned char *) (heap + HeapSize);
+ 349              	 .loc 1 161 0
+ 350 001a 114B     	 ldr r3,.L23+4
+ 351 001c 1A68     	 ldr r2,[r3]
+ 352 001e 7B69     	 ldr r3,[r7,#20]
+ 353 0020 D218     	 add r2,r2,r3
+ 354 0022 114B     	 ldr r3,.L23+12
+ 355 0024 1A60     	 str r2,[r3]
+ 356              	.L20:
+ 162:../Libraries/Newlib/syscalls.c ****   }
+ 163:../Libraries/Newlib/syscalls.c **** 
+ 164:../Libraries/Newlib/syscalls.c ****  /* Super duper algo to find out if we have memory for the latest request */
+ 165:../Libraries/Newlib/syscalls.c ****  /* Given conditions are: */
+ 166:../Libraries/Newlib/syscalls.c ****  /* 1. Latest break */
+ 167:../Libraries/Newlib/syscalls.c ****  CurrBreak = heap;
+ 357              	 .loc 1 167 0
+ 358 0026 0E4B     	 ldr r3,.L23+4
+ 359 0028 1B68     	 ldr r3,[r3]
+ 360 002a 3B61     	 str r3,[r7,#16]
+ 168:../Libraries/Newlib/syscalls.c **** 
+ 169:../Libraries/Newlib/syscalls.c ****  /* And 2. Potential break based on requested size */
+ 170:../Libraries/Newlib/syscalls.c ****  NextBreak = (unsigned char *)( (((unsigned int)(heap)) + RequestedSize + 7)
+ 361              	 .loc 1 170 0
+ 362 002c 0C4B     	 ldr r3,.L23+4
+ 363 002e 1B68     	 ldr r3,[r3]
+ 364 0030 1A1C     	 mov r2,r3
+ 365 0032 7B68     	 ldr r3,[r7,#4]
+ 366 0034 D318     	 add r3,r2,r3
+ 367 0036 0733     	 add r3,r3,#7
+ 171:../Libraries/Newlib/syscalls.c ****                                           & 0xFFFFFFF8);
+ 368              	 .loc 1 171 0
+ 369 0038 0722     	 mov r2,#7
+ 370 003a 9343     	 bic r3,r2
+ 170:../Libraries/Newlib/syscalls.c ****                                           & 0xFFFFFFF8);
+ 371              	 .loc 1 170 0
+ 372 003c FB60     	 str r3,[r7,#12]
+ 172:../Libraries/Newlib/syscalls.c **** 
+ 173:../Libraries/Newlib/syscalls.c ****  /* Return no memory condition if we sense we are crossing the limit */
+ 174:../Libraries/Newlib/syscalls.c ****  if (NextBreak >=  HeapBound )
+ 373              	 .loc 1 174 0
+ 374 003e 0A4B     	 ldr r3,.L23+12
+ 375 0040 1B68     	 ldr r3,[r3]
+ 376 0042 FA68     	 ldr r2,[r7,#12]
+ 377 0044 9A42     	 cmp r2,r3
+ 378 0046 01D3     	 bcc .L21
+ 175:../Libraries/Newlib/syscalls.c ****   return ((unsigned char *)NULL);
+ 379              	 .loc 1 175 0
+ 380 0048 0023     	 mov r3,#0
+ 381 004a 03E0     	 b .L22
+ 382              	.L21:
+ 176:../Libraries/Newlib/syscalls.c ****  else
+ 177:../Libraries/Newlib/syscalls.c ****  {
+ 178:../Libraries/Newlib/syscalls.c ****   heap = NextBreak;
+ 383              	 .loc 1 178 0
+ 384 004c 044B     	 ldr r3,.L23+4
+ 385 004e FA68     	 ldr r2,[r7,#12]
+ 386 0050 1A60     	 str r2,[r3]
+ 179:../Libraries/Newlib/syscalls.c ****   return CurrBreak;
+ 387              	 .loc 1 179 0
+ 388 0052 3B69     	 ldr r3,[r7,#16]
+ 389              	.L22:
+ 180:../Libraries/Newlib/syscalls.c ****  }
+ 181:../Libraries/Newlib/syscalls.c **** }
+ 390              	 .loc 1 181 0
+ 391 0054 181C     	 mov r0,r3
+ 392 0056 BD46     	 mov sp,r7
+ 393 0058 06B0     	 add sp,sp,#24
+ 394              	 
+ 395 005a 80BD     	 pop {r7,pc}
+ 396              	.L24:
+ 397              	 .align 2
+ 398              	.L23:
+ 399 005c 00000000 	 .word Heap_Bank1_Size
+ 400 0060 00000000 	 .word heap.4702
+ 401 0064 00000000 	 .word Heap_Bank1_Start
+ 402 0068 00000000 	 .word HeapBound.4701
+ 403              	 .cfi_endproc
+ 404              	.LFE8:
+ 406              	 .section .text._times,"ax",%progbits
+ 407              	 .align 2
+ 408              	 .weak _times
+ 409              	 .code 16
+ 410              	 .thumb_func
+ 412              	_times:
+ 413              	.LFB9:
+ 182:../Libraries/Newlib/syscalls.c **** 
+ 183:../Libraries/Newlib/syscalls.c **** /* ========================================================================= */
+ 184:../Libraries/Newlib/syscalls.c **** /* ====================== Process related ================================== */
+ 185:../Libraries/Newlib/syscalls.c **** /* ========================================================================= */
+ 186:../Libraries/Newlib/syscalls.c **** /*
+ 187:../Libraries/Newlib/syscalls.c ****  * Process timing information
+ 188:../Libraries/Newlib/syscalls.c ****  */
+ 189:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _times(struct tms *buf)
+ 190:../Libraries/Newlib/syscalls.c **** {
+ 414              	 .loc 1 190 0
+ 415              	 .cfi_startproc
+ 416 0000 80B5     	 push {r7,lr}
+ 417              	.LCFI26:
+ 418              	 .cfi_def_cfa_offset 8
+ 419              	 .cfi_offset 7,-8
+ 420              	 .cfi_offset 14,-4
+ 421 0002 82B0     	 sub sp,sp,#8
+ 422              	.LCFI27:
+ 423              	 .cfi_def_cfa_offset 16
+ 424 0004 00AF     	 add r7,sp,#0
+ 425              	.LCFI28:
+ 426              	 .cfi_def_cfa_register 7
+ 427 0006 7860     	 str r0,[r7,#4]
+ 191:../Libraries/Newlib/syscalls.c ****  return -1;
+ 428              	 .loc 1 191 0
+ 429 0008 0123     	 mov r3,#1
+ 430 000a 5B42     	 neg r3,r3
+ 192:../Libraries/Newlib/syscalls.c **** }
+ 431              	 .loc 1 192 0
+ 432 000c 181C     	 mov r0,r3
+ 433 000e BD46     	 mov sp,r7
+ 434 0010 02B0     	 add sp,sp,#8
+ 435              	 
+ 436 0012 80BD     	 pop {r7,pc}
+ 437              	 .cfi_endproc
+ 438              	.LFE9:
+ 440              	 .section .text._wait,"ax",%progbits
+ 441              	 .align 2
+ 442              	 .weak _wait
+ 443              	 .code 16
+ 444              	 .thumb_func
+ 446              	_wait:
+ 447              	.LFB10:
+ 193:../Libraries/Newlib/syscalls.c **** /*
+ 194:../Libraries/Newlib/syscalls.c ****  * Waiting for a child process to complete
+ 195:../Libraries/Newlib/syscalls.c ****  */
+ 196:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _wait(int *status)
+ 197:../Libraries/Newlib/syscalls.c **** {
+ 448              	 .loc 1 197 0
+ 449              	 .cfi_startproc
+ 450 0000 80B5     	 push {r7,lr}
+ 451              	.LCFI29:
+ 452              	 .cfi_def_cfa_offset 8
+ 453              	 .cfi_offset 7,-8
+ 454              	 .cfi_offset 14,-4
+ 455 0002 82B0     	 sub sp,sp,#8
+ 456              	.LCFI30:
+ 457              	 .cfi_def_cfa_offset 16
+ 458 0004 00AF     	 add r7,sp,#0
+ 459              	.LCFI31:
+ 460              	 .cfi_def_cfa_register 7
+ 461 0006 7860     	 str r0,[r7,#4]
+ 198:../Libraries/Newlib/syscalls.c ****  return -1;
+ 462              	 .loc 1 198 0
+ 463 0008 0123     	 mov r3,#1
+ 464 000a 5B42     	 neg r3,r3
+ 199:../Libraries/Newlib/syscalls.c **** }
+ 465              	 .loc 1 199 0
+ 466 000c 181C     	 mov r0,r3
+ 467 000e BD46     	 mov sp,r7
+ 468 0010 02B0     	 add sp,sp,#8
+ 469              	 
+ 470 0012 80BD     	 pop {r7,pc}
+ 471              	 .cfi_endproc
+ 472              	.LFE10:
+ 474              	 .section .text._kill,"ax",%progbits
+ 475              	 .align 2
+ 476              	 .weak _kill
+ 477              	 .code 16
+ 478              	 .thumb_func
+ 480              	_kill:
+ 481              	.LFB11:
+ 200:../Libraries/Newlib/syscalls.c **** 
+ 201:../Libraries/Newlib/syscalls.c **** /*
+ 202:../Libraries/Newlib/syscalls.c ****  * Kill a process
+ 203:../Libraries/Newlib/syscalls.c ****  */
+ 204:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _kill(int pid,int sig)
+ 205:../Libraries/Newlib/syscalls.c **** {
+ 482              	 .loc 1 205 0
+ 483              	 .cfi_startproc
+ 484 0000 80B5     	 push {r7,lr}
+ 485              	.LCFI32:
+ 486              	 .cfi_def_cfa_offset 8
+ 487              	 .cfi_offset 7,-8
+ 488              	 .cfi_offset 14,-4
+ 489 0002 82B0     	 sub sp,sp,#8
+ 490              	.LCFI33:
+ 491              	 .cfi_def_cfa_offset 16
+ 492 0004 00AF     	 add r7,sp,#0
+ 493              	.LCFI34:
+ 494              	 .cfi_def_cfa_register 7
+ 495 0006 7860     	 str r0,[r7,#4]
+ 496 0008 3960     	 str r1,[r7]
+ 206:../Libraries/Newlib/syscalls.c ****  (void)pid;
+ 207:../Libraries/Newlib/syscalls.c ****  (void)sig;
+ 208:../Libraries/Newlib/syscalls.c ****  return -1;
+ 497              	 .loc 1 208 0
+ 498 000a 0123     	 mov r3,#1
+ 499 000c 5B42     	 neg r3,r3
+ 209:../Libraries/Newlib/syscalls.c **** }
+ 500              	 .loc 1 209 0
+ 501 000e 181C     	 mov r0,r3
+ 502 0010 BD46     	 mov sp,r7
+ 503 0012 02B0     	 add sp,sp,#8
+ 504              	 
+ 505 0014 80BD     	 pop {r7,pc}
+ 506              	 .cfi_endproc
+ 507              	.LFE11:
+ 509 0016 C046     	 .section .text._fork,"ax",%progbits
+ 510              	 .align 2
+ 511              	 .weak _fork
+ 512              	 .code 16
+ 513              	 .thumb_func
+ 515              	_fork:
+ 516              	.LFB12:
+ 210:../Libraries/Newlib/syscalls.c **** 
+ 211:../Libraries/Newlib/syscalls.c **** /*
+ 212:../Libraries/Newlib/syscalls.c ****  * Forking a child process
+ 213:../Libraries/Newlib/syscalls.c ****  */
+ 214:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _fork(void)
+ 215:../Libraries/Newlib/syscalls.c **** {
+ 517              	 .loc 1 215 0
+ 518              	 .cfi_startproc
+ 519 0000 80B5     	 push {r7,lr}
+ 520              	.LCFI35:
+ 521              	 .cfi_def_cfa_offset 8
+ 522              	 .cfi_offset 7,-8
+ 523              	 .cfi_offset 14,-4
+ 524 0002 00AF     	 add r7,sp,#0
+ 525              	.LCFI36:
+ 526              	 .cfi_def_cfa_register 7
+ 216:../Libraries/Newlib/syscalls.c ****  return -1;
+ 527              	 .loc 1 216 0
+ 528 0004 0123     	 mov r3,#1
+ 529 0006 5B42     	 neg r3,r3
+ 217:../Libraries/Newlib/syscalls.c **** }
+ 530              	 .loc 1 217 0
+ 531 0008 181C     	 mov r0,r3
+ 532 000a BD46     	 mov sp,r7
+ 533              	 
+ 534 000c 80BD     	 pop {r7,pc}
+ 535              	 .cfi_endproc
+ 536              	.LFE12:
+ 538 000e C046     	 .section .text._getpid,"ax",%progbits
+ 539              	 .align 2
+ 540              	 .weak _getpid
+ 541              	 .code 16
+ 542              	 .thumb_func
+ 544              	_getpid:
+ 545              	.LFB13:
+ 218:../Libraries/Newlib/syscalls.c **** 
+ 219:../Libraries/Newlib/syscalls.c **** /*
+ 220:../Libraries/Newlib/syscalls.c ****  * Process ID
+ 221:../Libraries/Newlib/syscalls.c ****  */
+ 222:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _getpid(void)
+ 223:../Libraries/Newlib/syscalls.c **** {
+ 546              	 .loc 1 223 0
+ 547              	 .cfi_startproc
+ 548 0000 80B5     	 push {r7,lr}
+ 549              	.LCFI37:
+ 550              	 .cfi_def_cfa_offset 8
+ 551              	 .cfi_offset 7,-8
+ 552              	 .cfi_offset 14,-4
+ 553 0002 00AF     	 add r7,sp,#0
+ 554              	.LCFI38:
+ 555              	 .cfi_def_cfa_register 7
+ 224:../Libraries/Newlib/syscalls.c ****  return -1;
+ 556              	 .loc 1 224 0
+ 557 0004 0123     	 mov r3,#1
+ 558 0006 5B42     	 neg r3,r3
+ 225:../Libraries/Newlib/syscalls.c **** }
+ 559              	 .loc 1 225 0
+ 560 0008 181C     	 mov r0,r3
+ 561 000a BD46     	 mov sp,r7
+ 562              	 
+ 563 000c 80BD     	 pop {r7,pc}
+ 564              	 .cfi_endproc
+ 565              	.LFE13:
+ 567 000e C046     	 .section .text._exit,"ax",%progbits
+ 568              	 .align 2
+ 569              	 .weak _exit
+ 570              	 .code 16
+ 571              	 .thumb_func
+ 573              	_exit:
+ 574              	.LFB14:
+ 226:../Libraries/Newlib/syscalls.c **** 
+ 227:../Libraries/Newlib/syscalls.c **** /*
+ 228:../Libraries/Newlib/syscalls.c ****  * Program/process exit
+ 229:../Libraries/Newlib/syscalls.c ****  */
+ 230:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) void _exit(int rc)
+ 231:../Libraries/Newlib/syscalls.c **** {
+ 575              	 .loc 1 231 0
+ 576              	 .cfi_startproc
+ 577 0000 80B5     	 push {r7,lr}
+ 578              	.LCFI39:
+ 579              	 .cfi_def_cfa_offset 8
+ 580              	 .cfi_offset 7,-8
+ 581              	 .cfi_offset 14,-4
+ 582 0002 82B0     	 sub sp,sp,#8
+ 583              	.LCFI40:
+ 584              	 .cfi_def_cfa_offset 16
+ 585 0004 00AF     	 add r7,sp,#0
+ 586              	.LCFI41:
+ 587              	 .cfi_def_cfa_register 7
+ 588 0006 7860     	 str r0,[r7,#4]
+ 589              	.L36:
+ 232:../Libraries/Newlib/syscalls.c ****  (void)rc;
+ 233:../Libraries/Newlib/syscalls.c ****  while(1){}
+ 590              	 .loc 1 233 0 discriminator 1
+ 591 0008 FEE7     	 b .L36
+ 592              	 .cfi_endproc
+ 593              	.LFE14:
+ 595 000a C046     	 .section .text._init,"ax",%progbits
+ 596              	 .align 2
+ 597              	 .weak _init
+ 598              	 .code 16
+ 599              	 .thumb_func
+ 601              	_init:
+ 602              	.LFB15:
+ 234:../Libraries/Newlib/syscalls.c **** }
+ 235:../Libraries/Newlib/syscalls.c **** 
+ 236:../Libraries/Newlib/syscalls.c **** /* Init */
+ 237:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) void _init(void)
+ 238:../Libraries/Newlib/syscalls.c **** {}
+ 603              	 .loc 1 238 0
+ 604              	 .cfi_startproc
+ 605 0000 80B5     	 push {r7,lr}
+ 606              	.LCFI42:
+ 607              	 .cfi_def_cfa_offset 8
+ 608              	 .cfi_offset 7,-8
+ 609              	 .cfi_offset 14,-4
+ 610 0002 00AF     	 add r7,sp,#0
+ 611              	.LCFI43:
+ 612              	 .cfi_def_cfa_register 7
+ 613              	 .loc 1 238 0
+ 614 0004 BD46     	 mov sp,r7
+ 615              	 
+ 616 0006 80BD     	 pop {r7,pc}
+ 617              	 .cfi_endproc
+ 618              	.LFE15:
+ 620              	 .section .text._isatty,"ax",%progbits
+ 621              	 .align 2
+ 622              	 .weak _isatty
+ 623              	 .code 16
+ 624              	 .thumb_func
+ 626              	_isatty:
+ 627              	.LFB16:
+ 239:../Libraries/Newlib/syscalls.c **** 
+ 240:../Libraries/Newlib/syscalls.c **** /* ========================================================================= */
+ 241:../Libraries/Newlib/syscalls.c **** /* ======================= TERMIO related ================================== */
+ 242:../Libraries/Newlib/syscalls.c **** /* ========================================================================= */
+ 243:../Libraries/Newlib/syscalls.c **** 
+ 244:../Libraries/Newlib/syscalls.c **** /*
+ 245:../Libraries/Newlib/syscalls.c ****  * Terminal type evaluation
+ 246:../Libraries/Newlib/syscalls.c ****  */
+ 247:../Libraries/Newlib/syscalls.c **** __attribute__((weak)) int _isatty(int file)
+ 248:../Libraries/Newlib/syscalls.c **** {
+ 628              	 .loc 1 248 0
+ 629              	 .cfi_startproc
+ 630 0000 80B5     	 push {r7,lr}
+ 631              	.LCFI44:
+ 632              	 .cfi_def_cfa_offset 8
+ 633              	 .cfi_offset 7,-8
+ 634              	 .cfi_offset 14,-4
+ 635 0002 82B0     	 sub sp,sp,#8
+ 636              	.LCFI45:
+ 637              	 .cfi_def_cfa_offset 16
+ 638 0004 00AF     	 add r7,sp,#0
+ 639              	.LCFI46:
+ 640              	 .cfi_def_cfa_register 7
+ 641 0006 7860     	 str r0,[r7,#4]
+ 249:../Libraries/Newlib/syscalls.c ****  (void)file;
+ 250:../Libraries/Newlib/syscalls.c ****  return -1;
+ 642              	 .loc 1 250 0
+ 643 0008 0123     	 mov r3,#1
+ 644 000a 5B42     	 neg r3,r3
+ 251:../Libraries/Newlib/syscalls.c **** }
+ 645              	 .loc 1 251 0
+ 646 000c 181C     	 mov r0,r3
+ 647 000e BD46     	 mov sp,r7
+ 648 0010 02B0     	 add sp,sp,#8
+ 649              	 
+ 650 0012 80BD     	 pop {r7,pc}
+ 651              	 .cfi_endproc
+ 652              	.LFE16:
+ 654              	 .global __dso_handle
+ 655              	 .section .bss.__dso_handle,"aw",%nobits
+ 656              	 .align 2
+ 659              	__dso_handle:
+ 660 0000 00000000 	 .space 4
+ 661              	 .section .bss.heap.4702,"aw",%nobits
+ 662              	 .align 2
+ 665              	heap.4702:
+ 666 0000 00000000 	 .space 4
+ 667              	 .section .bss.HeapBound.4701,"aw",%nobits
+ 668              	 .align 2
+ 671              	HeapBound.4701:
+ 672 0000 00000000 	 .space 4
+ 673              	 .text
+ 674              	.Letext0:
+ 675              	 .file 2 "c:\\davev4-64bit\\dave-4.2.6\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\sys\\_types.h"
+ 676              	 .file 3 "c:\\davev4-64bit\\dave-4.2.6\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\sys\\types.h"
+ 677              	 .file 4 "c:\\davev4-64bit\\dave-4.2.6\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\sys\\stat.h"
+ 678              	 .file 5 "c:\\davev4-64bit\\dave-4.2.6\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\sys\\times.h"
+ 679              	 .file 6 "c:\\davev4-64bit\\dave-4.2.6\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\sys\\unistd.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 syscalls.c
+    {standard input}:18     .text._open:00000000 $t
+    {standard input}:23     .text._open:00000000 _open
+    {standard input}:55     .text._lseek:00000000 $t
+    {standard input}:60     .text._lseek:00000000 _lseek
+    {standard input}:91     .text._read:00000000 $t
+    {standard input}:96     .text._read:00000000 _read
+    {standard input}:126    .text._write:00000000 $t
+    {standard input}:131    .text._write:00000000 _write
+    {standard input}:162    .text._close:00000000 $t
+    {standard input}:167    .text._close:00000000 _close
+    {standard input}:191    .text._fstat:00000000 $t
+    {standard input}:196    .text._fstat:00000000 _fstat
+    {standard input}:236    .text._link:00000000 $t
+    {standard input}:241    .text._link:00000000 _link
+    {standard input}:282    .text._unlink:00000000 $t
+    {standard input}:287    .text._unlink:00000000 _unlink
+    {standard input}:316    .text._sbrk:00000000 $t
+    {standard input}:321    .text._sbrk:00000000 _sbrk
+    {standard input}:399    .text._sbrk:0000005c $d
+    {standard input}:665    .bss.heap.4702:00000000 heap.4702
+    {standard input}:671    .bss.HeapBound.4701:00000000 HeapBound.4701
+    {standard input}:407    .text._times:00000000 $t
+    {standard input}:412    .text._times:00000000 _times
+    {standard input}:441    .text._wait:00000000 $t
+    {standard input}:446    .text._wait:00000000 _wait
+    {standard input}:475    .text._kill:00000000 $t
+    {standard input}:480    .text._kill:00000000 _kill
+    {standard input}:510    .text._fork:00000000 $t
+    {standard input}:515    .text._fork:00000000 _fork
+    {standard input}:539    .text._getpid:00000000 $t
+    {standard input}:544    .text._getpid:00000000 _getpid
+    {standard input}:568    .text._exit:00000000 $t
+    {standard input}:573    .text._exit:00000000 _exit
+    {standard input}:596    .text._init:00000000 $t
+    {standard input}:601    .text._init:00000000 _init
+    {standard input}:621    .text._isatty:00000000 $t
+    {standard input}:626    .text._isatty:00000000 _isatty
+    {standard input}:659    .bss.__dso_handle:00000000 __dso_handle
+    {standard input}:656    .bss.__dso_handle:00000000 $d
+    {standard input}:662    .bss.heap.4702:00000000 $d
+    {standard input}:668    .bss.HeapBound.4701:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+Heap_Bank1_Size
+Heap_Bank1_Start

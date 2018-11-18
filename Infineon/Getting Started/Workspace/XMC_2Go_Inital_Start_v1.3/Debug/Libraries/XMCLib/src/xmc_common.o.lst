@@ -1,0 +1,1258 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,6
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "xmc_common.c"
+  14              	 .text
+  15              	.Ltext0:
+  16              	 .cfi_sections .debug_frame
+  17              	 .section .text.XMC_PRIOARRAY_GetHead,"ax",%progbits
+  18              	 .align 2
+  19              	 .code 16
+  20              	 .thumb_func
+  22              	XMC_PRIOARRAY_GetHead:
+  23              	.LFB34:
+  24              	 .file 1 "D:\\Desktop\\Infineon XMC 2Go\\Getting Started\\Workspace\\XMC_2Go_Inital_Start_v1.3\\Libraries\\XMCLib\\inc/xmc_common.h"
+   1:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /**
+   2:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * @file xmc_common.h
+   3:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * @date 2015-10-27
+   4:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+   5:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * @cond
+   6:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   *************************************************************************************************
+   7:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * XMClib v2.1.2 - XMC Peripheral Driver Library 
+   8:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+   9:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * Copyright (c) 2015, Infineon Technologies AG
+  10:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * All rights reserved.                        
+  11:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *                                             
+  12:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  13:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * following conditions are met:   
+  14:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *                                                                              
+  15:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * Redistributions of source code must retain the above copyright notice, this list of conditions a
+  16:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * disclaimer.                        
+  17:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * 
+  18:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * Redistributions in binary form must reproduce the above copyright notice, this list of condition
+  19:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * disclaimer in the documentation and/or other materials provided with the distribution.          
+  20:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * 
+  21:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * Neither the name of the copyright holders nor the names of its contributors may be used to endor
+  22:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * products derived from this software without specific prior written permission.                  
+  23:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *                                                                              
+  24:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  25:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  26:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  27:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  28:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  29:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  30:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                            
+  31:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *                                                                              
+  32:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  33:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * Infineon Technologies AG dave@infineon.com).                                                    
+  34:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  **************************************************************************************************
+  35:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+  36:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * Change History
+  37:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * --------------
+  38:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+  39:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * 2015-06-20:
+  40:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *     - Initial
+  41:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *     - Brief section updated
+  42:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *     - Added XMC_LIB_VERSION macro
+  43:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *      
+  44:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * @endcond 
+  45:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+  46:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+  47:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+  48:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #ifndef XMC_COMMON_H
+  49:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define XMC_COMMON_H
+  50:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+  51:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #include <stddef.h>
+  52:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #include <stdint.h>
+  53:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #include <stdbool.h>
+  54:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #include <string.h>
+  55:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+  56:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #include "xmc_device.h"
+  57:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+  58:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /**
+  59:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * @addtogroup XMClib XMC Peripheral Library
+  60:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * @{
+  61:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+  62:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+  63:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /**
+  64:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * @addtogroup COMMON
+  65:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * @brief Common APIs to all peripherals for XMC microcontroller family 
+  66:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * @{
+  67:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+  68:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+  69:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /**************************************************************************************************
+  70:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * MACROS
+  71:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  **************************************************************************************************
+  72:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define XMC_LIB_MAJOR_VERSION	(2U)
+  73:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define XMC_LIB_MINOR_VERSION	(0U)
+  74:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define XMC_LIB_PATCH_VERSION	(2U)
+  75:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  
+  76:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define XMC_LIB_VERSION         ((XMC_LIB_MAJOR_VERSION << 16U) + (XMC_LIB_MINOR_VERSION << 8U) + X
+  77:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+  78:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /* Define WEAK attribute */
+  79:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #if !defined(__WEAK)
+  80:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #if defined ( __CC_ARM )
+  81:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define __WEAK __attribute__ ((weak))
+  82:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #elif defined ( __ICCARM__ )
+  83:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define __WEAK __weak
+  84:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #elif defined ( __GNUC__ )
+  85:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define __WEAK __attribute__ ((weak))
+  86:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #elif defined ( __TASKING__ )
+  87:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define __WEAK __attribute__ ((weak))
+  88:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #endif
+  89:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #endif
+  90:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+  91:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #ifdef XMC_ASSERT_ENABLE
+  92:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  #define XMC_ASSERT(msg, exp) { if(!(exp)) {XMC_AssertHandler(msg, __FILE__, __LINE__);} }
+  93:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #else
+  94:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  #define XMC_ASSERT(msg, exp) { ; }
+  95:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #endif
+  96:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+  97:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #ifdef XMC_DEBUG_ENABLE
+  98:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  #include <stdio.h>
+  99:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  #define XMC_DEBUG(...) { printf(__VA_ARGS__); }
+ 100:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #else
+ 101:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  #define XMC_DEBUG(...) { ; }
+ 102:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #endif
+ 103:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 104:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define XMC_UNUSED_ARG(x) (void)x
+ 105:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 106:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define XMC_STRUCT_INIT(m) memset(&m, 0, sizeof(m))
+ 107:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 108:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define XMC_PRIOARRAY_DEF(name, size) \
+ 109:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** XMC_PRIOARRAY_ITEM_t prioarray_m_##name[size + 2]; \
+ 110:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** XMC_PRIOARRAY_t prioarray_def_##name = {(size), (prioarray_m_##name)};
+ 111:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 112:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #define XMC_PRIOARRAY(name) \
+ 113:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** &prioarray_def_##name
+ 114:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 115:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /**************************************************************************************************
+ 116:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * DATA STRUCTURES
+ 117:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  **************************************************************************************************
+ 118:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 119:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 120:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 121:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** typedef struct XMC_DRIVER_VERSION 
+ 122:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** {
+ 123:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   uint8_t major;
+ 124:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   uint8_t minor;
+ 125:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   uint8_t patch;
+ 126:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** } XMC_DRIVER_VERSION_t;
+ 127:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 128:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 129:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 130:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 131:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** typedef void *XMC_LIST_t;
+ 132:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 133:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 134:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 135:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 136:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** typedef struct XMC_PRIOARRAY_ITEM
+ 137:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** {
+ 138:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   int32_t priority;
+ 139:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   int32_t previous;
+ 140:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   int32_t next;
+ 141:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** } XMC_PRIOARRAY_ITEM_t;
+ 142:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 143:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 144:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 145:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 146:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** typedef struct XMC_PRIOARRAY
+ 147:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** {
+ 148:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   uint32_t size;
+ 149:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   XMC_PRIOARRAY_ITEM_t *items;
+ 150:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** } XMC_PRIOARRAY_t;
+ 151:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 152:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /**************************************************************************************************
+ 153:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  * API PROTOTYPES
+ 154:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  **************************************************************************************************
+ 155:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 156:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #ifdef __cplusplus
+ 157:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** extern "C" {
+ 158:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** #endif
+ 159:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 160:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 161:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 162:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 163:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void XMC_AssertHandler(const char *const msg, const char *const file, uint32_t line);
+ 164:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 165:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 166:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 167:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 168:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void XMC_LIST_Init(XMC_LIST_t *list);
+ 169:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 170:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 171:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 172:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 173:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void XMC_LIST_Add(XMC_LIST_t *list, void *const item);
+ 174:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 175:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 176:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 177:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 178:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void XMC_LIST_Remove(XMC_LIST_t *list, void *const item);
+ 179:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 180:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 181:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 182:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 183:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** uint32_t XMC_LIST_GetLength(XMC_LIST_t *list);
+ 184:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 185:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 186:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 187:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 188:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void *XMC_LIST_GetHead(XMC_LIST_t *list);
+ 189:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 190:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 191:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 192:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 193:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void *XMC_LIST_GetTail(XMC_LIST_t *list);
+ 194:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 195:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 196:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 197:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 198:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void XMC_LIST_Insert(XMC_LIST_t *list, void *prev_item, void *new_item);
+ 199:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 200:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 201:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 202:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 203:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void XMC_PRIOARRAY_Init(XMC_PRIOARRAY_t *prioarray);
+ 204:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 205:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 206:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 207:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 208:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void XMC_PRIOARRAY_Add(XMC_PRIOARRAY_t *prioarray, int32_t item, int32_t priority);
+ 209:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 210:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 211:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 212:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 213:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** void XMC_PRIOARRAY_Remove(XMC_PRIOARRAY_t *prioarray, int32_t item);
+ 214:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 215:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 216:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 217:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 218:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** __STATIC_INLINE int32_t XMC_PRIOARRAY_GetHead(XMC_PRIOARRAY_t *prioarray)
+ 219:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** {
+  25              	 .loc 1 219 0
+  26              	 .cfi_startproc
+  27 0000 80B5     	 push {r7,lr}
+  28              	.LCFI0:
+  29              	 .cfi_def_cfa_offset 8
+  30              	 .cfi_offset 7,-8
+  31              	 .cfi_offset 14,-4
+  32 0002 82B0     	 sub sp,sp,#8
+  33              	.LCFI1:
+  34              	 .cfi_def_cfa_offset 16
+  35 0004 00AF     	 add r7,sp,#0
+  36              	.LCFI2:
+  37              	 .cfi_def_cfa_register 7
+  38 0006 7860     	 str r0,[r7,#4]
+ 220:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   XMC_ASSERT("XMC_PRIOARRAY_Init: NULL pointer", prioarray != NULL);
+ 221:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   return prioarray->items[prioarray->size].next;
+  39              	 .loc 1 221 0
+  40 0008 7B68     	 ldr r3,[r7,#4]
+  41 000a 5968     	 ldr r1,[r3,#4]
+  42 000c 7B68     	 ldr r3,[r7,#4]
+  43 000e 1A68     	 ldr r2,[r3]
+  44 0010 131C     	 mov r3,r2
+  45 0012 5B00     	 lsl r3,r3,#1
+  46 0014 9B18     	 add r3,r3,r2
+  47 0016 9B00     	 lsl r3,r3,#2
+  48 0018 CB18     	 add r3,r1,r3
+  49 001a 9B68     	 ldr r3,[r3,#8]
+ 222:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** }
+  50              	 .loc 1 222 0
+  51 001c 181C     	 mov r0,r3
+  52 001e BD46     	 mov sp,r7
+  53 0020 02B0     	 add sp,sp,#8
+  54              	 
+  55 0022 80BD     	 pop {r7,pc}
+  56              	 .cfi_endproc
+  57              	.LFE34:
+  59              	 .section .text.XMC_PRIOARRAY_GetItemPriority,"ax",%progbits
+  60              	 .align 2
+  61              	 .code 16
+  62              	 .thumb_func
+  64              	XMC_PRIOARRAY_GetItemPriority:
+  65              	.LFB36:
+ 223:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 224:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 225:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 226:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 227:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** __STATIC_INLINE int32_t XMC_PRIOARRAY_GetTail(XMC_PRIOARRAY_t *prioarray)
+ 228:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** {
+ 229:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   XMC_ASSERT("XMC_PRIOARRAY_Init: NULL pointer", prioarray != NULL);
+ 230:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   return prioarray->items[prioarray->size + 1].previous;
+ 231:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** }
+ 232:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 233:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 234:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 235:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 236:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** __STATIC_INLINE int32_t XMC_PRIOARRAY_GetItemPriority(XMC_PRIOARRAY_t *prioarray, int32_t item)
+ 237:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** {
+  66              	 .loc 1 237 0
+  67              	 .cfi_startproc
+  68 0000 80B5     	 push {r7,lr}
+  69              	.LCFI3:
+  70              	 .cfi_def_cfa_offset 8
+  71              	 .cfi_offset 7,-8
+  72              	 .cfi_offset 14,-4
+  73 0002 82B0     	 sub sp,sp,#8
+  74              	.LCFI4:
+  75              	 .cfi_def_cfa_offset 16
+  76 0004 00AF     	 add r7,sp,#0
+  77              	.LCFI5:
+  78              	 .cfi_def_cfa_register 7
+  79 0006 7860     	 str r0,[r7,#4]
+  80 0008 3960     	 str r1,[r7]
+ 238:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   XMC_ASSERT("XMC_PRIOARRAY_GetItemPriority: item out of range", (item >= 0) && (item < prioarray->
+ 239:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   return prioarray->items[item].priority;
+  81              	 .loc 1 239 0
+  82 000a 7B68     	 ldr r3,[r7,#4]
+  83 000c 5968     	 ldr r1,[r3,#4]
+  84 000e 3A68     	 ldr r2,[r7]
+  85 0010 131C     	 mov r3,r2
+  86 0012 5B00     	 lsl r3,r3,#1
+  87 0014 9B18     	 add r3,r3,r2
+  88 0016 9B00     	 lsl r3,r3,#2
+  89 0018 CB18     	 add r3,r1,r3
+  90 001a 1B68     	 ldr r3,[r3]
+ 240:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** }
+  91              	 .loc 1 240 0
+  92 001c 181C     	 mov r0,r3
+  93 001e BD46     	 mov sp,r7
+  94 0020 02B0     	 add sp,sp,#8
+  95              	 
+  96 0022 80BD     	 pop {r7,pc}
+  97              	 .cfi_endproc
+  98              	.LFE36:
+ 100              	 .section .text.XMC_PRIOARRAY_GetItemNext,"ax",%progbits
+ 101              	 .align 2
+ 102              	 .code 16
+ 103              	 .thumb_func
+ 105              	XMC_PRIOARRAY_GetItemNext:
+ 106              	.LFB37:
+ 241:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** 
+ 242:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** /*
+ 243:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  *
+ 244:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****  */
+ 245:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** __STATIC_INLINE int32_t XMC_PRIOARRAY_GetItemNext(XMC_PRIOARRAY_t *prioarray, int32_t item)
+ 246:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** {
+ 107              	 .loc 1 246 0
+ 108              	 .cfi_startproc
+ 109 0000 80B5     	 push {r7,lr}
+ 110              	.LCFI6:
+ 111              	 .cfi_def_cfa_offset 8
+ 112              	 .cfi_offset 7,-8
+ 113              	 .cfi_offset 14,-4
+ 114 0002 82B0     	 sub sp,sp,#8
+ 115              	.LCFI7:
+ 116              	 .cfi_def_cfa_offset 16
+ 117 0004 00AF     	 add r7,sp,#0
+ 118              	.LCFI8:
+ 119              	 .cfi_def_cfa_register 7
+ 120 0006 7860     	 str r0,[r7,#4]
+ 121 0008 3960     	 str r1,[r7]
+ 247:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   XMC_ASSERT("XMC_PRIOARRAY_GetItemNext: item out of range", (item >= 0) && (item < prioarray->size
+ 248:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h ****   return prioarray->items[item].next;
+ 122              	 .loc 1 248 0
+ 123 000a 7B68     	 ldr r3,[r7,#4]
+ 124 000c 5968     	 ldr r1,[r3,#4]
+ 125 000e 3A68     	 ldr r2,[r7]
+ 126 0010 131C     	 mov r3,r2
+ 127 0012 5B00     	 lsl r3,r3,#1
+ 128 0014 9B18     	 add r3,r3,r2
+ 129 0016 9B00     	 lsl r3,r3,#2
+ 130 0018 CB18     	 add r3,r1,r3
+ 131 001a 9B68     	 ldr r3,[r3,#8]
+ 249:D:\Desktop\Infineon XMC 2Go\Getting Started\Workspace\XMC_2Go_Inital_Start_v1.3\Libraries\XMCLib\inc\xmc_common.h **** }
+ 132              	 .loc 1 249 0
+ 133 001c 181C     	 mov r0,r3
+ 134 001e BD46     	 mov sp,r7
+ 135 0020 02B0     	 add sp,sp,#8
+ 136              	 
+ 137 0022 80BD     	 pop {r7,pc}
+ 138              	 .cfi_endproc
+ 139              	.LFE37:
+ 141              	 .section .text.XMC_LIST_Init,"ax",%progbits
+ 142              	 .align 2
+ 143              	 .global XMC_LIST_Init
+ 144              	 .code 16
+ 145              	 .thumb_func
+ 147              	XMC_LIST_Init:
+ 148              	.LFB39:
+ 149              	 .file 2 "../Libraries/XMCLib/src/xmc_common.c"
+   1:../Libraries/XMCLib/src/xmc_common.c **** /**
+   2:../Libraries/XMCLib/src/xmc_common.c ****  * @file xmc_common.c
+   3:../Libraries/XMCLib/src/xmc_common.c ****  * @date 2015-10-27
+   4:../Libraries/XMCLib/src/xmc_common.c ****  *
+   5:../Libraries/XMCLib/src/xmc_common.c ****  * @cond
+   6:../Libraries/XMCLib/src/xmc_common.c ****  **************************************************************************************************
+   7:../Libraries/XMCLib/src/xmc_common.c ****  * XMClib v2.1.2 - XMC Peripheral Driver Library 
+   8:../Libraries/XMCLib/src/xmc_common.c ****  *
+   9:../Libraries/XMCLib/src/xmc_common.c ****  * Copyright (c) 2015, Infineon Technologies AG
+  10:../Libraries/XMCLib/src/xmc_common.c ****  * All rights reserved.                        
+  11:../Libraries/XMCLib/src/xmc_common.c ****  *                                             
+  12:../Libraries/XMCLib/src/xmc_common.c ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  13:../Libraries/XMCLib/src/xmc_common.c ****  * following conditions are met:   
+  14:../Libraries/XMCLib/src/xmc_common.c ****  *                                                                              
+  15:../Libraries/XMCLib/src/xmc_common.c ****  * Redistributions of source code must retain the above copyright notice, this list of conditions a
+  16:../Libraries/XMCLib/src/xmc_common.c ****  * disclaimer.                        
+  17:../Libraries/XMCLib/src/xmc_common.c ****  * 
+  18:../Libraries/XMCLib/src/xmc_common.c ****  * Redistributions in binary form must reproduce the above copyright notice, this list of condition
+  19:../Libraries/XMCLib/src/xmc_common.c ****  * disclaimer in the documentation and/or other materials provided with the distribution.          
+  20:../Libraries/XMCLib/src/xmc_common.c ****  * 
+  21:../Libraries/XMCLib/src/xmc_common.c ****  * Neither the name of the copyright holders nor the names of its contributors may be used to endor
+  22:../Libraries/XMCLib/src/xmc_common.c ****  * products derived from this software without specific prior written permission.                  
+  23:../Libraries/XMCLib/src/xmc_common.c ****  *                                                                              
+  24:../Libraries/XMCLib/src/xmc_common.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  25:../Libraries/XMCLib/src/xmc_common.c ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  26:../Libraries/XMCLib/src/xmc_common.c ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  27:../Libraries/XMCLib/src/xmc_common.c ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  28:../Libraries/XMCLib/src/xmc_common.c ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  29:../Libraries/XMCLib/src/xmc_common.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  30:../Libraries/XMCLib/src/xmc_common.c ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                            
+  31:../Libraries/XMCLib/src/xmc_common.c ****  *                                                                              
+  32:../Libraries/XMCLib/src/xmc_common.c ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  33:../Libraries/XMCLib/src/xmc_common.c ****  * Infineon Technologies AG dave@infineon.com).                                                    
+  34:../Libraries/XMCLib/src/xmc_common.c ****  **************************************************************************************************
+  35:../Libraries/XMCLib/src/xmc_common.c ****  *
+  36:../Libraries/XMCLib/src/xmc_common.c ****  * Change History
+  37:../Libraries/XMCLib/src/xmc_common.c ****  * --------------
+  38:../Libraries/XMCLib/src/xmc_common.c ****  *
+  39:../Libraries/XMCLib/src/xmc_common.c ****  * 2015-02-20:
+  40:../Libraries/XMCLib/src/xmc_common.c ****  *     - Initial <br>
+  41:../Libraries/XMCLib/src/xmc_common.c ****  *      
+  42:../Libraries/XMCLib/src/xmc_common.c ****  * @endcond 
+  43:../Libraries/XMCLib/src/xmc_common.c ****  *
+  44:../Libraries/XMCLib/src/xmc_common.c ****  */
+  45:../Libraries/XMCLib/src/xmc_common.c **** 
+  46:../Libraries/XMCLib/src/xmc_common.c **** #include "xmc_common.h"
+  47:../Libraries/XMCLib/src/xmc_common.c **** 
+  48:../Libraries/XMCLib/src/xmc_common.c **** /*******************************************************************************
+  49:../Libraries/XMCLib/src/xmc_common.c ****  * DATA STRUCTURES
+  50:../Libraries/XMCLib/src/xmc_common.c ****  *******************************************************************************/
+  51:../Libraries/XMCLib/src/xmc_common.c **** struct list
+  52:../Libraries/XMCLib/src/xmc_common.c **** {
+  53:../Libraries/XMCLib/src/xmc_common.c ****   struct list *next;
+  54:../Libraries/XMCLib/src/xmc_common.c **** };
+  55:../Libraries/XMCLib/src/xmc_common.c **** 
+  56:../Libraries/XMCLib/src/xmc_common.c **** /*******************************************************************************
+  57:../Libraries/XMCLib/src/xmc_common.c ****  * API IMPLEMENTATION
+  58:../Libraries/XMCLib/src/xmc_common.c ****  *******************************************************************************/
+  59:../Libraries/XMCLib/src/xmc_common.c **** #if defined(XMC_ASSERT_ENABLE) && !defined(XMC_USER_ASSERT_FUNCTION)
+  60:../Libraries/XMCLib/src/xmc_common.c **** 
+  61:../Libraries/XMCLib/src/xmc_common.c **** void XMC_AssertHandler(const char *const msg, const char *const file, uint32_t line)
+  62:../Libraries/XMCLib/src/xmc_common.c **** {
+  63:../Libraries/XMCLib/src/xmc_common.c ****   while(1)
+  64:../Libraries/XMCLib/src/xmc_common.c ****   {
+  65:../Libraries/XMCLib/src/xmc_common.c ****     /* Endless loop */
+  66:../Libraries/XMCLib/src/xmc_common.c ****   }
+  67:../Libraries/XMCLib/src/xmc_common.c **** }
+  68:../Libraries/XMCLib/src/xmc_common.c **** 
+  69:../Libraries/XMCLib/src/xmc_common.c **** #endif
+  70:../Libraries/XMCLib/src/xmc_common.c **** 
+  71:../Libraries/XMCLib/src/xmc_common.c **** void XMC_LIST_Init(XMC_LIST_t *list)
+  72:../Libraries/XMCLib/src/xmc_common.c **** {
+ 150              	 .loc 2 72 0
+ 151              	 .cfi_startproc
+ 152 0000 80B5     	 push {r7,lr}
+ 153              	.LCFI9:
+ 154              	 .cfi_def_cfa_offset 8
+ 155              	 .cfi_offset 7,-8
+ 156              	 .cfi_offset 14,-4
+ 157 0002 82B0     	 sub sp,sp,#8
+ 158              	.LCFI10:
+ 159              	 .cfi_def_cfa_offset 16
+ 160 0004 00AF     	 add r7,sp,#0
+ 161              	.LCFI11:
+ 162              	 .cfi_def_cfa_register 7
+ 163 0006 7860     	 str r0,[r7,#4]
+  73:../Libraries/XMCLib/src/xmc_common.c ****   *list = NULL;
+ 164              	 .loc 2 73 0
+ 165 0008 7B68     	 ldr r3,[r7,#4]
+ 166 000a 0022     	 mov r2,#0
+ 167 000c 1A60     	 str r2,[r3]
+  74:../Libraries/XMCLib/src/xmc_common.c **** }
+ 168              	 .loc 2 74 0
+ 169 000e BD46     	 mov sp,r7
+ 170 0010 02B0     	 add sp,sp,#8
+ 171              	 
+ 172 0012 80BD     	 pop {r7,pc}
+ 173              	 .cfi_endproc
+ 174              	.LFE39:
+ 176              	 .section .text.XMC_LIST_GetHead,"ax",%progbits
+ 177              	 .align 2
+ 178              	 .global XMC_LIST_GetHead
+ 179              	 .code 16
+ 180              	 .thumb_func
+ 182              	XMC_LIST_GetHead:
+ 183              	.LFB40:
+  75:../Libraries/XMCLib/src/xmc_common.c **** 
+  76:../Libraries/XMCLib/src/xmc_common.c **** void *XMC_LIST_GetHead(XMC_LIST_t *list)
+  77:../Libraries/XMCLib/src/xmc_common.c **** {
+ 184              	 .loc 2 77 0
+ 185              	 .cfi_startproc
+ 186 0000 80B5     	 push {r7,lr}
+ 187              	.LCFI12:
+ 188              	 .cfi_def_cfa_offset 8
+ 189              	 .cfi_offset 7,-8
+ 190              	 .cfi_offset 14,-4
+ 191 0002 82B0     	 sub sp,sp,#8
+ 192              	.LCFI13:
+ 193              	 .cfi_def_cfa_offset 16
+ 194 0004 00AF     	 add r7,sp,#0
+ 195              	.LCFI14:
+ 196              	 .cfi_def_cfa_register 7
+ 197 0006 7860     	 str r0,[r7,#4]
+  78:../Libraries/XMCLib/src/xmc_common.c ****   return *list;
+ 198              	 .loc 2 78 0
+ 199 0008 7B68     	 ldr r3,[r7,#4]
+ 200 000a 1B68     	 ldr r3,[r3]
+  79:../Libraries/XMCLib/src/xmc_common.c **** }
+ 201              	 .loc 2 79 0
+ 202 000c 181C     	 mov r0,r3
+ 203 000e BD46     	 mov sp,r7
+ 204 0010 02B0     	 add sp,sp,#8
+ 205              	 
+ 206 0012 80BD     	 pop {r7,pc}
+ 207              	 .cfi_endproc
+ 208              	.LFE40:
+ 210              	 .section .text.XMC_LIST_GetTail,"ax",%progbits
+ 211              	 .align 2
+ 212              	 .global XMC_LIST_GetTail
+ 213              	 .code 16
+ 214              	 .thumb_func
+ 216              	XMC_LIST_GetTail:
+ 217              	.LFB41:
+  80:../Libraries/XMCLib/src/xmc_common.c **** 
+  81:../Libraries/XMCLib/src/xmc_common.c **** void *XMC_LIST_GetTail(XMC_LIST_t *list)
+  82:../Libraries/XMCLib/src/xmc_common.c **** {
+ 218              	 .loc 2 82 0
+ 219              	 .cfi_startproc
+ 220 0000 80B5     	 push {r7,lr}
+ 221              	.LCFI15:
+ 222              	 .cfi_def_cfa_offset 8
+ 223              	 .cfi_offset 7,-8
+ 224              	 .cfi_offset 14,-4
+ 225 0002 84B0     	 sub sp,sp,#16
+ 226              	.LCFI16:
+ 227              	 .cfi_def_cfa_offset 24
+ 228 0004 00AF     	 add r7,sp,#0
+ 229              	.LCFI17:
+ 230              	 .cfi_def_cfa_register 7
+ 231 0006 7860     	 str r0,[r7,#4]
+  83:../Libraries/XMCLib/src/xmc_common.c ****   struct list *tail;
+  84:../Libraries/XMCLib/src/xmc_common.c ****   
+  85:../Libraries/XMCLib/src/xmc_common.c ****   if (*list == NULL) 
+ 232              	 .loc 2 85 0
+ 233 0008 7B68     	 ldr r3,[r7,#4]
+ 234 000a 1B68     	 ldr r3,[r3]
+ 235 000c 002B     	 cmp r3,#0
+ 236 000e 02D1     	 bne .L11
+  86:../Libraries/XMCLib/src/xmc_common.c ****   {
+  87:../Libraries/XMCLib/src/xmc_common.c ****     tail = NULL;
+ 237              	 .loc 2 87 0
+ 238 0010 0023     	 mov r3,#0
+ 239 0012 FB60     	 str r3,[r7,#12]
+ 240 0014 0AE0     	 b .L12
+ 241              	.L11:
+  88:../Libraries/XMCLib/src/xmc_common.c ****   }
+  89:../Libraries/XMCLib/src/xmc_common.c ****   else
+  90:../Libraries/XMCLib/src/xmc_common.c ****   {
+  91:../Libraries/XMCLib/src/xmc_common.c ****     for (tail = (struct list *)*list; tail->next != NULL; tail = tail->next)
+ 242              	 .loc 2 91 0
+ 243 0016 7B68     	 ldr r3,[r7,#4]
+ 244 0018 1B68     	 ldr r3,[r3]
+ 245 001a FB60     	 str r3,[r7,#12]
+ 246 001c 02E0     	 b .L13
+ 247              	.L14:
+ 248              	 .loc 2 91 0 is_stmt 0 discriminator 3
+ 249 001e FB68     	 ldr r3,[r7,#12]
+ 250 0020 1B68     	 ldr r3,[r3]
+ 251 0022 FB60     	 str r3,[r7,#12]
+ 252              	.L13:
+ 253              	 .loc 2 91 0 discriminator 1
+ 254 0024 FB68     	 ldr r3,[r7,#12]
+ 255 0026 1B68     	 ldr r3,[r3]
+ 256 0028 002B     	 cmp r3,#0
+ 257 002a F8D1     	 bne .L14
+ 258              	.L12:
+  92:../Libraries/XMCLib/src/xmc_common.c ****     {
+  93:../Libraries/XMCLib/src/xmc_common.c ****       /* Loop through the list */
+  94:../Libraries/XMCLib/src/xmc_common.c ****     }  
+  95:../Libraries/XMCLib/src/xmc_common.c ****   }
+  96:../Libraries/XMCLib/src/xmc_common.c ****   
+  97:../Libraries/XMCLib/src/xmc_common.c ****   return tail;    
+ 259              	 .loc 2 97 0 is_stmt 1
+ 260 002c FB68     	 ldr r3,[r7,#12]
+  98:../Libraries/XMCLib/src/xmc_common.c **** }
+ 261              	 .loc 2 98 0
+ 262 002e 181C     	 mov r0,r3
+ 263 0030 BD46     	 mov sp,r7
+ 264 0032 04B0     	 add sp,sp,#16
+ 265              	 
+ 266 0034 80BD     	 pop {r7,pc}
+ 267              	 .cfi_endproc
+ 268              	.LFE41:
+ 270 0036 C046     	 .section .text.XMC_LIST_Add,"ax",%progbits
+ 271              	 .align 2
+ 272              	 .global XMC_LIST_Add
+ 273              	 .code 16
+ 274              	 .thumb_func
+ 276              	XMC_LIST_Add:
+ 277              	.LFB42:
+  99:../Libraries/XMCLib/src/xmc_common.c **** 
+ 100:../Libraries/XMCLib/src/xmc_common.c **** void XMC_LIST_Add(XMC_LIST_t *list, void *item)
+ 101:../Libraries/XMCLib/src/xmc_common.c **** {
+ 278              	 .loc 2 101 0
+ 279              	 .cfi_startproc
+ 280 0000 80B5     	 push {r7,lr}
+ 281              	.LCFI18:
+ 282              	 .cfi_def_cfa_offset 8
+ 283              	 .cfi_offset 7,-8
+ 284              	 .cfi_offset 14,-4
+ 285 0002 84B0     	 sub sp,sp,#16
+ 286              	.LCFI19:
+ 287              	 .cfi_def_cfa_offset 24
+ 288 0004 00AF     	 add r7,sp,#0
+ 289              	.LCFI20:
+ 290              	 .cfi_def_cfa_register 7
+ 291 0006 7860     	 str r0,[r7,#4]
+ 292 0008 3960     	 str r1,[r7]
+ 102:../Libraries/XMCLib/src/xmc_common.c ****   struct list *tail;
+ 103:../Libraries/XMCLib/src/xmc_common.c ****   
+ 104:../Libraries/XMCLib/src/xmc_common.c ****   ((struct list *)item)->next = NULL;
+ 293              	 .loc 2 104 0
+ 294 000a 3B68     	 ldr r3,[r7]
+ 295 000c 0022     	 mov r2,#0
+ 296 000e 1A60     	 str r2,[r3]
+ 105:../Libraries/XMCLib/src/xmc_common.c ****   tail = (struct list *)XMC_LIST_GetTail(list);
+ 297              	 .loc 2 105 0
+ 298 0010 7B68     	 ldr r3,[r7,#4]
+ 299 0012 181C     	 mov r0,r3
+ 300 0014 FFF7FEFF 	 bl XMC_LIST_GetTail
+ 301 0018 031C     	 mov r3,r0
+ 302 001a FB60     	 str r3,[r7,#12]
+ 106:../Libraries/XMCLib/src/xmc_common.c ****   
+ 107:../Libraries/XMCLib/src/xmc_common.c ****   if (tail == NULL) 
+ 303              	 .loc 2 107 0
+ 304 001c FB68     	 ldr r3,[r7,#12]
+ 305 001e 002B     	 cmp r3,#0
+ 306 0020 03D1     	 bne .L17
+ 108:../Libraries/XMCLib/src/xmc_common.c ****   {
+ 109:../Libraries/XMCLib/src/xmc_common.c ****     *list = item;
+ 307              	 .loc 2 109 0
+ 308 0022 7B68     	 ldr r3,[r7,#4]
+ 309 0024 3A68     	 ldr r2,[r7]
+ 310 0026 1A60     	 str r2,[r3]
+ 311 0028 02E0     	 b .L16
+ 312              	.L17:
+ 110:../Libraries/XMCLib/src/xmc_common.c ****   } 
+ 111:../Libraries/XMCLib/src/xmc_common.c ****   else 
+ 112:../Libraries/XMCLib/src/xmc_common.c ****   {
+ 113:../Libraries/XMCLib/src/xmc_common.c ****     tail->next = (struct list *)item;
+ 313              	 .loc 2 113 0
+ 314 002a FB68     	 ldr r3,[r7,#12]
+ 315 002c 3A68     	 ldr r2,[r7]
+ 316 002e 1A60     	 str r2,[r3]
+ 317              	.L16:
+ 114:../Libraries/XMCLib/src/xmc_common.c ****   }
+ 115:../Libraries/XMCLib/src/xmc_common.c **** }
+ 318              	 .loc 2 115 0
+ 319 0030 BD46     	 mov sp,r7
+ 320 0032 04B0     	 add sp,sp,#16
+ 321              	 
+ 322 0034 80BD     	 pop {r7,pc}
+ 323              	 .cfi_endproc
+ 324              	.LFE42:
+ 326 0036 C046     	 .section .text.XMC_LIST_Remove,"ax",%progbits
+ 327              	 .align 2
+ 328              	 .global XMC_LIST_Remove
+ 329              	 .code 16
+ 330              	 .thumb_func
+ 332              	XMC_LIST_Remove:
+ 333              	.LFB43:
+ 116:../Libraries/XMCLib/src/xmc_common.c **** 
+ 117:../Libraries/XMCLib/src/xmc_common.c **** void XMC_LIST_Remove(XMC_LIST_t *list, void *item)
+ 118:../Libraries/XMCLib/src/xmc_common.c **** {
+ 334              	 .loc 2 118 0
+ 335              	 .cfi_startproc
+ 336 0000 80B5     	 push {r7,lr}
+ 337              	.LCFI21:
+ 338              	 .cfi_def_cfa_offset 8
+ 339              	 .cfi_offset 7,-8
+ 340              	 .cfi_offset 14,-4
+ 341 0002 84B0     	 sub sp,sp,#16
+ 342              	.LCFI22:
+ 343              	 .cfi_def_cfa_offset 24
+ 344 0004 00AF     	 add r7,sp,#0
+ 345              	.LCFI23:
+ 346              	 .cfi_def_cfa_register 7
+ 347 0006 7860     	 str r0,[r7,#4]
+ 348 0008 3960     	 str r1,[r7]
+ 119:../Libraries/XMCLib/src/xmc_common.c ****   struct list *right, *left;
+ 120:../Libraries/XMCLib/src/xmc_common.c ****   
+ 121:../Libraries/XMCLib/src/xmc_common.c ****   if (*list != NULL) 
+ 349              	 .loc 2 121 0
+ 350 000a 7B68     	 ldr r3,[r7,#4]
+ 351 000c 1B68     	 ldr r3,[r3]
+ 352 000e 002B     	 cmp r3,#0
+ 353 0010 21D0     	 beq .L19
+ 122:../Libraries/XMCLib/src/xmc_common.c ****   {
+ 123:../Libraries/XMCLib/src/xmc_common.c ****     left = NULL;
+ 354              	 .loc 2 123 0
+ 355 0012 0023     	 mov r3,#0
+ 356 0014 BB60     	 str r3,[r7,#8]
+ 124:../Libraries/XMCLib/src/xmc_common.c ****     for(right = (struct list *)*list; right != NULL; right = right->next)
+ 357              	 .loc 2 124 0
+ 358 0016 7B68     	 ldr r3,[r7,#4]
+ 359 0018 1B68     	 ldr r3,[r3]
+ 360 001a FB60     	 str r3,[r7,#12]
+ 361 001c 18E0     	 b .L21
+ 362              	.L25:
+ 125:../Libraries/XMCLib/src/xmc_common.c ****     {
+ 126:../Libraries/XMCLib/src/xmc_common.c ****       if(right == item) 
+ 363              	 .loc 2 126 0
+ 364 001e FA68     	 ldr r2,[r7,#12]
+ 365 0020 3B68     	 ldr r3,[r7]
+ 366 0022 9A42     	 cmp r2,r3
+ 367 0024 0FD1     	 bne .L22
+ 127:../Libraries/XMCLib/src/xmc_common.c ****       {
+ 128:../Libraries/XMCLib/src/xmc_common.c ****         if(left == NULL) 
+ 368              	 .loc 2 128 0
+ 369 0026 BB68     	 ldr r3,[r7,#8]
+ 370 0028 002B     	 cmp r3,#0
+ 371 002a 04D1     	 bne .L23
+ 129:../Libraries/XMCLib/src/xmc_common.c ****         {
+ 130:../Libraries/XMCLib/src/xmc_common.c ****           /* First on list */
+ 131:../Libraries/XMCLib/src/xmc_common.c ****           *list = right->next;
+ 372              	 .loc 2 131 0
+ 373 002c FB68     	 ldr r3,[r7,#12]
+ 374 002e 1A68     	 ldr r2,[r3]
+ 375 0030 7B68     	 ldr r3,[r7,#4]
+ 376 0032 1A60     	 str r2,[r3]
+ 377 0034 03E0     	 b .L24
+ 378              	.L23:
+ 132:../Libraries/XMCLib/src/xmc_common.c ****         } 
+ 133:../Libraries/XMCLib/src/xmc_common.c ****         else 
+ 134:../Libraries/XMCLib/src/xmc_common.c ****         {
+ 135:../Libraries/XMCLib/src/xmc_common.c ****           /* Not first on list */
+ 136:../Libraries/XMCLib/src/xmc_common.c ****           left->next = right->next;
+ 379              	 .loc 2 136 0
+ 380 0036 FB68     	 ldr r3,[r7,#12]
+ 381 0038 1A68     	 ldr r2,[r3]
+ 382 003a BB68     	 ldr r3,[r7,#8]
+ 383 003c 1A60     	 str r2,[r3]
+ 384              	.L24:
+ 137:../Libraries/XMCLib/src/xmc_common.c ****         }
+ 138:../Libraries/XMCLib/src/xmc_common.c ****         right->next = NULL;
+ 385              	 .loc 2 138 0
+ 386 003e FB68     	 ldr r3,[r7,#12]
+ 387 0040 0022     	 mov r2,#0
+ 388 0042 1A60     	 str r2,[r3]
+ 139:../Libraries/XMCLib/src/xmc_common.c ****         break;
+ 389              	 .loc 2 139 0
+ 390 0044 07E0     	 b .L19
+ 391              	.L22:
+ 140:../Libraries/XMCLib/src/xmc_common.c ****       }
+ 141:../Libraries/XMCLib/src/xmc_common.c ****       left = right;
+ 392              	 .loc 2 141 0 discriminator 2
+ 393 0046 FB68     	 ldr r3,[r7,#12]
+ 394 0048 BB60     	 str r3,[r7,#8]
+ 124:../Libraries/XMCLib/src/xmc_common.c ****     {
+ 395              	 .loc 2 124 0 discriminator 2
+ 396 004a FB68     	 ldr r3,[r7,#12]
+ 397 004c 1B68     	 ldr r3,[r3]
+ 398 004e FB60     	 str r3,[r7,#12]
+ 399              	.L21:
+ 124:../Libraries/XMCLib/src/xmc_common.c ****     {
+ 400              	 .loc 2 124 0 is_stmt 0 discriminator 1
+ 401 0050 FB68     	 ldr r3,[r7,#12]
+ 402 0052 002B     	 cmp r3,#0
+ 403 0054 E3D1     	 bne .L25
+ 404              	.L19:
+ 142:../Libraries/XMCLib/src/xmc_common.c ****     }
+ 143:../Libraries/XMCLib/src/xmc_common.c ****   }
+ 144:../Libraries/XMCLib/src/xmc_common.c **** }
+ 405              	 .loc 2 144 0 is_stmt 1
+ 406 0056 BD46     	 mov sp,r7
+ 407 0058 04B0     	 add sp,sp,#16
+ 408              	 
+ 409 005a 80BD     	 pop {r7,pc}
+ 410              	 .cfi_endproc
+ 411              	.LFE43:
+ 413              	 .section .text.XMC_LIST_Insert,"ax",%progbits
+ 414              	 .align 2
+ 415              	 .global XMC_LIST_Insert
+ 416              	 .code 16
+ 417              	 .thumb_func
+ 419              	XMC_LIST_Insert:
+ 420              	.LFB44:
+ 145:../Libraries/XMCLib/src/xmc_common.c **** 
+ 146:../Libraries/XMCLib/src/xmc_common.c **** void XMC_LIST_Insert(XMC_LIST_t *list, void *prev_item, void *new_item)
+ 147:../Libraries/XMCLib/src/xmc_common.c **** {
+ 421              	 .loc 2 147 0
+ 422              	 .cfi_startproc
+ 423 0000 80B5     	 push {r7,lr}
+ 424              	.LCFI24:
+ 425              	 .cfi_def_cfa_offset 8
+ 426              	 .cfi_offset 7,-8
+ 427              	 .cfi_offset 14,-4
+ 428 0002 84B0     	 sub sp,sp,#16
+ 429              	.LCFI25:
+ 430              	 .cfi_def_cfa_offset 24
+ 431 0004 00AF     	 add r7,sp,#0
+ 432              	.LCFI26:
+ 433              	 .cfi_def_cfa_register 7
+ 434 0006 F860     	 str r0,[r7,#12]
+ 435 0008 B960     	 str r1,[r7,#8]
+ 436 000a 7A60     	 str r2,[r7,#4]
+ 148:../Libraries/XMCLib/src/xmc_common.c ****   if (prev_item == NULL) 
+ 437              	 .loc 2 148 0
+ 438 000c BB68     	 ldr r3,[r7,#8]
+ 439 000e 002B     	 cmp r3,#0
+ 440 0010 07D1     	 bne .L27
+ 149:../Libraries/XMCLib/src/xmc_common.c ****   {
+ 150:../Libraries/XMCLib/src/xmc_common.c **** 	((struct list *)new_item)->next = (struct list *)*list;
+ 441              	 .loc 2 150 0
+ 442 0012 FB68     	 ldr r3,[r7,#12]
+ 443 0014 1A68     	 ldr r2,[r3]
+ 444 0016 7B68     	 ldr r3,[r7,#4]
+ 445 0018 1A60     	 str r2,[r3]
+ 151:../Libraries/XMCLib/src/xmc_common.c **** 	*list = new_item;
+ 446              	 .loc 2 151 0
+ 447 001a FB68     	 ldr r3,[r7,#12]
+ 448 001c 7A68     	 ldr r2,[r7,#4]
+ 449 001e 1A60     	 str r2,[r3]
+ 450 0020 06E0     	 b .L26
+ 451              	.L27:
+ 152:../Libraries/XMCLib/src/xmc_common.c ****   } 
+ 153:../Libraries/XMCLib/src/xmc_common.c ****   else 
+ 154:../Libraries/XMCLib/src/xmc_common.c ****   {
+ 155:../Libraries/XMCLib/src/xmc_common.c ****     ((struct list *)new_item)->next = ((struct list *)prev_item)->next;
+ 452              	 .loc 2 155 0
+ 453 0022 BB68     	 ldr r3,[r7,#8]
+ 454 0024 1A68     	 ldr r2,[r3]
+ 455 0026 7B68     	 ldr r3,[r7,#4]
+ 456 0028 1A60     	 str r2,[r3]
+ 156:../Libraries/XMCLib/src/xmc_common.c ****     ((struct list *)prev_item)->next = (struct list *)new_item;
+ 457              	 .loc 2 156 0
+ 458 002a BB68     	 ldr r3,[r7,#8]
+ 459 002c 7A68     	 ldr r2,[r7,#4]
+ 460 002e 1A60     	 str r2,[r3]
+ 461              	.L26:
+ 157:../Libraries/XMCLib/src/xmc_common.c ****   }
+ 158:../Libraries/XMCLib/src/xmc_common.c **** }
+ 462              	 .loc 2 158 0
+ 463 0030 BD46     	 mov sp,r7
+ 464 0032 04B0     	 add sp,sp,#16
+ 465              	 
+ 466 0034 80BD     	 pop {r7,pc}
+ 467              	 .cfi_endproc
+ 468              	.LFE44:
+ 470 0036 C046     	 .section .text.XMC_PRIOARRAY_Init,"ax",%progbits
+ 471              	 .align 2
+ 472              	 .global XMC_PRIOARRAY_Init
+ 473              	 .code 16
+ 474              	 .thumb_func
+ 476              	XMC_PRIOARRAY_Init:
+ 477              	.LFB45:
+ 159:../Libraries/XMCLib/src/xmc_common.c **** 
+ 160:../Libraries/XMCLib/src/xmc_common.c **** void XMC_PRIOARRAY_Init(XMC_PRIOARRAY_t *prioarray)
+ 161:../Libraries/XMCLib/src/xmc_common.c **** {
+ 478              	 .loc 2 161 0
+ 479              	 .cfi_startproc
+ 480 0000 80B5     	 push {r7,lr}
+ 481              	.LCFI27:
+ 482              	 .cfi_def_cfa_offset 8
+ 483              	 .cfi_offset 7,-8
+ 484              	 .cfi_offset 14,-4
+ 485 0002 82B0     	 sub sp,sp,#8
+ 486              	.LCFI28:
+ 487              	 .cfi_def_cfa_offset 16
+ 488 0004 00AF     	 add r7,sp,#0
+ 489              	.LCFI29:
+ 490              	 .cfi_def_cfa_register 7
+ 491 0006 7860     	 str r0,[r7,#4]
+ 162:../Libraries/XMCLib/src/xmc_common.c ****   XMC_ASSERT("XMC_PRIOARRAY_Init: NULL pointer", prioarray != NULL);
+ 163:../Libraries/XMCLib/src/xmc_common.c **** 
+ 164:../Libraries/XMCLib/src/xmc_common.c ****   /* Initialize head, next points to tail, previous to NULL and the priority is MININT */
+ 165:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[prioarray->size].next = prioarray->size + 1;
+ 492              	 .loc 2 165 0
+ 493 0008 7B68     	 ldr r3,[r7,#4]
+ 494 000a 5968     	 ldr r1,[r3,#4]
+ 495 000c 7B68     	 ldr r3,[r7,#4]
+ 496 000e 1A68     	 ldr r2,[r3]
+ 497 0010 131C     	 mov r3,r2
+ 498 0012 5B00     	 lsl r3,r3,#1
+ 499 0014 9B18     	 add r3,r3,r2
+ 500 0016 9B00     	 lsl r3,r3,#2
+ 501 0018 CB18     	 add r3,r1,r3
+ 502 001a 7A68     	 ldr r2,[r7,#4]
+ 503 001c 1268     	 ldr r2,[r2]
+ 504 001e 0132     	 add r2,r2,#1
+ 505 0020 9A60     	 str r2,[r3,#8]
+ 166:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[prioarray->size].previous = -1;
+ 506              	 .loc 2 166 0
+ 507 0022 7B68     	 ldr r3,[r7,#4]
+ 508 0024 5968     	 ldr r1,[r3,#4]
+ 509 0026 7B68     	 ldr r3,[r7,#4]
+ 510 0028 1A68     	 ldr r2,[r3]
+ 511 002a 131C     	 mov r3,r2
+ 512 002c 5B00     	 lsl r3,r3,#1
+ 513 002e 9B18     	 add r3,r3,r2
+ 514 0030 9B00     	 lsl r3,r3,#2
+ 515 0032 CB18     	 add r3,r1,r3
+ 516 0034 0122     	 mov r2,#1
+ 517 0036 5242     	 neg r2,r2
+ 518 0038 5A60     	 str r2,[r3,#4]
+ 167:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[prioarray->size].priority = INT32_MAX;
+ 519              	 .loc 2 167 0
+ 520 003a 7B68     	 ldr r3,[r7,#4]
+ 521 003c 5968     	 ldr r1,[r3,#4]
+ 522 003e 7B68     	 ldr r3,[r7,#4]
+ 523 0040 1A68     	 ldr r2,[r3]
+ 524 0042 131C     	 mov r3,r2
+ 525 0044 5B00     	 lsl r3,r3,#1
+ 526 0046 9B18     	 add r3,r3,r2
+ 527 0048 9B00     	 lsl r3,r3,#2
+ 528 004a CB18     	 add r3,r1,r3
+ 529 004c 154A     	 ldr r2,.L30
+ 530 004e 1A60     	 str r2,[r3]
+ 168:../Libraries/XMCLib/src/xmc_common.c **** 
+ 169:../Libraries/XMCLib/src/xmc_common.c ****   /* Initialize tail, next points to NULL, previous is the head and the priority is MAXINT */
+ 170:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[prioarray->size + 1].next = -1;
+ 531              	 .loc 2 170 0
+ 532 0050 7B68     	 ldr r3,[r7,#4]
+ 533 0052 5968     	 ldr r1,[r3,#4]
+ 534 0054 7B68     	 ldr r3,[r7,#4]
+ 535 0056 1B68     	 ldr r3,[r3]
+ 536 0058 5A1C     	 add r2,r3,#1
+ 537 005a 131C     	 mov r3,r2
+ 538 005c 5B00     	 lsl r3,r3,#1
+ 539 005e 9B18     	 add r3,r3,r2
+ 540 0060 9B00     	 lsl r3,r3,#2
+ 541 0062 CB18     	 add r3,r1,r3
+ 542 0064 0122     	 mov r2,#1
+ 543 0066 5242     	 neg r2,r2
+ 544 0068 9A60     	 str r2,[r3,#8]
+ 171:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[prioarray->size + 1].previous = prioarray->size;
+ 545              	 .loc 2 171 0
+ 546 006a 7B68     	 ldr r3,[r7,#4]
+ 547 006c 5968     	 ldr r1,[r3,#4]
+ 548 006e 7B68     	 ldr r3,[r7,#4]
+ 549 0070 1B68     	 ldr r3,[r3]
+ 550 0072 5A1C     	 add r2,r3,#1
+ 551 0074 131C     	 mov r3,r2
+ 552 0076 5B00     	 lsl r3,r3,#1
+ 553 0078 9B18     	 add r3,r3,r2
+ 554 007a 9B00     	 lsl r3,r3,#2
+ 555 007c CB18     	 add r3,r1,r3
+ 556 007e 7A68     	 ldr r2,[r7,#4]
+ 557 0080 1268     	 ldr r2,[r2]
+ 558 0082 5A60     	 str r2,[r3,#4]
+ 172:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[prioarray->size + 1].priority = INT32_MIN;
+ 559              	 .loc 2 172 0
+ 560 0084 7B68     	 ldr r3,[r7,#4]
+ 561 0086 5968     	 ldr r1,[r3,#4]
+ 562 0088 7B68     	 ldr r3,[r7,#4]
+ 563 008a 1B68     	 ldr r3,[r3]
+ 564 008c 5A1C     	 add r2,r3,#1
+ 565 008e 131C     	 mov r3,r2
+ 566 0090 5B00     	 lsl r3,r3,#1
+ 567 0092 9B18     	 add r3,r3,r2
+ 568 0094 9B00     	 lsl r3,r3,#2
+ 569 0096 CB18     	 add r3,r1,r3
+ 570 0098 8022     	 mov r2,#128
+ 571 009a 1206     	 lsl r2,r2,#24
+ 572 009c 1A60     	 str r2,[r3]
+ 173:../Libraries/XMCLib/src/xmc_common.c **** 
+ 174:../Libraries/XMCLib/src/xmc_common.c **** }
+ 573              	 .loc 2 174 0
+ 574 009e BD46     	 mov sp,r7
+ 575 00a0 02B0     	 add sp,sp,#8
+ 576              	 
+ 577 00a2 80BD     	 pop {r7,pc}
+ 578              	.L31:
+ 579              	 .align 2
+ 580              	.L30:
+ 581 00a4 FFFFFF7F 	 .word 2147483647
+ 582              	 .cfi_endproc
+ 583              	.LFE45:
+ 585              	 .section .text.XMC_PRIOARRAY_Add,"ax",%progbits
+ 586              	 .align 2
+ 587              	 .global XMC_PRIOARRAY_Add
+ 588              	 .code 16
+ 589              	 .thumb_func
+ 591              	XMC_PRIOARRAY_Add:
+ 592              	.LFB46:
+ 175:../Libraries/XMCLib/src/xmc_common.c **** 
+ 176:../Libraries/XMCLib/src/xmc_common.c **** void XMC_PRIOARRAY_Add(XMC_PRIOARRAY_t *prioarray, int32_t item, int32_t priority)
+ 177:../Libraries/XMCLib/src/xmc_common.c **** {
+ 593              	 .loc 2 177 0
+ 594              	 .cfi_startproc
+ 595 0000 80B5     	 push {r7,lr}
+ 596              	.LCFI30:
+ 597              	 .cfi_def_cfa_offset 8
+ 598              	 .cfi_offset 7,-8
+ 599              	 .cfi_offset 14,-4
+ 600 0002 86B0     	 sub sp,sp,#24
+ 601              	.LCFI31:
+ 602              	 .cfi_def_cfa_offset 32
+ 603 0004 00AF     	 add r7,sp,#0
+ 604              	.LCFI32:
+ 605              	 .cfi_def_cfa_register 7
+ 606 0006 F860     	 str r0,[r7,#12]
+ 607 0008 B960     	 str r1,[r7,#8]
+ 608 000a 7A60     	 str r2,[r7,#4]
+ 178:../Libraries/XMCLib/src/xmc_common.c ****   int32_t next;
+ 179:../Libraries/XMCLib/src/xmc_common.c ****   int32_t previous;
+ 180:../Libraries/XMCLib/src/xmc_common.c **** 
+ 181:../Libraries/XMCLib/src/xmc_common.c ****   XMC_ASSERT("XMC_PRIOARRAY_Add: item out of range", (item >= 0) && (item < prioarray->size));
+ 182:../Libraries/XMCLib/src/xmc_common.c ****   
+ 183:../Libraries/XMCLib/src/xmc_common.c ****   next = XMC_PRIOARRAY_GetHead(prioarray);
+ 609              	 .loc 2 183 0
+ 610 000c FB68     	 ldr r3,[r7,#12]
+ 611 000e 181C     	 mov r0,r3
+ 612 0010 FFF7FEFF 	 bl XMC_PRIOARRAY_GetHead
+ 613 0014 031C     	 mov r3,r0
+ 614 0016 7B61     	 str r3,[r7,#20]
+ 184:../Libraries/XMCLib/src/xmc_common.c ****   while (XMC_PRIOARRAY_GetItemPriority(prioarray, next) > priority)
+ 615              	 .loc 2 184 0
+ 616 0018 07E0     	 b .L33
+ 617              	.L34:
+ 185:../Libraries/XMCLib/src/xmc_common.c ****   {
+ 186:../Libraries/XMCLib/src/xmc_common.c ****     next = XMC_PRIOARRAY_GetItemNext(prioarray, next);
+ 618              	 .loc 2 186 0
+ 619 001a FA68     	 ldr r2,[r7,#12]
+ 620 001c 7B69     	 ldr r3,[r7,#20]
+ 621 001e 101C     	 mov r0,r2
+ 622 0020 191C     	 mov r1,r3
+ 623 0022 FFF7FEFF 	 bl XMC_PRIOARRAY_GetItemNext
+ 624 0026 031C     	 mov r3,r0
+ 625 0028 7B61     	 str r3,[r7,#20]
+ 626              	.L33:
+ 184:../Libraries/XMCLib/src/xmc_common.c ****   while (XMC_PRIOARRAY_GetItemPriority(prioarray, next) > priority)
+ 627              	 .loc 2 184 0
+ 628 002a FA68     	 ldr r2,[r7,#12]
+ 629 002c 7B69     	 ldr r3,[r7,#20]
+ 630 002e 101C     	 mov r0,r2
+ 631 0030 191C     	 mov r1,r3
+ 632 0032 FFF7FEFF 	 bl XMC_PRIOARRAY_GetItemPriority
+ 633 0036 021E     	 sub r2,r0,#0
+ 634 0038 7B68     	 ldr r3,[r7,#4]
+ 635 003a 9A42     	 cmp r2,r3
+ 636 003c EDDC     	 bgt .L34
+ 187:../Libraries/XMCLib/src/xmc_common.c ****   }
+ 188:../Libraries/XMCLib/src/xmc_common.c **** 
+ 189:../Libraries/XMCLib/src/xmc_common.c ****   previous = prioarray->items[next].previous;
+ 637              	 .loc 2 189 0
+ 638 003e FB68     	 ldr r3,[r7,#12]
+ 639 0040 5968     	 ldr r1,[r3,#4]
+ 640 0042 7A69     	 ldr r2,[r7,#20]
+ 641 0044 131C     	 mov r3,r2
+ 642 0046 5B00     	 lsl r3,r3,#1
+ 643 0048 9B18     	 add r3,r3,r2
+ 644 004a 9B00     	 lsl r3,r3,#2
+ 645 004c CB18     	 add r3,r1,r3
+ 646 004e 5B68     	 ldr r3,[r3,#4]
+ 647 0050 3B61     	 str r3,[r7,#16]
+ 190:../Libraries/XMCLib/src/xmc_common.c **** 
+ 191:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[item].next = next;
+ 648              	 .loc 2 191 0
+ 649 0052 FB68     	 ldr r3,[r7,#12]
+ 650 0054 5968     	 ldr r1,[r3,#4]
+ 651 0056 BA68     	 ldr r2,[r7,#8]
+ 652 0058 131C     	 mov r3,r2
+ 653 005a 5B00     	 lsl r3,r3,#1
+ 654 005c 9B18     	 add r3,r3,r2
+ 655 005e 9B00     	 lsl r3,r3,#2
+ 656 0060 CB18     	 add r3,r1,r3
+ 657 0062 7A69     	 ldr r2,[r7,#20]
+ 658 0064 9A60     	 str r2,[r3,#8]
+ 192:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[item].previous = previous;
+ 659              	 .loc 2 192 0
+ 660 0066 FB68     	 ldr r3,[r7,#12]
+ 661 0068 5968     	 ldr r1,[r3,#4]
+ 662 006a BA68     	 ldr r2,[r7,#8]
+ 663 006c 131C     	 mov r3,r2
+ 664 006e 5B00     	 lsl r3,r3,#1
+ 665 0070 9B18     	 add r3,r3,r2
+ 666 0072 9B00     	 lsl r3,r3,#2
+ 667 0074 CB18     	 add r3,r1,r3
+ 668 0076 3A69     	 ldr r2,[r7,#16]
+ 669 0078 5A60     	 str r2,[r3,#4]
+ 193:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[item].priority = priority;
+ 670              	 .loc 2 193 0
+ 671 007a FB68     	 ldr r3,[r7,#12]
+ 672 007c 5968     	 ldr r1,[r3,#4]
+ 673 007e BA68     	 ldr r2,[r7,#8]
+ 674 0080 131C     	 mov r3,r2
+ 675 0082 5B00     	 lsl r3,r3,#1
+ 676 0084 9B18     	 add r3,r3,r2
+ 677 0086 9B00     	 lsl r3,r3,#2
+ 678 0088 CB18     	 add r3,r1,r3
+ 679 008a 7A68     	 ldr r2,[r7,#4]
+ 680 008c 1A60     	 str r2,[r3]
+ 194:../Libraries/XMCLib/src/xmc_common.c **** 
+ 195:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[previous].next = item;
+ 681              	 .loc 2 195 0
+ 682 008e FB68     	 ldr r3,[r7,#12]
+ 683 0090 5968     	 ldr r1,[r3,#4]
+ 684 0092 3A69     	 ldr r2,[r7,#16]
+ 685 0094 131C     	 mov r3,r2
+ 686 0096 5B00     	 lsl r3,r3,#1
+ 687 0098 9B18     	 add r3,r3,r2
+ 688 009a 9B00     	 lsl r3,r3,#2
+ 689 009c CB18     	 add r3,r1,r3
+ 690 009e BA68     	 ldr r2,[r7,#8]
+ 691 00a0 9A60     	 str r2,[r3,#8]
+ 196:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[next].previous = item;
+ 692              	 .loc 2 196 0
+ 693 00a2 FB68     	 ldr r3,[r7,#12]
+ 694 00a4 5968     	 ldr r1,[r3,#4]
+ 695 00a6 7A69     	 ldr r2,[r7,#20]
+ 696 00a8 131C     	 mov r3,r2
+ 697 00aa 5B00     	 lsl r3,r3,#1
+ 698 00ac 9B18     	 add r3,r3,r2
+ 699 00ae 9B00     	 lsl r3,r3,#2
+ 700 00b0 CB18     	 add r3,r1,r3
+ 701 00b2 BA68     	 ldr r2,[r7,#8]
+ 702 00b4 5A60     	 str r2,[r3,#4]
+ 197:../Libraries/XMCLib/src/xmc_common.c **** }
+ 703              	 .loc 2 197 0
+ 704 00b6 BD46     	 mov sp,r7
+ 705 00b8 06B0     	 add sp,sp,#24
+ 706              	 
+ 707 00ba 80BD     	 pop {r7,pc}
+ 708              	 .cfi_endproc
+ 709              	.LFE46:
+ 711              	 .section .text.XMC_PRIOARRAY_Remove,"ax",%progbits
+ 712              	 .align 2
+ 713              	 .global XMC_PRIOARRAY_Remove
+ 714              	 .code 16
+ 715              	 .thumb_func
+ 717              	XMC_PRIOARRAY_Remove:
+ 718              	.LFB47:
+ 198:../Libraries/XMCLib/src/xmc_common.c **** 
+ 199:../Libraries/XMCLib/src/xmc_common.c **** void XMC_PRIOARRAY_Remove(XMC_PRIOARRAY_t *prioarray, int32_t item)
+ 200:../Libraries/XMCLib/src/xmc_common.c **** {
+ 719              	 .loc 2 200 0
+ 720              	 .cfi_startproc
+ 721 0000 80B5     	 push {r7,lr}
+ 722              	.LCFI33:
+ 723              	 .cfi_def_cfa_offset 8
+ 724              	 .cfi_offset 7,-8
+ 725              	 .cfi_offset 14,-4
+ 726 0002 84B0     	 sub sp,sp,#16
+ 727              	.LCFI34:
+ 728              	 .cfi_def_cfa_offset 24
+ 729 0004 00AF     	 add r7,sp,#0
+ 730              	.LCFI35:
+ 731              	 .cfi_def_cfa_register 7
+ 732 0006 7860     	 str r0,[r7,#4]
+ 733 0008 3960     	 str r1,[r7]
+ 201:../Libraries/XMCLib/src/xmc_common.c ****   int32_t next;
+ 202:../Libraries/XMCLib/src/xmc_common.c ****   int32_t previous;
+ 203:../Libraries/XMCLib/src/xmc_common.c **** 
+ 204:../Libraries/XMCLib/src/xmc_common.c ****   XMC_ASSERT("XMC_PRIOARRAY_Add: item out of range", (item >= 0) && (item < prioarray->size));
+ 205:../Libraries/XMCLib/src/xmc_common.c ****   
+ 206:../Libraries/XMCLib/src/xmc_common.c ****   next = prioarray->items[item].next;
+ 734              	 .loc 2 206 0
+ 735 000a 7B68     	 ldr r3,[r7,#4]
+ 736 000c 5968     	 ldr r1,[r3,#4]
+ 737 000e 3A68     	 ldr r2,[r7]
+ 738 0010 131C     	 mov r3,r2
+ 739 0012 5B00     	 lsl r3,r3,#1
+ 740 0014 9B18     	 add r3,r3,r2
+ 741 0016 9B00     	 lsl r3,r3,#2
+ 742 0018 CB18     	 add r3,r1,r3
+ 743 001a 9B68     	 ldr r3,[r3,#8]
+ 744 001c FB60     	 str r3,[r7,#12]
+ 207:../Libraries/XMCLib/src/xmc_common.c ****   previous = prioarray->items[item].previous;
+ 745              	 .loc 2 207 0
+ 746 001e 7B68     	 ldr r3,[r7,#4]
+ 747 0020 5968     	 ldr r1,[r3,#4]
+ 748 0022 3A68     	 ldr r2,[r7]
+ 749 0024 131C     	 mov r3,r2
+ 750 0026 5B00     	 lsl r3,r3,#1
+ 751 0028 9B18     	 add r3,r3,r2
+ 752 002a 9B00     	 lsl r3,r3,#2
+ 753 002c CB18     	 add r3,r1,r3
+ 754 002e 5B68     	 ldr r3,[r3,#4]
+ 755 0030 BB60     	 str r3,[r7,#8]
+ 208:../Libraries/XMCLib/src/xmc_common.c **** 
+ 209:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[previous].next = next;
+ 756              	 .loc 2 209 0
+ 757 0032 7B68     	 ldr r3,[r7,#4]
+ 758 0034 5968     	 ldr r1,[r3,#4]
+ 759 0036 BA68     	 ldr r2,[r7,#8]
+ 760 0038 131C     	 mov r3,r2
+ 761 003a 5B00     	 lsl r3,r3,#1
+ 762 003c 9B18     	 add r3,r3,r2
+ 763 003e 9B00     	 lsl r3,r3,#2
+ 764 0040 CB18     	 add r3,r1,r3
+ 765 0042 FA68     	 ldr r2,[r7,#12]
+ 766 0044 9A60     	 str r2,[r3,#8]
+ 210:../Libraries/XMCLib/src/xmc_common.c ****   prioarray->items[next].previous = previous;
+ 767              	 .loc 2 210 0
+ 768 0046 7B68     	 ldr r3,[r7,#4]
+ 769 0048 5968     	 ldr r1,[r3,#4]
+ 770 004a FA68     	 ldr r2,[r7,#12]
+ 771 004c 131C     	 mov r3,r2
+ 772 004e 5B00     	 lsl r3,r3,#1
+ 773 0050 9B18     	 add r3,r3,r2
+ 774 0052 9B00     	 lsl r3,r3,#2
+ 775 0054 CB18     	 add r3,r1,r3
+ 776 0056 BA68     	 ldr r2,[r7,#8]
+ 777 0058 5A60     	 str r2,[r3,#4]
+ 211:../Libraries/XMCLib/src/xmc_common.c **** }
+ 778              	 .loc 2 211 0
+ 779 005a BD46     	 mov sp,r7
+ 780 005c 04B0     	 add sp,sp,#16
+ 781              	 
+ 782 005e 80BD     	 pop {r7,pc}
+ 783              	 .cfi_endproc
+ 784              	.LFE47:
+ 786              	 .text
+ 787              	.Letext0:
+ 788              	 .file 3 "c:\\davev4-64bit\\dave-4.2.6\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 789              	 .file 4 "c:\\davev4-64bit\\dave-4.2.6\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 xmc_common.c
+    {standard input}:18     .text.XMC_PRIOARRAY_GetHead:00000000 $t
+    {standard input}:22     .text.XMC_PRIOARRAY_GetHead:00000000 XMC_PRIOARRAY_GetHead
+    {standard input}:60     .text.XMC_PRIOARRAY_GetItemPriority:00000000 $t
+    {standard input}:64     .text.XMC_PRIOARRAY_GetItemPriority:00000000 XMC_PRIOARRAY_GetItemPriority
+    {standard input}:101    .text.XMC_PRIOARRAY_GetItemNext:00000000 $t
+    {standard input}:105    .text.XMC_PRIOARRAY_GetItemNext:00000000 XMC_PRIOARRAY_GetItemNext
+    {standard input}:142    .text.XMC_LIST_Init:00000000 $t
+    {standard input}:147    .text.XMC_LIST_Init:00000000 XMC_LIST_Init
+    {standard input}:177    .text.XMC_LIST_GetHead:00000000 $t
+    {standard input}:182    .text.XMC_LIST_GetHead:00000000 XMC_LIST_GetHead
+    {standard input}:211    .text.XMC_LIST_GetTail:00000000 $t
+    {standard input}:216    .text.XMC_LIST_GetTail:00000000 XMC_LIST_GetTail
+    {standard input}:271    .text.XMC_LIST_Add:00000000 $t
+    {standard input}:276    .text.XMC_LIST_Add:00000000 XMC_LIST_Add
+    {standard input}:327    .text.XMC_LIST_Remove:00000000 $t
+    {standard input}:332    .text.XMC_LIST_Remove:00000000 XMC_LIST_Remove
+    {standard input}:414    .text.XMC_LIST_Insert:00000000 $t
+    {standard input}:419    .text.XMC_LIST_Insert:00000000 XMC_LIST_Insert
+    {standard input}:471    .text.XMC_PRIOARRAY_Init:00000000 $t
+    {standard input}:476    .text.XMC_PRIOARRAY_Init:00000000 XMC_PRIOARRAY_Init
+    {standard input}:581    .text.XMC_PRIOARRAY_Init:000000a4 $d
+    {standard input}:586    .text.XMC_PRIOARRAY_Add:00000000 $t
+    {standard input}:591    .text.XMC_PRIOARRAY_Add:00000000 XMC_PRIOARRAY_Add
+    {standard input}:712    .text.XMC_PRIOARRAY_Remove:00000000 $t
+    {standard input}:717    .text.XMC_PRIOARRAY_Remove:00000000 XMC_PRIOARRAY_Remove
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

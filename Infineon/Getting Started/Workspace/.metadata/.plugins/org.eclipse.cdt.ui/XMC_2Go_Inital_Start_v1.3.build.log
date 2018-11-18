@@ -1,0 +1,11 @@
+13:49:20 **** Incremental Build of configuration Debug for project XMC_2Go_Inital_Start_v1.3 ****
+"\"C:\\DAVEv4-64Bit\\DAVE-4.2.6\\eclipse\\ARM-GCC-49\\bin\\make\"" --output-sync -j12 all 
+'Invoking: ARM-GCC Print Size'
+"C:\DAVEv4-64Bit\DAVE-4.2.6\eclipse\ARM-GCC-49/bin/arm-none-eabi-size"  --format=berkeley "XMC_2Go_Inital_Start_v1.3.elf"
+   text	   data	    bss	    dec	    hex	filename
+   2492	      8	   1056	   3556	    de4	XMC_2Go_Inital_Start_v1.3.elf
+'Finished building: XMC_2Go_Inital_Start_v1.3.siz'
+
+
+13:49:20 Build Finished (took 283ms)
+

@@ -1,0 +1,26 @@
+[X] Step 1: Download all installs
+
+[X] Step 2: Install J-Link
+
+[X] Step 3: Install DAVE
+
+[X] Step 4: Reinstall J-Link (it looks like Step 2 was a newer version, 6.0 vs 5.12)
+
+[X] Step 5: Cold Boot
+
+[X] Steo 6: Plug in USB. Confirm the Green LED is on and the  red LEDs are flashing
+
+[X] Step 7: Validate expected output in PuTTY
+
+Now -> “XMC 2Go – Write your first program Guide”
+
+[X] Step 8: Please download the XMC_2Go_Initial_Start project from:
+
+	XMC 2Go product website (@ www.infineon.com/xmc-dev >> XMC™ 2Go >> Documents)
+	
+[X] Step 9: Launch DAVE... Apply requested updates, took two passes to complete. Restart DAVE. 
+	
+	File->Import->Infineon->DAVE Project, import from project ZIP in Step 8
+	
+	
+
