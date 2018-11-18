@@ -1,0 +1,8 @@
+@brief 		platform opportunities
+@details 	for purchase or evaluation
+@auth 		Justin Reina
+@date 		7/30/18
+
+@section 	Platform Opens
+	Pycom
+
