@@ -1,0 +1,11 @@
+@brief 		Open RedBear Units
+@details 	For consideration
+@auth 		Justin Reina
+@date 		12/2/18
+
+@section 	Units
+	BLE Nano 2
+	DAPLink
+	Proto Board
+	Blend 2
+
