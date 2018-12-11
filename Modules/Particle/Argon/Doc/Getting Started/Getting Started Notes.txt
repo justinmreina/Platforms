@@ -1,0 +1,15 @@
+@brief 		Getting Started Notes
+@details 	x
+@auth 		Justin Reina
+@date 		12/7/18
+
+@section 	Notes
+	Claim Argon & Create new Mesh Network [1]
+	Install App, grab antenna
+	Connect
+	Flash Update if requested by app 
+	Network: Eg-Network
+	Pswd: 
+	
+@section 	Reference
+	1 - https://youtu.be/54kmDEoQSP0
