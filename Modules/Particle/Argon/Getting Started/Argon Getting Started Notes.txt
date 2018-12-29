@@ -1,0 +1,72 @@
+@brief 		Argon Getting Started Notes
+@details 	x
+@auth 		Justin Reina
+@date 		12/27/18
+
+@section 	Quick Start Argon [1]
+	@pre 	Argon, iOS Device, Internet Connection
+	- Use [2]
+	- Disable security features for Wi-Fi access point
+	- Plug in Antenna to WiFi
+	- Plug in USB & confirm blue blink (Listening Mode)
+		*Hold MODE for 3 seconds if not to set (performed)
+	- Enable Phone BT
+	- Open App, Select 'Mesh' for 'Setup a new device' popup
+		*'Argon/Boron/Xenon' is observed selection
+	- Scan Data Matrix (QR-like top code)
+	- Get your Argon ready for setup ('Next')
+		*Confirm it successfully connects
+	- Update if requested
+	- Select 'Use in Mesh Network'
+	- Next (x2)
+	- Login to local Wi-Fi network and allow Argon to connect to Device Cloud
+	- Name device       (e.g. 'TA1')
+	- Name network      (e.g. 'net-TA1')
+	- Generate password (e.g. 'Misc - WC')
+	- Select "I'm Done"
+	
+	- Login to Particle Device Setup [3] and XYZ
+	- Select 'Argon/Boron/Xenon'
+	- Select 'Argon'
+	- Open device in App, verify Device Inspector ('Inspect')
+		*Confirm pin changes are observed to Tinker UI
+			@rslt	Di - Verified, Ai - Inconsistent results
+			@rslt 	Do - Verified, Ao - Verified
+	- Confirm network connection (Hello, IoT World!)
+		*verified
+	
+	- Open the Web IDE, Load 'Blink' example [4]
+	- Select Device (enable star next to device in 'Particle Devices')
+		*my network times out on flash
+
+	@note 	Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it
+	
+	@note 	Next Steps, launch Atom & deploy code over USB
+
+@section 	Programming Options
+	Atom
+	Eclipse
+	Particle Workbench (Visual Studio)
+	...
+	
+@section 	Reference
+	[1] Quick start: Argon
+		https://docs.particle.io/quickstart/argon/
+	[2] Particle 101 - Argon & a new Particle Mesh network
+		https://youtu.be/54kmDEoQSP0
+	[3] Particle Device Setup
+		https://setup.particle.io/
+	[4] Web IDE
+		https://build.particle.io/
+
+
+@section 	Post Reference
+	[A] Argon Quickstart
+		https://docs.particle.io/quickstart/argon/
+	[B] Web IDE
+		https://build.particle.io/
+	[C] Console
+		https://console.particle.io/
+	[D] Reference Docs
+		https://docs.particle.io/reference
+

@@ -1,5 +1,5 @@
 @brief 		Getting Started Notes
-@details 	x
+@details 	Previous Notes (see 'Getting Started\Argon Getting Started Notes.txt'
 @auth 		Justin Reina
 @date 		12/7/18
 
