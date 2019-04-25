@@ -1,11 +1,26 @@
-@brief 		
-@details 	
+@brief 		SWD ICSP connection for STM32
+@details 	Generic SWD interface description
 @auth 		Justin Reina
-@date 		
+@date 		2/28/19
 
-@section 	Reference	
-https://electronics.stackexchange.com/questions/206521/how-to-use-external-st-link-to-debug-program-stm32f103-mcu
+@section 	SWD Pinout	[1]
+	1. VDD
+	2. SWCLK
+	3. GND
+	4. SWDIO
+	5. NRST
+	6. SWO	
 
-@section 	Pinout
-		
+@section 	JTAG Pinout [2]
+	1. VDD
+	9. SWCLK
+	4. GND
+	7. SWDIO
+	15. NRST
+	13. SWO
 
+@section 	Reference
+	1. https://electronics.stackexchange.com/questions/206521/
+	   how-to-use-external-st-link-to-debug-program-stm32f103-mcu
+	2. https://www.segger.com/products/debug-probes/j-link/
+	   technology/interface-description/
