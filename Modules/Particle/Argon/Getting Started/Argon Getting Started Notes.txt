@@ -1,15 +1,17 @@
 @brief 		Argon Getting Started Notes
 @details 	x
 @auth 		Justin Reina
-@date 		12/27/18
+@date 		1/7/9(last: 12/27/18)
 
-@section 	Quick Start Argon [1]
+@section 	Web IDE (Build)
+	@src 	Quick Start Argon [1], Particle 101 [2]
 	@pre 	Argon, iOS Device, Internet Connection
+	- Establish Mobile Hotspot with iPhone (Acts as Wi-Fi AP)
 	- Use [2]
 	- Disable security features for Wi-Fi access point
 	- Plug in Antenna to WiFi
-	- Plug in USB & confirm blue blink (Listening Mode)
-		*Hold MODE for 3 seconds if not to set (performed)
+	- Plug in USB & confirm blue blink (Listening Mode [E])
+		*Hold MODE for 3 seconds if not to set (performed). If sticky, press RESET and retry MODE
 	- Enable Phone BT
 	- Open App, Select 'Mesh' for 'Setup a new device' popup
 		*'Argon/Boron/Xenon' is observed selection
@@ -18,14 +20,14 @@
 		*Confirm it successfully connects
 	- Update if requested
 	- Select 'Use in Mesh Network'
+		'*Leave Current Network' if prompted
 	- Next (x2)
 	- Login to local Wi-Fi network and allow Argon to connect to Device Cloud
 	- Name device       (e.g. 'TA1')
-	- Name network      (e.g. 'net-TA1')
+	- Name network      (e.g. 'net-TA1', 'net-JMR', etc.)
 	- Generate password (e.g. 'Misc - WC')
 	- Select "I'm Done"
-	
-	- Login to Particle Device Setup [3] and XYZ
+	- Login to Particle Device Setup [3]
 	- Select 'Argon/Boron/Xenon'
 	- Select 'Argon'
 	- Open device in App, verify Device Inspector ('Inspect')
@@ -33,20 +35,28 @@
 			@rslt	Di - Verified, Ai - Inconsistent results
 			@rslt 	Do - Verified, Ao - Verified
 	- Confirm network connection (Hello, IoT World!)
-		*verified
-	
+		*verified	
 	- Open the Web IDE, Load 'Blink' example [4]
 	- Select Device (enable star next to device in 'Particle Devices')
-		*my network times out on flash
-
+	- Select 'Flash'
+		"Flash successful! Your device is being updated.."
+		"Ready."
 	@note 	Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it
-	
+	@note 	'led0'/'led0' are D0/D7, only D7 controls LED
 	@note 	Next Steps, launch Atom & deploy code over USB
 
-@section 	Programming Options
-	Atom
-	Eclipse
-	Particle Workbench (Visual Studio)
+	
+@section 	Desktop IDE (Dev) 
+
+
+	
+@section 	Developer Tools
+	Web IDE (Build)
+	Desktop IDE (Dev)
+	Command Line
+	...
+	[?] Eclipse
+	[?] Particle Workbench (Visual Studio)
 	...
 	
 @section 	Reference
@@ -59,7 +69,6 @@
 	[4] Web IDE
 		https://build.particle.io/
 
-
 @section 	Post Reference
 	[A] Argon Quickstart
 		https://docs.particle.io/quickstart/argon/
@@ -69,4 +78,17 @@
 		https://console.particle.io/
 	[D] Reference Docs
 		https://docs.particle.io/reference
+	[E] Standard Modes
+		https://docs.particle.io/tutorials/device-os/led/argon/
 
+@section 	Developer Tools
+	[I] Web IDE (Build)
+		https://docs.particle.io/tutorials/developer-tools/build/
+		argon/
+	[II] Desktop IDE (Dev)
+		https://docs.particle.io/tutorials/developer-tools/dev/
+	[III] Particle Debugging with Eclipse
+		https://docs.particle.io/support/particle-tools-faq/
+		eclipse-debug/
+	[IV] Particle Dev package for Atom
+		https://atom.io/packages/particle-dev
