@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Project</name>
+	<comment />
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<triggers>clean,full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<triggers>full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
+		<nature>fr.ac6.mcu.ide.core.MCUProjectNature</nature>
+	</natures>
+	<linkedResources><link>
+			<name>User/main.c</name>
+			<type>1</type>
+			<location>PARENT-2-PROJECT_LOC/main.c</location>
+		</link><link>
+			<name>User/system_stm32l0xx.c</name>
+			<type>1</type>
+			<location>PARENT-5-PROJECT_LOC/Drivers/CMSIS/Device/ST/STM32L0xx/Source/Templates/system_stm32l0xx.c</location>
+		</link><link>
+			<name>User/ram_functions.c</name>
+			<type>1</type>
+			<location>PARENT-2-PROJECT_LOC/ram_functions.c</location>
+		</link><link>
+			<name>SW4STM32/startup_stm32l053xx.s</name>
+			<type>1</type>
+			<location>PARENT-5-PROJECT_LOC/Drivers/CMSIS/Device/ST/STM32L0xx/Source/Templates/gcc/startup_stm32l053xx.s</location>
+		</link>
+		
+	</linkedResources>
+</projectDescription>

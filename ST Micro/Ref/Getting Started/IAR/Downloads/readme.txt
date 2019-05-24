@@ -1,0 +1,1 @@
+EWSTM8-2202-Autorun.exe gives STM8 support

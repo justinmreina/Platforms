@@ -1,0 +1,11 @@
+@brief 		
+@details 	
+@auth 		Justin Reina
+@date 		
+
+@section 	Reference	
+https://electronics.stackexchange.com/questions/206521/how-to-use-external-st-link-to-debug-program-stm32f103-mcu
+
+@section 	Pinout
+		
+

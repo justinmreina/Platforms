@@ -1,0 +1,11 @@
+@brief 		JTAG Notes
+@details 	x
+@auth 		Justin Reina
+@date 		10/01/18
+	
+@section 	Observed Pinouts
+	Olimexino STM32 - JTAG/SWD
+	SensorTile - SWD
+	Nucleo-64 - JTAG/SWD
+	DiscoveryF0 - SWD
+	DiscoveryL0 - JTAG/SWD

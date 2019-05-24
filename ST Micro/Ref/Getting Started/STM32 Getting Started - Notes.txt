@@ -1,0 +1,88 @@
+@brief 		x
+@details 	x
+@auth 		Justin Reina
+@date 		8/27/18
+
+
+@section 	Procedure
+	Install IDEs (Keil, Atollic, CubeMX)
+	Install IDE Drivers (Keil:STM32F4xx_DFP)
+	Install ST-Link Support (Driver, Utility)
+	
+	Verify KEIL uVision 5 (MDK-ARM from ARMKEIL)
+		@ref http://www2.keil.com/mdk5/install/
+		MDK520.EXE
+	
+		Install packages for the STM32F446RE	
+			Device: ARMCM4
+		Verify it compiles
+	
+//...
+(Working Confirmed)
+
+STM Nuclep F446RE
+	Open Keil, connect USB
+	Load Blinky Example (F446RE)
+	Start Debug Sessiong (F5)
+	
+///...
+
+@date 		8/23/18
+
+@section 	Reference
+	Atollic Ref Man		   [A] (Atollic TrueSTUDIO for STM32 - Quick Start)
+	ST Ref Man			   [S] (UM1727 User Manual - Getting started Nucleo)
+	Nucleo Getting Started [N] (en.DM00105928)
+
+@section 	IDE Options
+	Atollic TrueSTUDIO	[T]
+	STM CubeMX			[C]
+	ARM mbed			[M]
+	...
+	KEIL				[K]
+
+@section 	ICSP Options
+	Onboard ST-LINK v2	[O]
+	External ST-LINK v2 [E]
+
+//...
+
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&sqi=2&ved=0ahUKEwjUgKD00YrOAhVT2GMKHZEICW0QFggcMAA&url=http%3A%2F%2Fwww.st.com%2Fresource%2Fen%2Fuser_manual%2Fdm00105928.pdf&usg=AFQjCNG08Eu6ibTS76SMN5dENtb-KzS2lw&sig2=a4XzhYksrgqV5O7D8NPWvw&bvm=bv.127984354,d.cGc&cad=rja
+
+Board: Nucleo-64 (NUCLEO-F446RE) (STM32F446RE) (M4)
+
+IDE: KEIL uVision 4
+
+[X] Step 0. Install KEIL uVision 4
+
+	MDK-ARM from ARMKEIL
+
+		install instructions - http://www2.keil.com/mdk5/install/
+	
+		MDK520.EXE
+	
+		Install packages for the STM32F446RE
+		
+		Verify it compiles
+
+[X] Step 1. Install ST-Link
+
+	'ST-LINKV2 driver - en.stsw-link009\dpinst_amd64.exe'
+		
+	Plug in Nucleo-64 board into USB
+	
+	Validate Device Manager sees it under Ports with valid driver installed
+	
+[ ] Step 2.  Browse Firmware Packages
+	
+	Download STM32Cube_FW_F4_V1.12.0
+	
+	Browse to and open STM32Cube_FW_F4_V1.12.0\Projects\STM32446E-Nucleo\
+	Examples\GPIO\GPIO_IOToggle\MDK-ARM\
+	Project.uvprojx
+	
+	Project->Build Target
+	
+	Debug->Start/Stop Debug Session
+	
+	Step through code and validate the toggle
