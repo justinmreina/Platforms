@@ -1,0 +1,29 @@
+@brief 		Particle Mesh Flash Procedure
+@details 	Restoring stock firmware to Mesh Board
+@auth 		Justin Reina
+@date 		5/22/19
+
+@section 	Manual Firmware Update Procedure [1]
+	Install the Particle CLI
+	Download the hybrid .bin file for your device [2]
+		*hybrid-0.9.0-boron.bin, hybrid-0.9.0-argon
+	Plug in Device
+		DFU Mode [3]
+	Flash the code
+		"particle flash --usb hybrid-0.9.0-boron.bin" [4]
+	Web IDE Test
+		Unplug and pl
+
+@section 	Reference
+	1. How do I upgrade my firmware?
+	https://docs.particle.io/support/troubleshooting/firmware-upgrades/
+	boron/
+
+	2. Release v0.9.0 (Gen 3)
+	https://github.com/particle-iot/device-os/releases/tag/v0.9.0
+	
+	3. DFU Mode (Device Firmware Upgrade)
+	https://docs.particle.io/tutorials/device-os/led/
+	#dfu-mode-device-firmware-upgrade-
+	
+	4. 'Firmware Flash - Console.png'

@@ -1,0 +1,36 @@
+@brief 		Particle Boron - Getting Started
+@details 	x
+@auth 		Justin Reina
+@date 		4/24/19
+
+@section 	Notes
+	To set up the device you'll need an Android or iOS mobile phone and a connection to the internet
+
+	Boron COM21
+
+	SIM activated today for 3-month subscription
+
+	Connected external BT antenna
+	
+	
+@section 	Debug Procedure
+	@url 	https://docs.particle.io/quickstart/boron/
+	Unplugged
+	To breadboard
+	Plug in cellular antenna
+	Plug in USB
+		cyan then green blink
+		COM21 ("Boron")
+	Hold mode 3 seconds
+		blue blink
+	Enable iPhone Bluetooth
+	Open App, select '+', 'Argon/Boron/Xenon', 'Scan'
+	"I have attached", 'Next'
+	"Pairing with your Boron", "Congrats! You've successfully paired Boron-3F7RCB"
+	Updated Firmware on request
+	"Use in Mesh Network"
+	"Enroll in Subscription", "Connect to Device Cloud"
+-> "Connecting to the internet via cellular"
+*42 seconds connecting
+*USB Disconnect & Reconnect noises repeatedly
+*"Error: The Bluetooth connection was dropped unexpectedly. Please restart the set up and try again"

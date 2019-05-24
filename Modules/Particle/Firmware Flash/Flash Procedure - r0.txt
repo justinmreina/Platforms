@@ -1,0 +1,27 @@
+@brief 		Particle Mesh Flash Procedure
+@details 	Using DFU Uil
+@auth 		Justin Reina
+@date 		4/26/19
+
+@section 	Procedure
+	Plug in device USB
+	Enter DFU Mode (Both, release reset)
+		-> Flash yellow
+	DFU Check: "dfu-util -l"
+		e.g. (for a Boron of ID:#e00fce681ce44af1b7e3f553)
+		"Found DFU: [2b04:d00d] ver=0251, devnum=50, cfg=1, intf=0, alt=2, name="@External Flash   /0x80000000/1024*004Kg", serial="e00fce681ce44af1b7e3f553"
+		 Found DFU: [2b04:d00d] ver=0251, devnum=50, cfg=1, intf=0, alt=1, name="@DCD Flash   /0x00000000/1*016Ke", serial="e00fce681ce44af1b7e3f553"
+		 Found DFU: [2b04:d00d] ver=0251, devnum=50, cfg=1, intf=0, alt=0, name="@Internal Flash   /0x00000000/1*004Ka,47*004Kg,192*004Kg,4*004Kg,4*004Kg,8*004Ka", serial="e00fce681ce44af1b7e3f553"
+		"
+	Reset to DFU Mode (if needed)
+	Open Command Prompt to 'D:\someDir'
+	Copy target firmware to 'D:\someDir'
+		e.g. "hybrid-0.9.0-boron.bin" to "D:\Downloads"
+	Flash "D:\Downloads>particle flash --usb hybrid-0.9.0-boron.bin"
+		about 20 sec
+	
+@section 	Reference
+	1. How do I upgrade my firmware?
+		https://docs.particle.io/support/troubleshooting/firmware-upgrades/boron/
+	2. Installing dfu-util
+		https://docs.particle.io/support/particle-tools-faq/installing-dfu-util/
