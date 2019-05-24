@@ -1,0 +1,8 @@
+@brief 		Out of Box Notes
+@details 	x
+@auth 		Justin Reina
+@date 		5/9/19
+
+@section 	Notes
+	App is retired
+
