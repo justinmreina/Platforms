@@ -1,0 +1,193 @@
+@brief 		using the ESP32 in ESP-IDF for development & debug
+@author 	Justin Reina
+@date		7/18/17
+
+@ref		http://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html
+
+@section 	Linux (using Ubuntu)
+	
+	- Install Prerequisites
+		sudo apt-get install git wget make libncurses-dev flex bison gperf python python-serial
+
+	- Toolchain Setup
+		Download this file:
+			https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-61-gab8375a-5.2.0.tar.gz
+
+		1. Extract it in ~/esp directory:
+			mkdir -p ~/esp
+			cd ~/esp
+			tar -xzf ~/Downloads/xtensa-esp32-elf-linux64-1.22.0-61-gab8375a-5.2.0.tar.gz
+
+		2. The toolchain will be extracted into ~/esp/xtensa-esp32-elf/ directory.
+			~/.profile additions:
+				export PATH=$PATH:$HOME/esp/xtensa-esp32-elf/bin
+				alias get_esp32="export PATH=$PATH:$HOME/esp/xtensa-esp32-elf/bin"
+				export IDF_PATH=~/esp/esp-idf
+		3. Log off and log back in
+			printenv PATH
+	
+	- Get ESP-IDF
+		cd ~/esp
+		git clone --recursive https://github.com/espressif/esp-idf.git
+		cd ~/esp/esp-idf
+		git submodule update --init (no mods applied when applied, but they request)
+			
+	- Hello World
+		@src esp-idf/examples/get-started/hello_world
+		
+		Copy get-started/hello_world to ~/esp directory:
+			cd ~/esp
+			cp -r $IDF_PATH/examples/get-started/hello_world
+		Configure
+			cd ~/esp/hello_world
+			make menuconfig			<- sdkconfig file saved on completion
+
+	- Connect Device
+		connect usb
+		assign USB device to active VB 	(Devices->USB)
+		dmesg | grep tty 				('ttyUSB0')
+	
+	- Add User to dialout group (for serial port access)
+		sudo adduser jmreina dialout
+		log out, log back in
+		
+	- Build and Flash
+		make flash
+		
+	- Inspect Serial Output
+		make monitor		<- Exit with CTRL+]
+		
+@section 	Build & Flash in Eclipse
+	@ref 	http://esp-idf.readthedocs.io/en/latest/get-started/eclipse-setup.html
+	
+	@cmd 	git clone --recursive https://github.com/espressif/esp-idf-template
+	
+	- Download & Install esp-idf & eclipse (w/cdt, manual html download no apt-get)
+	
+	- Grab & store template (https://github.com/espressif/esp-idf-template)
+	
+	- Import Template to workspace by copy
+		Copy Project manually to workspace
+		Rename to esp-idf-template-ref
+		File->Import->Existing Code as Makefile Project
+			loc: ~/Documents/MyWorkspaces/Espressif/esp-idf-template
+			comp: Cross    GCC
+			Copy Projects: T
+		BATCH_BUILD=1
+		IDF_PATH=Full ESP-IDF path
+		Add xtensa/bin to $PATH
+	
+		make menuconfig
+	
+	- Add Flash Option
+	
+		R.C. Project->Make Targets -> Create (may say "Build Targets")
+		Target Name: 'flash'
+		
+		R.C. Project->Make Targets->Build('flash')
+
+@section 	JTAG Setup 
+	@src 	jtag_debugging_for_esp32_en.pdf v1.0 Sec 3
+	
+	3.2. Install OpenOCD
+		cd ~/esp
+		git clone https://github.com/espressif/openocd-esp32.git
+		cd openocd-esp32
+		git submodule init
+		git submodule update
+		...
+		sudo apt-get install make
+		sudo apt-get install libtool
+		sudo apt-get install pkg-config
+		sudo apt-get install autoconf
+		sudo apt-get install automake
+		sudo apt-get install texinfo
+		sudo apt-get install libusb-1.0
+		(or)
+		sudo apt-get install make libtool pkg-config autoconf automake texinfo libusb-1.0
+		...
+		./bootstrap
+		./configure
+		make
+	
+	3.2.dbg hello_world test
+		//Bring over cfg file template
+		cp ~/esp/esp-idf/docs/api-guides/esp32.cfg ~/esp/openocd-esp32
+
+		//Copy over hello world
+		cp ~/esp/esp-idf/examples/get-started/hello_world ~/esp -r
+		
+		cd 
+		
+	
+	3.3. Set up Environment for gdb
+		1. Connect JTAG to ESP32 and to the PC. @note see JTAG Connnection for instr
+	
+		Install & Use Minicom
+			sudo apt-get install minicom
+			sudo minicom -s
+			Select “Serial port setup”
+			minicom
+			
+		Make sure there are programs running in the flash of ESP32
+			'hello_world' selected
+		
+		Prep OpenOCD
+			copy esp-idf/docs/api-guides/esp32.cfg to openocd-esp32 dir
+			
+@section 	JTAG Connection
+	@ref 	https://visualgdb.com/tutorials/esp32/
+	@dbg 	Segger J-Link Edu
+	@tgt 	Espressif DevKitC
+
+	@pinout
+		Sig 	MCU-Pin 	DevKitC 	MCU-Pin#	JTAG-Hdr
+		+3.3V	37,19		J2.1		37,29		P1
+		Reset	EN			J2.2		9			P3
+		GND		Pad			J2.14/J3.1	Pad			P4
+		MTDI	GPIO12		J2.13		18			P5
+		MTMS	GPIO14		J2.12		17			P7
+		MTCK	GPIO13		J2.15		20			P9
+		MTDO	GPIO15		J3.16		21			P13
+		@note 	see GoJimmyPi Pinout of Dev Board for MCU-Pin mapping
+
+		
+@section 	JTAG Debugging Notes
+	@ref 	'jtag_debugging_for_esp32_en.pdf' - v1.0
+	
+	Espressif has ported OpenOCD to support the ESP32 processor and the multicore FreeRTOS, which will be the foundation of most ESP32 apps, and has written some tools to help with features OpenOCD does not support natively
+	
+	Espressif HW Selection Notes
+	- TIAO & Flyswatter2 work with good throughput
+	- J-Link & EasyOpenJTAG also tested but slower
+	
+	- minimal signaling to get a working JTAG connection are TDI, TDO, TCK, TMS and
+	  GND
+	
+	Justin's available options
+	- Segger J-Link Edu
+	
+	*Think about purchase of 
+		OCD-H - $65
+		TIAO - $30
+		Flyswatter2 - $90 new, $40 used
+		EasyOpenJTAG - $32
+	
+	*Test J-Link first, eval speeds
+	
+	*Listed by ./configure
+	OpenOCD configuration summary
+		MPSSE mode of FTDI based devices        yes (auto)
+		Segger J-Link JTAG Programmer           yes (auto)
+		ST-Link JTAG Programmer                 yes (auto)
+		TI ICDI JTAG Programmer                 yes (auto)
+		Keil ULINK JTAG Programmer              yes (auto)
+		Altera USB-Blaster II Compatible        yes (auto)
+		Versaloon-Link JTAG Programmer          yes (auto)
+		OSBDM (JTAG only) Programmer            yes (auto)
+		eStick/opendous JTAG Programmer         yes (auto)
+		Andes JTAG Programmer                   yes (auto)
+		USBProg JTAG Programmer                 no
+		Raisonance RLink JTAG Programmer        no
+		Olimex ARM-JTAG-EW Programmer           no
+		CMSIS-DAP Compliant Debugger            no

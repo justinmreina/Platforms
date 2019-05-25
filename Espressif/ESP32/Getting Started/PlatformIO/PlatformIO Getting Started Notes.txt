@@ -1,0 +1,16 @@
+@brief 		using the ESP32 in PlatformIO for development & debug
+@author 	Justin Reina
+@date		7/10/17
+
+@section 	Windows
+	
+
+@section 	Lubuntu
+
+
+@section 	Test Procedure
+	
+@section 	Board for Example
+	@board 	Adafruit HUZZAH ESP32
+	@url	https://learn.adafruit.com/adafruit-huzzah32-esp32-feather
+

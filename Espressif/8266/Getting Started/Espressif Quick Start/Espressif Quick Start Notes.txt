@@ -1,0 +1,57 @@
+1. Open Quick Start Guide
+	@src	"ESP8266 Quick Start Guide" - esp8266_quick_start_guide_en.pdf
+	@ref	http://iot-bits.com/articles/building-examples-
+			in-esp8266-non-os-sdk-v-2-0-0/
+	@goal	bin compilation from single project
+
+2. Download Virtualbox, lubuntu OVA
+
+3. Open VirtualBox, make new VB using OVA
+
+4. Create new VM dir
+	D:\Documents\MyVirtualBoxes\
+
+5. Import Appliance
+	ESP8266_lubuntu_20141021.ova
+	Std Appliance Settings no mods
+	'Import'
+	Src Ctrl
+
+6. Gen Shared Dir
+	Create D:\VM\share
+	Copy in ESP8266_NONOS_SDK-2.1.0.zip, ESP8266_RTOS_SDK-master.zip
+	Gen misc. file in both
+
+7. Open Appliance
+	Double click to run
+
+8. Run LXTerminal
+	Run ./mount.sh
+	Open shared dir & confirm files
+
+9. Extract NONOS-SDK
+	to /home/esp8266/Share/ESP8266_NONOS_SDK-2.1.0
+	Src Ctrl
+	Copy examples/at to ../
+	Src Ctrl
+
+10. Compile Code for NON-OS SDK (/at, not examples/at)
+	run ./gen_misc.sh
+	STEP 1: 1 - boot_v1.2+
+	STEP 2: 1 - user1.bin
+	STEP 3: 2 - 40 MHz
+	STEP 4: 0 - QIO
+	STEP 5: 5 - 2048KB
+	
+11. (misc) Increase screen resolution
+		*View->Virtual Screen 1->Resize to 1920x1200
+	
+	
+Opens
+	Upgrade Ubuntu
+	Change the shared dir to local dir (do after it's working, tricky and non-trivial)
+	Add & Update Guest Additions
+	Full-size screen
+	Dual Monitor
+	
+	

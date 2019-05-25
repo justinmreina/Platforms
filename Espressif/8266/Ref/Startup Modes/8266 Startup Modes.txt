@@ -1,0 +1,9 @@
+Startup Modes		0/2/15
+
+	UART Download	0/1/0
+	
+	Flash Startup	1/1/0
+	
+	SD-Card Boot	0/0/1
+	
+	There are a number of bootloader modes, depending on GPIO pin state

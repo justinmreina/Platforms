@@ -1,0 +1,76 @@
+jmreina@jmreina-ubuntu:~/openocd-esp32$ ./src/openocd -s tcl -f interface/jlink.cfg -f board/esp-wroom-32.cfg
+Open On-Chip Debugger 0.10.0-dev-gb5ec731 (2017-07-21-19:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+adapter speed: 20 kHz
+force hard breakpoints
+Info : No device selected, using first device.
+Info : J-Link V9 compiled Dec 16 2016 15:34:10
+Info : Hardware version: 9.40
+Info : VTarget = 0.000 V
+Info : clock speed 20 kHz
+Info : TAP esp32.cpu0 does not have IDCODE
+Info : TAP esp32.cpu1 does not have IDCODE
+Info : TAP auto0.tap does not have IDCODE
+Info : TAP auto1.tap does not have IDCODE
+Info : TAP auto2.tap does not have IDCODE
+Info : TAP auto3.tap does not have IDCODE
+Info : TAP auto4.tap does not have IDCODE
+Info : TAP auto5.tap does not have IDCODE
+Info : TAP auto6.tap does not have IDCODE
+Info : TAP auto7.tap does not have IDCODE
+Info : TAP auto8.tap does not have IDCODE
+Info : TAP auto9.tap does not have IDCODE
+Info : TAP auto10.tap does not have IDCODE
+Info : TAP auto11.tap does not have IDCODE
+Info : TAP auto12.tap does not have IDCODE
+Info : TAP auto13.tap does not have IDCODE
+Info : TAP auto14.tap does not have IDCODE
+Info : TAP auto15.tap does not have IDCODE
+Info : TAP auto16.tap does not have IDCODE
+Info : TAP auto17.tap does not have IDCODE
+Info : TAP auto18.tap does not have IDCODE
+Warn : Unexpected idcode after end of chain: 21 0x00000000
+Warn : Unexpected idcode after end of chain: 53 0x00000000
+Warn : Unexpected idcode after end of chain: 85 0x00000000
+Warn : Unexpected idcode after end of chain: 117 0x00000000
+Warn : Unexpected idcode after end of chain: 149 0x00000000
+Warn : Unexpected idcode after end of chain: 181 0x00000000
+Warn : Unexpected idcode after end of chain: 213 0x00000000
+Warn : Unexpected idcode after end of chain: 245 0x00000000
+Warn : Unexpected idcode after end of chain: 277 0x00000000
+Warn : Unexpected idcode after end of chain: 309 0x00000000
+Warn : Unexpected idcode after end of chain: 341 0x00000000
+Warn : Unexpected idcode after end of chain: 373 0x00000000
+Warn : Unexpected idcode after end of chain: 405 0x00000000
+Warn : Unexpected idcode after end of chain: 437 0x00000000
+Warn : Unexpected idcode after end of chain: 469 0x80000000
+Error: double-check your JTAG setup (interface, speed, ...)
+Error: Trying to use configured scan chain anyway...
+Error: esp32.cpu0: IR capture error; saw 0x1f not 0x01
+Warn : Bypassing JTAG setup events due to errors
+Info : esp32: Debug controller was reset (pwrstat=0xFF, after clear 0xFF).
+Info : esp32: Core was reset (pwrstat=0xFF, after clear 0xFF).
+Error: cpu0: esp32_fetch_all_regs (line 163): DSR (FFFFFFFF) indicates target still busy!
+Error: cpu0: esp32_fetch_all_regs (line 163): DSR (FFFFFFFF) indicates DIR instruction generated an exception!
+Error: cpu0: esp32_fetch_all_regs (line 163): DSR (FFFFFFFF) indicates DIR instruction generated an overrun!
+Error: cpu0: esp32_fetch_all_regs (line 190): DSR (FFFFFFFF) indicates target still busy!
+Error: cpu0: esp32_fetch_all_regs (line 190): DSR (FFFFFFFF) indicates DIR instruction generated an exception!
+Error: cpu0: esp32_fetch_all_regs (line 190): DSR (FFFFFFFF) indicates DIR instruction generated an overrun!
+Error: Exception reading pc!
+
+Info : Target halted. PRO_CPU: PC=0x00000000             APP_CPU: PC=0x00000000 (active)
+Error: cpu0: xtensa_write_memory (line 696): DSR (FFFFFFFF) indicates target still busy!
+Error: cpu0: xtensa_write_memory (line 696): DSR (FFFFFFFF) indicates DIR instruction generated an exception!
+Error: cpu0: xtensa_write_memory (line 696): DSR (FFFFFFFF) indicates DIR instruction generated an overrun!
+Warn : esp32: Failed writing 4 bytes at address 0x3FF5F064, data - a1, 3a, d8, 50, a1, 3a, d8, 50
+embedded:startup.tcl:21: Error: 
+in procedure 'init' 
+in procedure 'ocd_bouncer' 
+in procedure 'flash' 
+in procedure 'ocd_bouncer' 
+in procedure 'esp_core_halt' 
+in procedure 'esp32' called at file "tcl/target/esp32.cfg", line 37
+in procedure 'ocd_bouncer' 
+at file "embedded:startup.tcl", line 21

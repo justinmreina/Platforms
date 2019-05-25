@@ -1,0 +1,106 @@
+@brief 		using the ESP32 in Arduino for development & debug
+@author 	Justin Reina
+@date		7/9/17
+
+@section 	Windows
+	- Do a fresh install of Arduino (Justin had amazing & confusing errors before doing this. after doing this, it all just magically began working...)
+	
+	- You will need to install drivers for USB to working
+	@url 	http://www.silabs.com/products/development-tools/software/usb-to-uart-bridg
+			e-vcp-drivers
+	
+	- Re-install using their recommended procedure
+	@url 	https://github.com/espressif/arduino-esp32#using-through-arduino-ide
+			https://github.com/espressif/arduino-esp32/blob/master/doc/windows.md
+
+	- Download and install the latest Arduino IDE Windows Installer from arduino.cc
+	@url 	https://www.arduino.cc/en/Main/Software
+	@file	arduino-1.8.3-windows.exe
+
+	- Download and install Git from git-scm.com
+	@file 	Git-2.13.2-64-bit.exe
+
+	- run esp32/tools/get.exe as admin
+
+	- follow rest of directions, validate compile!
+	
+
+@section 	Lubuntu
+	- Open VM (Lubuntu-r0)
+
+	- Install Linux 64-bit using their recommended procedure
+	@url 	https://github.com/espressif/arduino-esp32#using-through-arduino-ide
+		arduino-1.8.3-linux64.tar
+
+	- Not able to add board to Arduino in Linux, not sure why
+
+
+@section 	Test Procedure
+	Successfully complete the OS section listing above
+	
+	Plug your board, validate in Device Manager (Port: SiLabs CP210x USB->UART)
+	
+	Open Arduino with esp32_gpio.ino (see Examples/esp32_gpio)
+	
+	Verify & Compile Sketch
+	
+	Select Target (Board:see below, Port: as listed)
+		[0] - 'Adafruit ESP32 Feather'
+		[1] - 'Adafruit ESP32 Feather'
+		[2] - 'ESP32 Dev Module'
+	
+	Set Upload Speed (921600 recommended)
+	
+	Close Serial Terminal (safety, sometimes causes error)
+	
+	Upload (while holding 'reset', SOMETIMES... try initially w/out, see if successfully deploys)
+
+
+@section 	Test Results
+	tested boards -
+		*[1] Adafruit Feather ESP32 (jmr)
+		*[2] Adafruit Feather ESP32 (erg)
+		*[3] Espressif ESP32-DevKitC
+		*[4] Espressif ESP-WROVER-KIT		(apply Vcc, P7 selection)	
+			
+	results
+	[1] - Working
+	[2] - Working
+	[3] - Working
+	[4] - Skip (possible with effort)
+		@ref 	https://www.esp32.com/viewtopic.php?f=19&t=2030&p=10738&hilit=wrover+
+				arduino#p10738
+		
+@section 	Board for Example
+	@board 	Adafruit HUZZAH ESP32
+	@url	https://learn.adafruit.com/adafruit-huzzah32-esp32-feather
+	
+	Board Components
+		- WROOM32
+		- USB-Serial converter
+		- Automatic Bootloader reset 		(Q: Where & what?)
+		- LiPo charger
+		- All GPIO brought out
+		
+	Benefits of ESP32 over 8266
+		- multiple HW breakpoints
+		- more Ai
+		- two Ao
+		- many more peripherals (e.g. extra UART)
+		- very full featured
+		
+	Please note
+		- The ESP32 is still targeted to developers
+		- Not all of the peripherals are fully documented with example code, and there are some bugs still being found and fixed
+		- We got all of our Featherwings working under Arduino but other elements are still under development (yikes!!)
+	
+	Comes fully assembled and tested
+		with a USB interface that lets you quickly use it with the Arduino IDE
+		or the low-level ESP32 IDF
+		
+		also some headers so you can solder it in and plug into a solderless breadboard
+
+	Lipoly battery and USB cable not included
+
+	Disable U2 VREG by tying EN to Ground
+

@@ -1,0 +1,11 @@
+@section 	Current Status
+	JTAG SW Connects
+	J-Link Connects
+	ESP32 fails to connect
+
+@section 	Next Steps
+	Try other boards
+	Research JTAG howto's online
+	Connect Correct
+	Retry!
+	

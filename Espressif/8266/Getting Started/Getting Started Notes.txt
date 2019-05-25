@@ -1,0 +1,70 @@
+- Follow the Espressif Quick Start, validate code compilation with NON-OS
+	@ref 	Espressif Quick Start Notes.txt
+	@src 	esp8266_quick_start_guide_en.pdf 
+
+	validate compilation of non-os sdk at/ project to .bin
+	Src Ctrl
+
+	
+	
+	
+
+//<FUCK>
+- Follow the Espressif Quick Start, validate code compilation with NON-OS
+	@ref 	Espressif Quick Start Notes.txt
+	@src 	esp8266_quick_start_guide_en.pdf 
+
+	validate compilation of non-os sdk at/ project to .bin
+	Src Ctrl
+
+- Full-screen
+	@ref 	https://ubuntuforums.org/showthread.php?t=1112186
+	@ref 	https://ubuntuforums.org/showthread.php?t=1966900
+
+	gtf 2560 1440 60.0
+		"2560x1440_60.00"  311.83  2560 2744 3024 3488  1440 1441 1444 1490  -HSync +Vsync
+	xrandr --newmode "2560x1440_60.00"  311.83  2560 2744 3024 3488  1440 1441 1444 1490 -hsync +vsync
+	xrandr --addmode VBOX0 "2560x1440_60.00"
+	xrandr --output VBOX0 --mode "2560x1440_60.00"
+	Video Memory to max
+	Reboot
+	Set Virtualbox to Fullscreen mode
+
+- Install Eclipse, make fullscreen
+	sudo apt-get update
+	sudo apt-get install default-jre
+	sudo apt-get install eclipse
+	add C/C++ packages
+	Src Ctrl								(3 min git add step, large files)
+
+- Upgrades
+	notepadqq install 	(set as default Text Editor)
+	Install Guest Additions
+	Dual Monitor (reboot to switch out of cloned displays)
+	
+	apt-get upgrade (Ubuntu 16.04)
+	
+- Compile Hello World from Eclipse
+	import NON-OS SDK (at/ as empty?)
+
+Next Steps
+	Compile Gen App in Eclipse
+	Deploy Gen App in Eclipse
+	Compile Pin Toggle App
+	Deploy Pin Toggle App
+
+- Use GDB to deploy code via Eclipse
+	ESP-gdbstub?
+	
+	
+	
+Opens
+	Compile Code
+	Deploy Code
+	Validate Pin Toggle
+	Debug Code
+	Upgrade Ubuntu
+	Move share dir to local (do after it's working, tricky and non-trivial)
+	Add & Update Guest Additions
+	Dual Monitor
+	

@@ -1,0 +1,22 @@
+@brief 		options for getting started with ESP32 development
+
+@section 	Options
+		Arduino (Windows working, Linux not working)
+		PlatformIO (Windows tbd, Linux not working)
+			Trying Atom at first
+		Eclipse
+
+@section 	Next Steps
+		Arduino
+		PlatformIO
+		ESP32SDK
+		make
+		Eclipse
+
+		
+@section 	Opens
+	Establish WROVER dev with Arduino
+	Establish Arduino dev on Linux
+	
+	Win Dev! (http://esp-idf.readthedocs.io/en/latest/get-started/index.html#get-started-
+			  setup-toochain)

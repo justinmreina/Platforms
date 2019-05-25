@@ -1,0 +1,50 @@
+@section 	Espressif Listing
+	- IEEE 802.11 b/g/n HT40 Wi-Fi radio
+	- Bluetooth LE radio
+	- Dual-core design
+	- Dual FPU
+	- Hardware PWM (ESP32 PWM Tutorial)
+	- 32x GPIO
+	- Timers
+	- Low Power Memory
+	- MPU (Memory Protection Unit)
+	- 4096-bit RSA Accelerator
+	- ECC Accelerator
+	- Flash Encryption
+	- Secure Boot
+	- 1024-bit OPT Memory
+	- Capacitive Touch Sensor
+	- Hall Sensor
+	- 2x 12-Channel ADC
+	- 2x 10-bit DAC
+	- 2x I2S
+	- 3x SPI (ESP32 PI Tutorial)
+	- 3x I2C
+	- SD/MMC Interface Controller
+	- Calibrated Slow Clocks
+	- RTC
+
+
+@section 	Jmr Listing (Summary to share)
+	- Wi-Fi
+	- BLE
+	- FPU
+	- PWM
+	- GPIO
+	- Timers
+	- MPU (Memory Protection Unit)
+	- 4096-bit RSA Accelerator
+	- ECC Accelerator
+	- Flash Encryption
+	- Secure Boot
+	- 1024-bit OPT Memory
+	- Capacitive Touch Sensor
+	- Hall Sensor
+	- ADC
+	- DAC
+	- I2S
+	- SPI (ESP32 PI Tutorial)
+	- I2C
+	- SD/MMC Interface Controller
+	- Calibrated Slow Clocks
+	- RTC

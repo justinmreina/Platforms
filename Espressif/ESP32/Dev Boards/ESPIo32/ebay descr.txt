@@ -1,0 +1,35 @@
+esp8266,esp82825,esp32,esp-wroom-32,esp32s,espressif, esp-32bit
+ pinout diagram
+ 
+Description:
+ESPio32 is a compact wifi and bluetooth development board based on the ESP32 wifi bluetooth dual core SoC from Espressif. It features a CP2102 USB UART bridge, auto reset and programming circuit, reset and programming side button and a white user LED (IO5). RTC crystal has been added so no external RTC module is required, VP VN capacitors are implemented so IO34 and IO35 are ready for capacitive touch usage. Onboard LDO 3.3V voltage regulator, ESD protection diode.
+
+Main chip:Espressif ESP32D0WQ dual core 240MHz
+USB UART : CP2102
+Flash size : 4MByte (W25Q32FVSS) 
+Side buttons for reset and prog
+RTC crystal included, no need for external RTC module
+Solder jumper selectable flash power supply source (3.3V-default or IC).
+Onboard MIC5219 3.3V LDO regulator
+Onboard auto-reset and programming circuit
+Fully compatible with Arduino IDE
+
+
+Datasheet CP2102 (USB to UART)
+https://www.silabs.com/documents/public/data-sheets/CP2102-9.pdf
+
+Datasheet MIC5219 (Voltage regulator)
+http://ww1.microchip.com/downloads/en/devicedoc/mic5219.pdf
+
+Datasheet W25Q32FV (Flash)
+https://www.winbond.com/resource-files/w25q32fv%20revi%2010202015.pdf
+
+Datasheet ESP32‑D0WD
+https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
+
+Package Includes:
+ 
+1 X ESPio32 ESP32 development board
+ 
+1x Tracking number.
+

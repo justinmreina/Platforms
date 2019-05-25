@@ -1,0 +1,57 @@
+//------------------------------------------------------------------------------------//
+@title 	China’s Espressif Finds Low-Cost Wi-Fi Chip Niche
+@url 	http://electronics360.globalspec.com/article/6886/china-s-espressif-
+		finds-low-cost-wi-fi-chip-niche
+@date 	6/17/16
+
+- 
+Consumer Electronics
+China’s Espressif Finds Low-Cost Wi-Fi Chip Niche
+Russ Arensman
+17 June 2016
+
+- Two years ago, Shanghai-based Espressif Systems was a struggling Chinese fabless semiconductor company best known for designing chips for other clients.
+
+- Espressif’s fortunes improved significantly however, after the August, 2014 launch of its ESP8266 SOC. They have sold millions of these low-cost wi-fi networking chips, while attracting a devoted following among hobbyists and hackers
+
+- Meantime, Espressif’s workforce has expanded from 20 to about 100, and it's engineers are putting the finishing touches on another, more powerful, wireless SOC – the ESP32
+
+- The ESP8266 is essentially a low-power mcu that allows users to add 802.11BGN to a wide array of electronic devices
+
+	*has won praise for its performance and easy programming
+	*What really caught attention was price, as low as $1 each in moderate quantities
+	
+- But what really caught users’ attention was the chip’s price-- as low as $1 each in moderate quantities. That has allowed circuit board makers to build and sell ready-to-use ESP8266-based wi-fi modules for as little as $5 – far less than the $10, $20 and even higher prices of modules from competitors such as Broadcom, Particle, Qualcomm and Texas Instruments
+	*Key - $5 vs. $10-$20
+	*“Nothing else comes even close to this pricing”
+	
+- "The ESP8266 has gotten quite a big following in the Arduino world,” Goins said. “It doesn’t take an EE degree anymore to do this stuff"
+
+- 20M 8266's sold in 2014, 50M quotes for 2015
+
+- worldwide wireless networking chip market, which IHS Research estimates was worth $7.7 billion in 2015
+
+- Even if only wi-fi enabled IoT devices are considered, and Espressif sold 50 million chips to just that market, its shipments would have been less than 2 percent of the 3.04 billion IoT wi-fi chips that IHS says were shipped in 2015
+	*2% of market
+
+- Espressif is currently successful primarily in Chinese markets, low current penetration in US markets
+
+- the ESP32 offers faster Wi-Fi, two varieties of Bluetooth, more memory and hundreds of other improvements
+
+
+@title 	Internet-enable your microcontroller projects for under $6 with ESP8266
+@url 	https://opensource.com/article/17/2/internet-microcontroller-board-esp8266
+@date 	2/21/17
+
+- there are a lot of development board options out there now
+
+- 8266 filled a gap in market, providing network connectivity to customer's who weren't ready to bridge the linux & os gap
+	*costs, complexity, power consumption & firmware revision support
+
+
+@title 	Linux and Open Source Hardware for IoT
+@url 	https://www.linux.com/news/linux-and-open-source-hardware-iot
+@date 	9/27/16
+
+- Intel D2000 & Quark SE are aimed at IOT
+

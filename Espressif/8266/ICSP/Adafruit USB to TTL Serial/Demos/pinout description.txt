@@ -1,0 +1,16 @@
+@url 	https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/
+		connect-the-lead
+
+
+@section 	Pinout
+	Red: VCC
+	Black: GND
+	White: Device's TX output (e.g. RPi TXD0)
+	Green: Device's RX input (e.g. RPi RXD0)
+
+
+@section 	Source Content
+    The red lead should be connected to 5V if you want to power via the cable, see below for details
+    The black lead to GND (3rd pin down)
+    The white lead to TXD on the Pi (4th pin down)
+    The green lead to RXD on the pI (5th pin down)

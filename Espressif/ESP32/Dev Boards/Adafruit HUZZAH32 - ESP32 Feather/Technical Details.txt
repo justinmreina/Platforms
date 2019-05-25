@@ -1,0 +1,9 @@
+Technical Details
+
+Revision History:
+
+    As of June 21, 2017 we are now shipping with the Rev 1 silicon hardware inside the ESP32 module.
+
+Product Dimensions: 51.0mm x 22.7mm x 7.3mm / 2.0" x 0.9" x 0.3"
+
+Product Weight: 6.8g / 0.2oz
