@@ -1,0 +1,65 @@
+7/26/16
+
+
+Using
+https://community.nxp.com/docs/DOC-329744
+
+http://www.nxp.com/video/getting-started-with-the-frdm-kl25z-development-platform-how-to:FRDMKL25ZINTRO_VID	
+
+
+[X] Step 0: Renamed my '/Getting Started/' to '/Getting Started - Rd 1/', and prefixed ALL subdirectories and files in it with 'X - '. Made all files read-only :)
+
+[X] Step 1: Created this '/Getting Started - Rd 2/' dir. This will be used for the entire file here, with no use of 'Rd 1' files
+
+[X] Step 2: Run C:\PEMicro\PEDrivers\uninstall.exe. After then fully delete C:\PEMicro\.
+
+[X] Step 3: Uninstall ALL Kinetis and Freescale software!
+
+[X] Step 3: Delete all existing Kinetus workspaces and left-over files
+
+[X] Step 4: System restart
+
+//---------------------------------------------------------------------//
+
+[X] Step 5: Install KSDK 2.0
+X	1) Go to www.nxp.com/ksdk and click to Download button
+X	2) Now choose the Kinetis SDK v2 & v1.3 click Download button
+		*selected 'KSDK v2.0.0 Standalone releases - v2.0.0' for download. Downloaded 'Kinetis SDK 2.0.0 Standalone for KS22F via MAPS-KS22 - Windows, Linux.zip'
+		*I think you mean ' Kinetis SDK Builder (REV 2 & 1.3)', tried this next and it matches 'Step 3)' below
+X	3) At the moment you are redirected to the Kinetis Expert Site, please go to Build an SDK
+X	4) Please, sign in and click Sign in
+X	5) Select MCU for the work and click Select Configuration
+		*Went to 'Edit Configuration at the top of the page and selected Boards->Kinetis->FRDM-KL25Z. Named configuration 'FRDM-KL25Z-Justin' and pressed 'Save changes'. Validated that 'FRDM-KL25Z-Justin' was selected for the configuration
+X	6) Selected MCU is supported by KSDK 2.0, you can download the package, choose the toolchain and Operation System.
+		*Package name: 'SDK_2.0_FRDM-KL25Z-Rd2'
+		 SDK Version: 'SDK 2.0'
+		 Supported toolchain(s): 'Kinetis Design Studio'
+		 Host OS: 'Windows'
+		*Pressed 'Build SDK Package' to download
+X	7) Done, check Software Vault tab		
+X	8) Please, go to Preferences
+X	9) Please, fill the Preferences and don´t forget Save
+X	10) After successful filling Preferences you are able to see the package in the window
+X	11) Read the Software Terms and Conditions and agree with them
+X	12) Save the package and you can start with KSDK 2.0
+X	14) Use 'Getting Started with Kinetis SDK (KSDK) v.2.0.pdf!
+	
+//---------------------------------------------------------------------//
+<TODO!>
+[X] Step 6: Install Kinetis 2.0
+	
+		Download Kinetis® Design Studio Integrated Development Environment (IDE)
+				http://www.nxp.com/products/software-and-tools/run-time-software/kinetis-software-and-tools/ides-for-kinetis-mcus/kinetis-design-studio-integrated-development-environment-ide:KDS_IDE?code=KDS_IDE&nodeId=0152109D3F1E8C1EB4&fpsp=1&tab=Design_Tools_Tab
+
+				*Uppermost 'Download' button
+				
+					 	Downloads for Kinetis Design Studio for Microsoft Windows
+						- kinetis-design-studio_3.2.0_Release_Notes.pdf
+						- kinetis-design-studio_3.2.0.exe
+				
+						Run 'kinetis-design-studio_3.2.0.exe' & Install. Use all default settings and configurations
+
+[X] Make a dummy project?
+	It works!!! :)
+
+[ ] Deploy & Debug

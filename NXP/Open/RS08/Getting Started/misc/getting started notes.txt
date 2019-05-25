@@ -1,0 +1,21 @@
+FAIL:src: Follow ;Quickstart - 'LFEBRS08DEMO_QUICKSTART.pdf'
+
+1. Install CodeWarrior from CD
+	'Run 1st', then 'Run 2nd', then 'Run 3rd'
+
+	CD would not even load Run 1st! ISO didn't actually generate ANY install files, wtf. I think this is a Win10 issue. 
+
+Instead, Try #2: (https://youtu.be/vtIHv-ze1DQ)
+YouTube - Freescale CodeWarrior Classic 6.3 Windows 10 x64 HCS08 RS08 CFV1 HC08 P&E Micro Multilink BDM 
+
+	
+----eww----
+1. Install the drivers
+2. Install CodeWarrior
+
+
+3. Install the Demonstration Board's USB Driver
+
+4. Install the CodeWarrior SW plugin
+
+

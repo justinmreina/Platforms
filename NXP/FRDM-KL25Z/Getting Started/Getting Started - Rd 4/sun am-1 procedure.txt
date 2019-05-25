@@ -1,0 +1,36 @@
+(pre) board powered off, put away. computer has been power cycled
+
+1) Power/Plug in the board with the reset button pressed. It shall show up as BOOTLADER, with the following device in the device manager:
+	Disk drives->FSL FSL/PEMICRO MSD USB Device
+	Jungo Connectivity->WinDriver
+	
+	File Explorer->BOOTLOADER(I:)
+
+2) If you power the board with the P&E firmware loaded, it shall show up as FRDM-KL25Z, with the following devices
+
+	Jungo Connectivity->PEMicro OpenSDA Debug Driver
+	Ports->OpenSDA - CDC Serial Port (http://)
+
+	[NO]
+
+3) Firewalls, AVG, Windows Defender turned off
+
+	*I am using Windows 10!
+
+4) Copy Operation from MCUonEclipse
+	https://mcuoneclipse.com/2014/11/01/illustrated-step-by-step-instructions-updating-the-freescale-freedom-board-firmware/
+	
+	Do not use the file from the zip file directly. Unpack the files first. Use the DOS cmd.exe copy command and not the Windows Explorer. Disable any explorer extensions, firewalls or virus scanners
+	
+	Unpacked, then copied in Command Prompt. Validated file was there
+	
+5) Powered down board (removed cable). Powered up (plugged in cable).
+
+	'PEMicro OpenSDA Debug Driver' does not show up in Device Manager->Jungo. WinDriver does show up here. The same occurs for both boards!
+	
+	Note: If USB is attached without RESET depressed, NOTHING shows up in Device Manager or File Explorer!
+	
+	
+	
+	
+	

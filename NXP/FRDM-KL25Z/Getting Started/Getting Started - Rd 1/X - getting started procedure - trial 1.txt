@@ -1,0 +1,53 @@
+Used 'Quick Start\FRDM-KL25Z Quick Start Guide (Rev 1.0).pdf' - Page 5
+
+[X] Step 0: Optional: Download and Install the P&E OpenSDA USB Drivers found at www.pemicro.com/opensda
+
+	"Windows USB Drivers
+	 Download PEDrivers_install.exe for manual install.
+	 Version 12.2, updated January 21st, 2016."
+
+[X] Step 1: Plug in a USB cable (not included) from a USB host to the OpenSDA mini-B USB connector. The FRDM-KL25Z will be powered by this USB connection
+
+[X] Step 1a: FRDM-KL25Z comes with the mass-storage device (MSD) Flash Programmer OpenSDA Application preinstalled. It will appear as a removable storage drive with a volume label of FRDM-KL25Z
+
+[X] Step 2: Update Driver
+	a.Open Device Manager
+	b.Locate and right-click on ?OpenSDA – CDC Serial Port?
+	c.Select ?Update Driver Software?
+	d.?Browse? and select the FRDM-KL25Z drive
+	e.Click ?Next? to complete the installation
+	
+[NO] Step 3: Validate preinstalled demo
+
+	The pre-installed demo running on the KL25Z MCU will cycle through several colors on the RGB LED. After this completes, tilt the board. The color mix of the RGB LED will change based on the accelerometer data
+	
+[NO] Step 4: Demo use of touch slider
+
+[ ] Step 5: Go through Chris Brown Getting Started Video			  
+	http://www.nxp.com/products/software-and-tools/hardware-development-tools/freedom-development-boards/freedom-development-platform-for-kinetis-kl14-kl15-kl24-kl25-mcus:FRDM-KL25Z?tab=In-Depth_Tab
+		
+	Plug into USB
+	
+	Select 'NXP Kinetis Software Development Kit' (SDK & IDE)
+	
+	2.1->Select SDK
+	
+	2.2->Get Kinetis Design Studio
+	
+	Confirm Terminal Tool is installed (PuTTY)
+	
+	Confirm KL25 Serial Port appears in Device Manager
+	
+	Fix ALL project links to be absolute and not relative... wth (e.g. C:\a\b\c vs ../../..)
+	
+	
+>>ENDED. I stopped because it would not compile, the linker would not complete. I think this was because in midst of the video, I paused and forced updates (Help->Check for Updates) which they don't call out
+
+
+	
+	
+	
+	
+	
+	
+	

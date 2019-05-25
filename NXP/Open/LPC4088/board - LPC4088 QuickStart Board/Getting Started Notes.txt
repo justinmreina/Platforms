@@ -1,0 +1,25 @@
+https://www.youtube.com/watch?v=jZETVYuh2_w&feature=youtu.be
+
+mbed HDK interface? (USB, CMSIS DAP)
+
+-LPC4088 Cortex-M4 (120 MHz)
+-Display Interface
+-32MB SDRAM
+-8MB Flash
+-Ethernet Interface
+-USB Device Interfac
+-USB Host Interface  
+
+More Information: http://www.embeddedartists.com/products/boards/lpc4088_qsb.php
+
+Try the Keil uVision provided Software (LPCOpen for Keil uVision (status.txt))
+
+[X]  install the MDK-ARM
+[NO] you need to buy the UKINK/ME?
+
+- Open Keil uVision
+- Project->New uVision Project, into desktop /test/ dir as name 'test'
+- !!! Fuck this. Compile issues. Switching to their 'LPCXpresso IDE for Windows v8.x.x' tool...
+
+
+

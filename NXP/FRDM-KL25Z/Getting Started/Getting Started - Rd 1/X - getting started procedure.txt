@@ -1,0 +1,71 @@
+[X] Step 0: Optional: Download and Install the P&E OpenSDA USB Drivers found at www.pemicro.com/opensda
+
+	"Windows USB Drivers
+	 Download PEDrivers_install.exe for manual install.
+	 Version 12.2, updated January 21st, 2016."
+
+[X] Cold System Boot
+
+[X] Turn off AVG & Windows Defender
+
+[X] Step 3: Plug in a USB cable (not included) from a USB host to the OpenSDA mini-B USB connector. The FRDM-KL25Z will be powered by this USB connection.
+
+[X] Step 1a: FRDM-KL25Z comes with the mass-storage device (MSD) Flash Programmer OpenSDA Application preinstalled. It will appear as a removable storage drive with a volume label of FRDM-KL25Z
+
+[X] Step 2: Update Driver
+	a.Open Device Manager
+	b.Locate and right-click on ?OpenSDA – CDC Serial Port?
+	c.Select ?Update Driver Software?
+	d.?Browse? and select the FRDM-KL25Z drive
+	e.Click ?Next? to complete the installation
+	(mine was already updated and skipped)
+
+[NO] Step 3: Validate preinstalled demo
+
+	The pre-installed demo running on the KL25Z MCU will cycle through several colors on the RGB LED. After this completes, tilt the board. The color mix of the RGB LED will change based on the accelerometer data
+	
+[NO] Step 4: Demo use of touch slider
+
+[ ] Step 5: Go through Chris Brown Getting Started Video			  
+	http://www.nxp.com/products/software-and-tools/hardware-development-tools/freedom-development-boards/freedom-development-platform-for-kinetis-kl14-kl15-kl24-kl25-mcus:FRDM-KL25Z?tab=In-Depth_Tab
+		
+	Plug into USB
+
+	Select 'Next Step'
+	
+	Select 'NXP Kinetis Software Development Kit' (SDK & IDE)
+	
+	2.1->Select SDK (download)
+	
+	2.2->Get Kinetis Design Studio (download)
+
+	Confirm Terminal Tool is installed (PuTTY)
+	
+	Confirm KL25 Serial Port appears in Device Manager (note: Configure the terminal to 115200 baud rate, 8 data bits, no parity and 1 stop bit)
+	
+	(assumed but not stated) Install 2.1, 2.2 above. Use ALL default values
+	
+	Select 'Next Step'
+	
+	3.1 Explore the SDK Sample Code
+	
+	(not listed in doc but in video) import ksdk_platform_lib_KL25Z4 into workspace from lib
+	
+	3.2 Build, Run and Debug SDK Examples
+	
+		Help->Check for updates (Install the Processor Expert 3.0.1 updates from NXP only)
+		
+		!!!I skipped this as it would actually uninstall Processor Expert and replace... I may come back and perform if needed
+	
+		Enter the <install_dir>/tools/eclipse_update folder and select the KSDK_<version>_Eclipse_Update.zip file.
+		
+	4.1->Select Get SDK Project Generator (download)
+	
+	Create myProject with Generator, then File->Import myProject into workspace
+	
+	
+	
+	
+		
+		
+		

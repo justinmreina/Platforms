@@ -1,0 +1,18 @@
+OpenOCD failed with code (1).
+
+For more details, see the openocd console.
+
+----------------------
+
+Open On-Chip Debugger 0.8.0-dev (2015-01-09-16:22)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.sourceforge.net/doc/doxygen/bugs.html
+Info : only one transport option; autoselect 'cmsis-dap'
+Error: unable to open CMSIS-DAP device
+Error: unable to init CMSIS-DAP driver
+Error: Error selecting 'cmsis-dap' as transport
+Runtime Error: C:/Freescale/KDS_v3/openocd/bin/..//scripts/kinetis.cfg:3: 
+in procedure 'script' 
+at file "embedded:startup.tcl", line 58
+in procedure 'interface' called at file "C:/Freescale/KDS_v3/openocd/bin/..//scripts/kinetis.cfg", line 3

@@ -1,0 +1,9 @@
+Hi Justin:
+
+When you start with the FRDM-KL25Z for the first time, you need to install thePE micro OpenSDA driver, you can download the driver from the below link.
+
+www.pemicro.com/opensda/
+
+After you install the driver to your PC, connect the OpenSDA miniusb  with your pc, wait for about one minute to complete the install process ,  then check the device manager, you should can see thee openSDA port, you also can see the FSL/PEMICRO MSD USB device disk.
+
+please see the below picture.
