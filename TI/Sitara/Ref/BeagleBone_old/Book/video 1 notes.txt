@@ -1,0 +1,21 @@
+- USB Powered only does 500 MHz. Cable powered does Max freq
+
+- Derek asks us to use Angstrom (Angstrom-Cloud9-IDE-eglibc-ipk-v2012.01-core-beaglebone-2012.01.11.img.gz)
+
+Steps for MicroSD
+- Power Down
+- Plug SD into computer
+- Download image and decompress 
+- Use Win32 Disk Imager to flash the microSD (I selected MD5 Hash)
+- Plug in
+- Boot with USER/BOOT depressed (not said but I think this is required)
+
+- Use a port scanner (Advanced Port Scanner v1.3) to detect the BBB when LAN connected
+	192.168.1.220:22
+	
+- Use PuTTY
+	Enable X11 forwarding: Selected
+	Close window on exit: Never
+	Login: root
+	I changed password to Misc - WC
+	

@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>2</fileVersion>
+    <fileChecksum>4064080750</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\Debug\Obj\cc113L_per_test_api.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_sniff_mode_api .pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_sniff_mode_api.pbi</file>
+            <file>$PROJ_DIR$\Debug\Exe\per_test.ulp</file>
+            <file>$PROJ_DIR$\Debug\Obj\per_test.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\sniff_mode_gui.pbi</file>
+            <file>$PROJ_DIR$\Debug\Exe\per_test.d43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc115L_per_test_api.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\hal_create_random.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\per_test.pbd</file>
+            <file>$PROJ_DIR$\Debug\Obj\per_test_gui.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_per_test_api.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_per_test_api.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\sniff_mode.pbi</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\als_sfh5711.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+            <file>$TOOLKIT_DIR$\inc\msp430f5438a.h</file>
+            <file>$TOOLKIT_DIR$\inc\in430.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp.h</file>
+            <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdbool.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430xlsfn.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc1101_easy_link\cc1101_easy_link_tx.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc11xL_easy_link\cc11xL_easy_link_reg_config.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\easyLink.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\easyLink_gui.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc112x_easy_link\cc112x_easy_link_tx.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc11xL_easy_link\cc115L_easy_link_tx.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc120x_easy_link\cc120x_easy_link_tx.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\lcd_trxeb.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\chip_information\chip_information.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101\cc1101_spi.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\lcd_dogm128_6_alphabet.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\flash_trxeb.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc1101_easy_link\cc1101_easy_link_rx.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\als_trxeb.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc11xL_easy_link\cc110L_easy_link_tx.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc120x\cc120x_spi.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\chip_detect.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp_uart.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc11xL_easy_link\cc110L_easy_link_rx.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\lcd_dogm128_6.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc11xL_easy_link\cc113L_easy_link_rx.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc120x_easy_link\cc120x_easy_link_rx.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc112x\cc112x_spi.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc11xL_spi.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp_led.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc120x_easy_link\cc120x_easy_link_reg_config.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\io_pin_int.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp_key.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc112x_easy_link\cc112x_easy_link_reg_config.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc1101_easy_link\cc1101_easy_link_reg_config.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\cc112x_easy_link\cc112x_easy_link_rx.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\trx_rf_spi.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\bsp.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\chip_information.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\flash_trxeb.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd_dogm128_6.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc110L_easy_link_rx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_easy_link_rx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_easy_link_tx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc110L_easy_link_tx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\bsp_led.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\bsp_uart.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\als_trxeb.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd_trxeb.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc115L_easy_link_tx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\easyLink.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_easy_link_tx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_spi.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_spi.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\freq_xosc_detect.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\hal_timer_32k.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\bsp_key.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc113L_easy_link_rx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_easy_link_rx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd_dogm128_6_alphabet.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_easy_link_rx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_easy_link_tx.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_spi.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\io_pin_int.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\chip_detect.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\easyLink_gui.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc11xL_spi.r43</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc115L\cc115L_per_test_api.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\sniff_mode\sniff_mode.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc112x\cc112x_per_test_api.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc113L\cc113L_per_test_api.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\per_test.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\targets\trxeb_msp430f5438a\hal_timer_32k.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\sniff_mode\sniff_mode_gui.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\sniff_mode\cc120x_sniff_mode_api .c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101\cc1101_per_test_api.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\CC1120_CC1190\cc1120_cc1190_per_test_api.c</file>
+            <file>$PROJ_DIR$\..\..\source\examples\menu_system\menu_system.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc110L\cc110L_per_test_api.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\hal_create_random.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\per_test_gui.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\sniff_mode\cc112x_sniff_mode_api.c</file>
+            <file>$PROJ_DIR$\..\..\source\examples\menu_system\menu_driver.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc120x\cc120x_per_test_api.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\main.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\freq_xosc_detect.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\trx_rf_spi.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101_cc1190\cc1101_cc1190_per_test_api.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\trx_rf_spi.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_spi.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_easy_link_tx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1120_cc1190_per_test_api.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc113L_easy_link_rx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_easy_link_tx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\flash_trxeb.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc115L_easy_link_tx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_spi.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\chip_detect.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_easy_link_tx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\freq_xosc_detect.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd_dogm128_6.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_easy_link_rx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\easyLink.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_per_test_api.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\io_pin_int.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\easyLink_gui.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_easy_link_rx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc110L_easy_link_rx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\chip_information.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc110L_easy_link_tx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd_trxeb.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc11xL_spi.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_spi.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\menu_system.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_cc1190_per_test_api.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\hal_timer_32k.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd_dogm128_6_alphabet.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_easy_link_rx.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\menu_driver.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc110L_per_test_api.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\sniff_mode.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\sniff_mode_gui.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\als_trxeb.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc110L_per_test_api.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\bsp.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\menu_driver.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\bsp_key.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_sniff_mode_api.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\bsp_uart.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\per_test.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\bsp_led.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1120_cc1190_per_test_api.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc115L_per_test_api.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_cc1190_per_test_api.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\per_test_gui.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc1101_per_test_api.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc112x_per_test_api.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\menu_system.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc113L_per_test_api.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\hal_create_random.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_sniff_mode_api .r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cc120x_per_test_api.r43</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101\cc1101_spi.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\trx_rf_int.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdlib.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\easyLink\easyLink.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\targets\trxeb_msp430f5438a\hal_lcd_trxeb.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1120_cc1190\cc1120_cc1190_per_test_api.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\sniff_mode\sniff_mode.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc113L\cc113L_per_test_api.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc112x\cc112x_spi.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101_cc1190\cc1101_cc1190_per_test_api.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc11xL_per_test_api.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc120x\cc120x_spi.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\targets\interface\hal_digio.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\sniff_mode\cc112x_sniff_mode_api.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc110L\cc110L_per_test_api.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc120x\cc120x_per_test_api.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\hal_create_random.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\per_test.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc115L\cc115L_per_test_api.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101\cc1101_per_test_api.h</file>
+            <file>$TOOLKIT_DIR$\config\linker\lnk430f5438a.xcl</file>
+            <file>$TOOLKIT_DIR$\config\linker\multiplier32.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\per_test.map</file>
+            <file>$PROJ_DIR$\..\..\source\apps\sniff_mode\cc120x_sniff_mode_api.h</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430xlsfn.r43</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc11xL_spi.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\main_graphics.c</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc112x\cc112x_per_test_api.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\targets\interface\hal_digio2.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101_cc1190\cc1101_cc1190_915MHz_reg_settings.c</file>
+            <file>$PROJ_DIR$\..\..\source\components\targets\interface\hal_int.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\common\hal_types.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\targets\interface\hal_timer_32k.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\chip_detect.h</file>
+            <file>$PROJ_DIR$\..\..\source\examples\menu_system\menu_driver.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\freq_xosc_detect.h</file>
+            <file>$PROJ_DIR$\..\..\source\examples\menu_system\menu_system.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\per_test\radios\trx_rf_spi.h</file>
+            <file>$PROJ_DIR$\..\..\source\apps\chip_information\chip_information.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\common\hal_defs.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\io_pin_int.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp_key.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\flash_m25pex0.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\lcd_dogm128_6.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp_led.h</file>
+            <file>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp_uart.h</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\per_test.d43</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 192</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 190 191 73 63 82 71 72 160 68 77 162 78 67 70 150 158 84 69 163 154 88 83 165 75 159 92 86 87 168 167 79 90 64 76 91 65 80 166 81 89 66 85 74 148 152 164 156 161 146 147 62 194</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc1101_easy_link\cc1101_easy_link_tx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 77</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 119</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 170 201 209 207 173 206 203 169 60 171 172 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201 172 21 20 173 170 60 18 19 24 213 207 169 171 211 17 26 16 27 28 203 23 29 22 25 209 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\easyLink.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 76</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 128</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 173 206 201 203 202 204 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21 206 19 24 201 173 20 17 18 213 202 204 211 26 16 27 28 203 23 29 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\easyLink_gui.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 91</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 131</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 206 201 204 173 203</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 173 204 201 206 203</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc112x_easy_link\cc112x_easy_link_tx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 69</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 124</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 170 201 209 207 173 206 203 178 171 24 16 22 28 19 27 25 172 59 213 29 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 209 206 21 20 18 178 28 16 29 207 59 24 27 170 173 171 213 211 17 172 19 23 26 201 203 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc11xL_easy_link\cc115L_easy_link_tx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 75</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 121</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 170 201 209 207 173 206 203 195 31 171 172 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 172 21 20 209 206 173 16 170 31 18 207 213 195 171 211 17 29 22 25 23 26 27 28 19 201 203</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc120x_easy_link\cc120x_easy_link_tx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 87</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 116</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 170 201 209 207 173 206 203 181 171 172 56 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21 20 201 173 170 171 18 19 24 172 207 213 181 56 211 17 26 16 27 28 203 23 29 22 25 209 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\lcd_trxeb.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 74</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 136</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 20 21 17 18 26 29 24 16 22 28 19 27 25 23 213</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21 17 18 28 23 16 24 27 29 213 19 20 26 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\chip_information\chip_information.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 64</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 134</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 213 29 24 16 22 28 19 27 25 207 21 17 18 26 201 209 203 205 202 206 204 208 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 26 27 21 20 16 24 202 28 201 203 204 19 17 18 207 205 206 208 211 29 22 25 209 23 213</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101\cc1101_spi.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 78</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 122</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 207 21 17 18 26 209 169</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 18 21 26 169 209 201 207 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\lcd_dogm128_6_alphabet.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 85</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 142</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 29 24 16 22 28 19 27 25</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 25 16 22 29 27 28 19</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\flash_trxeb.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 65</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 120</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 20 21 17 18 26 29 24 16 22 28 19 27 25 23 212</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 22 24 21 16 212 23 17 18 25 20 29 26 27 28 19</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc1101_easy_link\cc1101_easy_link_rx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 68</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 127</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 170 201 209 207 173 206 203 169 60 171 172 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201 172 21 20 173 170 60 18 19 24 213 207 169 171 211 17 26 16 27 28 203 23 29 22 25 209 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\als_trxeb.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 73</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 149</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 20 21 17 18 26 29 24 16 22 28 19 27 25 23 15</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 16 21 23 17 18 24 22 15 29 25 20 26 27 28 19</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc11xL_easy_link\cc110L_easy_link_tx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 70</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 135</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 170 201 209 207 173 206 203 195 31 171 172 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 172 21 20 209 206 173 16 170 31 18 207 213 195 171 211 17 29 22 25 23 26 27 28 19 201 203</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc120x\cc120x_spi.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 79</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 138</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 207 21 17 18 26 209 181</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21 18 181 209 207 201 17 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 63</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 151</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 20 21 17 18 26 29 24 16 22 28 19 27 25 23</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 19 27 18 26 29 16 28 20 21 23 17 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\chip_detect.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 90</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 123</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 203 201 207 21 17 18 26 209</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 18 201 207 21 209 17 203 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp_uart.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 72</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 155</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 20 21 17 18 26 29 24 16 22 28 19 27 25 23 215</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 27 20 23 16 24 21 17 18 28 215 29 26 19 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc11xL_easy_link\cc110L_easy_link_rx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 67</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 133</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 170 201 209 207 173 206 203 195 31 171 172 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 172 21 20 209 206 173 16 170 31 18 207 213 195 171 211 17 29 22 25 23 26 27 28 19 201 203</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\lcd_dogm128_6.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 66</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 126</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 213 29 24 16 22 28 19 27 25</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 29 19 24 16 27 28 213 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc11xL_easy_link\cc113L_easy_link_rx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 83</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 118</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 170 201 209 207 173 206 203 195 31 171 172 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 172 21 20 209 206 173 16 170 31 18 207 213 195 171 211 17 29 22 25 23 26 27 28 19 201 203</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc120x_easy_link\cc120x_easy_link_rx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 86</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 143</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 170 201 209 207 173 206 203 181 56 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 16 201 21 211 24 203 173 27 170 56 17 18 26 28 207 213 181 20 19 23 29 22 25 209 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc112x\cc112x_spi.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 88</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 115</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 207 21 17 18 26 209 178</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201 178 18 207 21 209 17 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc11xL_spi.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 92</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 137</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 207 21 17 18 26 209 195</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 18 26 21 195 209 201 207 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp_led.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 71</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 157</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 214 20 21 17 18 26 29 24 16 22 28 19 27 25 23</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 19 21 27 20 23 17 18 26 29 16 28 214 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\io_pin_int.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 89</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 130</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 20 21 17 18 26 29 24 16 22 28 19 27 25 23 210</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21 16 28 23 17 18 210 29 24 27 19 20 26 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\bsp\trxeb_msp5438a\drivers\source\bsp_key.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 82</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 153</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 20 21 17 18 26 29 24 16 22 28 19 27 25 23 211 210</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 29 16 210 18 24 22 211 21 23 17 26 25 20 27 28 19</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\easyLink\cc112x_easy_link\cc112x_easy_link_rx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 84</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 132</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 170 201 209 207 178 59 173 206 203 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21 211 18 203 178 170 173 24 16 209 201 213 207 59 20 17 29 22 25 23 26 27 28 19 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ULP430</name>
+                    <file> 4</file>
+                </tool>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 7 192</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc115L\cc115L_per_test_api.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 159</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 8</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 202 207 21 17 18 26 209 170 180 187 203 174 206 195</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21 180 18 187 207 209 201 202 170 195 17 174 26 203 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\sniff_mode\sniff_mode.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 146</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 14</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 203 201 202 170 209 207 204 206 176 174 178 181 20 23 211 183 193</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 16 178 170 183 17 18 24 209 201 203 204 20 29 21 213 202 207 176 181 211 193 22 25 174 23 26 27 28 19 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc112x\cc112x_per_test_api.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 163</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 202 187 21 17 18 26 203 174 206 207 209 170 178 197 205</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 203 170 26 201 187 197 21 206 17 18 202 207 178 205 174 209</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc113L\cc113L_per_test_api.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 165</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 0</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 202 207 21 17 18 26 209 170 177 187 203 174 206 195</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 177 209 207 187 21 18 201 202 170 195 17 26 174 203 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\per_test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 156</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 5</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 203 201 202 186 187 174 206 207 209 189 184 177 188 197 185 179 175 204 205 210 20 23 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 25 22 205 206 184 201 209 186 185 29 21 203 207 188 175 20 213 202 187 189 177 197 179 204 210 211 17 18 24 16 23 26 27 28 19 174</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\components\targets\trxeb_msp430f5438a\hal_timer_32k.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 81</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 141</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 201 200 209 202</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 200 17 18 26 201 202 21 209</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\sniff_mode\sniff_mode_gui.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 147</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 6</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 206 204 176 21 17 18 26 203 174 29 24 16 22 28 19 27 25 213</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 201 206 21 19 203 204 17 18 176 213 174 29 26 16 27 28 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\sniff_mode\cc120x_sniff_mode_api .c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 167</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 2</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 213 29 24 16 22 28 19 27 25 203 201 202 170 209 207 204 206 176 174 178 181 20 23 211 193</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 29 178 28 21 170 193 17 18 26 203 204 20 16 24 27 201 207 213 202 176 181 211 19 209 206 22 25 174 23</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101\cc1101_per_test_api.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 162</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 129</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 202 207 21 17 18 26 209 170 189 187 203 174 206 169</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201 189 207 187 17 18 202 170 169 21 209 174 26 203 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\CC1120_CC1190\cc1120_cc1190_per_test_api.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 158</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 117</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 202 187 21 17 18 26 203 174 206 207 209 170 178 175 205</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 174 201 187 170 175 17 18 209 202 207 178 205 21 203 206 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\examples\menu_system\menu_system.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 164</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 139</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 206 201 204</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201 204 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc11xL\cc110L\cc110L_per_test_api.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 150</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 145</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 202 207 21 17 18 26 209 170 184 187 203 174 206 195</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201 184 187 207 17 18 202 170 195 21 209 174 26 203 206</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\hal_create_random.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 166</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 9</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 201</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 26 18 17 21 201</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\per_test_gui.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 161</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 11</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 206 187 21 17 18 26 203 174</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201 187 174 206 203 21 17 18 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\sniff_mode\cc112x_sniff_mode_api.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 154</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 3</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 183 20 21 17 18 26 29 24 16 22 28 19 27 25 23 206 201 213 203 202 170 209 207 204 176 174 178 181 211</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 176 21 202 211 206 29 18 201 213 207 181 24 16 174 203 170 204 178 20 23 17 26 22 25 209 183 27 28 19</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\examples\menu_system\menu_driver.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 144</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 204 206 201 213 29 24 16 22 28 19 27 25</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 213 29 19 24 206 201 16 27 28 204 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc120x\cc120x_per_test_api.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 168</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 12</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 202 187 21 17 18 26 203 174 206 207 209 170 181 185 205</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 203 201 170 187 185 21 206 17 18 207 202 181 205 174 26 209</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 1</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 207 201 209 203 205 187 174 206 196 204 176 29 24 16 22 28 19 27 25 208 173 213 20 23 211 214</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 203 23 176 187 20 17 18 201 21 206 173 214 209 29 19 24 207 205 196 204 208 213 211 174 16 27 28 26 22 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\freq_xosc_detect.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 80</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 125</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 203 201 205 207 21 17 18 26 209 202 20 29 24 16 22 28 19 27 25 23</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 16 209 20 26 24 207 201 21 18 205 202 17 29 22 25 203 23 27 28 19</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\trx_rf_spi.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 62</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 114</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 17 18 26 201 209 207 198 182</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 198 209 18 21 201 207 17 26 182</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\apps\per_test\radios\cc1101_cc1190\cc1101_cc1190_per_test_api.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 160</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 140</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 201 202 207 21 17 18 26 209 170 189 187 203 174 206 169 179 199</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 199 201 189 207 187 17 18 209 203 21 202 170 169 179 26 206 174</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

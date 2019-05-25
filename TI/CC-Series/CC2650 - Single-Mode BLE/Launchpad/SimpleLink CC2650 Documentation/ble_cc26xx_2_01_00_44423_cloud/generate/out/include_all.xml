@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<includes>
+	<include>${CC26XXWARE}</include>
+	<include>${TI_BLE_SDK_BASE}/Components/ble/controller/CC26xx/include</include>
+	<include>${TI_BLE_SDK_BASE}/Components/ble/hci</include>
+	<include>${TI_BLE_SDK_BASE}/Components/ble/host</include>
+	<include>${TI_BLE_SDK_BASE}/Components/ble/include</include>
+	<include>${TI_BLE_SDK_BASE}/Components/hal/include</include>
+	<include>${TI_BLE_SDK_BASE}/Components/hal/target/CC2650TIRTOS</include>
+	<include>${TI_BLE_SDK_BASE}/Components/hal/target/_common/cc26xx</include>
+	<include>${TI_BLE_SDK_BASE}/Components/icall/include</include>
+	<include>${TI_BLE_SDK_BASE}/Components/osal/include</include>
+	<include>${TI_BLE_SDK_BASE}/Components/services/saddr</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/ICall/Include</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/Include</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/Profiles/Roles</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/common/cc26xx</include>
+</includes>

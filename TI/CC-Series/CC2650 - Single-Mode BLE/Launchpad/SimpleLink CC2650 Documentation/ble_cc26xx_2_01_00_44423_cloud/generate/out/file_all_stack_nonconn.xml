@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<files>
+	<file>
+		<source>PROJECT_IMPORT_LOC/../../IAR/Stack/CC2640/buildConfig.opt</source>
+		<target>TOOLS</target>
+		<action>link</action>
+		<exclude>false</exclude>
+	</file>
+	<file>
+		<source>TI_BLE_SDK_BASE/Projects/ble/Libraries/CC26xx/IAR/Common/bin/CC2640_BLE_HCI_TL_None_v41.a</source>
+		<target>LIB</target>
+		<action>link</action>
+		<exclude>false</exclude>
+	</file>
+</files>

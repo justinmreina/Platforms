@@ -1,0 +1,69 @@
+//*************************************************************************************//
+//				embedded.com - An RTOS from TI. Why? (12/10/12)						   //
+//*************************************************************************************//
+- It has all of the usual features including a file system and all sorts of communications stacks. 
+
+- It's free and is supplied with the source code
+
+- The datasheet  says:
+	"TI-RTOS provides a consistent embedded software platform across TI’s microcontroller devices, making it easy to port legacy applications to the latest devices." 
+	
+	But it doesn't.
+
+- I looked at some of the code and was unimpressed
+	*Formatting is inconsistent
+	*Some of the developers were meticulous with their commenting and formatting;  
+	 others were not
+	*Some added Doxygen tags hither and yon; other modules have none
+
+- Laudably in TI-RTOS base types are avoided. But strangely the derived types are inconsistent. UINT8, UINT16, etc are defined and used, but so is UINT. (What the heck is that?)
+
+- Many functions are declared Void. That's right - with a capital "V". That seemed odd!
+
+-  Function headers are important, and a pet peeve are those that neither describe what a function does nor what its parameters are. That seems to be de rigor in TI-RTOS
+
+- I think TI is an incredible company with some amazing products. But proprietary RTOSes like this strike me as poor business
+
+
+//*************************************************************************************//
+//									Wiki - TI-RTOS					   				   //
+//*************************************************************************************//
+- Includes an RTOS (formerly known as "SYS/BIOS") along with additional components that support device drivers, networking connectivity stacks, power management, file systems, instrumentation, and inter-processor communications like DSP/BIOS Link
+
+- TI-RTOS can be developed in CCS, IAR and GCC
+
+- Seperate TI-RTOS versions are deployed for MSP43x, SimpleLinke, Sitara, TM4C, C2000 and C6000 lines
+
+- TI-RTOS provides a wide range of system services such as
+	*preemptive multitasking
+	*memory management
+	*real-time analysis
+
+- TI-RTOS 1.00 was released in July  2012
+- TI-RTOS 2.00 was released in April 2014
+
+- TI-RTOS consists of the following components, some of which are not available for all 
+  embedded target families:
+    *TI-RTOS Kernel: Embedded RTOS formerly called SYS/BIOS
+    *TI-RTOS Drivers and Board Initialization: Target-specific device drivers
+    *TI-RTOS Network Services: Stacks to support the TCP/IP, HTTP, and TLS/SSL protocols
+    *TI-RTOS Interprocessor Communication: APIs for comm btwn TI's embedded processors
+    *TI-RTOS Instrumentation: APIs and tools for rt perf & behavior analysis
+    *TI-RTOS File System: APIs to support the FAT file system
+
+- The TI-RTOS Kernel[7] is made up of a number of discrete components, called modules
+
+- TI-RTOS Kernel provides support for several different types of threads in an embedded 
+  system
+    *Hardware Interrupt (HWI): support threads initiated by a hardware interrupt
+    *Software Interrupt (SWI): structured to be similar to Hwis, but allow processing to 
+	       be deferred until after a hardware interrupt has completed
+    *Task: a discrete thread that can execute or block while waiting for an event to 
+	       occur
+    *Idle: the lowest priority thread that only runs when no other thread is ready to 
+	       execute
+
+- Memory management: TI-RTOS Kernel provides tooling to set up an embedded system’s memory map and also to allow memory buffers to be allocated and deallocated while the system runs. The type of memory manager used during runtime is actually configurable so that memory fragmentation can be minimized if necessary
+
+- TI-RTOS provides real-time debugging capabilities
+

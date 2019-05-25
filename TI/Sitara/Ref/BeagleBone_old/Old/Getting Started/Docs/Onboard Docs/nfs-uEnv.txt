@@ -1,0 +1,37 @@
+##Rename as: uEnv.txt to boot via nfs
+
+##https://www.kernel.org/doc/Documentation/filesystems/nfs/nfsroot.txt
+
+##SERVER: sudo apt-get install tftpd-hpa
+##SERVER:
+##SERVER: zImage boot:
+##SERVER: TFTP_DIRECTORY defined in /etc/default/tftpd-hpa
+##SERVER: zImage/*.dtb need to be located here:
+##SERVER: TFTP_DIRECTORY/zImage
+##SERVER: TFTP_DIRECTORY/dtbs/*.dtb
+##SERVER:
+##SERVER: uname_r boot:
+##SERVER: TFTP_DIRECTORY defined in /etc/default/tftpd-hpa
+##SERVER: Change TFTP_DIRECTORY to /NFSEXPORT/boot
+##SERVER: TFTP_DIRECTORY/vmlinuz-${uname_r}
+##SERVER: TFTP_DIRECTORY/dtbs/${uname_r}/*.dtb
+
+##client_ip needs to be set for u-boot to try booting via nfs
+
+client_ip=192.168.1.101
+
+#u-boot defaults: uncomment and override where needed
+
+#server_ip=192.168.1.100
+#gw_ip=192.168.1.1
+#netmask=255.255.255.0
+#hostname=
+#device=eth0
+#autoconf=off
+#root_dir=/home/userid/targetNFS
+#nfs_options=,vers=3
+#nfsrootfstype=ext4 rootwait fixrtc
+
+##use uname_r= only if TFTP SERVER is setup for uname_r boot:
+#uname_r=
+

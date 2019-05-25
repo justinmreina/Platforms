@@ -1,0 +1,18 @@
+<pathvars>
+	<pathvar>
+		<name>CC26XXWARE</name>
+		<path>C:/ti/tirtos_simplelink_2_13_00_06/products/cc26xxware_2_21_01_15600</path>
+	</pathvar>
+	<pathvar>
+		<name>TI_RTOS_DRIVERS_BASE</name>
+		<path>C:/ti/tirtos_simplelink_2_13_00_06/packages</path>
+	</pathvar>
+	<pathvar>
+		<name>TI_BLE_SDK_BASE</name>
+		<path>C:/ti/simplelink/ble_cc26xx_2_01_00_44423_cloud</path>
+	</pathvar>
+	<pathvar>
+		<name>PROJECT_IMPORT_LOC</name>
+		<path>./</path>
+	</pathvar>
+</pathvars>

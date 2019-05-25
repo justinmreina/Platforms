@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>CC26XX</define>
+	<define>CC26XXWARE</define>
+	<define>USE_ICALL</define>
+</defines>

@@ -1,0 +1,771 @@
+<!doctype html>
+<!--
+	@license
+	Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+	This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+	The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+	The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+	Code distributed by Google as part of the polymer project is also
+	subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<html lang="">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="generator" content="Project 0" />
+		<title>Project 0</title>
+
+		<link rel="stylesheet" href="./styles/main.css">
+
+
+	    <script src="/components/gc/1.0.0/webcomponentsjs/webcomponents-lite.js"></script>
+
+		<!-- Add your elements here -->
+
+		<!--<link rel="import" href="/components/gc/1.0.0/polymer/polymer.html">-->
+
+
+
+
+		<!-- will be replaced with elements/elements.vulcanized.html -->
+		<!-- Iron elements -->
+		<!--<link rel="import" href="/components/gc/1.0.0/iron-flex-layout/classes/iron-flex-layout.html">-->
+		<link rel="import" href="/components/gc/1.0.0/iron-flex-layout/iron-flex-layout.html">
+		<link rel="import" href="/components/gc/1.0.0/iron-image/iron-image.html">
+
+
+		<link rel="import" href="/components/gc/1.0.0/paper-material/paper-material.html">
+		<link rel="import" href="/components/gc/1.0.0/paper-card/paper-card.html">
+		<link rel="import" href="/components/gc/1.0.0/paper-styles/color.html">
+
+		<!--link rel="import" href="/components/gc/1.0.0/ti-widget-tabbedEditor/ti-widget-tabbedEditor.html"-->
+	    <link rel="import" href="/components/gc/1.0.0/ti-widget-flashtool/ti-widget-flashtool.html">
+
+		<!-- Add your elements here -->
+
+		<link rel="import" href="/components/gc/1.0.0/paper-tabs/paper-tabs.html">
+		<link rel="import" href="/components/gc/1.0.0/iron-pages/iron-pages.html">
+
+		<!-- endreplace-->
+
+		<!-- For shared styles, shared-styles.html import in elements.html -->
+		<!--<style is="custom-style" include="shared-styles">-->
+		<style is="custom-style">
+
+			#editorDiv {
+            margin-left:80px;
+            margin-right:80px;
+            }
+
+			#cards {
+		/*		background-color: #cc0000;
+			@apply(--layout-vertical);
+			@apply(--center-justified);*/
+			max-width: 1000px;
+			margin-left: auto;
+			margin-right: auto;
+
+			}
+
+			.container {
+			@apply(--layout-horizontal);
+			@apply(--layout-wrap);
+			}
+
+			paper-card {
+				width: 100%;
+				margin-bottom: 16px;
+
+				--paper-card-header-text: {
+				font-size: 2.2em;
+				color: #189;
+				font-family: 'Roboto', arial, sans-serif;
+				font-weight: 300;
+				};
+
+			}
+
+			.fancy_inner {
+				/*background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…gd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g");*/
+				background-size: 100%;
+				background-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.8) 100%);
+				z-index:1;
+				position: absolute;
+				bottom: 41px;
+				left:16px;
+				width: 97%;
+				padding-top: 60px;
+				padding-bottom: 60px;
+			}
+
+			.fancy_inner .medium {
+			font-size:48px;
+			color: #FFFFFF;
+			padding-bottom: 8px;
+			padding-left: 80px;
+			font-family: 'Roboto', arial, sans-serif;
+			font-weight: 300;
+
+			}
+
+			.fancy_inner .small {
+			font-size: 22px;
+			color: #FFFFFF;
+			padding-bottom: 8px;
+			padding-left: 80px;
+			font-family: 'Roboto', arial, sans-serif;
+			font-weight: 300;
+			}
+
+			.circle{
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+			font-size:24px;
+			background-color:#555;
+			color:#fff;
+			width:30px;
+			height:30px;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			box-shadow: 2px 2px 2px #aaa;
+			}
+
+			.circle span {
+			position:relative;
+			top:3px;
+			}
+
+			.notelayout {
+			font-size: 12px;
+			@apply(--layout-horizontal);
+			margin: 1em;
+			background: #F1FFF7;
+			border: 1px solid #C9F0DD;
+			}
+
+			iron-list {
+			background-color: var(--paper-grey-200, #eee);
+			padding-bottom: 16px;
+			}
+
+			.item {
+			@apply(--layout-horizontal);
+			padding-bottom: 16px;
+			}
+
+			.item:focus {
+			outline: 0;
+			border-color: #666;
+			}
+
+			.pad {
+			padding: 0 16px;
+			width: 90%;
+			@apply(--layout-vertical);
+			}
+
+			.tabs {
+				--paper-tabs: {
+						background-color: #555;
+				};
+			}
+
+			a {
+			    color: #189;
+			    text-decoration: none;
+			    outline: 0;
+			}
+
+		    paper-tabs.ti-red::shadow #selectionBar {
+		      background-color: #c00;
+		    }
+
+		    paper-tabs.ti-red paper-tab::shadow #ink {
+		      color: #c00;
+		    }
+
+		</style>
+
+
+		<script>
+
+            var loadjsfile = function(filename) {
+                var fileref = document.createElement("script");
+                fileref.src = filename;
+                document.write( fileref.outerHTML );
+            };
+
+            var loadCSSFile = function( filename ){
+                var fileref = document.createElement("link");
+                fileref.href = filename;
+                fileref.type = "text/css";
+                fileref.rel = "stylesheet";
+                document.write( fileref.outerHTML );
+            };
+
+
+            //window.TI_CLOUD_AGENT_HOST = "dev.ti.com";
+            window.TI_CLOUD_AGENT_PORT = "";
+
+            //var cloudServer = "http://" + window.TI_CLOUD_AGENT_HOST;
+            var cloudServer = "";
+            loadjsfile(cloudServer + "/ticloudagent/q.js");
+            loadjsfile(cloudServer + "/ticloudagent/agent.js");
+            loadCSSFile(cloudServer + "/ticloudagent/agent-flash.css");
+            loadjsfile(cloudServer + "/ticloudagent/agent-flash.js");
+    </script>
+
+
+	</head>
+
+	<body unresolved class="fullbleed layout vertical">
+		<span id="browser-sync-binding"></span>
+			<div id="cards">
+
+			<!--	<paper-card class="picturepapercard" elevation="3" image="images/launchpad-fs8.png">
+						<div class="fancy_inner">
+							<div class="medium">Meet MSP432 Launchpad</div>
+							<div class="small">Welcome to project 0</div>
+						</div>
+				</paper-card>
+				-->
+
+				<paper-card elevation="0">
+					<div class="card-content">
+						<iron-image style="width:969px;height:543px;" sizing="contain" src="images/CC2650LP_v1.2_Perspective.png">
+						</iron-image>
+						<div class="fancy_inner">
+							<div class="medium">CC2650 Launchpad</div>
+							<div class="small">project 0</div>
+						</div>
+					</div>
+				</paper-card>
+
+				<paper-card heading="Project Zero for the CC2650 LaunchPad" elevation="0">
+					<div class="card-content">
+						<span ><p>Congratulations on choosing the CC2650 microcontroller and LaunchPad ecosystem! This example is an easy starting point for developing your own <i>Bluetooth&reg;</i> Smart application. The functionality and architecture of the example is presented on this page. It also explains how to flash and test the example on your LaunchPad. The next step is to load the project into CCS Cloud or download it to your computer for further development.
+						</p><span>
+					</div>
+				</paper-card>
+
+				<paper-card heading="Hardware Prerequisites" elevation="0">
+
+					<div class="container">
+
+						<div class="card-content">
+							<p>The CC2650 LaunchPad development kit includes everything you need to run and develop with this example.
+								<ul>
+									<li>(1) CC2650 LaunchPad</li>
+									<li>(1) Micro USB Cable</li>
+								</ul>
+							</p>
+							<div>
+								<iron-image style="width:400px; height:150px;" sizing="contain" fade src="images/CC2650LP.png">
+								</iron-image>
+							</div>
+						</div>
+					</div>
+
+				</paper-card>
+
+							<paper-card heading="Getting Started Demo" elevation="0">
+								<div class="card-content">
+									We will use a tailored project based on the <a href="http://ti.com/ble-stack">TI <i>Bluetooth</i> Smart Software Developers Kit</a>'s SimpleBLEPeripheral project to demonstrate operation of your LaunchPad. You can look at the source code and build and run the project by importing the  <a target="_blank" href="/tirex/#/Device/CC2650?link=CC26xx%20Bluetooth%20Smart%2FDevelopment%20Tools%2FCC2650-LAUNCHXL%2FExamples%2FProject%20Zero">Project Zero App project in Resource Explorer</a>.
+
+									<p>This example will allow you to control the LEDs from a mobile phone or other Bluetooth Smart capable device and subscribe to button press notifications from the LaunchPad. A log of the actions taken along with the code-line executed is output on the Application/User Serial port on your LaunchPad.</p>
+
+									To get started follow these steps:
+								</div>
+								<div class="card-content">
+									<iron-list>
+										<div class="item">
+											<div class="circle"><span>1</span></div>
+											<div class="pad">
+												<div class="primary">Plug your LaunchPad into the computer with the included USB cable</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>2</span></div>
+											<div class="pad">
+												<div class="primary">Program your LaunchPad by pressing on the button in the <i>Sources</i> section. The device should enter advertising state and be connectable from a Bluetooth Smart device.</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>3</span></div>
+											<div class="pad">
+												<div class="primary">[Optional]: To see the log messages during execution, open for example Putty and select the <i>XDS110 Class Application/User UART</i> at 115200 baud.<br/>
+
+												You can find the COM port number in Windows Device Manager (<i>Start&rarr;Run&rarr;mmc devmgmt.msc</i> and expand <i>Ports</i>)
+
+												<div>
+													<iron-image fade src="images/putty_initial.png">
+													</iron-image>
+												</div>
+
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>4</span></div>
+											<div class="pad">
+												<div class="primary">Connect to the CC2650 Launchpad, write to change the LED state or subscribe to button status. Instructions for doing this with the iOS apps <i>SensorTag</i> and <i>LightBlue</i> and the Android app <i>BLE Scanner</i> can be found below.</div>
+											</div>
+										</div>
+									</iron-list>
+								</div>
+							</paper-card>
+
+
+<paper-card heading="Connect to Project Zero with your phone" elevation="0" style="margin-bottom: 0px;">
+	<paper-tabs selected="0" class="ti-red">
+		<paper-tab>SensorTag for iOS</paper-tab>
+	    <paper-tab>LightBlue for iOS</paper-tab>
+	    <paper-tab>BLE Scanner for Android</paper-tab>
+	</paper-tabs>
+</paper-card>
+
+<iron-pages selected="0" style="padding: 0px;">
+    <div>
+    						<paper-card>
+								<div class="card-content">
+									<iron-list>
+										<div class="item">
+											<div class="circle"><span>1</span></div>
+											<div class="pad">
+												<div class="primary">Download and install SensorTag by Texas Instrumens via the App Store</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>2</span></div>
+											<div class="pad" style="flex-direction: row;">
+												<div class="primary" style="margin-right: 1em;">Scan for nearby devices, find ProjectZero and click on it, then select <b>Service Explorer</b>. The closest devices have the highest RSSI value (most bars).
+												</div>
+
+												<div>
+													<iron-image fade src="images/stkapp_scan.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>3</span></div>
+											<div class="pad" style="flex-direction: row;">
+												<div class="primary" style="margin-right: 1em;"><p style="margin-top: 0px;">Review the three custom BLE Services exposed by Project Zero. Find these at the bottom of the list.</p>
+
+												<p>All the custom service identifiers (UUIDs) are on the form
+												<span style="white-space: nowrap"><tt>F000<font color="red">XXXX</font>-0451-4000-B000-000000000000</tt></span> where each service has a different 16-bit <tt><font color="red">XXXX</font></tt>-part identifier, and the rest of the UUID is the Texas Instruments 128-bit UUID namespace used for demo purposes.</p>
+
+												<p>
+													The services can be identified from the 16-bit part of the UUID as follows:
+													<ul>
+														<dt><b>0x1110 &ndash; LED Service</b></dt>
+															<dd>Service declaration</dd>
+														<dt>0x1111 &ndash; LED0 State (marked with red box)</dt>
+															<dd>Read state or write 01 or 00.</dd>
+														<dt>0x1112 &ndash; LED1 State</dt>
+															<dd>Read state or write 01 or 00.</dd>
+														<dt><b>0x1120 &ndash; Button Service</b></dt>
+															<dd>Service declaration</dd>
+														<dt>0x1121 &ndash; BUTTON0 State</dt>
+															<dd>Read state or subscribe to notifications</dd>
+														<dt>0x1122 &ndash; BUTTON1 State</dt>
+															<dd>Read state or subscribe to notifications</dd>
+														<dt><b>0x1130 &ndash; Data Service</b></dt>
+															<dd>Service declaration</dd>
+														<dt>0x1131 &ndash; String char</dt>
+															<dd>Read/Write a long string</dd>
+														<dt>0x1132 &ndash; Stream char</dt>
+															<dd>Send or receive WriteNoRsp/Notification</dd>
+													</ul>
+												</p>
+
+												</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/stkapp_services.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>4</span></div>
+											<div class="pad" style="flex-direction: row;">
+												<div class="primary" style="margin-right: 1em;"><p style="margin-top: 0px;">Turn on the LEDs.</p>
+
+												<p>Find the topmost custom service, which can be identified from the list above as the <b>LED</b> service</p>
+
+												<p>Tap the first characteristic entry to enter the Read/Write menu for the LED0 characteristic.</p>
+
+												<p>Tap on <i>Write with response</i>, write the numbers <tt>01</tt> and tap Write to change the LED0 state to ON.</p>
+												</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/stkapp_writeled.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>5</span></div>
+											<div class="pad">
+												<div class="primary">Notice that the LED turns on when you write 01 and turns off if you write 00. You will also see the following log output:
+												</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/putty_connect_led.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>6</span></div>
+											<div class="pad">
+												<div class="primary">Bonus: Subscribe to notifications on button presses and receive these in the application.
+												</div>
+											</div>
+										</div>
+									</iron-list>
+								</div>
+							</paper-card>
+    </div>
+    <div>
+    						<paper-card>
+								<div class="card-content">
+									<iron-list>
+										<div class="item">
+											<div class="circle"><span>1</span></div>
+											<div class="pad">
+												<div class="primary">Download and install LightBlue by Punch Through Design LLC via the App Store</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>2</span></div>
+											<div class="pad" style="flex-direction: row;">
+												<div class="primary" style="margin-right: 1em;">Scan for nearby devices, find ProjectZero and click on it. The closest devices have the highest RSSI value (least negative).
+												</div>
+
+												<div>
+													<iron-image fade src="images/lblue_scan.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>3</span></div>
+											<div class="pad" style="flex-direction: row;">
+												<div class="primary" style="margin-right: 1em;"><p style="margin-top: 0px;">Review the three custom BLE Services exposed by Project Zero. Find these at the bottom of the list.</p>
+
+												<p>All the custom service identifiers (UUIDs) are on the form
+												<span style="white-space: nowrap"><tt>F000<font color="red">XXXX</font>-0451-4000-B000-000000000000</tt></span> where each service has a different 16-bit <tt><font color="red">XXXX</font></tt>-part identifier, and the rest of the UUID is the Texas Instruments 128-bit UUID namespace used for demo purposes.</p>
+
+												<p>
+													The services can be identified from the 16-bit part of the UUID as follows:
+													<ul>
+														<dt><b>0x1110 &ndash; LED Service</b></dt>
+															<dd>Service declaration</dd>
+														<dt>0x1111 &ndash; LED0 State (marked with red box)</dt>
+															<dd>Read state or write 01 or 00.</dd>
+														<dt>0x1112 &ndash; LED1 State</dt>
+															<dd>Read state or write 01 or 00.</dd>
+														<dt><b>0x1120 &ndash; Button Service</b></dt>
+															<dd>Service declaration</dd>
+														<dt>0x1121 &ndash; BUTTON0 State</dt>
+															<dd>Read state or subscribe to notifications</dd>
+														<dt>0x1122 &ndash; BUTTON1 State</dt>
+															<dd>Read state or subscribe to notifications</dd>
+														<dt><b>0x1130 &ndash; Data Service</b></dt>
+															<dd>Service declaration</dd>
+														<dt>0x1131 &ndash; String char</dt>
+															<dd>Read/Write a long string</dd>
+														<dt>0x1132 &ndash; Stream char</dt>
+															<dd>Send or receive WriteNoRsp/Notification</dd>
+													</ul>
+												</p>
+
+												</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/lblue_services.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>4</span></div>
+											<div class="pad" style="flex-direction: row;">
+												<div class="primary" style="margin-right: 1em;"><p style="margin-top: 0px;">Turn on the LEDs.</p>
+
+												<p>Find the topmost custom service, which can be identified from the list above as the <b>LED</b> service</p>
+
+												<p>Tap the first characteristic entry (red box above) to enter the Read/Write menu for the LED0 characteristic.</p>
+
+												<p>Tap on <i>Write new value</i>, write the numbers <tt>01</tt> and tap Done to change the LED0 state to ON.</p>
+												</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/lblue_writeled.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>5</span></div>
+											<div class="pad">
+												<div class="primary">Notice that the LED turns on when you write 01 and turns off if you write 00. You will also see the following log output:
+												</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/putty_connect_led.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>6</span></div>
+											<div class="pad">
+												<div class="primary">Bonus: Subscribe to notifications on button presses and receive these in the application.
+												</div>
+											</div>
+										</div>
+									</iron-list>
+								</div>
+							</paper-card>
+    </div>
+    <div>
+    						<paper-card>
+								<div class="card-content">
+									<iron-list>
+										<div class="item">
+											<div class="circle"><span>1</span></div>
+											<div class="pad">
+												<div class="primary">Download and install BLE Scanner by Bluepixel Technologies LLP via the Play Store</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>2</span></div>
+											<div class="pad" style="flex-direction: row;">
+												<div class="primary" style="margin-right: 1em;">Scan for nearby devices, find ProjectZero and click Connect. The closest devices have the highest RSSI value (least negative).</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/blescanner_scan.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>3</span></div>
+											<div class="pad" style="flex-direction: row;">
+												<div class="primary" style="margin-right: 1em;"><p style="margin-top: 0px;">Review the three custom BLE Services exposed by Project Zero.</p>
+
+												<p>All the custom service identifiers (UUIDs) are on the form
+												<span style="white-space: nowrap"><tt>F000<font color="red">XXXX</font>-0451-4000-B000-000000000000</tt></span> where each service has a different 16-bit <tt><font color="red">XXXX</font></tt>-part identifier, and the rest of the UUID is the Texas Instruments 128-bit UUID namespace used for demo purposes.</p>
+
+												<p>
+													The services can be identified from the 16-bit part of the UUID as follows:
+													<ul>
+														<dt><b>0x1110 &ndash; LED Service</b></dt>
+															<dd>Service declaration</dd>
+														<dt>0x1111 &ndash; LED0 State</dt>
+															<dd>Read state or write 01 or 00.</dd>
+														<dt>0x1112 &ndash; LED1 State</dt>
+															<dd>Read state or write 01 or 00.</dd>
+														<dt><b>0x1120 &ndash; Button Service</b></dt>
+															<dd>Service declaration</dd>
+														<dt>0x1121 &ndash; BUTTON0 State</dt>
+															<dd>Read state or subscribe to notifications</dd>
+														<dt>0x1122 &ndash; BUTTON1 State</dt>
+															<dd>Read state or subscribe to notifications</dd>
+														<dt><b>0x1130 &ndash; Data Service</b></dt>
+															<dd>Service declaration</dd>
+														<dt>0x1131 &ndash; String char</dt>
+															<dd>Read/Write a long string</dd>
+														<dt>0x1132 &ndash; Stream char</dt>
+															<dd>Send or receive WriteNoRsp/Notification</dd>
+													</ul>
+												</p>
+
+												</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/blescanner_services.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>4</span></div>
+											<div class="pad" style="flex-direction: row;">
+												<div class="primary" style="margin-right: 1em;"><p style="margin-top: 0px;">Turn on the LEDs</p>
+
+												<p>Expand the topmost <i>CUSTOM SERVICE</i> which can be identified from the list above as the <b>LED</b> service</p>
+
+												<p>Click on the <b>W</b> next to the first Characteristic to write to it, and select <i>Byte Array</i></p>
+
+												<p>Write the numbers <tt>01</tt> and click OK to change the LED0 state to ON.</p>
+												</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/blescanner_writeled.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>5</span></div>
+											<div class="pad">
+												<div class="primary">Notice that the LED turns on when you write 01 and turns off if you write 00. You will also see the following log output:
+												</div>
+												<br/>
+												<div>
+													<iron-image fade src="images/putty_connect_led.png">
+													</iron-image>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="circle"><span>6</span></div>
+											<div class="pad">
+												<div class="primary">Bonus: Subscribe to notifications on button presses and receive these in the application.
+												</div>
+											</div>
+										</div>
+									</iron-list>
+								</div>
+							</paper-card>
+</div>
+</iron-pages>
+
+
+
+
+							<paper-card heading="Explore the CC2650 resources with TI&#8217;s Resource Explorer" elevation="0">
+								<div class="card-content">
+									<span ><p>
+										To see all available resources associated with the CC2650, click on <a target="_blank" href="/tirex/#/Device/CC2650?link=CC26xx%20Bluetooth%20Smart%2FDevelopment%20Tools%2FCC2650-LAUNCHXL%2FDocuments%2FCC2650LAUNCHXL%20Project%20Zero">this link</a> to filter out all the incompatible projects and collateral.
+									</p>
+									<p>Available in resource explorer are code examples using TI-RTOS and the Bluetooth Smart SDK, documentation, Software Developers Guide and links to wiki articles and more. Feel free to navigate the available resources to jump-start your development.
+									</p>
+
+									</span>
+								</div>
+							</paper-card>
+
+							<paper-card heading="Sources" elevation="0">
+								<div class="card-content">
+								Find the <a target="_blank" href="/tirex/#/Device/CC2650?link=CC26xx%20Bluetooth%20Smart%2FDevelopment%20Tools%2FCC2650-LAUNCHXL%2FExamples%2FProject%20Zero">ProjectZeroApp project in Resource Explorer</a> and import to CCS Cloud to review the files in the project and to debug.
+
+								<p>Below is a short description and a quick-link to flash your CC2650 Launchpad with a pre-built version of the example.</p>
+								<p>
+								<b>Note:</b> In CCS Cloud, the Stack project must be downloaded to the device once, before downloading or debugging the App project. This is only needed the first time, or after a mass-erase of the device.
+								<p/>
+
+
+								<h3>
+								10.000 feet overview of how the application is structured
+								</h3>
+
+								<iron-list>
+									<div class="item">
+										<div class="circle"><span>1</span></div>
+										<div class="pad">
+											<div class="primary">
+												The first thing that happens is that <code>main.c</code> initializes the supporting tasks for the Stack and GAP role, calls the user application's <code>ProjectZero_createTask()</code> and starts the TI-RTOS scheduler.
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="circle"><span>2</span></div>
+										<div class="pad">
+											<div class="primary">
+												From there, <code>ProjectZero_createTask()</code> sets up the user Task with TI-RTOS and tells the system that the task thread is the function called <code>ProjectZero_taskFxn()</code>. When <code>BIOS_start()</code> is called from <code>main()</code>, this function will be executed.
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="circle"><span>3</span></div>
+										<div class="pad">
+											<div class="primary">
+												The first thing our task function does is to call <code>ProjectZero_init()</code> which configures the BLE Stack, the services and the hardware peripherals used by the application. It also registers a whole slew of callbacks for system events, and from here everything is event based. The taskFxn then enters an infinite loop, waiting for messages to process.
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="circle"><span>4</span></div>
+										<div class="pad">
+											<div class="primary">
+												During the lifetime of the application, callbacks (found in a section towards the bottom of the file) will be invoked and will send messages to the Task thread for handling in the infinite loop found in <code>ProjectZero_taskFxn()</code>.
+												<p>
+												This includes things such as button presses, connection state changes and data received from a peer device. You can follow the code flow by looking at the UART log output.
+												</p>
+											</div>
+										</div>
+									</div>
+								</iron-list>
+
+								<br/>
+
+							     <!--div id="editorDiv">
+									<ti-widget-tabbedEditor class="tabs" id="tabbedEditor"  downloadLink="BlinkJsonUart.zip" importProjectName="../../CC26xx/CCS/Cloud/ProjectZeroApp_CC2650LAUNCHXL.projectspec" deviceId="CC2650F128"  files='[{"filename":"ProjectZero.c","fileLocation":"/ProjectZero.c"},{"filename":"main.c","fileLocation":"/main.c"}]' ></ti-widget-tabbedEditor>
+							     </div>
+							     <p>Note that changes in this GUI will not be reflected in the content that is downloaded to the device. To make changes to the code, import the project to CCS Cloud.</p>
+                                 <br-->
+                                 <table>
+                                 	<tr>
+                                 		<td>Download prebuilt Project Zero App+Stack combined image to the CC2650 Launchpad</td>
+                                 		<td>
+											<ti-widget-flashtool showflashbtn id="flashtool"  deviceName="CC2650F128" fileName="ProjectZero_CC2650LAUNCHXL_AppStackCombo.hex" fileFolderName="./">
+										    </ti-widget-flashtool>
+                                 		</td>
+                                 	</tr>
+                                 	<tr>
+                                 	<td colspan="2"><b>Note:</b> You may have to re-insert the USB cable to the Launchpad after downloading for the virtual COM port to work correctly in Windows</td>
+
+                                 </table>
+
+								</div>
+							</paper-card>
+
+
+							<paper-card heading="Additional Tools" elevation="0">
+								<div class="card-content">
+									<ul>
+										<li><a href=http://dev.ti.com/ide> CCS Cloud IDE</a>: Develop your code right in the cloud. Use this tool to import, modify and program code examples for your LaunchPad. Click CCS Project Import Icon anywhere in TI Resource Explorer to import that project into Cloud IDE. Cloud IDE will be automatically started with that project to get your started with development. my.ti.com login is required for use of Cloud IDE.</li>
+										<li><a href=http://dev.ti.com/bpchecker>Booster Pack checker</a>: Verify whether Booster Packs <a href=http://www.ti.com/ww/en/launchpad/boosterpacks.html>What's This</a> are compatible with your LaunchPad.</li>
+									</ul>
+								</div>
+							</paper-card>
+
+							<!--
+							<paper-card heading="GUI Composer App" elevation="0">
+								<div class="card-content">
+									<iframe src="./blinky2/index.html" width="900px;" height="300px;"></iframe>
+								</div>
+							</paper-card>
+							-->
+
+						</div>
+
+
+
+						<!-- build:js scripts/app.js -->
+						<!--
+						<script src="scripts/app.js"></script>
+					-->
+						<!-- endbuild-->
+					</body>
+<script>
+	     var pages = document.querySelector('iron-pages');
+	     var tabs = document.querySelector('paper-tabs');
+
+	    tabs.addEventListener('iron-select', function() {
+	        pages.selected = tabs.selected;
+	    });
+</script>
+
+				</html>
+

@@ -1,0 +1,13 @@
+http://www.ti.com/lsds/ti/microcontrollers_16-bit_32-bit/MSP432/getting_started.page
+
+Get started with MSP432 MCUs in 3 simple steps
+
+[X] Step 1: Get the MSP432 LaunchPad Evaluation Kit
+[X] Step 2: Get MSPWare Software Development Package
+[SKIP] Step 3: Add on BoosterPack™ module functionality to your MSP432 Launchpad kit
+
+Step 3: Open CCS and File->New->CCS Project->MSP432P401R->Basic Examples->Blink the LED
+
+	it works!
+	
+	

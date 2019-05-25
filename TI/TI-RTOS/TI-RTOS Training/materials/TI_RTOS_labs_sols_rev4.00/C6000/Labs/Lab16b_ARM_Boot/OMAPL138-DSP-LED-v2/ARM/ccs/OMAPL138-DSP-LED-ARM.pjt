@@ -1,0 +1,45 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="C:\boot_examples\OMAPL138-DSP-LED\ARM\ccs\"
+ProjectType=Executable
+CPUFamily=TMS470R2X
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="Linker"
+Tool="XDC"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\include\soc_OMAPL138_AINTC.h"
+Source="..\src\ARM9_handler.asm"
+Source="..\src\ARM9_initstack.asm"
+Source="..\src\ARM9_intvecs.asm"
+Source="..\src\main.c"
+Source="..\src\linker.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -pdsw225 -fr"$(Proj_dir)\..\Debug" -i"$(Proj_dir)\..\include" -d"_DEBUG" -me -mv5e --abi=ti_arm9_abi
+
+["Compiler" Settings: "Release"]
+Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -mv5e --abi=ti_arm9_abi
+
+["Linker" Settings: "Debug"]
+Options=-c -heap0x2000 -m"..\Debug\OMAPL138-DSP-LED-ARM.map" -o"..\Debug\OMAPL138-DSP-LED-ARM.out" -stack0x2000 -w -x
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\uart_sample.map" -o".\Release\uart_sample.out" -w -x
+
+["..\include\soc_OMAPL138_AINTC.h" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["..\include\soc_OMAPL138_AINTC.h" Settings: "Release"]
+ExcludeFromBuild=true
+
+["..\src\linker.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["..\src\linker.cmd" Settings: "Release"]
+LinkOrder=1
+

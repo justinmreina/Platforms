@@ -1,0 +1,30 @@
+ref - http://www.dummies.com/how-to/content/how-to-connect-your-beaglebone-via-ssh-over-usb.html
+
+- Validate connection in web browser to BBB (http://192.168.7.2/)
+
+- Open PuTTY
+
+- In the PuTTY Configuration dialog box, select SSH
+
+- Type 192.168.7.2 as the host, Port 22
+
+	*Save as 'BeagleBone Black'
+
+- Click Open
+
+- When you’re asked to log in, type root and press Enter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

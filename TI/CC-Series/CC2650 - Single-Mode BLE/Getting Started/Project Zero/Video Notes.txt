@@ -1,0 +1,15 @@
+@src 	file:///C:/ti/lib/simplelink_academy_01_11_00_0000/overview.html
+
+@title 	Develop your first Bluetooth Low Energy project
+@brief	shows how to import and develop with CCS Cloud and Project Zero for the 
+		CC2650 LAUNCHXL
+
+@src	tirex->Software->SimpleLink CC2640R2 SDK->SimpleLink Academy->Projects->Project Zero
+
+@section 	CC26XX Bluetooth Smart
+	CC2650-LAUNCHXL->Documents->CC2650-LAUNCHXL Project Zerp
+		@url http://dev.ti.com/tirex/content/cc26xx_bluetooth_smart/cc26xx_bluetooth_smart__2.01.00.44423/Projects/ble/ProjectZero/project0_resources/prz/index.html
+		
+		
+@section 	Notes
+	

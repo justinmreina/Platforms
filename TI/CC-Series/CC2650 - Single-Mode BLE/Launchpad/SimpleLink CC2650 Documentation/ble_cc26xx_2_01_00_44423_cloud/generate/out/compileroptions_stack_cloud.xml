@@ -1,0 +1,4 @@
+<compileroptions>
+	<compileroption>--cmd_file=${TI_BLE_SDK_BASE}/Projects/ble/config/buildComponents.opt</compileroption>
+	<compileroption>-O4 --opt_for_speed=0</compileroption>
+</compileroptions>

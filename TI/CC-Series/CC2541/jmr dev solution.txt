@@ -1,0 +1,8 @@
+CC2541 Evaluation Module Kit - CC2541EMK
+http://www.ti.com/tool/cc2541emk
+
+CC Debugger
+http://www.ti.com/tool/cc-debugger?keyMatch=CC%20Debugger&tisearch=Search-EN-Everything
+
+*The EMK supports all CC Debug pins for programming
+

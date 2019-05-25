@@ -1,0 +1,48 @@
+/************************************************************************************************************************************/
+/** @file		x
+ * 	@brief		x
+ * 	@details	x
+ *
+ *  @target		x
+ *	@board		x
+ *
+ * 	@author		Justin Reina, Firmware Engineer, Misc. Company
+ * 	@created	x
+ * 	@last rev	x
+ *
+ *
+ * 	@section 	BLE Stack Vocabulary
+ * 		ARC - Advanced Remote Control
+ * 		ST - Sensor Tag
+ *
+ *  @section 	Locations of HAL
+ *
+ * 	@section	Opens
+ * 			none current
+ *
+ * 	@section	Legal Disclaimer
+ * 			All contents of this source file and/or any other Misc. Product related source files are the explicit property of
+ * 			Misc. Company. Do not distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
+#include "globals.h"
+
+
+/************************************************************************************************************************************/
+/**	@fcn		int main(void)
+ *  @brief		x
+ *  @details	x
+ */
+/************************************************************************************************************************************/
+int main(void) {
+  
+        volatile int i = 1;
+        
+        i++;
+  
+	for(;;) {
+          i--;
+        }
+}
+
+

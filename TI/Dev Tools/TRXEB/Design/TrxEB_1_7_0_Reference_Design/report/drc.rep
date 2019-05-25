@@ -1,0 +1,43 @@
+--------------------------------------------------------------------------------
+                            Design Rule Check Report
+
+                     CADSTAR Design Editor Version 11.0.0.4
+
+Design:     C:\Development\subversion\Projects\025107_CC112xDK\3_Design\TrxEB\TrxEB_v1_7_0\cadstar\TRXEB_1_7_0.pcb
+
+Design Title:
+TrxEB - SmartRF Transceiver Evaluation Board
+
+Date:      24. august 2011
+Time:      14:27
+
+--------------------------------------------------------------------------------
+
+Summary of Errors By Layer
+
+  Layer 1 (physical layer 1) has 1 error(s).
+  Layer 2 (physical layer 2) has 1 error(s).
+  Layer 3 (physical layer 3) has 1 error(s).
+  Layer 4 (physical layer 8) has 1 error(s).
+
+Detailed List of Errors By Layer
+
+
+Layer 1 (Physical Layer 1)
+
+  DD - Drill Holes too close at 270.080 333.861
+
+Layer 2 (Physical Layer 2)
+
+  DD - Drill Holes too close at 270.080 333.861
+
+Layer 3 (Physical Layer 3)
+
+  DD - Drill Holes too close at 270.080 333.861
+
+Layer 4 (Physical Layer 8)
+
+  DD - Drill Holes too close at 270.080 333.861
+--------------------------------------------------------------------------------
+                                 End of report
+--------------------------------------------------------------------------------

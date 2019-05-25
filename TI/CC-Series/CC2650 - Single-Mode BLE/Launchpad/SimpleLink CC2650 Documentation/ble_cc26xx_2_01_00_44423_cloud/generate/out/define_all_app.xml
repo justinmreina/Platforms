@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>xdc_runtime_Assert_DISABLE_ALL</define>
+	<define>xdc_runtime_Log_DISABLE_ALL</define>
+</defines>

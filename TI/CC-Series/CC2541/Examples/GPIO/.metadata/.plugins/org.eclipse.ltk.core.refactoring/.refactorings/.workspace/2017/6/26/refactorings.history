@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;ref_gpio&apos;" deleteContents="false" description="Delete resource &apos;ref_gpio&apos;" element1="/ref_gpio" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1498396350371"/>
+</session>

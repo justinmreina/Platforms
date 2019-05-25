@@ -1,0 +1,103 @@
+//SPI Interface Init
+
+sniffModeRegConfig();
+manualCalibration();
+
+
+//Order
+jmr_cc1200_init()
+jmr_cc1200_sniffInitApp()
+jmr_cc1200_freqConfig()
+jmr_cc1200_masterStartApp()
+	jmr_cc1200_tx_demo()
+
+//Def Values (all are written)
+static const registerSetting_t simpleLinkTestSniffCC120x[]= 
+{
+  {CC120X_IOCFG2, 			 0x13},
+  {CC120X_IOCFG0, 			 0x06},
+  {CC120X_DEVIATION_M,       0xD1},
+  {CC120X_MODCFG_DEV_E,      0x00},		//<- WTH!
+  {CC120X_DCFILT_CFG,        0x5D},
+  {CC120X_PREAMBLE_CFG0,     0x8A},
+  {CC120X_IQIC,              0xCB},
+  {CC120X_CHAN_BW,           0xA6},
+  {CC120X_MDMCFG1,           0x40},
+  {CC120X_MDMCFG0,           0x05},
+  {CC120X_SYMBOL_RATE2,      0x3F},
+  {CC120X_SYMBOL_RATE1,      0x75},
+  {CC120X_SYMBOL_RATE0,      0x10},
+  {CC120X_AGC_REF,           0x20},
+  {CC120X_AGC_CS_THR,        0xFF},
+  {CC120X_AGC_CFG1,          0x40},
+  {CC120X_AGC_CFG0,          0x83},
+  {CC120X_FIFO_CFG,          0x00},
+  {CC120X_SETTLING_CFG,      0x03},
+  {CC120X_FS_CFG,            0x12},
+  {CC120X_WOR_CFG0,          0x20},
+  {CC120X_WOR_EVENT0_MSB,    0x03},
+  {CC120X_WOR_EVENT0_LSB,    0xA5},
+  {CC120X_PKT_CFG2,          0x00},
+  {CC120X_PKT_CFG0,          0x20},
+  {CC120X_RFEND_CFG0,        0x09},
+  {CC120X_PA_CFG1,           0x3F},
+  {CC120X_PKT_LEN,           0xFF},
+  {CC120X_IF_MIX_CFG,        0x1C},
+  {CC120X_FREQOFF_CFG,       0x22},
+  {CC120X_MDMCFG2,           0x0C},
+  {CC120X_FREQ2,             0x56},
+  {CC120X_FREQ1,             0xCC},
+  {CC120X_FREQ0,             0xCC},
+  {CC120X_IF_ADC1,           0xEE},
+  {CC120X_IF_ADC0,           0x10},
+  {CC120X_FS_DIG1,           0x07},
+  {CC120X_FS_DIG0,           0xAF},
+  {CC120X_FS_CAL1,           0x40},
+  {CC120X_FS_CAL0,           0x0E},
+  {CC120X_FS_DIVTWO,         0x03},
+  {CC120X_FS_DSM0,           0x33},
+  {CC120X_FS_DVC0,           0x17},
+  {CC120X_FS_PFD,            0x00},
+  {CC120X_FS_PRE,            0x6E},
+  {CC120X_FS_REG_DIV_CML,    0x1C},
+  {CC120X_FS_SPARE,          0xAC},
+  {CC120X_FS_VCO0,           0xB5},
+  {CC120X_XOSC5,             0x0E},
+};
+
+	
+//Registers Accessed
+jmr_cc1200_init()
+	None, SPI interface is configured for UCB0
+jmr_cc1200_sniffInitApp()
+	trxDetectChipType(&sniffRadioChipType)
+	  TRXEM_SPI_TX(CC1101_READ_BURST | CC1101_PARTNUM_ADDR);   // [7:6] = READ_BURST, [5:0] = part number address
+	  TRXEM_SPI_TX(CC1101_READ_BURST | CC1101_VERSION_ADDR);   // [7:0] = ADDR
+	  TRXEM_SPI_TX(CC1120_READ_BURST | CC1120_EXT_MEM_ACCESS); // [7:6] = READ_BURST, [5:0] = extended memory access address
+	  TRXEM_SPI_TX(CC1120_PARTNUMBER_ADDR);                    // [7:0] = Partnumber address
+	  TRXEM_SPI_TX(0x00);
+	  TRXEM_SPI_RX();
+	  TRXEM_SPI_TX(0x00);
+	  TRXEM_SPI_RX();
+	sniffModeRegConfig(sniffRadioChipType.deviceName) -> cc120x_sniffModeRegConfig()
+	  trxSpiCmdStrobe(CC120X_SRES);
+	  for(i = 0; i < (sizeof(simpleLinkTestSniffCC120x)/sizeof(radioSetting_t)); i++) {
+          writeByte =  simpleLinkTestSniffCC120x[i].data;
+          cc120xSpiWriteReg(simpleLinkTestSniffCC120x[i].addr, &writeByte, 1);
+      }
+	  trxSpiCmdStrobe(CC120X_SPWD);
+jmr_cc1200_freqConfig()
+	cc120xSpiWriteReg(CC120X_FS_CFG, &fs_cfgs_val, 1);
+    cc120xSpiWriteReg(CC120X_FREQ2, freq_vals, 3);
+jmr_cc1200_masterStartApp()
+	cc112xSpiWriteReg(CC120X_IOCFG3,&cc120x_gpioConfigMaster[0],4);
+	trxSpiCmdStrobe(CC120X_SCAL);
+	cc120xSpiReadReg(CC120X_MARCSTATE, &marcState, 1);
+jmr_cc1200_tx_demo()
+	trxSpiCmdStrobe(CC120X_SIDLE);										/* Exit RX / TX, turn off frequency synthesizer			*/
+	while((trxSpiCmdStrobe(CC112X_SNOP)& 0xF0) != 0x00);				/* Wait for idle radio									*/
+	cc112xSpiWriteTxFifo(newComArray, NEW_COMM_ARRAY_SIZE);             /* Fill FIFO                                     		*/		<- Q: How does this work? Do some digging!!
+	trxSpiCmdStrobe(CC120X_STX);										/* Enable TX. If in RX state, only enable if CCA passes	*/
+	while((trxSpiCmdStrobe(CC120X_SNOP)& 0xF0) != 0x00);				/* No operation. Returns status byte					*/
+	trxSpiCmdStrobe(CC120X_SPWD);
+

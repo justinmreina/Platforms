@@ -1,0 +1,31 @@
+@brief		description of how the TrxEB firmware operated and controls 
+			the CC1200 module
+
+@section 	Procedure
+	main.c:162 -> trxRfSpiInterfaceInit() init's the SPI interface
+
+	Main Menu->Rx Sniff Test
+	
+	sniff_mode.c:sniffInitApp()
+		sniffModeRegConfig  						(Select 868 MHz)
+			*cc120x_sniffModeRegConfig()			[apps/sniff_mode/cc120x_sniff_mode_api .c]
+				cc120xSpiWriteReg()					[apps/per_test/radios/cc120x/cc120x_spi.c]
+		
+		sniffModeFreqConfig()
+			*cc120x_FreqConfig()						[apps/sniff_mode/cc120x_sniff_mode_api.c]
+
+		sniffMasterStartApp()						<- Master	[apps/sniff_mode/sniff_mode.c] (or 'Slave' if this selected)
+			*cc120x_masterStartApp()				[per test/apps/sniff_modecc120x_sniff_mode_api .c]
+	
+		//for the actual transmission now (per test/apps/sniff_mode/cc120x_sniff_mode_api.c:278)
+	
+	
+			
+	Question: where does it set registers? confirm values stick
+	
+@section 	Notes
+	'/t*' denotes naming convention (e.g. sniffModeRegConfig->cc120x_sniffModeRegConfig)
+	
+	
+@section 	Opens
+	What is TrxEB's Fclk for data transmission on the CC1200?			(40MHz)

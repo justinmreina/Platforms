@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<title>BLE Fundamentals - Lab 1</title>
+
+<xmp theme="united2" style="display:none;" class="col-xs-6">
+
+Introduction
+==================================
+
+This workshop is an introduction for the TI-RTOS based BLE-Stack for CC2640. The 7 tasks in this lab session are targeted to be completed within a 2h time frame. There should be an intermediate level of knowledge of the C programming language as well experience with embedded software development to be able to complete the tasks.
+
+The lab session targets the SensorTag `CC2650ST` development kit, with the addition of the XDS110 debugger DevPack for the SensorTag, `CC-DEVPACK-DEBUG`. Both can be bought at the TI e-store: [CC2650ST](https://store.ti.com/cc2650stk.aspx), and [CC-DEVPACK-DEBUG](https://store.ti.com/cc-devpack-debug.aspx)
+
+The first task shows how to download a project to the device and run it, and the subsequent tasks will explore the wireless BLE interface and make some small changes to the BLE application.
+
+For the latter tasks, either a Bluetooth Smart enabled cell-phone or a SensorTag + Debug Devpack running the TI Network Processor application (HostTest) is required. The advantage of using HostTest is that the TI tools such as `BLE Device Monitor` and `BTool` can be used.
+
+It is recommended to read the [CC2640 BLE Software Developers Guide](http://www.ti.com/lit/pdf/swru393) alongside this lab for details and further information. Some references will also be made to this document.
+
+Test of tabbed editor
+=======================
+<div id="cards">
+              <paper-card heading="Sources" elevation="0">
+                <div class="card-content">
+<div id="editorDiv" class="col-xs-12">
+                    <ti-widget-tabbedEditor class="tabs" id="tabbedEditor"  downloadLink="../prz/BlinkJsonUart.zip" importSketchName="BlinkJsonUart" boardId="MSP-EXP432P401R"  files='[{"filename":"../prz/BlinkJsonUart.ino","fileLocation":"/../prz/BlinkJsonUart.ino"},{"filename":"../prz/main.c","fileLocation":"/../prz/main.c"}]' ></ti-widget-tabbedEditor>
+</div>
+                </div>
+              </paper-card>
+        </div>
+
+
+Something
+
+Prerequisites
+==================================
+
+Software for Desktop development
+---------
+* CCS 6.1
+* TI BLE SDK 2.1 (http://www.ti.com/ble-stack)
+* TI-RTOS 2.13.00.06 or later
+    * Note that a compatible version of TI-RTOS is bundled with the BLE SDK installer.
+* TI BLE Device Monitor (http://www.ti.com/lit/zip/swrc258)
+
+Hardware
+---------
+* 2x CC2650ST SensorTag kits
+* 2x CC-DEVPACK-DEBUG
+
+
+Recommended reading
+------------------
+
+* Chapter 1 and 2 of the BLE Software Developer's Guide
+  * Found at http://www.ti.com/lit/pdf/swru393 or locally in [C:\ti\simplelink\ble_cc26xx_2_01_00_44423\Documents](C:\ti\simplelink\ble_cc26xx_2_01_00_44423\Documents)
+
+
+Getting started &ndash; Desktop
+==================================
+
+Install the software
+---------------------------------
+
+1. Run the BLE SDK installer: `ble_cc26xx_setupwin32_2_01_00_44423.exe`
+
+This gives you:
+* The SDK itself at `C:\ti\simplelink\ble_cc26xx_2_01_00_44423`
+* TI-RTOS for SimpleLink at: `C:\ti\tirtos_simplelink_2_13_00_06`
+* BTool accessible via the Start Menu
+
+
+2. Run `Setup_BLE_Device_Monitor.exe` downloaded from the link above. This gives you TI BLE Device Monitor on the Start menu.
+
+
+Task 1 &ndash; Run TrainingTag project
+==================================
+The first task is to simply run the TrainingTag example project on SensorTag and verify that the hardware is working properly. This is an adaptation of the TrainingTag project for the SensorTag.
+
+
+Import in CCS Desktop
+---------------------
+
+Open Code Composer Studio 6.1 and import the two project:
+*  Open the Resource Explorer by going to View &rarr; Resource Explorer (Examples)
+*  Open up SimpleLink Academy &rarr; Bluetooth Smart
+*  Select Projects &rarr; TrainingTag  &rarr; TrainingTagApp
+*  Press the import button on the right side
+*  Select TrainingTagStack project
+*  Press the import button on the right side
+
+![Resource Explorer](resources/import_trainingtag.png)
+
+Once that is done, the projects are available in the Project Explorer as shown in the figure below;
+
+![Imported](resources/trainingtag_imported.png)
+
+
+Connect debugger and SensorTag
+------------------------
+Start by making sure the SensorTag + Debug DevPack is connected to the PC via the USB cable.
+
+{{y
+Depending on the SensorTag board revision it may be necessary to first connect the DevPack to the PC and then connect the SensorTag to the Devpack.
+}}
+
+When the DevPack is connected, the Windows Device Manager (Start &rarr; Run &rarr; mmc devmgmt.msc &rarr; Ok) should show you the following devices connected:
+![Device Manager](resources/dev_mgr_xds110.png)
+
+The `Application/User UART` serial port is used for application output in this example.
+
+
+Configure the debugger connection
+---------------------
+The default debugger for the CC2650 SimpleLink device is XDS100v3. The SensorTag Debug DevPack is equipped with the improved XDS110 debugger. To use this debugger, you must configure the target configuration file.
+
+Follow the steps below, with only one XDS110 debugger connected.
+
+![Debugger connection](resources/debugger_connection.png)
+
+* Open the file `targetConfigs/CC2650F128.ccxml`.
+* Change the connection to `XDS110 USB Debug Probe`
+* Click on `Target Configuration`
+
+![Debugger connection](resources/debugger_connection_serial.png)
+
+* Click on the top-level node (XDS110 USB Debug Probe)
+* Choose 'Select by serial number'
+* Start command prompt and call `c:\ti\ccs\ccs_base\common\uscif\xds110\xdsdfu.exe -e` to enumerate the connected debugger.
+
+<div class="pre-container"><pre><div class="hljs"><span class="hljs-constant">C:\ti>c:\ti\ccs\ccs_base\common\uscif\xds110\xdsdfu.exe -e
+
+USB Device Firmware Upgrade Utility
+Copyright (c) 2008-2014 Texas Instruments Incorporated.  All rights reserved.
+
+Scanning USB buses for supported XDS110 devices...
+
+
+<<<< Device 0 >>>>
+
+VID: 0x0451    PID: 0xbef3
+Device Name:   XDS110 with CMSIS-DAP
+Version:       2.2.4.2
+Manufacturer:  Texas Instruments
+<span class="hljs-number">Serial Num:    0000FF01</span>
+Mode:          Runtime
+
+Found 1 device.
+
+C:\ti>
+</span></div></pre>Finding XDS110 serial number</div>
+
+
+* Insert the serial number. Above it's `0000FF01`.
+* Save the settings.
+* Test the connection.
+* Do this for both the `App` and the `Stack` projects.
+
+You can also change the serial number to something easier to remember, or in case two debuggers have the same serial number.
+
+<div class="pre-container"><pre><div class="hljs"><span class="hljs-constant">C:\ti>c:\ti\ccs\ccs_base\common\uscif\xds110\xdsdfu.exe -m
+
+USB Device Firmware Upgrade Utility
+Copyright (c) 2008-2015 Texas Instruments Incorporated.  All rights reserved.
+
+Scanning USB buses for supported XDS110 devices...
+
+
+<<<< Device 0 >>>>
+
+VID: 0x0451    PID: 0xbef3
+Device Name:   XDS110 with CMSIS-DAP
+Version:       2.2.4.2
+Manufacturer:  Texas Instruments
+Serial Num:    BADEABBA
+Mode:          Runtime
+
+Switching device into DFU mode.
+
+C:\ti>c:\ti\ccs\ccs_base\common\uscif\xds110\xds110\xdsdfu.exe -s ABCDEF01 -r
+
+USB Device Firmware Upgrade Utility
+Copyright (c) 2008-2015 Texas Instruments Incorporated.  All rights reserved.
+
+Scanning USB buses for supported XDS110 devices...
+
+Setting serial number to "ABCDEF01"...
+
+c:\ti>
+</span></div></pre>Optionally change the serial number</div>
+
+
+Connect a terminal program
+--------------------
+To see the serial output from the XDS110 it is necessary to use a terminal emulator. Start this up now, when you've confirmed that the debugger connection to the device works. There are several options:
+
+* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+* [RealTerm](http://sourceforge.net/projects/realterm/)
+* [Windows PowerShell](https://learn.sparkfun.com/tutorials/terminal-basics/command-line-windows-mac-linux)
+* Or even just going to the command prompt and typing for example `type COM4:`.
+  * Type `help mode` to learn how to set the port parameters.
+
+
+1. Start your terminal program
+2. Choose 115200 baud as the speed, 8 bit data, 1 stop bit, no parity, no flow control.
+3. Open the serial port
+
+
+Build the projects
+-------------------
+
+You can select the active project by right click.
+Do the following;
+1.     Compile the TrainingTag project (<kbd>Ctrl + B</kbd>, the hammer icon, or via Resource Explorer)
+    *  Will automatically compile the stack project. Note: This is not true for the BLE SDK projects yet, only the lab projects.
+2.    Debug the TrainingTagStack project (<kbd>F11</kbd> or the green bug icon)
+3.    Terminate the TrainingTagStack debug (<kbd>Ctrl + F2</kbd> or red square icon)
+4.    Debug the TrainingTagApp project (<kbd>F11</kbd>)
+5.    Alt 1: Terminate the TrainingTagApp project (<kbd>Ctrl + F2</kbd> or red square icon)
+5.    Alt 2: Press <kbd>F8</kbd> or the Play/Pause button to stay in debug mode, but let the program run.
+
+Verify that the device is programmed and advertising. This can be observed in the terminal program.
+
+Take a note of your device address for later use.
+
+{{y
+In the case that the terminal output is not working correctly, you can use [SmartRF Flash Programmer v2](http://www.ti.com/tool/flash-programmer) to find your device address.
+}}
+
+
+
+
+Task 2 - Connect with PC tool and navigate GATT table
+==================================
+
+You will now program a SensorTag with the HostTest project. The HostTest project allows a user to call most of the GAP, GATT and ATT functions of the BLE stack via a serial interface.
+
+The serial commands conform to the HCI standard as defined by the Bluetooth SIG, but puts a layer of Vendor Specific commands on top to allow interaction with the on-chip Host layer. Normally the HCI interface only allows communication with the Controller layer.
+
+Tools like BTool and BLE Device Monitor use this interface to connect to and manipulate other BLE devices.
+
+
+
+Import HostTest
+---------------------------------
+
+As with the SensorTag project import both HostTestApp and HostTestStack from the training module into your workspace. These projects have been set up to use Board files compatible with the SensorTag in combination with the Debug DevPack.
+
+
+
+Connect and configure second debugger
+---------------------------------
+
+Connect the second DevPack Debug to your computer and take a note of the serial port number for the User/Application port.
+
+As above, you need to manually configure `targetConfigs/CC2650F128.ccxml` to use XDS110 with the second device's serial number.
+
+Connect the second SensorTag to the second Debug DevPack.
+
+
+
+Compile and Download HostTest
+-----------------------------------
+
+Select the HostTestApp project and build it. This should also automatically build the stack project.
+
+When this is done, download both the HostTestApp and HostTestStack projects to the second SensorTag and then stop the debugging session.
+
+
+
+Start TI BLE Device Monitor
+---------------------------------
+
+Device Monitor is a PC Tool that uses the HCI Vendor Specific commands to act as a Bluetooth Smart Ready device (also known as a Bluetooth low energy GAP Central Device). When the PC Tool opens the first time, the first step is to configure which COM-port (Options &rarr; Serial port) to use as show in the picture below. If you have several COM ports, use Device Manager to figure out which one is connected to the Application/User COM port of the SensorTag with HostTest running.
+
+![Device Manager](resources/dev_mgr_xds110_hosttest.png)
+
+
+Scan for BLE devices
+---------------------------------
+
+If the PC Tool does not scan automatically, it can be done manually by pressing the 'Scan' button. Connect to device with address matching the address you noted
+
+![Scanned devices](resources/image006.png)
+
+Device monitor should perform automatic discovery of all the services available within the TrainingTag which is presented in a graphical table. If no service discovery is performed, press the 'Discover' button, when connected.
+
+
+Navigate the Attribute table
+---------------------------------
+
+Double click on some items to send a Read Request and read out data from the services in the TrainingTag.
+
+![Scanned devices](resources/image007.png)
+
+
+GATT structure
+---------------------------------
+What you see in Device Monitor is a visualization of the interface available for e.g. an Android or iOS application to communicate with the CC2650. An app for iOS, e.g. LightBlue, and also the TI Multitool App offer similar functionality.
+
+The GATT server structure is roughly divided into the following sections:
+* Services (Simple Profile Service)
+  * Has a declaration (for the example Simple profile service, this is on handle 31)
+    * UUID of service (0xFFF0)
+* Characteristics (Characteristic 1)
+  * Has a declaration
+    * Access properties         (0x0A)
+    * Handle of data attribute (0x001E which is 30 decimal)
+    * UUID of characteristic    (0xFFF1)
+  * Has a data attribute - This is where the data is located, with the default value of 01.
+    * Notice that the UUID and the handle of this attribute is mentioned in the declaration above it.
+  * Can have several configuration attributes (descriptors)
+    * User description present in the picture above
+    * CCCD (Characteristic Change Configuration Descriptor) used to allow Notifications from the peer. Notifications are to interrupts what Read Requests are to polling.
+
+
+Discovery
+---------------------------------
+
+Services and Characteristics are discovered after a connection is established. This is done because the handles are used on the ATT level to read/write, but handles are dynamically assigned. The only thing a remote device knows before it connects is the UUID of the services and characteristics it wants to use on the peer.
+
+E.g. you want to connect to and use a health thermometer. By reading the Bluetooth SIG specs, you know that the UUID of the service is 0x1809, and the UUID of the Temperature measurement is 0x2A1C. You then discover the handles for these in order to configure/read/write.
+
+
+
+Task 3 - Periodic Event
+==================================
+
+This task will allow you to try out the built in periodic event of the TrainingTag by interacting with the characteristic values in the SimpleGATT Profile.
+
+The TrainingTag periodic event copies the value of Characteristic 3 into Characteristic 4. This means that a Write to Characteristic 3 will show up as a Notification in Characteristic 4. This task will tie together the Clock event that starts up when the device connects to what you see over the air.
+
+Access Properties
+---------------------------------
+
+Each characteristic has properties, which are made known in its declaration via a bit-map.
+
+```c
+#define GATT_PROP_BCAST         0x01    //!< Permits broadcasts of the Characteristic Value
+#define GATT_PROP_READ          0x02    //!< Permits reads of the Characteristic Value
+#define GATT_PROP_WRITE_NO_RSP  0x04    //!< Permits writes of the Characteristic Value without response
+#define GATT_PROP_WRITE         0x08    //!< Permits writes of the Characteristic Value with response
+#define GATT_PROP_NOTIFY        0x10    //!< Permits notifications of a Characteristic Value without ackn..
+#define GATT_PROP_INDICATE      0x20    //!< Permits indications of a Characteristic Value with acknowledgement
+#define GATT_PROP_AUTHEN        0x40    //!< Permits signed writes to the Characteristic Value
+```
+
+You can see the properties of each characteristic in Device Monitor. Each characteristic consists of a Declaration (handle 38 in the picture below), a Value (handle 39) and optionally a configuration descriptor.
+
+![Properties of Characteristic 1](resources/image008.png)
+
+In this picture, we see that the properties of Characteristic 4 is NOTIFY, because the first byte in the declaration is 0x10 (see the list above). Incidentally, the remaining bytes are 27:00 or 0x27 which is decimal 39, meaning the declaration points to the handle of the value. The last bytes are 0xFFF4 which is the UUID of the Characteristic.
+
+
+Characteristic 3
+---------------------------------
+
+This characteristic (UUID 0xFFF3) has only Write properties (0x08). When we write to this characteristic's data attribute, a WriteCB is triggered on the chip (simpleGATTprofile.c) and the data is stored.
+
+
+Characteristic 4
+---------------------------------
+
+This characteristic has only Notify properties, meaning you cannot poll the value via any Read request type. To get data from this type of characteristic, you must first enable notifications (allow the device to send notifications) by writing 01:00 or 0x0001 to the characteristics CCCD attribute.
+
+![Enable notification](resources/image009.png)
+
+[[g Do the following
+1. Try writing 01:00 to this (handle 43) descriptor and see what happens in the Device Monitor log window.
+
+2. Try writing something (only 1 byte) to the value attribute of Characteristic 3. Observe LCD and Device Monitor log window.
+]]
+
+[[b Questions
+1. What is the interval of the periodic timer?
+]]
+
+
+
+Task 4 - Customize the Application
+==================================
+
+This task allows you to customize the Application (TrainingTag.c).
+
+Change the Scan Response data
+---------------------------------
+
+The two variables advData and scanRspData contain the data the device will transmit while advertising its existence to any interested parties so they can see the device and connect to it. Modify the nugget `LOCAL_NAME_COMPLETE` of `scanRspData` to reflect a name you like better than the original.
+
+Example:
+```c
+static uint8_t scanRspData[] =
+{
+  10,                               // length of this nugget
+  GAP_ADTYPE_LOCAL_NAME_COMPLETE,   // identifier for this nugget
+  'S', 'p', 'i', 'd', 'e', 'r', 'P', 'i', 'g',
+``` First part of the scan response definition.
+
+
+Change the device address
+---------------------------------
+
+The device address is assigned during production from a pool of IEEE addresses that TI has bought. A developer can use their own address, and for development such an address can be hard-coded into the firmware.
+
+Example:
+```c
+static void TrainingTag_init(void)
+{
+ // Register the current thread as an ICall dispatcher application
+ // so that the application can send and receive messages.
+ ICall_registerApp(&selfEntity, &sem);
+
+ // Hard code the BD Address till CC2650 board gets its own IEEE address
+ // uint8 bdAddress[B_ADDR_LEN] = { 0xF0, 0xEE, 0xDD, 0xCC, 0xBB, 0xAA }; // Uncomment to hard-code device address
+ // HCI_EXT_SetBDADDRCmd(bdAddress);                                      // Uncomment to hard-code device address
+ ``` Hard-coding public address. Only for debugging.
+
+
+Increment some value and print it to the display
+---------------------------------
+
+The periodic task is called automatically once the device is connected. This is started by a call to `Util_startClock(&periodicClock);` when the `GAPROLE_CONNECTED` event is received. Change the periodic function so that it increments a value every time this function is called, and writes the result to the LCD.
+
+Example:
+```c
+static void TrainingTag_performPeriodicTask(void)
+{
+  static uint32_t myVal = 0; // Initialized to 0, value will remain between function calls since it's static.
+  myVal++;                  // Increment myVal by 1 every time this function is called.
+  System_printf("MyVal: %d\r\n", myVal);
+```
+
+[[g Do the following
+1.     Change how often the periodic task is called.     (Hint: `TTG_PERIODIC_EVT_PERIOD`)
+2.     Make the periodic task start even if not connected. (Hint: `Util_startClock(&periodicClock);` should be called from somewhere else as well. It's called two places now. Which of the calls starts it when a connection is made?)
+]]
+
+
+
+
+Task 5 - Control the Periodic Event from Peer Device
+==================================
+
+This task is about controlling (starting/stopping) the periodic event by writing to Characteristic 1.
+
+When a value is written to the SimpleGATT Profile over the air, the service will typically notify the application of this change.
+
+In `trainingTag.c`, the function `TrainingTag_processCharValueChangeEvt(...)` is called to handle such writes.
+
+You will notice the function calls the Service to get the value, then writes it to the LCD. In this task you should use the value for Characteristic 1, depending on the value (you choose) either start or stop the periodic timer.
+
+```c
+if (Util_isActive(&periodicClock) == FALSE)
+{
+    Util_startClock(&periodicClock);
+}
+```  Example use of the clock control function.
+
+Stopping a clock can be done with the function Util_stopClock()
+
+```c
+switch(newValue)
+{
+    case 0x01:
+        //Do something
+        break;
+    case 0x02:
+        //Do something
+        break;
+    case 0x03:
+        //Do something
+        break;
+    default :
+    break;
+}
+``` Example use of a Switch case.
+
+</xmp>
+
+<div align="center" style="margin-top: 4em;">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="../../../../../simplelink_academy/web_support/cc_license_icon.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</div>
+
+
+<link rel="stylesheet" href="../../../../../simplelink_academy/web_support/highlight/styles/zenburn.css"/>
+<script src="../../../../../simplelink_academy/web_support/strapdown/vendor/jquery-1.11.2.min.js"></script>
+<script src="../../../../../simplelink_academy/web_support/strapdown/vendor/bootstrap.min.js"></script>
+<script src="../../../../../simplelink_academy/web_support/highlight/highlight.pack.js"></script>
+<script src="../../../../../simplelink_academy/web_support/strapdown/v/0.2/strapdown.js"></script>
+
+<script src="/components/gc/1.0.0/webcomponentsjs/webcomponents-lite.js"></script>
+<link rel="import" href="/components/gc/1.0.0/ti-widget-tabbedEditor/ti-widget-tabbedEditor.html">
+<link rel="import" href="/components/gc/1.0.0/ti-widget-flashtool/ti-widget-flashtool.html">
+    <link rel="import" href="/components/gc/1.0.0/paper-material/paper-material.html">
+    <link rel="import" href="/components/gc/1.0.0/paper-card/paper-card.html">
+    <link rel="import" href="/components/gc/1.0.0/paper-styles/color.html">
+
+
+</html>

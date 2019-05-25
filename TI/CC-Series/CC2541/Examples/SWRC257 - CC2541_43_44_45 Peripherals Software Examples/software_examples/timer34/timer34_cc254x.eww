@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\t3_down_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\t3_free_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\t3_modulo_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\t4_pwm_cc254x.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

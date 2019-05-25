@@ -1,0 +1,4 @@
+<compileroptions>
+	<compileroption>--cmd_file=${workspace_loc:/{{referenced_boundary_project}}/TOOLS/ccsCompilerDefines.bcfg}</compileroption>
+	<compileroption>-O4 --opt_for_speed=0</compileroption>
+</compileroptions>

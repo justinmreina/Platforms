@@ -1,0 +1,38 @@
+Attempted on 5.22.16, with BeagleBone Black Rev. C
+
+- Went to 'http://beagleboard.org/latest-images'
+
+- Downloaded Jessie Debian 8.4 for BeagleBone Black
+
+	- 'bone-debian-8.4-lxqt-4gb-armhf-2016-05-13-4gb.img.xz'
+
+- Extracted .img from img.xz with 7-Zip
+
+	- 'bone-debian-8.4-lxqt-4gb-armhf-2016-05-13-4gb.img'
+
+- Flashed the .img to microSD(E:/) with Win32DiskImager. Included MD5 Hash
+
+- Installed MicroSD into powered down BBB
+
+- Applied Power with USER/BOOT depressed until LEDs completed boot sequence
+
+- Installed PC USB, waited for appearance as Drive in File Explorer
+
+- Opened a PuTTY terminal to USB ethernet (SSH:192.168.7.2:22), root
+
+- LED test (LEDs 1&3): http://beaglebone.cameon.net/home/using-the-user-leds
+
+	- On:  root@beaglebone:/sys/devices/platform/leds/leds/beaglebone:green:usr1# echo 1 > brightness
+	- Off: root@beaglebone:/sys/devices/platform/leds/leds/beaglebone:green:usr1# echo 0 > brightness
+
+	GPIO Mapping
+	LED		GPIO_PIN 	PROC_PIN
+	USR0	GPIO1_21 	V15
+	USR1	GPIO1_22 	U15  
+	USR2 	GPIO1_23 	T15
+	USR3	GPIO1_24 	V16
+	
+- Logged into BBB with WinSCP
+
+- Changed Notepad++ EOL to Unix/Linux
+

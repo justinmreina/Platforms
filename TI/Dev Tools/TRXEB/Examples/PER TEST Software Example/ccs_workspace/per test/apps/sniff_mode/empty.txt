@@ -1,0 +1,4 @@
+used to track and store directory structure of project in source control
+
+-jmr 6.10.17
+

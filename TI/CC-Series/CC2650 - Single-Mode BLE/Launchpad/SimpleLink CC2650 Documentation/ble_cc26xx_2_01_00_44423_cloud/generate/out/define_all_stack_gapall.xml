@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>DEBUG</define>
+	<define>ICALL_RAM0_ADDR=0x200043D4</define>
+	<define>ICALL_STACK0_ADDR=0x00007000</define>
+	<define>ccs</define>
+	<define>xDEBUG</define>
+</defines>

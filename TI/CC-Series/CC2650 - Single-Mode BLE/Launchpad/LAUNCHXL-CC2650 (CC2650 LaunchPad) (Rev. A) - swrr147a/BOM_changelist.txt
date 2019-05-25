@@ -1,0 +1,26 @@
+From 1.1.1 to 1.2.0:
+
+C30 changed from 100 nF, 10V to 100nF 6.3V (simplification)
+Added C53, C54, C55, C56, C57 100 nF, 6.3V(due to new circuitry)
+C52 renamed C59
+Added CR8 ESD protection diodes (due to new circuitry)
+J5 coax connector (MM030-2610) has been replaced by P11 (Murata MM5829-2700)
+M12, M13 jumpers added (due to new circuitry)
+P10 3-row header added
+P3 consolidated into P4 (P3, P5 and P4 replaced with one big P4 header row)
+P4 changed from 2x10 to 2x11 header row
+P5 added Samtec FTSH-105-01-F-DV-K (same as P7)
+P11 coax added (replacing J5)
+R58 changed from 0R to 3.3kOhm (used for different purpose)
+R19 deleted
+R60 renamed R66
+Added R61, R62, R63, R65 100kOhm (due to new circuitry)
+Added U8, U9, U10 TI SN74AVC4T245RSV (due to new circuitry)
+
+1.2.1:
+Added M14
+
+1.3.0:
+No significant changes.
+
+ 

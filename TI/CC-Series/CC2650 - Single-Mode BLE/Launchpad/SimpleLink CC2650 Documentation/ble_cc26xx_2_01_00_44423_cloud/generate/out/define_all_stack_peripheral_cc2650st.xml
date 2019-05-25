@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>DEBUG</define>
+	<define>ICALL_RAM0_ADDR=0x20004460</define>
+	<define>ICALL_STACK0_ADDR=0x0000F000</define>
+	<define>NO_OSAL_SNV</define>
+	<define>OSAL_MAX_NUM_PROXY_TASKS=8</define>
+	<define>ccs</define>
+</defines>

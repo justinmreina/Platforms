@@ -1,0 +1,54 @@
+/* PREV GETTING STARTED NOTES - DEPR */
+
+Getting Started Notes - BeagleBone - Justin 5/15/16
+	Using the 'BeagleBone for Dummies' book
+[X]	A Goal - Launch Linux
+		<Complete> Debian with display (VNC) and Internet (LAN)
+	A Goal - Ethernet
+				Get LAN working, can ping router
+					<Complete> Add user to netdev & sudoer and reboot
+				Get Internet working, can ping google.com
+					<Complete> On Reboot Chromium works
+				Get Internet working in web browser, install and use Firefox
+					<Complete> On Reboot Chromium works
+
+	A Goal - GPIO Control in C Code
+				Code Written, Compiled
+				Code Deployed that controls the User LEDs
+				Adds in Button Toggle Responses
+	A Goal - HW timed I/O
+				Learn Header MODE configuration usage
+				Bit-banging code
+				Timed big-banging
+				Conditional Bit-Banging based on inputs
+	A Goal - RS232 Serial
+	A Goal - Get fully ramped and practiced on assembly programming
+	A Goal - PRU ramp and demo
+	A Goal - HDMI Output
+	A Goal - WiFi Dongle use demo
+
+Initial Steps
+	Installed the drivers
+	Plugged it into the USB
+	Went to Getting Started Page
+		http://beagleboard.org/getting-started
+	Downloaded the latest image and extracted
+		http://beagleboard.org/latest-images
+		Jessie for BeagleBone Black via microSD card
+		bone-debian-8.3-lxqt-4gb-armhf-2016-01-24-4gb.img.xz
+	Followed the Instructions to Flash it to the MicroSD
+	Inserted the card into a powered down Beagleboard
+	Hold the User/Boot Button
+	Applied the USB cable connection to PC
+	Waited until User LEDs pulsed together
+	Released Button
+	Power Cycled Board
+	Installed and connected with TightVNCViewer (see /VNC for instructions)
+	It works! :)
+
+	Create a new user (adduser jmreina)
+	Adding user jmreina to group netdev (gpasswd -a jmreina netdev)
+	Add jmreina as sudoer (logged in as root)
+		visudo
+			add jmreina as a copy of the 'root' line
+	

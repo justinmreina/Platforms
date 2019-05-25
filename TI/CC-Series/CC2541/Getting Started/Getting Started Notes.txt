@@ -1,0 +1,9 @@
+- [X] CC2541 Mini Development Kit User Guide (SWRU332)
+- [X] CC Debugger & Drivers
+- IAR Embedded Workbench for 8051
+- [X] BTool, SmartRF Flash Programmer, SmartRF Packet Sniffer, SmartRF Studio 7
+
+
+@steps
+[~]	Step 1 - Install Tools & Drivers (Studio, Flash Programmer)
+

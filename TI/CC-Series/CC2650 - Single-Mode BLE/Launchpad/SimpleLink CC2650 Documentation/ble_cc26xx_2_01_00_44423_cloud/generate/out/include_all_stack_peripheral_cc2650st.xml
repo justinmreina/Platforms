@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<includes>
+	<include>${TI_BLE_SDK_BASE}/Components/bsp/sensortag_cc26xx/drivers/source</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/common/cc26xx/boards/sensortag_cc26xx/resources</include>
+</includes>

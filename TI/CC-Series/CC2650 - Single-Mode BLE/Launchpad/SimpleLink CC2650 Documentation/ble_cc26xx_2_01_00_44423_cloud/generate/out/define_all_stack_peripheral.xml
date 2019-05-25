@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>GATT_NO_CLIENT</define>
+	<define>xDEBUG</define>
+	<define>xPM_DISABLE_PWRDOWN</define>
+	<define>xTEST_BLEBOARD</define>
+</defines>

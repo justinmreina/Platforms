@@ -1,0 +1,1 @@
+PRU Assembly Language Tools v2.1 - User's Guide- This book helps you learn how to use the Texas Instruments object file and assembly language toolsdesigned specifically for the PRU 32-bit devices- 

@@ -1,0 +1,1 @@
+-l"./configPkg/linker.cmd" "./mcasp_TTO.obj" "./main.obj" "./led.obj" "./isr.obj" "./fir.obj" "./aic3106_TTO.obj" -l"libc.a" "C:/SYSBIOSv4/Labs/DSP_BSL/bsl/lib/evmomapl138_bsl.lib" 

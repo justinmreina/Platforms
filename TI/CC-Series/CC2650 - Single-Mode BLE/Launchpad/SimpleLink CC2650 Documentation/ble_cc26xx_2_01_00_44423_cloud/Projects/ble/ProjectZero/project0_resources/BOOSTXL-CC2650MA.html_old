@@ -1,0 +1,293 @@
+<!doctype html>
+<!--
+	Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+	This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+	The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+	The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+	Code distributed by Google as part of the polymer project is also
+	subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html lang="">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome to CC2650 Module BoosterPack</title>
+
+	    <script src="/components/gc/1.0.0/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+		<!-- Iron elements -->
+
+		<link rel="import" href="/components/gc/1.0.0/iron-image/iron-image.html">
+
+		<!-- Paper elements -->
+		<link rel="import" href="/components/gc/1.0.0/paper-material/paper-material.html">
+		<link rel="import" href="/components/gc/1.0.0/paper-card/paper-card.html">
+
+		<link rel="import" href="/components/gc/1.0.0/ti-widget-flashtool/ti-widget-flashtool.html">
+
+		<!-- Add your elements here -->
+
+		<link rel="stylesheet" href="./styles/main.css">
+		<link rel="import" href="./styles/shared-styles.html">
+
+		<!-- endreplace-->
+
+	<!-- For shared styles, shared-styles.html import in elements.html -->
+	<!--<style is="custom-style" include="shared-styles">-->
+	<style is="custom-style">
+
+			#editorDiv {
+            margin-left:80px;
+            margin-right:80px;
+            }
+
+			#cards {
+			max-width: 1000px;
+			margin-left: auto;
+			margin-right: auto;
+			}
+
+			.container {
+			@apply(--layout-horizontal);
+			@apply(--layout-wrap);
+			}
+
+			paper-card {
+				width: 100%;
+				margin-bottom: 16px;
+
+				--paper-card-header-text: {
+				font-size: 2.6em;
+				color: #189;
+				font-family: 'Roboto', arial, sans-serif;
+				font-weight: 300;
+				};
+
+			}
+
+			.fancy_inner {
+				background-size: 100%;
+				background-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.8) 100%);
+				z-index:1;
+				position: absolute;
+				bottom: 41px;
+				left:16px;
+				width: 97%;
+				padding-top: 60px;
+				padding-bottom: 60px;
+			}
+
+			.fancy_inner .medium {
+			font-size:48px;
+			color: #FFFFFF;
+			padding-bottom: 8px;
+			padding-left: 80px;
+			font-family: 'Roboto', arial, sans-serif;
+			font-weight: 300;
+
+			}
+
+			.fancy_inner .small {
+			font-size: 22px;
+			color: #FFFFFF;
+			padding-bottom: 8px;
+			padding-left: 80px;
+			font-family: 'Roboto', arial, sans-serif;
+			font-weight: 300;
+			}
+
+			.circle{
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+			font-size:24px;
+			background-color:#555;
+			color:#fff;
+			min-width:30px;
+			max-width:30px;
+			height:30px;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			box-shadow: 2px 2px 2px #aaa;
+			}
+
+			.circle span {
+			position:relative;
+			top:3px;
+			}
+
+			.notelayout {
+			font-size: 12px;
+			@apply(--layout-horizontal);
+			margin: 1em;
+			background: #F1FFF7;
+			border: 1px solid #C9F0DD;
+			}
+
+			iron-list {
+			background-color: var(--paper-grey-200, #eee);
+			padding-bottom: 16px;
+			}
+
+			.item {
+			@apply(--layout-horizontal);
+			padding-bottom: 16px;
+			}
+
+			.item:focus {
+			outline: 0;
+			border-color: #666;
+			}
+
+			.pad {
+			padding: 0 16px;
+			width: 90%;
+			@apply(--layout-vertical);
+			}
+
+			.tabs {
+				--paper-tabs: {
+						background-color: #555;
+				};
+			}
+
+			a {
+			    color: #189;
+			    text-decoration: none;
+			    outline: 0;
+			}
+	</style>
+
+	<script>
+
+        var loadjsfile = function(filename) {
+            var fileref = document.createElement("script");
+            fileref.src = filename;
+            document.write( fileref.outerHTML );
+        };
+
+        var loadCSSFile = function( filename ){
+            var fileref = document.createElement("link");
+            fileref.href = filename;
+            fileref.type = "text/css";
+            fileref.rel = "stylesheet";
+            document.write( fileref.outerHTML );
+        };
+
+
+        //window.TI_CLOUD_AGENT_HOST = "dev.ti.com";
+        //window.TI_CLOUD_AGENT_PORT = "";
+
+        //var cloudServer = "http://" + window.TI_CLOUD_AGENT_HOST;
+        var cloudServer = "";
+        loadjsfile(cloudServer + "/ticloudagent/q.js");
+        loadjsfile(cloudServer + "/ticloudagent/agent.js");
+        loadCSSFile(cloudServer + "/ticloudagent/agent-flash.css");
+        loadjsfile(cloudServer + "/ticloudagent/agent-flash.js");
+</script>
+
+</head>
+<body unresolved class="fullbleed layout vertical">
+		<span id="browser-sync-binding"></span>
+		<template is="dom-bind" id="app">
+			<div id="cards">
+
+				<paper-card elevation="0">
+					<div class="card-content">
+						<iron-image style="width:969px;height:543px;" sizing="contain" src="BOOSTXL-CC2650MA_images/BOOSTXL-CC2650MA_perspective.png">
+						</iron-image>
+						<div class="fancy_inner">
+							<div class="medium">Meet CC2650 Module BoosterPack</div>
+						</div>
+					</div>
+				</paper-card>
+
+				<paper-card heading="Meet the BOOSTXL-CC2650MA BoosterPack!" elevation="0">
+					<div class="card-content">
+						<h4>Congratulations on choosing the CC2650 Module BoosterPack!</h4>
+						<p>The CC2650 Module BoosterPack kit is the quick and easy way to add Bluetooth low energy to your LaunchPad. Simply plug the CC2650 Module BoosterPack in the MSP432 LaunchPad!</p>
+						<p>The CC2650 Module BoosterPack is a programmed with a wireless network processor SW that allows you to add Bluetooth low energy connectivity to any application using simple UART interface. The module boosterpack also includes a JTAG connection for programming and debugging the CC2650 Module. This allows you to develop any Bluetooth low energy application on the CC2650 Module.</p>
+						<h4>Features</h4>
+						<ul>
+							<li>Bluetooth low energy module BoosterPack using the CC2650 Module with Integrated Antenna</li>
+							<li>Includes software examples for MSP432 as Application Processor</li>
+							<li>Pre-certified for FCC/IC, CE, and ARIB radio standards</li>
+							<li>Debug interface for development of any Bluetooth low energy application on module</li>
+							<li>Bluetooth 4.2 certified</li>
+						</ul>
+					</div>
+				</paper-card>
+				<paper-card heading="A Closer Look at the Hardware" elevation="0">
+					<div class="card-content">
+						<p><img id="Picture 1" border=0 width=500 src="BOOSTXL-CC2650MA_images/BOOSTXL-CC2650MA_front.png">
+						<ul>
+							<li>User red &amp; green LED</li>
+							<li>Power measurement shunt resistor</li>
+							<li>Access to all pins of the CC2650 module</li>
+							<li>The kit comes with a 10-pin JTAG debug cable for optional programming and debugging of the module using an XDS110-based LaunchPad or a 3rd party debugger.</li>
+							<li>The kit comes with an additional CC2650 Module Sample</li>
+						</ul>
+						<h4>Power supply requirements:</h4>
+						<p>The BoosterPack is designed to be powered from the 3V supply of a compatible LaunchPad through the standard connectors. </p>
+						<h4>Temperature range:</h4>
+						<p>The BoosterPack is designed for operation -25 to +85 C. Note
+						that other BoosterPacks and LaunchPads may have different temperature ranges,
+						and when combined, the combination will be set by the most restrictive combined
+						range.</p>
+
+					</div>
+				</paper-card>
+
+				<paper-card heading="Out of the Box Demo" elevation="0">
+					<div class="card-content">
+						<h4>CC2650 Module BoosterPack Out of the Box Demo</h4>
+						<img border=0 width=500 id="Picture 2" src="BOOSTXL-CC2650MA_images/MSP432_CC2650MA_LP_BP_combo.png">
+						<p>The BOOSTXL-CC2650MA is pre-programmed with software that enables communication with smartphones and tablets over Bluetooth Smart. To set up a wireless link with a phone or tablet, simply follow these steps:
+						<ol>
+							<li>Connect the BOOSTXL-CC2650MA to an MSP432 LaunchPad</li>
+							<li>Connect the MSP432 LaunchPad to your computer with the USB cable</li>
+							<li>Click the button below to flash your MSP432 LaunchPad with the Project Zero software. First time use of this tool will request a plug-in installation for flashing.
+								<ti-widget-flashtool showflashbtn id="flashtool"  deviceName="MSP432" fileName="ProjectZero_MSP432.hex" fileFolderName="./BOOSTXL-CC2650MA_resources">
+								</ti-widget-flashtool>
+							</li>
+							<li>Observe that the green LED on the CC2650MA boosterpack is blinking</li>
+							<li>Download the <a href="http://gitorious.ti.com/bluetooth-low-energy-android-project-zero-sample-code/" target="_blank"><span style='color:windowtext;text-decoration:none'>ProjectZero Android Sample Application</span></a> APK to your phone or tablet</li>
+							<li>Use the app to connect to the "Project Zero" peripheral implemented by the MSP432+CC2650MA <img border=0 height=468 id="Picture 3" src="BOOSTXL-CC2650MA_images/PRZ_Screenshot_connect.png"></li>
+						</ol>
+						<p>The app lets you control the LEDs, get notified of the state of the buttons and send data to the LaunchPad. It serves as a great starting point for further app development.</p>
+						<p><img border=0 height=468 id="Picture 4" src="BOOSTXL-CC2650MA_images/PRZ_Screenshot_main.png"></p>
+					</div>
+				</paper-card>
+				
+				<paper-card heading="Start Development" elevation="0">
+					<div class="card-content">
+						<b>Add functionality to Project Zero to get started quickly. Download and install the <a href="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/tirtos/index.html" target="_blank">TI RTOS for MSP432</a> and the <a href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/msp_connectivity_library/latest/index_FDS.html" target="_blank">connectivity library</a>, simply use the on-board debugger on the MSP432 LaunchPad and our cloud development suite to start your Bluetooth Low Energy peripheral application.</b>
+						<p>Use the included MSP432 + CC2650 Module Project 0 to see a very basic project in action including ability to program your device and connect to a phone. This is the quickest way to get started and a good starting point for your application.
+						</p>
+					</div>
+				</paper-card>
+				
+				<paper-card heading="Developing the BLE Network Processor image on CC2650MA" elevation="0">
+					<div class="card-content">
+							<h4>Advanced BLE Use</h4>
+							<b>If you would like to expand functionality or otherwise develop and debug on the CC2650 on the module, you can do that with the same MSP432 LaunchPad + CC2650 Module BoosterPack hardware.</p>
+							Step by step:</b>
+							<b>
+							<ol>
+								<li>Download the <a href=http://ti.com/ble-stack>Bluetooth Low Energy Stack SDK</a></li>
+								<li>Download a development environment (IDE). <a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v6"></a>Code Composer Studio or <a href="https://www.iar.com/iar-embedded-workbench/">IAR EWARM</a> are supported by the examples in the SDK</li>
+								<li>Choose one of the examples from the SDK folder and open it in your IDE. The BLE Simple Network Processor one is located in Projects\ble\SimpleNP</li>
+								<li>Disconnect all jumpers accross the dotted line on your LaunchPad.</li>
+								<li>Connect the 10-pin JTAG cable from the J102 "external debug" connector on the LaunchPad to the 10-pin JTAG connector on the BOOSTXL-CC2650MA.</li>
+								<li>Connect the USB cable from your computer to the MSP432 LaunchPad.</li>
+								<li>Hit the debug button in your IDE with the CC2650 LaunchPad connected to your computer and you will be up and running.</li>
+							</ol>
+						</p>
+					</div>
+				</paper-card>
+		</div>
+		</template>
+	</body>
+</html>

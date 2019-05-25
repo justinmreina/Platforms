@@ -1,0 +1,119 @@
+<projects>
+	<project>
+		<name>SimpleBLEPeripheral</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/SimpleBLEPeripheral/CC26xx/CCS/Cloud/SimpleBLEPeripheral.xml</recipe>
+		</recipes>
+	</project>
+	<project>
+		<name>SimpleBLEPeripheralStack</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/SimpleBLEPeripheral/CC26xx/CCS/Cloud/SimpleBLEPeripheralStack.xml</recipe>
+		</recipes>
+	</project>
+
+	<project>
+		<name>SensorTag</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/SensorTag/CC26xx/CCS/Cloud/SensorTag.xml</recipe>
+		</recipes>
+	</project>
+
+	<project>
+		<name>SensorTagStack</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/SensorTag/CC26xx/CCS/Cloud/SensorTagStack.xml</recipe>
+		</recipes>
+	</project>
+
+	<project>
+		<name>SimpleBLECentral</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/SimpleBLECentral/CC26xx/CCS/Cloud/SimpleBLECentral.xml</recipe>
+		</recipes>
+	</project>
+	<project>
+		<name>SimpleBLECentralStack</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/SimpleBLECentral/CC26xx/CCS/Cloud/SimpleBLECentralStack.xml</recipe>
+		</recipes>
+	</project>
+
+
+
+	<project>
+		<name>HIDEmuKbd</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/HIDEmuKbd/CC26xx/CCS/Cloud/HIDEmuKbd.xml</recipe>
+		</recipes>
+	</project>
+	<project>
+		<name>HIDEmuKbdStack</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/HIDEmuKbd/CC26xx/CCS/Cloud/HIDEmuKbdStack.xml</recipe>
+		</recipes>
+	</project>
+
+	<project>
+		<name>SimpleBLEBroadcaster</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/SimpleBLEBroadcaster/CC26xx/CCS/Cloud/SimpleBLEBroadcaster.xml</recipe>
+		</recipes>
+	</project>
+	<project>
+		<name>SimpleBLEBroadcasterStack</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/SimpleBLEBroadcaster/CC26xx/CCS/Cloud/SimpleBLEBroadcasterStack.xml</recipe>
+		</recipes>
+	</project>
+
+	<project>
+		<name>HostTestApp</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/HostTest/CC26xx/CCS/Cloud/HostTestApp.xml</recipe>
+		</recipes>
+	</project>
+	<project>
+		<name>HostTestStack</name>
+		<templates>
+			<template>00_generic.projectspec.template</template>
+		</templates>
+		<recipes>
+			<recipe>../Projects/ble/HostTest/CC26xx/CCS/Cloud/HostTestStack.xml</recipe>
+		</recipes>
+	</project>
+
+</projects>

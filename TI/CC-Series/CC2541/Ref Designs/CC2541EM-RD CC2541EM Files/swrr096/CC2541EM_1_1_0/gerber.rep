@@ -1,0 +1,553 @@
+--------------------------------------------------------------------------------
+                              Batch Process Report
+
+                       CADSTAR Design Editor Version 11.0
+
+Design:     C:\DesignSync_WORKDIR\evm\em\CC2541_EM\Cadstar\CC2541EM.pcb
+
+Design Title:
+CC2541M R1.1
+4-layer, Cadstar PCB design
+
+Units:            Thousandths of an inch
+Decimal Places:   4
+
+Date:      25. august 2011
+Time:      13:59
+
+--------------------------------------------------------------------------------
+
+Results Summary
+---------------
+
+Row 1 completed successfully.
+Row 2 completed successfully.
+Row 3 completed successfully.
+Row 4 completed successfully.
+Row 5 completed successfully.
+Row 6 completed successfully.
+Row 7 completed successfully.
+Row 8 completed successfully.
+Row 9 completed successfully.
+Row 10 completed successfully.
+Row 11 completed successfully.
+Row 12 completed successfully.
+Row 13 completed successfully.
+Row 14 completed successfully.
+
+Results
+-------
+
+************************************ ROW 1 ************************************
+
+
+ [<None>] :: [Artwork] :: [layer_1.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [l1.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Drawn         1.0000                                  
+12          CIRCLE         Drawn         8.0000                                  
+13          CIRCLE         Drawn        10.0000                                  
+14          CIRCLE         Drawn        12.0000                                  
+15          CIRCLE         Drawn        11.0000                                  
+16          CIRCLE         Drawn        15.0000                                  
+17          CIRCLE         Drawn        18.0000                                  
+18          CIRCLE         Drawn        23.0000                                  
+19          CIRCLE         Drawn        20.0000                                  
+20          CIRCLE         Flashed       5.0000                                 4
+21          RECTANGLE      Flashed      23.0000     0.000        1.0000        36
+22          RECTANGLE      Flashed      23.0000   270.000        1.0000        22
+23          CIRCLE         Flashed   68.8976378                                 1
+24          SQUARE         Flashed  78.74015748     0.000                       4
+25          CIRCLE         Flashed  39.37007874                                 3
+26          BULLET         Flashed  11.02362205    90.000   22.44094488        10
+27          BULLET         Flashed  11.02362205   180.000   22.44094488        10
+28          BULLET         Flashed  11.02362205   270.000   22.44094488        10
+29          BULLET         Flashed  11.02362205     0.000   22.44094488        10
+30          SQUARE         Flashed  181.1023622    90.000                       1
+31          CIRCLE         Flashed  31.49606299                                16
+32          SQUARE         Flashed  43.30708661    90.000                       9
+33          RECTANGLE      Flashed  43.30708661   270.000    3.93700787         4
+34          RECTANGLE      Flashed      50.0000   180.000       24.0000         4
+35          CIRCLE         Flashed      20.0000                               284
+
+
+Row 1 completed successfully.
+
+************************************ ROW 2 ************************************
+
+
+ [<None>] :: [Artwork] :: [layer_2.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [l2.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Drawn         1.0000                                  
+12          CIRCLE         Drawn         8.0000                                  
+13          CIRCLE         Drawn        10.0000                                  
+14          CIRCLE         Drawn        18.0000                                  
+15          CIRCLE         Flashed       5.0000                                 4
+16          CIRCLE         Flashed  31.49606299                                16
+17          CIRCLE         Flashed      20.0000                               284
+
+
+Row 2 completed successfully.
+
+************************************ ROW 3 ************************************
+
+
+ [<None>] :: [Artwork] :: [top_solder_resist.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [stopcomp.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Flashed      60.0000                                 4
+12          RECTANGLE      Flashed      29.0000     0.000        1.0000        36
+13          RECTANGLE      Flashed      29.0000   270.000        1.0000        22
+14          CIRCLE         Flashed  72.83464567                                 1
+15          SQUARE         Flashed  82.67716535     0.000                       4
+16          CIRCLE         Flashed  78.74015748                                 3
+17          BULLET         Flashed  16.53543307    90.000   22.44094488        10
+18          BULLET         Flashed  16.53543307   180.000   22.44094488        10
+19          BULLET         Flashed  16.53543307   270.000   22.44094488        10
+20          BULLET         Flashed  16.53543307     0.000   22.44094488        10
+21          SQUARE         Flashed  181.1023622    90.000                       1
+22          SQUARE         Flashed  43.30708661    90.000                       9
+23          RECTANGLE      Flashed  43.30708661   270.000    3.93700787         4
+24          RECTANGLE      Flashed      54.0000   180.000       24.0000         4
+
+
+Row 3 completed successfully.
+
+************************************ ROW 4 ************************************
+
+
+ [<None>] :: [Artwork] :: [bottom_solder_resist.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [stopsold.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          RECTANGLE      Flashed      34.0000   180.000       50.0000        40
+12          CIRCLE         Flashed      60.0000                                 4
+13          CIRCLE         Flashed  78.74015748                                 3
+14          RECTANGLE      Flashed      23.0000   270.000        1.0000         6
+15          RECTANGLE      Flashed      23.0000     0.000        1.0000         4
+16          CIRCLE         Flashed  19.68503937                                16
+17          CIRCLE         Flashed      44.0000                                 5
+
+
+Row 4 completed successfully.
+
+************************************ ROW 5 ************************************
+
+
+ [<None>] :: [Artwork] :: [top_silk.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [silkcomp.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Drawn         1.0000                                  
+12          CIRCLE         Drawn         5.0000                                  
+13          CIRCLE         Drawn         8.0000                                  
+14          CIRCLE         Drawn        10.0000                                  
+
+
+Row 5 completed successfully.
+
+************************************ ROW 6 ************************************
+
+
+ [<None>] :: [Drill Drawing] :: [drill.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [drill.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Drill Report
+------------
+
+      Size    Length    Plate Through    Letter     Count
+      ----    ------    -------------    ------     -----
+   10.0000    0.0000              Yes         A       284
+11.81102362    0.0000              Yes         Z        16
+   55.0000    0.0000               No         B         4
+
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Drawn         1.0000                                  
+12          ANNULUS        Flashed  27.55905512             13.77952756       304
+13          CIRCLE         Drawn         5.0000                                  
+14          CIRCLE         Drawn         8.0000                                  
+
+
+Row 6 completed successfully.
+
+************************************ ROW 7 ************************************
+
+
+ [<None>] :: [Artwork] :: [bottom_paste.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [pastsold.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          RECTANGLE      Flashed      28.0000   180.000       50.0000        40
+12          RECTANGLE      Flashed      23.0000   270.000        1.0000         6
+13          RECTANGLE      Flashed      23.0000     0.000        1.0000         4
+
+
+Row 7 completed successfully.
+
+************************************ ROW 8 ************************************
+
+
+ [<None>] :: [Artwork] :: [top_assembly.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [assycomp.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Drawn         1.0000                                  
+12          CIRCLE         Drawn     0.19685039                                  
+13          CIRCLE         Drawn         4.0000                                  
+14          CIRCLE         Drawn         5.0000                                  
+15          CIRCLE         Drawn         8.0000                                  
+16          CIRCLE         Drawn        10.0000                                  
+
+
+Row 8 completed successfully.
+
+************************************ ROW 9 ************************************
+
+
+ [<None>] :: [Artwork] :: [top_paste.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [pastcomp.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          RECTANGLE      Flashed      23.0000     0.000        1.0000        36
+12          RECTANGLE      Flashed      23.0000   270.000        1.0000        22
+13          CIRCLE         Flashed   68.8976378                                 1
+14          SQUARE         Flashed  78.74015748     0.000                       4
+15          BULLET         Flashed  11.02362205    90.000   22.44094488        10
+16          BULLET         Flashed  11.02362205   180.000   22.44094488        10
+17          BULLET         Flashed  11.02362205   270.000   22.44094488        10
+18          BULLET         Flashed  11.02362205     0.000   22.44094488        10
+19          SQUARE         Flashed  43.30708661    90.000                       9
+20          RECTANGLE      Flashed  43.30708661   270.000    3.93700787         4
+21          RECTANGLE      Flashed      50.0000   180.000       24.0000         4
+
+
+Row 9 completed successfully.
+
+************************************ ROW 10 ************************************
+
+
+ [<None>] :: [Artwork] :: [bottom_assembly.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [assysold.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Drawn         1.0000                                  
+12          CIRCLE         Drawn        10.0000                                  
+13          CIRCLE         Drawn        12.0000                                  
+14          CIRCLE         Drawn         8.0000                                  
+15          CIRCLE         Drawn         5.0000                                  
+16          CIRCLE         Drawn     0.19685039                                  
+
+
+Row 10 completed successfully.
+
+************************************ ROW 11 ************************************
+
+
+ [<None>] :: [Artwork] :: [layer_3.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [l3.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Drawn         8.0000                                  
+12          CIRCLE         Drawn        18.0000                                  
+13          CIRCLE         Flashed       5.0000                                 4
+14          CIRCLE         Flashed  31.49606299                                16
+15          CIRCLE         Flashed      20.0000                               284
+
+
+Row 11 completed successfully.
+
+************************************ ROW 12 ************************************
+
+
+ [<None>] :: [Artwork] :: [layer_4.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [l4.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Drawn         8.0000                                  
+12          CIRCLE         Drawn        12.0000                                  
+13          CIRCLE         Drawn        10.0000                                  
+14          CIRCLE         Drawn        18.0000                                  
+15          RECTANGLE      Flashed      30.0000   180.000       50.0000        40
+16          CIRCLE         Flashed       5.0000                                 4
+17          CIRCLE         Flashed  39.37007874                                 3
+18          RECTANGLE      Flashed      23.0000   270.000        1.0000         6
+19          RECTANGLE      Flashed      23.0000     0.000        1.0000         4
+20          CIRCLE         Flashed  31.49606299                                16
+21          CIRCLE         Flashed      40.0000                                 5
+22          CIRCLE         Flashed      20.0000                               284
+
+
+Row 12 completed successfully.
+
+************************************ ROW 13 ************************************
+
+
+ [<None>] :: [Artwork] :: [bottom_silk.col] :: [Photo Plotter] :: [ext_gerber.usr] :: [Photoplot_art.sel] :: [silksold.spl] 
+
+~~~~~~~~~~~~~~~~~~~ Warning ~~~~~~~~~~~~~~~~~~~~
+
+The following items are displayed:
+    Component Areas
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symbol Availability Report
+--------------------------
+
+Position    Shape          Usage           Size    Orient        Length     Count
+--------    -----          -----           ----    ------        ------     -----
+
+Predefined Symbols
+------------------
+
+
+Auto Allocated Symbols
+----------------------
+
+11          CIRCLE         Drawn        10.0000                                  
+12          CIRCLE         Drawn        12.0000                                  
+13          CIRCLE         Drawn         8.0000                                  
+14          CIRCLE         Drawn         5.0000                                  
+15          CIRCLE         Drawn         1.0000                                  
+
+
+Row 13 completed successfully.
+
+************************************ ROW 14 ************************************
+
+
+ [<None>] :: [N.C. Drill] :: [drill.col] :: [NCDrill File] :: [Cnc.usr] :: [ncdrill_artwork.sel] :: [NCdrill.spl] 
+
+ Drill No.  Tool No.      Size    Length     Count   File Name
+----------------------------------------------------------------------
+         0         1   10.0000    0.0000       284
+         1         2 11.81102362    0.0000        16
+----------------------------------------------------------------------
+                                   TOTAL       300
+
+Row 14 completed successfully.
+
+--------------------------------------------------------------------------------
+                                 End of report
+--------------------------------------------------------------------------------

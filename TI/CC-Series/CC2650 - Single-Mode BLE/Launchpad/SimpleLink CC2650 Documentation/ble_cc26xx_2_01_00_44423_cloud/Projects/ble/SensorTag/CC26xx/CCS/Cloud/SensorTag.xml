@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<project>
+	<name>SensorTag</name>
+	<isTIRTOS>true</isTIRTOS>
+	<compileroptions include="..\..\..\..\..\..\generate\out\compileroptions_app_cloud.xml"/>
+	<pathvars include="..\..\..\..\..\..\generate\out\pathvars.xml"/>
+	<linkeroptions include="..\..\..\..\..\..\generate\out\linkeroptions_app.xml"/>
+	<attributes include="..\..\..\..\..\..\generate\out\attributes_app.xml"/>
+	<debuggerConnection>TIXDS110_Connection.xml</debuggerConnection>
+	<linkeroptions>
+		<linkeroption>--define=APP_BASE=0x00000000</linkeroption>
+		<linkeroption>--define=ICALL_STACK0_ADDR=0x0000F000</linkeroption>
+		<linkeroption>--define=ICALL_RAM0_ADDR=0x20004460</linkeroption>
+	</linkeroptions>
+	<projectrefs>
+		<ref boundary="true">SensorTagStack</ref>
+	</projectrefs>
+	<files include="..\..\..\..\..\..\generate\out\file_all.xml" level="0"/>
+	<files include="..\..\..\..\..\..\generate\out\file_all_app.xml" level="1"/>
+	<files include="..\..\..\..\..\..\generate\out\file_all_app_peripheral.xml" level="2"/>
+	<files include="..\..\..\..\..\..\generate\out\file_all_app_peripheral_cc2650st.xml" level="3"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all.xml" level="0"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all_app.xml" level="1"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all_app_peripheral.xml" level="2"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all_app_peripheral_cc2650st.xml" level="3"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all.xml" level="0"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all_app.xml" level="1"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all_app_peripheral.xml" level="2"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all_app_peripheral_cc2650st.xml" level="3"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all.xml" level="0"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all_app.xml" level="1"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all_app_peripheral.xml" level="2"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all_app_peripheral_cc2650st.xml" level="3"/>
+	<files/>
+	<includes/>
+	<defines/>
+	<libs/>
+</project>

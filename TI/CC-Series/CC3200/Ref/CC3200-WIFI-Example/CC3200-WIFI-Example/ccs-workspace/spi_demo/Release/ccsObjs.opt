@@ -1,0 +1,1 @@
+"./main.obj" "./pinmux.obj" "./startup_ccs.obj" "./uart_if.obj" "../cc3200v1p32.cmd" -l"libc.a" -l"D:/Documents/MyWorkspaces/CCS-Suppl/CC3200-WIFI-Example/cc3200-sdk/example/spi_demo/ccs/../../../driverlib/ccs/Release/driverlib.a" 

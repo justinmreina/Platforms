@@ -1,0 +1,1 @@
+less /proc/bus/input/devices#Find the device Vendor number (for MS Mouse, Vendor=045e)cd /etc/udev/rules.dvi 10-local.rules	 # udev rule for Logitech MX-1000 Cordless Laser Mouse	 KERNEL=="event*", \	 SYSFS{idVendor}=="046d", \	 SYSFS{idProduct}=="c50e", \	 SYMLINK="input/mx1000", \	 GROUP="root",OWNER="root",MODE="0664"

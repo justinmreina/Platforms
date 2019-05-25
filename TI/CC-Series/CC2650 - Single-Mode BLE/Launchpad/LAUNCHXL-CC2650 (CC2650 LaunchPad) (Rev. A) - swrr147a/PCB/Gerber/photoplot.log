@@ -1,0 +1,638 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    ARTWORK LOG                                                      )
+(                                                                     )
+(    Drawing          : LAUNCHXL-CC2650.brd                           )
+(    Software Version : 16.6S019                                      )
+(    Date/Time        : Mon Jun 06 16:12:13 2016                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+ ---- Photoplot outline rectangle not found; using drawing extents.
+
+
+
+Results from parameter file ...
+    DEVICE-TYPE           GERBER_RS274X
+    OUTPUT-UNITS          MM
+    FILM-SIZE             240000 160000
+    FORMAT                4.4
+    ABORT-ON-ERROR        NO
+    SCALE                 1
+    SUPPRESS-LEAD-ZEROES  YES
+    SUPPRESS-TRAIL-ZEROES NO
+    SUPPRESS-EQUAL        YES
+    UNDEF-APT-CONT        NO
+
+
+================================================================
+     PROCESSING FILM < paste_top >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_paste_top.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     1.27000                                  DARK 
+  SQUARE     5.25000                     0.000 NO     DARK 
+  RECTANGLE  0.30000     x 1.70000      90.000 NO     DARK 
+  RECTANGLE  1.65000     x 2.50000       0.000 NO     DARK 
+  OBLONG     0.20100     x 1.50100       0.000 NO     DARK 
+  OBLONG     0.20100     x 1.50100      90.000 NO     DARK 
+  OBLONG     0.30000     x 0.80000       0.000 NO     DARK 
+  OBLONG     0.30000     x 0.80000      90.000 NO     DARK 
+  OBLONG     0.39900     x 0.89900      90.000 NO     DARK 
+  OBLONG     0.55100     x 2.05000       0.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525           0.000 NO     DARK 
+  PAD SHAPE  SHAPE_540RECT550            0.000 NO     DARK 
+  PAD SHAPE  SHAPE_1400RECTX1900         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_1450RECTX2100         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_300RECT400            0.000 NO     DARK 
+  PAD SHAPE  SHAPE_300RECTX450           0.000 NO     DARK 
+  PAD SHAPE  BULLET_300X800_ETCH         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_1000RECTX1400         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_450RECTX1400          0.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECTX1300         90.000 NO     DARK 
+  PAD SHAPE  SHAPE_750RECT750           90.000 NO     DARK 
+  PAD SHAPE  SHAPE_750RECT900           90.000 NO     DARK 
+  PAD SHAPE  SHAPE_600X1700_ETCH        90.000 NO     DARK 
+  PAD SHAPE  SHAPE_950RECT1000          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_950RECT1350          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_1000RECT1800         90.000 NO     DARK 
+  PAD SHAPE  BULLET_300X800_ETCH        90.000 NO     DARK 
+  PAD SHAPE  SHAPE_200RECTX650          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_400RECTX500          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_200RECTX900          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525         135.000 NO     DARK 
+  PAD SHAPE  SHAPE_1050RECT1250        180.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525         180.000 NO     DARK 
+  PAD SHAPE  SHAPE_750RECT900          180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1200RECT1400        180.000 NO     DARK 
+  PAD SHAPE  SHAPE_640RECT650          180.000 NO     DARK 
+  PAD SHAPE  SHAPE_200RECTX650         180.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECTX1300        180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1000RECTX1400       180.000 NO     DARK 
+  PAD SHAPE  BULLET_300X800_ETCH       180.000 NO     DARK 
+  PAD SHAPE  SHAPE_950RECT1000         180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1000RECTX1400       270.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECTX1300        270.000 NO     DARK 
+  PAD SHAPE  SHAPE_600X1700_ETCH       270.000 NO     DARK 
+  PAD SHAPE  SHAPE_750RECT750          270.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525         270.000 NO     DARK 
+  PAD SHAPE  SHAPE_300RECT750          270.000 NO     DARK 
+  PAD SHAPE  BULLET_300X800_ETCH       270.000 NO     DARK 
+  PAD SHAPE  SHAPE_950RECT1000         270.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525         315.000 NO     DARK 
+
+     LAUNCHXL-CC2560_paste_top created.
+
+
+================================================================
+     PROCESSING FILM < paste_bottom >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_paste_bottom.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.80000                                  DARK 
+  CIRCLE     1.27000                                  DARK 
+
+     LAUNCHXL-CC2560_paste_bottom created.
+
+
+================================================================
+     PROCESSING FILM < soldmask_top >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_soldmask_top.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     1.10000                                  DARK 
+  CIRCLE     1.19900                                  DARK 
+  CIRCLE     1.42000                                  DARK 
+  CIRCLE     1.80000                                  DARK 
+  CIRCLE     1.84900                                  DARK 
+  CIRCLE     3.40100                                  DARK 
+  CIRCLE     3.95000                                  DARK 
+  SQUARE     5.40000                     0.000 NO     DARK 
+  RECTANGLE  0.45000     x 1.85000      90.000 NO     DARK 
+  RECTANGLE  1.80000     x 2.65000       0.000 NO     DARK 
+  OBLONG     0.30000     x 1.65100       0.000 NO     DARK 
+  OBLONG     0.30000     x 1.65100      90.000 NO     DARK 
+  OBLONG     0.39900     x 0.89900       0.000 NO     DARK 
+  OBLONG     0.39900     x 0.89900      90.000 NO     DARK 
+  OBLONG     0.55100     x 1.04900      90.000 NO     DARK 
+  OBLONG     0.70100     x 2.20000       0.000 NO     DARK 
+  OBLONG     1.55000     x 2.25000       0.000 NO     DARK 
+  PAD SHAPE  SHAPE_400RECTX550           0.000 NO     DARK 
+  PAD SHAPE  SHAPE_640RECT650            0.000 NO     DARK 
+  PAD SHAPE  BULLET_400X900_SM           0.000 NO     DARK 
+  PAD SHAPE  SHAPE_400RECT500            0.000 NO     DARK 
+  PAD SHAPE  SHAPE_650RECTX675           0.000 NO     DARK 
+  PAD SHAPE  SHAPE_1550RECTX2200         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_1550RECTX2050         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_550RECTX1500          0.000 NO     DARK 
+  PAD SHAPE  SHAPE_1150RECTX1550         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_550RECTX650          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_1150RECT1950         90.000 NO     DARK 
+  PAD SHAPE  BULLET_400X900_SM          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_650RECTX675          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_1100RECT1500         90.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECT900           90.000 NO     DARK 
+  PAD SHAPE  SHAPE_1100RECT1150         90.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECT1050          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_300RECTX1000         90.000 NO     DARK 
+  PAD SHAPE  SHAPE_300RECTX750          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_1050RECTX1450        90.000 NO     DARK 
+  PAD SHAPE  SHAPE_600X1700_SM          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_650RECTX675         135.000 NO     DARK 
+  PAD SHAPE  SHAPE_650RECTX675         180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1350RECT1550        180.000 NO     DARK 
+  PAD SHAPE  SHAPE_740RECT750          180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1100RECT1150        180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1200RECT1400        180.000 NO     DARK 
+  PAD SHAPE  BULLET_400X900_SM         180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1150RECTX1550       180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1050RECTX1450       180.000 NO     DARK 
+  PAD SHAPE  SHAPE_300RECTX750         180.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECT1050         180.000 NO     DARK 
+  PAD SHAPE  BULLET_400X900_SM         270.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECT900          270.000 NO     DARK 
+  PAD SHAPE  SHAPE_400RECT850          270.000 NO     DARK 
+  PAD SHAPE  SHAPE_650RECTX675         270.000 NO     DARK 
+  PAD SHAPE  SHAPE_600X1700_SM         270.000 NO     DARK 
+  PAD SHAPE  SHAPE_1100RECT1150        270.000 NO     DARK 
+  PAD SHAPE  SHAPE_1150RECTX1550       270.000 NO     DARK 
+  PAD SHAPE  SHAPE_1050RECTX1450       270.000 NO     DARK 
+  PAD SHAPE  SHAPE_650RECTX675         315.000 NO     DARK 
+
+     LAUNCHXL-CC2560_soldmask_top created.
+
+
+================================================================
+     PROCESSING FILM < soldmask_bottom >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_soldmask_bottom.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.59900                                  DARK 
+  CIRCLE     0.95000                                  DARK 
+  CIRCLE     1.10000                                  DARK 
+  CIRCLE     1.19900                                  DARK 
+  CIRCLE     1.42000                                  DARK 
+  CIRCLE     1.80000                                  DARK 
+  CIRCLE     1.84900                                  DARK 
+  CIRCLE     3.40100                                  DARK 
+  CIRCLE     3.95000                                  DARK 
+  OBLONG     1.55000     x 2.25000       0.000 NO     DARK 
+
+     LAUNCHXL-CC2560_soldmask_bottom created.
+
+
+================================================================
+     PROCESSING FILM < silk_top >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_silk_top.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00200                                  DARK 
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.10000                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+  CIRCLE     0.18000                                  DARK 
+  CIRCLE     0.30000                                  DARK 
+  CIRCLE     0.50000                                  DARK 
+
+     LAUNCHXL-CC2560_silk_top created.
+
+
+================================================================
+     PROCESSING FILM < silk_bottom >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_silk_bottom.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00200                                  DARK 
+  CIRCLE     0.00300                                  DARK 
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.10000                                  DARK 
+  CIRCLE     0.18000                                  DARK 
+  CIRCLE     0.20000                                  DARK 
+  CIRCLE     0.25000                                  DARK 
+  CIRCLE     0.30000                                  DARK 
+  CIRCLE     0.40000                                  DARK 
+
+     LAUNCHXL-CC2560_silk_bottom created.
+
+
+================================================================
+     PROCESSING FILM < assembly_bottom >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_assembly_bottom.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+    WARNING: 0 width line found at (210.129 245.984)
+           ... using undefined line width of 0.099
+
+    WARNING: Multiple 0 width lines; all will be treated the same as the first.
+           ... using undefined line width of 0.099
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00300                                  DARK 
+  CIRCLE     0.05000                                  DARK 
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.10000                                  DARK 
+
+     LAUNCHXL-CC2560_assembly_bottom created with warnings
+
+
+================================================================
+     PROCESSING FILM < Top >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_Top.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+  CIRCLE     0.20000                                  DARK 
+  CIRCLE     0.30000                                  DARK 
+  CIRCLE     0.40000                                  DARK 
+  CIRCLE     0.50000                                  DARK 
+  CIRCLE     1.27000                                  DARK 
+  CIRCLE     1.65000                                  DARK 
+  CIRCLE     1.69900                                  DARK 
+  CIRCLE     3.80000                                  DARK 
+  SQUARE     5.25000                     0.000 NO     DARK 
+  RECTANGLE  0.30000     x 1.70000      90.000 NO     DARK 
+  RECTANGLE  0.46000     x 0.50000       0.000 NO     DARK 
+  RECTANGLE  0.50000     x 1.00100      90.000 NO     DARK 
+  RECTANGLE  1.65000     x 2.50000       0.000 NO     DARK 
+  OBLONG     0.20100     x 1.50100       0.000 NO     DARK 
+  OBLONG     0.20100     x 1.50100      90.000 NO     DARK 
+  OBLONG     0.30000     x 0.80000       0.000 NO     DARK 
+  OBLONG     0.30000     x 0.80000      90.000 NO     DARK 
+  OBLONG     0.39900     x 0.89900      90.000 NO     DARK 
+  OBLONG     0.55100     x 2.05000       0.000 NO     DARK 
+  OBLONG     1.40000     x 2.10000       0.000 NO     DARK 
+  PAD SHAPE  SHAPE_450RECTX1400          0.000 NO     DARK 
+  PAD SHAPE  SHAPE_540RECT550            0.000 NO     DARK 
+  PAD SHAPE  SHAPE_1450RECTX2100         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_1400RECTX1900         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_300RECTX450           0.000 NO     DARK 
+  PAD SHAPE  SHAPE_1000RECTX1400         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525           0.000 NO     DARK 
+  PAD SHAPE  BULLET_300X800_ETCH         0.000 NO     DARK 
+  PAD SHAPE  SHAPE_300RECT400            0.000 NO     DARK 
+  PAD SHAPE  SHAPE_600X1700_ETCH        90.000 NO     DARK 
+  PAD SHAPE  SHAPE_750RECT750           90.000 NO     DARK 
+  PAD SHAPE  BULLET_300X800_ETCH        90.000 NO     DARK 
+  PAD SHAPE  SHAPE_750RECT900           90.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECTX1300         90.000 NO     DARK 
+  PAD SHAPE  SHAPE_950RECT1000          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_950RECT1350          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_1000RECT1800         90.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_200RECTX900          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_200RECTX650          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_400RECTX500          90.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525         135.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525         180.000 NO     DARK 
+  PAD SHAPE  SHAPE_640RECT650          180.000 NO     DARK 
+  PAD SHAPE  SHAPE_200RECTX650         180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1050RECT1250        180.000 NO     DARK 
+  PAD SHAPE  SHAPE_750RECT900          180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1200RECT1400        180.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECTX1300        180.000 NO     DARK 
+  PAD SHAPE  SHAPE_1000RECTX1400       180.000 NO     DARK 
+  PAD SHAPE  SHAPE_950RECT1000         180.000 NO     DARK 
+  PAD SHAPE  BULLET_300X800_ETCH       180.000 NO     DARK 
+  PAD SHAPE  BULLET_300X800_ETCH       270.000 NO     DARK 
+  PAD SHAPE  SHAPE_1000RECTX1400       270.000 NO     DARK 
+  PAD SHAPE  SHAPE_900RECTX1300        270.000 NO     DARK 
+  PAD SHAPE  SHAPE_600X1700_ETCH       270.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525         270.000 NO     DARK 
+  PAD SHAPE  SHAPE_750RECT750          270.000 NO     DARK 
+  PAD SHAPE  SHAPE_300RECT750          270.000 NO     DARK 
+  PAD SHAPE  SHAPE_950RECT1000         270.000 NO     DARK 
+  PAD SHAPE  SHAPE_500RECTX525         315.000 NO     DARK 
+
+     LAUNCHXL-CC2560_Top created.
+
+
+================================================================
+     PROCESSING FILM < Bottom >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_Bottom.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+  CIRCLE     0.40000                                  DARK 
+  CIRCLE     0.50000                                  DARK 
+  CIRCLE     0.80000                                  DARK 
+  CIRCLE     1.27000                                  DARK 
+  CIRCLE     1.65000                                  DARK 
+  CIRCLE     1.69900                                  DARK 
+  CIRCLE     3.80000                                  DARK 
+  OBLONG     0.02500     x 0.05100       0.000 NO     DARK 
+  OBLONG     1.40000     x 2.10000       0.000 NO     DARK 
+
+     LAUNCHXL-CC2560_Bottom created.
+
+
+================================================================
+     PROCESSING FILM < assembly_top >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_assembly_top.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.10000                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+
+     LAUNCHXL-CC2560_assembly_top created.
+
+
+================================================================
+     PROCESSING FILM < drill >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_drill.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.099
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+    WARNING: text composed 0 width line found at (209.715 174.251)
+           ... using undefined line width of 0.099
+
+    WARNING: text having Multiple 0 width lines; all will be treated the same as the first.
+           ... using undefined line width of 0.099
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.09900                                  DARK 
+
+     LAUNCHXL-CC2560_drill created with warnings
+
+
+================================================================
+     PROCESSING FILM < Layer2 >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_Layer2.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.020
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+  CIRCLE     0.40000                                  DARK 
+  CIRCLE     0.50000                                  DARK 
+  CIRCLE     1.65000                                  DARK 
+  CIRCLE     1.69900                                  DARK 
+  CIRCLE     3.80000                                  DARK 
+  OBLONG     1.40000     x 2.10000       0.000 NO     DARK 
+
+     LAUNCHXL-CC2560_Layer2 created.
+
+
+================================================================
+     PROCESSING FILM < Layer3 >
+     TO FILE < C:/kht/work/CC2650_LaunchPad/LAUNCHXL-CC1650_1_3_0/Cadence/Allegro/art/LAUNCHXL-CC2560_Layer3.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.020
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.000
+  Offset y:                           0.000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.09900                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+  CIRCLE     0.20000                                  DARK 
+  CIRCLE     0.30000                                  DARK 
+  CIRCLE     0.40000                                  DARK 
+  CIRCLE     0.50000                                  DARK 
+  CIRCLE     1.65000                                  DARK 
+  CIRCLE     1.69900                                  DARK 
+  CIRCLE     3.80000                                  DARK 
+  OBLONG     1.40000     x 2.10000       0.000 NO     DARK 
+
+     LAUNCHXL-CC2560_Layer3 created.
+
+
+------------------------------------------------------
+ SUMMARY:
+        LAUNCHXL-CC2560_paste_top created.
+        LAUNCHXL-CC2560_paste_bottom created.
+        LAUNCHXL-CC2560_soldmask_top created.
+        LAUNCHXL-CC2560_soldmask_bottom created.
+        LAUNCHXL-CC2560_silk_top created.
+        LAUNCHXL-CC2560_silk_bottom created.
+        LAUNCHXL-CC2560_assembly_bottom created with warnings
+        LAUNCHXL-CC2560_Top created.
+        LAUNCHXL-CC2560_Bottom created.
+        LAUNCHXL-CC2560_assembly_top created.
+        LAUNCHXL-CC2560_drill created with warnings
+        LAUNCHXL-CC2560_Layer2 created.
+        LAUNCHXL-CC2560_Layer3 created.
+
+ ARTWORK had warnings

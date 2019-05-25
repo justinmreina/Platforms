@@ -1,0 +1,14 @@
+[
+   {
+      "name": "CC1350",
+      "coreTypes": [ { "name": "Cortex M", "id": "Cortex M.CC1310F128" } ]
+   },
+   {
+      "name": "CC2650",
+      "coreTypes": [ { "name": "Cortex M", "id": "Cortex M.CC2650F128" } ]
+   },
+   {
+      "name": "CC1310",
+      "coreTypes": [ { "name": "Cortex M", "id": "Cortex M.CC1310F128" } ]
+   }
+]

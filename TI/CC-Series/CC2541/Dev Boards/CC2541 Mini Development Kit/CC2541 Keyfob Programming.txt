@@ -1,0 +1,29 @@
+@question 	can you program directly with CC-Debugger and adapter?
+
+
+@section 	CC-Debugger Pinout
+	1 - GND
+	2 - Vcc
+	3 - DC
+	4 - DD
+	7 - RSTn
+
+
+@section 	Keyfob Pinout (STL21)
+	1 - GND
+	2 - VCC
+	3 - P2_2/DC
+	4 - P2_1/DD
+	5 - P0_4/SSN
+	6 - P0_5/SCK
+	7 - RESET_N
+	8 - P0_3/MOSI
+	9 - VDD
+	10 - P0_2/MOSI
+	
+@ans	yes
+
+@test 	yes
+
+@details	Plug in directly, pin1 is on buttons side of DEBUG header (ribbon cable extends outward off board)
+

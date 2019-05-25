@@ -1,0 +1,20 @@
+234,235c234,238
+< 
+< 						
+---
+> 						<h4>Temperature range:</h4>
+> 						<p>The BoosterPack is designed for operation -25 to +85 C. Note
+> 						that other BoosterPacks and LaunchPads may have different temperature ranges,
+> 						and when combined, the combination will be set by the most restrictive combined
+> 						range.</p>
+252,254c255,256
+< 							<li>Observe that the green LED on the MSP432 LauchPad is blinking</li>
+< 							<li>For Android users, download the <a href="http://gitorious.ti.com/bluetooth-low-energy-android-project-zero-sample-code/" target="_blank"><span style='color:windowtext;text-decoration:none'>ProjectZero Android Sample Application</span></a> APK to your phone or tablet</li>
+< 							<li>For iOS users, choose one of the options from the <a href="http://dev.ti.com/tirex/content/simplelink/ble_cc26xx_2_01_00_44423_cloud/Projects/ble/ProjectZero/project0_resources/index.html">CC2650 ProjectZero Page</a></li>
+---
+> 							<li>Observe that the green LED on the CC2650MA boosterpack is blinking</li>
+> 							<li>Download the <a href="http://gitorious.ti.com/bluetooth-low-energy-android-project-zero-sample-code/" target="_blank"><span style='color:windowtext;text-decoration:none'>ProjectZero Android Sample Application</span></a> APK to your phone or tablet</li>
+280c282
+< 								<li>Disconnect all jumpers except 3.3V, 5V and GND accross the dotted line on your LaunchPad.</li>
+---
+> 								<li>Disconnect all jumpers accross the dotted line on your LaunchPad.</li>

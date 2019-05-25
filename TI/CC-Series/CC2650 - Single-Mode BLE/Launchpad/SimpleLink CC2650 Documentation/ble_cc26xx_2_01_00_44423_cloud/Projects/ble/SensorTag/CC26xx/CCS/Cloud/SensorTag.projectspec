@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <project
+        name="SensorTag"
+        device="CC2650F128"
+        toolChain="TI"
+        linkerCommandFile="cc26x0f128.cmd"
+        compilerBuildOptions="-O4 --opt_for_speed=0  -mv7M3 --code_state=16 --abi=eabi -me -g --gcc --gen_func_subsections=on  --display_error_number --diag_warning=255 --diag_wrap=off
+        -DCC26XX
+        -DCC26XXWARE
+        -DUSE_ICALL
+        -Dxdc_runtime_Assert_DISABLE_ALL
+        -Dxdc_runtime_Log_DISABLE_ALL
+        -DPOWER_SAVING
+        -DFACTORY_IMAGE
+        -DFEATURE_OAD
+        -DFEATURE_REGISTER_SERVICE
+        -DGAPROLE_TASK_STACK_SIZE=550
+        -DGATT_TI_UUID_128_BIT
+        -DHEAPMGR_SIZE=2872
+        -DICALL_MAX_NUM_ENTITIES=11
+        -DICALL_MAX_NUM_TASKS=8
+        -DICALL_RAM0_ADDR=0x20004460
+        -DICALL_STACK0_ADDR=0x0000F000
+        -DTI_DRIVERS_I2C_INCLUDED
+        -DTI_DRIVERS_PIN_INCLUDED
+        -DTI_DRIVERS_SPI_INCLUDED
+        
+        -I${PROJECT_LOC}/Board/Devices
+        -I${PROJECT_LOC}/Board/Interfaces
+        -I${PROJECT_LOC}/PROFILES
+        -I${PROJECT_LOC}/Application
+        -I${PROJECT_LOC}/ICallBLE
+        -I${PROJECT_LOC}/Startup
+        -I${PROJECT_IMPORT_LOC}/../../Source/Application/Board_patch/CC26XXST_0120
+        -I${PROJECT_IMPORT_LOC}/../../Source/Application/Board_patch/Devices
+        -I${PROJECT_IMPORT_LOC}/../../Source/Application/Board_patch/Interfaces
+        -I${TI_BLE_SDK_BASE}/Components/icall/ports/tirtos
+        -I${TI_BLE_SDK_BASE}/Projects/ble/Profiles/Keys
+        -I${TI_BLE_SDK_BASE}/Projects/ble/Profiles/OAD/CC26xxST
+        -I${TI_BLE_SDK_BASE}/Projects/ble/Profiles/SensorProfile/CC26xx
+        -I${TI_BLE_SDK_BASE}/Projects/ble/Profiles/DevInfo
+        -I${PROJECT_IMPORT_LOC}/../../Source/Application
+        -I${TI_BLE_SDK_BASE}/Components/applib/heap
+        -I${TI_BLE_SDK_BASE}/Components/services/sdata
+        -I${TI_BLE_SDK_BASE}/Projects/ble/Profiles/Roles/CC26xx
+        -I${CC26XXWARE}
+        -I${TI_BLE_SDK_BASE}/Components/ble/controller/CC26xx/include
+        -I${TI_BLE_SDK_BASE}/Components/ble/hci
+        -I${TI_BLE_SDK_BASE}/Components/ble/host
+        -I${TI_BLE_SDK_BASE}/Components/ble/include
+        -I${TI_BLE_SDK_BASE}/Components/hal/include
+        -I${TI_BLE_SDK_BASE}/Components/hal/target/CC2650TIRTOS
+        -I${TI_BLE_SDK_BASE}/Components/hal/target/_common/cc26xx
+        -I${TI_BLE_SDK_BASE}/Components/icall/include
+        -I${TI_BLE_SDK_BASE}/Components/osal/include
+        -I${TI_BLE_SDK_BASE}/Components/services/saddr
+        -I${TI_BLE_SDK_BASE}/Projects/ble/ICall/Include
+        -I${TI_BLE_SDK_BASE}/Projects/ble/Include
+        -I${TI_BLE_SDK_BASE}/Projects/ble/Profiles/Roles
+        -I${TI_BLE_SDK_BASE}/Projects/ble/common/cc26xx
+        "
+        linkerBuildOptions="-l${CC26XXWARE}/driverlib/bin/ccs/driverlib.lib -llibc.a  -x --define=APP_BASE=0x00000000 --define=ICALL_STACK0_ADDR=0x0000F000 --define=ICALL_RAM0_ADDR=0x20004460 "
+        description=""
+        launchWizard="false"
+        hexBuildOptions="--memwidth=8 --romwidth=8 --intel"
+        enableHexTool="true"
+        postBuildStep="hexmerge.py --overlap=error -o &quot;${ProjName}_combo.hex&quot; -r &quot;0000:1EFFF&quot; &quot;${ProjName}.hex&quot;:00000:0F000 &quot;${PROJECT_LOC}/../${ProjName}Stack/${ConfigName}/${ProjName}Stack.hex&quot;:0F000:1EFFF;hex2bin.py --pad=FF --range=00000:1EFFF &quot;${ProjName}_combo.hex&quot; &quot;CC2650${ProjName}_BLE_All_v1_20.bin&quot;"
+        references="SensorTagStack">
+
+        
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.TIRTOSsimplelink:2.13.0.06"/>
+        <property name="xdcToolsVersion" value="3.31.01.33"/>
+        
+        <property name="target" value="ti.targets.arm.elf.M3"/>
+        <property name="platform" value="ti.platforms.simplelink:CC2650F128"/>
+        <property name="buildProfile" value="release"/>
+        <property name="isHybrid" value="true"/>
+        <property name="configuroOptions" value="--compileOptions &quot;${COMPILER_FLAGS} &quot; "/>
+
+        <pathVariable name="TI_RTOS_DRIVERS_BASE" path="../../../../../../../../tirtos_simplelink_2_13_00_06/packages" scope="project"></pathVariable>
+        <pathVariable name="TI_BLE_SDK_BASE" path="../../../../../../../../simplelink/ble_cc26xx_2_01_00_44423_cloud" scope="project"></pathVariable>
+        <pathVariable name="CC26XXWARE" path="../../../../../../../../tirtos_simplelink_2_13_00_06/products/cc26xxware_2_21_01_15600" scope="project"></pathVariable>
+        <pathVariable name="PROJECT_IMPORT_LOC" path="." scope="project"></pathVariable>
+        
+
+        <file path="../../../../ICall/Application/bleUserConfig.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="ICallBLE" createVirtualFolders="true">
+        </file>
+        <file path="../../../../ICall/Include/bleUserConfig.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="ICallBLE" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/main.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Startup" createVirtualFolders="true">
+        </file>
+        <file path="PROJECT_IMPORT_LOC/../Config/appBLE.cfg" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="TOOLS" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/applib/heap/heapmgr.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="ICall" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/hal/target/CC2650TIRTOS/ICallAddrs.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="ICall" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/icall/include/ICall.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="ICall" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/icall/ports/tirtos/ICall.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="ICall" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/icall/ports/tirtos/ICallCC2650.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="ICall" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/icall/ports/tirtos/ICallPlatform.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="ICall" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Projects/ble/ICall/Application/ICallBleAPI.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="ICallBLE" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Projects/ble/ICall/Include/ICallBleAPIMSG.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="ICallBLE" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Projects/ble/common/cc26xx/util.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Projects/ble/common/cc26xx/util.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/PIN.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/PIN" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/SPI.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/SPI" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/SPI.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/SPI" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/dma/UDMACC26XX.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/UDMA" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/dma/UDMACC26XX.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/UDMA" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/pin/PINCC26XX.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/PIN" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/pin/PINCC26XX.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/PIN" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/spi/SPICC26XXDMA.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/SPI" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/spi/SPICC26XXDMA.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/SPI" createVirtualFolders="true">
+        </file>
+        <file path="../../../../../../Components/ble/host/gatt_uuid.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../../../Components/ble/include/gatt_uuid.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Include/gatt_profile_uuid.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/DevInfo/CC26xx/devinfoservice.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/DevInfo/devinfoservice.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/GATT/gattservapp_util.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/Roles/CC26xx/peripheral.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/Roles/CC26xx/peripheral.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/ble/include/gap.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Include" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/ble/include/gatt.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Include" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/ble/include/hci.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Include" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Components/osal/include/osal_snv.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Include" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Projects/ble/Include/gapgattserver.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Include" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Projects/ble/Profiles/Roles/gapbondmgr.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Include" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/Keys/CC26xx/simplekeys.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/Keys/simplekeys.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/OAD/CC26xxST/oad.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/OAD/CC26xxST/oad_target_externalFlash.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/barometerservice.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/barometerservice.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/ccservice.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/ccservice.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/humidityservice.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/humidityservice.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/ioservice.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/ioservice.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/irtempservice.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/irtempservice.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/movementservice.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/movementservice.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/opticservice.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/opticservice.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/registerservice.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/registerservice.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/st_util.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../../../Profiles/SensorProfile/CC26xx/st_util.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="PROFILES" createVirtualFolders="true">
+        </file>
+        <file path="../../IAR/Config/ccfg_appBLE.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Startup" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/CC26XXST_0120/Board.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Startup" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/CC26XXST_0120/Board.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Startup" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/ext_flash.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/ext_flash.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_bmp280.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_bmp280.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_hdc1000.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_hdc1000.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_mpu9250.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_mpu9250.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_opt3001.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_opt3001.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_tmp007.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Devices/sensor_tmp007.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Devices" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Interfaces/bsp_i2c.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Interfaces" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Interfaces/bsp_i2c.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Interfaces" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Interfaces/bsp_spi.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Interfaces" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Interfaces/bsp_spi.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Interfaces" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Interfaces/sensor.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Interfaces" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/Board_patch/Interfaces/sensor.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Board/Interfaces" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Bar.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Bar.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_ConnCtrl.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_ConnCtrl.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Hum.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Hum.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_IO.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_IO.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Keys.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Keys.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Mov.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Mov.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Opt.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Opt.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Revision.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Tmp.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="../../Source/Application/SensorTag_Tmp.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true">
+        </file>
+        <file path="TI_BLE_SDK_BASE/Projects/ble/common/cc26xx/CCS/cc26xx_ble_app_oad.cmd" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="TOOLS" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/I2C.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/I2C" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/I2C.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/I2C" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/i2c/I2CCC26XX.c" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/I2C" createVirtualFolders="true">
+        </file>
+        <file path="TI_RTOS_DRIVERS_BASE/ti/drivers/i2c/I2CCC26XX.h" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="Drivers/I2C" createVirtualFolders="true">
+        </file>
+        </project>
+</projectSpec>

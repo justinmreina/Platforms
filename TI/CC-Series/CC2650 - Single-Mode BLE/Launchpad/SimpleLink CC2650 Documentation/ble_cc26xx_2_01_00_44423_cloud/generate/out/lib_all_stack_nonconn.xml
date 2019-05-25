@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<libs>
+	<lib>${TI_BLE_SDK_BASE}/Projects/ble/Libraries/CC26xx/IAR/Common/bin/CC2640_BLE_HCI_TL_None_v41.a</lib>
+</libs>

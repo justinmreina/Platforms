@@ -1,0 +1,16 @@
+1. Import TI Resource Explorer -> SimpleLink Wireless MCU -> CC2650F128 -> Driver Examples->CC2650DK->TI Target Examples->PIN Examples->Pin Interrupt
+	*confirm appears in workspace
+
+2. Build
+
+3. Git Source Control (all)
+
+4. Code Mods
+[X]	globals.h
+[X]	File Header Fixes
+[NO]switch name to 'main.c'
+[?]	drop src dir?
+[O]	clean dir
+
+//Now the GPIO example
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<libs>
+	<lib>${TI_BLE_SDK_BASE}/Projects/common/BLE_ROM_Releases/04242014/ble_rom_PATCH.symbols</lib>
+</libs>

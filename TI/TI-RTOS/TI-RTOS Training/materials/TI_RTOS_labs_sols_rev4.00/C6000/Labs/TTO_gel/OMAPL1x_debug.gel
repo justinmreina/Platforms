@@ -1,0 +1,784 @@
+
+// Input clock to device in MHz
+#define OSCIN_FREQ		24
+
+#define ARM_ROM_ID			*(unsigned int*)  0xFFFD000c
+#define DSP_ROM_ID			*(unsigned int*)  0x1170000c
+
+#define ARM_BLCfgStruct     *(unsigned int*)0xFFFF0700
+#define DSP_BLCfgStruct     *(unsigned int*)0x11F00700
+
+#define SYS_BASE            0x01C14000
+#define DEV_INFO_24         *(unsigned int*)(SYS_BASE + 0x008)
+#define DEV_INFO_25         *(unsigned int*)(SYS_BASE + 0x00C)
+#define DEV_INFO_06         *(unsigned int*)(SYS_BASE + 0x010)
+#define DEV_INFO_26         *(unsigned int*)(SYS_BASE + 0x014)
+#define DEV_INFO_00         *(unsigned int*)(SYS_BASE + 0x018)
+#define DEV_INFO_01         *(unsigned int*)(SYS_BASE + 0x01C)
+#define DEV_INFO_02         *(unsigned int*)(SYS_BASE + 0x020)
+#define DEV_INFO_03         *(unsigned int*)(SYS_BASE + 0x024)
+#define DEV_INFO_04         *(unsigned int*)(SYS_BASE + 0x028)
+#define DEV_INFO_05         *(unsigned int*)(SYS_BASE + 0x02C)
+#define DEV_INFO_11         ((DEV_INFO_24>>0) & 0xFFF)
+#define DEV_INFO_12         ((DEV_INFO_24>>12) & 0xFFF)
+#define DEV_INFO_10         ((DEV_INFO_24>>24) & 0x3F)
+#define DEV_INFO_09         ((DEV_INFO_25>>0) & 0xFFFFFF)
+#define DEV_INFO_07         ((DEV_INFO_25>>24) & 0x1F)
+#define DEV_INFO_08         ((DEV_INFO_25>>29) & 0x7)
+#define DEV_INFO_13         ((DEV_INFO_26>>0) & 0x1F)
+#define DEV_INFO_14         ((DEV_INFO_26>>5) & 0x1)
+#define DEV_INFO_15         ((DEV_INFO_26>>6) & 0x7FF)
+#define DEV_INFO_16         ((DEV_INFO_26>>17) & 0x3FFF)
+#define KEY_BASE            0x01C12000
+#define DEV_INFO_17         *(unsigned int*)(KEY_BASE + 0x004)
+#define DEV_INFO_18         *(unsigned int*)(KEY_BASE + 0x008)
+#define DEV_INFO_19         ((DEV_INFO_17>>8) & 0x1F)
+#define DEV_INFO_20         *(unsigned int*)(0x11700008)
+#define DEV_INFO_21         *(unsigned int*)(0x1170000C)
+#define DEV_INFO_22         *(unsigned int*)(0xFFFD0008)
+#define DEV_INFO_23         *(unsigned int*)(0xFFFD000C)
+#define BOOTCFG		        *(unsigned int*)(SYS_BASE + 0x020)  //BOOTCFG
+
+#define	PLLC0_BASE_ADDRESS 0x01C11000
+#define	PLLC1_BASE_ADDRESS 0x01E1A000
+#define PLLCTL_OFFSET	0x100
+#define OCSEL_OFFSET	0x104
+#define PLLM_OFFSET		0x110
+#define PREDIV_OFFSET	0x114
+#define PLLDIV1_OFFSET	0x118
+#define PLLDIV2_OFFSET	0x11C
+#define PLLDIV3_OFFSET	0x120
+#define OSCDIV_OFFSET	0x124
+#define POSTDIV_OFFSET	0x128
+#define PLLDIV4_OFFSET	0x160
+#define PLLDIV5_OFFSET	0x164
+#define PLLDIV6_OFFSET	0x168
+#define PLLDIV7_OFFSET	0x16C
+
+#define CFGCHIP3 *(unsigned int*)(0x01C14188)
+
+menuitem "Diagnostics" 
+hotmenu Run_All()
+{
+    GEL_MapOff( );
+	Print_Device_Info();
+	Print_ROM_Info();
+	Print_PLL_Configuration();
+	Print_PSC_Status();
+}
+
+
+menuitem "Diagnostics" 
+hotmenu Print_ROM_Info()
+{
+    int errorCode;    
+    int boot_config;
+    int revision2, revision1, revision0; 
+    int arm_dsp;
+	int rom_id;
+	int chiprevid;
+	unsigned int BLCfgStruct;
+
+    GEL_TextOut("---------------------------------------------\n",,,,);
+    GEL_TextOut("|               BOOTROM Info                |\n",,,,);
+    GEL_TextOut("---------------------------------------------\n",,,,);
+    
+	arm_dsp = ((ARM_ROM_ID & 0xFF) == 0x6B) ? 1 : 0;
+
+	rom_id = (arm_dsp) ? ARM_ROM_ID : DSP_ROM_ID;
+
+	revision0 = ((rom_id & 0xFF000000) >>24) - 48;    
+	revision1 = ((rom_id & 0xFF0000) >>16) - 48;    
+	revision2 = ((rom_id & 0xFF00) >>8) - 48;    
+	chiprevid = DEV_INFO_03 & 0x0000000F;
+
+    GEL_TextOut("ROM ID: d800k%d%d%d \n",,,,, revision2, revision1, revision0);
+
+	if(revision0 == 1) GEL_TextOut("Silicon Revision 1.0\n",,,,);
+	else if(revision0 == 2) GEL_TextOut("Silicon Revision 1.0\n",,,,);
+	else if(revision0 == 3) GEL_TextOut("Silicon Revision 2.0\n",,,,);	
+	else if(revision0 == 4) GEL_TextOut("Silicon Revision 1.1\n",,,,);
+	else if(revision0 == 5) {
+		if(chiprevid == 4) GEL_TextOut("Silicon Revision 3.0\n",,,,);
+		else GEL_TextOut("Silicon Revision 2.1\n",,,,);
+		}
+	else if(revision0 == 6) GEL_TextOut("Silicon Revision 2.0\n",,,,);
+	else if(revision0 == 8) GEL_TextOut("Silicon Revision 2.1\n",,,,);
+	else GEL_TextOut("Silicon Revision UNKNOWN\n",,,,);
+
+	
+	boot_config = BOOTCFG;
+ 	GEL_TextOut("Boot pins: %d\n",,,,, boot_config);
+	if((revision0 % 2) == 1) {
+		if((boot_config & 0x87) == 0x01) GEL_TextOut("Boot Mode: NOR (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x87) == 0x02) GEL_TextOut("Boot Mode: HPI (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x87) == 0x05) GEL_TextOut("Boot Mode: SPI0 Flash (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x87) == 0x06) GEL_TextOut("Boot Mode: SPI1 Flash (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x87) == 0x07) GEL_TextOut("Boot Mode: NAND 8 (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x80) GEL_TextOut("Boot Mode: NAND 16 (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x00) GEL_TextOut("Boot Mode: I2C0 Master (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x08) GEL_TextOut("Boot Mode: I2C0 Slave (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x03) GEL_TextOut("Boot Mode: I2C1 Master (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x0B) GEL_TextOut("Boot Mode: I2C1 Slave (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x04) GEL_TextOut("Boot Mode: SPI0 EEPROM (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x0C) GEL_TextOut("Boot Mode: SPI1 EEPROM (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x81) GEL_TextOut("Boot Mode: SPI0 Slave (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x89) GEL_TextOut("Boot Mode: SPI1 Slave (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x83) GEL_TextOut("Boot Mode: UART0 (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x8B) GEL_TextOut("Boot Mode: UART1 (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x82) GEL_TextOut("Boot Mode: UART2 (%x)\n",,,,,boot_config);
+		else if((boot_config & 0x8F) == 0x87) GEL_TextOut("Boot Mode: Emulation Debug (%x)\n",,,,,boot_config);
+		else GEL_TextOut("Boot Mode: INVALID (%x)\n",,,,,boot_config);
+	}
+	else{
+		if(boot_config == 0x02) GEL_TextOut("Boot Mode: NOR\n",,,,);
+		else if(boot_config == 0x0E) GEL_TextOut("Boot Mode: NAND 8\n",,,,);
+		else if(boot_config == 0x10) GEL_TextOut("Boot Mode: NAND 16\n",,,,);		
+		else if(boot_config == 0x00) GEL_TextOut("Boot Mode: I2C0 EEPROM\n",,,,);
+		else if(boot_config == 0x06) GEL_TextOut("Boot Mode: I2C1 EEPROM\n",,,,);
+		else if(boot_config == 0x01) GEL_TextOut("Boot Mode: I2C0 Slave\n",,,,);
+		else if(boot_config == 0x07) GEL_TextOut("Boot Mode: I2C1 Slave\n",,,,);
+		else if(boot_config == 0x08) GEL_TextOut("Boot Mode: SPI0 EEPROM\n",,,,);
+		else if(boot_config == 0x09) GEL_TextOut("Boot Mode: SPI1 EEPROM\n",,,,);
+		else if(boot_config == 0x0A) GEL_TextOut("Boot Mode: SPI0 Flash\n",,,,);
+		else if(boot_config == 0x0C) GEL_TextOut("Boot Mode: SPI1 Flash\n",,,,);
+		else if(boot_config == 0x12) GEL_TextOut("Boot Mode: SPI0 Slave\n",,,,);
+		else if(boot_config == 0x13) GEL_TextOut("Boot Mode: SPI1 Slave\n",,,,);
+		else if((boot_config & 0x3F) == 0x1C) GEL_TextOut("Boot Mode: SDMMC0",,,,);
+		else if((boot_config & 0x3F) == 0x3C) GEL_TextOut("Boot Mode: SDMMC0, MMC mode",,,,);
+		else if((boot_config & 0x1F) == 0x16) GEL_TextOut("Boot Mode: UART0",,,,);
+		else if((boot_config & 0x1F) == 0x17) GEL_TextOut("Boot Mode: UART1",,,,);
+		else if((boot_config & 0x1F) == 0x14) GEL_TextOut("Boot Mode: UART2",,,,);
+		else if(boot_config == 0x04) GEL_TextOut("Boot Mode: HPI\n",,,,);
+		else if(boot_config == 0x1E) GEL_TextOut("Boot Mode: Emulation Debug\n",,,,);
+		else if(boot_config == 0x1C && revision0 > 6) GEL_TextOut("Boot Mode: MMCSD0\n",,,,);
+		else GEL_TextOut("Boot Mode: INVALID (%x)\n",,,,,boot_config);
+		
+		if((boot_config & 0x1F) == 0x16 || (boot_config & 0x1F) == 0x17 || (boot_config & 0x1F) == 0x14) {
+			if(((boot_config & 0xE0) >> 5) == 0) GEL_TextOut(", 24 MHz or 12 MHz input clock\n",,,,);
+			if(((boot_config & 0xE0) >> 5) == 1) GEL_TextOut(", 27 MHz or 13.5 MHz input clock\n",,,,);
+			if(((boot_config & 0xE0) >> 5) == 2) GEL_TextOut(", 30 MHz or 15 MHz input clock\n",,,,);
+			if(((boot_config & 0xE0) >> 5) == 3) GEL_TextOut(", 16.8 MHz input clock\n",,,,);
+			if(((boot_config & 0xE0) >> 5) == 4) GEL_TextOut(", 19.2 MHz input clock\n",,,,);
+			if(((boot_config & 0xE0) >> 5) == 5) GEL_TextOut(", 24.576 MHz or 12.288 MHz input clock\n",,,,);
+			if(((boot_config & 0xE0) >> 5) == 6) GEL_TextOut(", 25 MHz input clock\n",,,,);
+			if(((boot_config & 0xE0) >> 5) == 7) GEL_TextOut(", 26 MHz or 13 MHz input clock\n",,,,);
+			
+		}
+	}
+	
+	if((revision0 % 2) == 1) {
+		BLCfgStruct = arm_dsp ? ARM_BLCfgStruct : DSP_BLCfgStruct;
+	}
+	else {
+		BLCfgStruct = arm_dsp ? ARM_BLCfgStruct : DSP_BLCfgStruct;
+	}
+
+	errorCode = (BLCfgStruct >> 8) & 0xFF;    
+    GEL_TextOut("\nROM Status Code: %x \nDescription: ",,,,, errorCode);
+
+		if(revision0 == 1) {
+			if(errorCode == 0) GEL_TextOut("No error\n",,,,);
+			else if(errorCode == 1) GEL_TextOut("Unknown error\n",,,,);
+			else if(errorCode == 2) GEL_TextOut("Invalid (or no action) boot mode\n",,,,);
+			else if(errorCode == 3) GEL_TextOut("Function not allowed\n",,,,);
+			else if(errorCode == 4) GEL_TextOut("This code should not execute\n",,,,);
+			else if(errorCode == 5) GEL_TextOut("Waiting to get reset\n",,,,);
+			else if(errorCode == 6) GEL_TextOut("Invalid bits for device\n",,,,);
+			else if(errorCode == 7) GEL_TextOut("Invalid device type\n",,,,);
+			else if(errorCode == 8) GEL_TextOut("Invalid device number\n",,,,);
+			else if(errorCode == 9) GEL_TextOut("Invalid address range\n",,,,,);
+			else if(errorCode == 10) GEL_TextOut("Not supported for non-secure device\n",,,,);
+			else if(errorCode == 11) GEL_TextOut("Invalid password\n",,,,);
+			else if(errorCode == 12) GEL_TextOut("Not supported for secure device\n",,,,);
+			else if(errorCode == 13) GEL_TextOut("Secure ROM checksum failed\n",,,,);
+			else if(errorCode == 14) GEL_TextOut("Invalid RPK\n",,,,);
+			else if(errorCode == 15) GEL_TextOut("Invalid signature\n",,,,);
+			else if(errorCode == 16) GEL_TextOut("Buffer overflow\n",,,,);
+			else if(errorCode == 17) GEL_TextOut("Invalid AIS keyword\n",,,,);
+			else if(errorCode == 18) GEL_TextOut("Invalid AIS sync opcode\n",,,,);
+			else if(errorCode == 19) GEL_TextOut("Error parsing AIS opcode\n",,,,);
+			else if(errorCode == 20) GEL_TextOut("Invalid AIS format\n",,,,);
+			else if(errorCode == 21) GEL_TextOut("Invalid AIS state\n",,,,);
+			else if(errorCode == 22) GEL_TextOut("Invalid type in AIS boot table command\n",,,,);
+			else if(errorCode == 23) GEL_TextOut("Invalid type in AIS section fill command\n",,,,);
+			else if(errorCode == 24) GEL_TextOut("Invalid function index\n",,,,);
+			else if(errorCode == 25) GEL_TextOut("Invalid argument count\n",,,,);
+			else if(errorCode == 26) GEL_TextOut("Too many CRC errors\n",,,,);
+			else if(errorCode == 27) GEL_TextOut("Invalid NOR configuration word\n",,,,);
+			else if(errorCode == 28) GEL_TextOut("SPI bit error\n",,,,);
+			else if(errorCode == 29) GEL_TextOut("Invalid character received by UART\n",,,,);
+			else if(errorCode == 30) GEL_TextOut("UART Overrun Error\n",,,,);
+			else if(errorCode == 31) GEL_TextOut("UART Parity Error\n",,,,);
+			else if(errorCode == 32) GEL_TextOut("UART Frame Error\n",,,,);
+			else if(errorCode == 33) GEL_TextOut("UART Break Indicator\n",,,,);
+			else GEL_TextOut("Error code not recognized\n",,,,);
+		}
+		else {
+			if(errorCode == 0) GEL_TextOut("No error\n",,,,);
+			else if(errorCode == 1) GEL_TextOut("DSP was put to sleep\n",,,,);
+			else if(errorCode == 2) GEL_TextOut("Unknown error\n",,,,);
+			else if(errorCode == 3) GEL_TextOut("One-time Device Init failed\n",,,,);
+			else if(errorCode == 4) GEL_TextOut("One-time Device finalize failed\n",,,,);
+			else if(errorCode == 5) GEL_TextOut("Peripheral Open Failed\n",,,,);
+			else if(errorCode == 6) GEL_TextOut("Peripheral Close Failed\n",,,,);
+			else if(errorCode == 7) GEL_TextOut("Invalid (or no action) boot mode\n",,,,);
+			else if(errorCode == 8) GEL_TextOut("Invalid peripheral number\n",,,,);
+			else if(errorCode == 9) GEL_TextOut("Invalid AIS keyword\n",,,,,);
+			else if(errorCode == 10) GEL_TextOut("Invalid AIS sync opcode\n",,,,);
+			else if(errorCode == 11) GEL_TextOut("Error parsing AIS opcode\n",,,,);
+			else if(errorCode == 12) GEL_TextOut("Invalid AIS state\n",,,,);
+			else if(errorCode == 13) GEL_TextOut("Invalid type in AIS boot table command\n",,,,);
+			else if(errorCode == 14) GEL_TextOut("Invalid type in AIS section fill command\n",,,,);
+			else if(errorCode == 15) GEL_TextOut("Invalid function index\n",,,,);
+			else if(errorCode == 16) GEL_TextOut("Invalid argument count\n",,,,);
+			else if(errorCode == 17) GEL_TextOut("Function execute command failed\n",,,,);
+			else if(errorCode == 18) GEL_TextOut("Too many CRC errors\n",,,,);
+			else if(errorCode == 19) GEL_TextOut("Invalid NOR configuration word\n",,,,);
+			else if(errorCode == 20) GEL_TextOut("SPI bit error\n",,,,);
+			else if(errorCode == 21) GEL_TextOut("Invalid character received by UART\n",,,,);
+			else if(errorCode == 22) GEL_TextOut("UART Overrun Error\n",,,,);
+			else if(errorCode == 23) GEL_TextOut("UART Parity Error\n",,,,);
+			else if(errorCode == 24) GEL_TextOut("UART Frame Error\n",,,,);
+			else if(errorCode == 25) GEL_TextOut("UART Break Indicator\n",,,,);
+			else if(errorCode == 26) GEL_TextOut("NAND read page failed\n",,,,);
+			else if(errorCode == 27) GEL_TextOut("SDMMC read error\n",,,,);
+			else if(errorCode == 128+1) GEL_TextOut("Secure key has not been installed\n",,,,);
+			else if(errorCode == 128+2) GEL_TextOut("Invalid Boot exit type\n",,,,);
+			else if(errorCode == 128+3) GEL_TextOut("Waiting to get reset\n",,,,);
+			else if(errorCode == 128+4) GEL_TextOut("Invalid type of device\n",,,,);
+			else if(errorCode == 128+5) GEL_TextOut("Invalid address range\n",,,,);
+			else if(errorCode == 128+6) GEL_TextOut("Not supported for non-secure device\n",,,,);
+			else if(errorCode == 128+7) GEL_TextOut("Invalid password\n",,,,);
+			else if(errorCode == 128+8) GEL_TextOut("Not supported for secure device\n",,,,);
+			else if(errorCode == 128+9) GEL_TextOut("Secure ROM checksum failed\n",,,,);
+			else if(errorCode == 128+10) GEL_TextOut("Invalid RPK\n",,,,);
+			else if(errorCode == 128+11) GEL_TextOut("Invalid signature\n",,,,);
+			else if(errorCode == 128+12) GEL_TextOut("AIS command not allowed for this device type\n",,,,);
+			else if(errorCode == 128+13) GEL_TextOut("Secure Loading failure\n",,,,);
+			else if(errorCode == 128+14) GEL_TextOut("Function not allowed\n",,,,);
+			else if(errorCode == 128+15) GEL_TextOut("JTAG Read failed\n",,,,);
+			else GEL_TextOut("Error code not recognized\n",,,,);
+		}
+		GEL_TextOut("\nProgram Counter (PC) = %x\n",,,,,PC);
+}
+
+menuitem "Diagnostics" 
+hotmenu Print_Device_Info()
+{
+    int j;
+    char k = 65;
+
+    GEL_TextOut("\n---------------------------------------------\n",,,,);
+    GEL_TextOut("|             Device Information            |\n",,,,);
+    GEL_TextOut("---------------------------------------------\n",,,,);
+    GEL_TextOut("DEV_INFO_00 = %x\n",,,,,DEV_INFO_00);
+    GEL_TextOut("DEV_INFO_01 = %x\n",,,,,DEV_INFO_01);
+    GEL_TextOut("DEV_INFO_02 = %x\n",,,,,DEV_INFO_02);
+    GEL_TextOut("DEV_INFO_03 = %x\n",,,,,DEV_INFO_03);
+    GEL_TextOut("DEV_INFO_04 = %x\n",,,,,DEV_INFO_04);
+    GEL_TextOut("DEV_INFO_05 = %x\n",,,,,DEV_INFO_05);
+    GEL_TextOut("DEV_INFO_06 = %x\n",,,,,DEV_INFO_06);
+    GEL_TextOut("DEV_INFO_07-DEV_INFO_08-DEV_INFO_09-DEV_INFO_10-DEV_INFO_11-DEV_INFO_12 = %d-%d-%d-%d-%d-%d\n",,,,,DEV_INFO_07,DEV_INFO_08,DEV_INFO_09,DEV_INFO_10,DEV_INFO_11,DEV_INFO_12);
+    GEL_TextOut("DEV_INFO_13,DEV_INFO_14,DEV_INFO_15,DEV_INFO_16 = %d,%d,%d,%d\n",,,,,DEV_INFO_13,DEV_INFO_14,DEV_INFO_15,DEV_INFO_16);
+    GEL_TextOut("-----\n",,,,);
+    GEL_TextOut("DEV_INFO_17 = %x\n",,,,,DEV_INFO_17);
+    GEL_TextOut("DEV_INFO_18 = %x\n",,,,,DEV_INFO_18);
+    GEL_TextOut("DEV_INFO_19 = ",,,,);
+    for(j=4;j>=0;j--) {
+      GEL_TextOut("%d",,,,,((DEV_INFO_19>>j) & 0x1));
+    }
+    GEL_TextOut("\n",,,,);
+    GEL_TextOut("-----\n",,,,);
+    GEL_TextOut("DEV_INFO_20 = %x\n",,,,,DEV_INFO_20);
+    GEL_TextOut("DEV_INFO_21 = %x\n",,,,,DEV_INFO_21);
+    GEL_TextOut("DEV_INFO_22 = %x\n",,,,,DEV_INFO_22);
+    GEL_TextOut("DEV_INFO_23 = %x\n",,,,,DEV_INFO_23);
+    GEL_TextOut("-----\n",,,,);
+    GEL_TextOut("DEV_INFO_24 = %x\n",,,,,DEV_INFO_24);
+    GEL_TextOut("DEV_INFO_25 = %x\n",,,,,DEV_INFO_25);
+    GEL_TextOut("DEV_INFO_06 = %x\n",,,,,DEV_INFO_06);
+    GEL_TextOut("DEV_INFO_26 = %x\n",,,,,DEV_INFO_26);
+    GEL_TextOut("\n\n",,,,);
+}
+
+
+menuitem "Diagnostics"
+hotmenu Print_PLL_Configuration()
+{
+	// PLL0 registers
+	unsigned int pll0_ocsel, pll0_pllm, pll0_prediv, pll0_postdiv;
+	unsigned int pll0_plldiv1, pll0_plldiv2, pll0_plldiv3, pll0_plldiv4;
+	unsigned int pll0_plldiv5, pll0_plldiv6, pll0_plldiv7, pll0_pllctl;
+
+	// PLL0 clocks
+	unsigned int pll0clk_prediv, pll0clk_pllen;
+	unsigned int pll0clk_pllout, pll0clk_pllout_postdiv, pll0clk_sysclk1;
+	unsigned int pll0clk_sysclk2, pll0clk_sysclk3, pll0clk_sysclk4, pll0clk_sysclk5;
+	unsigned int pll0clk_sysclk6, pll0clk_sysclk7;
+
+	// PLL1 registers
+	unsigned int pll1_pllctl, pll1_ocsel, pll1_pllm, pll1_postdiv;
+	unsigned int pll1_plldiv1, pll1_plldiv2, pll1_plldiv3;
+
+	// PLL1 clocks
+	unsigned int pll1clk_pllout, pll1clk_pllout_postdiv, pll1clk_pllen;
+	unsigned int pll1clk_sysclk1, pll1clk_sysclk2, pll1clk_sysclk3;
+
+	// Device in use
+	unsigned int arm_dsp, rom_id, revision0;
+	arm_dsp = ((ARM_ROM_ID & 0xFF) == 0x6B) ? 1 : 0;
+	rom_id = (arm_dsp) ? ARM_ROM_ID : DSP_ROM_ID;
+	revision0 = ((rom_id & 0xFF000000) >>24) - 48;    
+
+	/***** Calculate PLL1 clock values first since PLL1 can be input to PLL0 */
+
+	if ((revision0%2) == 0) //PLL1 exists only on OMAP-L138 and pin-for-pin compatible
+	{
+		pll1_pllctl = *(unsigned int*)(PLLC1_BASE_ADDRESS + PLLCTL_OFFSET);
+		pll1_pllm = *(unsigned int*)(PLLC1_BASE_ADDRESS + PLLM_OFFSET);
+		pll1_postdiv = *(unsigned int*)(PLLC1_BASE_ADDRESS + POSTDIV_OFFSET);
+		pll1_plldiv1 = *(unsigned int*)(PLLC1_BASE_ADDRESS + PLLDIV1_OFFSET);
+		pll1_plldiv2 = *(unsigned int*)(PLLC1_BASE_ADDRESS + PLLDIV2_OFFSET);
+		pll1_plldiv3 = *(unsigned int*)(PLLC1_BASE_ADDRESS + PLLDIV3_OFFSET);
+	
+		pll1clk_pllout = OSCIN_FREQ * ((pll1_pllm & 0x1F) + 1);
+	
+		if ((pll1_postdiv & 0x8000) == 0x8000)
+		{
+			pll1clk_pllout_postdiv = pll1clk_pllout / ((pll1_postdiv & 0x1F) + 1);
+		}
+		else
+		{
+			pll1clk_pllout_postdiv = pll1clk_pllout;
+		}
+		
+		if ((pll1_pllctl & 1) == 1)
+		{
+			pll1clk_pllen = pll1clk_pllout_postdiv;
+		}
+		else
+		{
+			pll1clk_pllen = OSCIN_FREQ;
+		}
+		
+		if ((pll1_plldiv1 & 0x8000) == 0x8000)
+		{
+			pll1clk_sysclk1 = pll1clk_pllen / ((pll1_plldiv1 & 0x1F) + 1);
+		}	
+		else
+		{
+			pll1clk_sysclk1 = pll1clk_pllen;
+		}
+			
+		if ((pll1_plldiv2 & 0x8000) == 0x8000)
+		{
+			pll1clk_sysclk2 = pll1clk_pllen / ((pll1_plldiv2 & 0x1F) + 1);
+		}	
+		else
+		{
+			pll1clk_sysclk2 = pll1clk_pllen;
+		}
+	
+		if ((pll1_plldiv3 & 0x8000) == 0x8000)
+		{
+			pll1clk_sysclk3 = pll1clk_pllen / ((pll1_plldiv3 & 0x1F) + 1);
+		}	
+		else
+		{
+			pll1clk_sysclk3 = pll1clk_pllen;
+		}
+	}
+	
+	/***** Calculate PLL0 clock values *****/
+	
+	pll0_pllctl = *(unsigned int*)(PLLC0_BASE_ADDRESS + PLLCTL_OFFSET);
+	pll0_prediv = *(unsigned int*)(PLLC0_BASE_ADDRESS + PREDIV_OFFSET);
+	pll0_pllm = *(unsigned int*)(PLLC0_BASE_ADDRESS + PLLM_OFFSET);
+	pll0_postdiv = *(unsigned int*)(PLLC0_BASE_ADDRESS + POSTDIV_OFFSET);
+	pll0_plldiv1 = *(unsigned int*)(PLLC0_BASE_ADDRESS + PLLDIV1_OFFSET);
+	pll0_plldiv2 = *(unsigned int*)(PLLC0_BASE_ADDRESS + PLLDIV2_OFFSET);
+	pll0_plldiv3 = *(unsigned int*)(PLLC0_BASE_ADDRESS + PLLDIV3_OFFSET);
+	pll0_plldiv4 = *(unsigned int*)(PLLC0_BASE_ADDRESS + PLLDIV4_OFFSET);
+	pll0_plldiv5 = *(unsigned int*)(PLLC0_BASE_ADDRESS + PLLDIV5_OFFSET);
+	pll0_plldiv6 = *(unsigned int*)(PLLC0_BASE_ADDRESS + PLLDIV6_OFFSET);
+	pll0_plldiv7 = *(unsigned int*)(PLLC0_BASE_ADDRESS + PLLDIV7_OFFSET);
+
+	if ((pll0_prediv & 0x8000) == 0x8000)
+	{
+		pll0clk_prediv = OSCIN_FREQ / ((pll0_prediv & 0x1F) + 1);
+	}
+	else
+	{
+		pll0clk_prediv = OSCIN_FREQ;
+	}
+	
+	pll0clk_pllout = pll0clk_prediv * ((pll0_pllm & 0x1F) + 1);
+
+	if ((pll0_postdiv & 0x8000) == 0x8000)
+	{
+		pll0clk_pllout_postdiv = pll0clk_pllout / ((pll0_postdiv & 0x1F) + 1);
+	}
+	else
+	{
+		pll0clk_pllout_postdiv = pll0clk_pllout;
+	}
+	
+	// Check PLLCTL[PLLEN]
+	if ((pll0_pllctl & 1) == 1)
+	{
+		pll0clk_pllen = pll0clk_pllout_postdiv;
+	}
+	else
+	{
+		// Check PLLCTL[EXTCLKSRC]
+		if ( (pll0_pllctl & (1<<9)) == (1<<9) )
+		{
+			pll0clk_pllen = pll1clk_sysclk3;
+		}
+		else
+		{
+			pll0clk_pllen = OSCIN_FREQ;
+		}
+	}
+	
+	if ((pll0_plldiv1 & 0x8000) == 0x8000)
+	{
+		pll0clk_sysclk1 = pll0clk_pllen / ((pll0_plldiv1 & 0x1F) + 1);
+	}	
+	else
+	{
+		pll0clk_sysclk1 = pll0clk_pllen;
+	}
+		
+	if ((pll0_plldiv2 & 0x8000) == 0x8000)
+	{
+		pll0clk_sysclk2 = pll0clk_pllen / ((pll0_plldiv2 & 0x1F) + 1);
+	}	
+	else
+	{
+		pll0clk_sysclk2 = pll0clk_pllen;
+	}
+
+	if ((pll0_plldiv3 & 0x8000) == 0x8000)
+	{
+		pll0clk_sysclk3 = pll0clk_pllen / ((pll0_plldiv3 & 0x1F) + 1);
+	}	
+	else
+	{
+		pll0clk_sysclk3 = pll0clk_pllen;
+	}
+		
+	if ((pll0_plldiv4 & 0x8000) == 0x8000)
+	{
+		pll0clk_sysclk4 = pll0clk_pllen / ((pll0_plldiv4 & 0x1F) + 1);
+	}	
+	else
+	{
+		pll0clk_sysclk4 = pll0clk_pllen;
+	}
+	
+	if ((pll0_plldiv5 & 0x8000) == 0x8000)
+	{
+		pll0clk_sysclk5 = pll0clk_pllen / ((pll0_plldiv5 & 0x1F) + 1);
+	}	
+	else
+	{
+		pll0clk_sysclk5 = pll0clk_pllen;
+	}
+
+	if ((pll0_plldiv6 & 0x8000) == 0x8000)
+	{
+		pll0clk_sysclk6 = pll0clk_pllen / ((pll0_plldiv6 & 0x1F) + 1);
+	}	
+	else
+	{
+		pll0clk_sysclk6 = pll0clk_pllen;
+	}
+
+	if ((pll0_plldiv7 & 0x8000) == 0x8000)
+	{
+		pll0clk_sysclk7 = pll0clk_pllen / ((pll0_plldiv7 & 0x1F) + 1);
+	}	
+	else
+	{
+		pll0clk_sysclk7 = pll0clk_pllen;
+	}
+
+	GEL_TextOut("\n");
+	GEL_TextOut("---------------------------------------------\n");
+	GEL_TextOut("|              Clock Information             |\n");
+	GEL_TextOut("---------------------------------------------\n");	
+	GEL_TextOut("\n");
+
+	// if PLLCTL[CLKMODE] == 1
+	if ( (pll0_pllctl & (1<<8)) == (1<<8) )
+	{
+		GEL_TextOut("PLLs configured to utilize 1.2V square wave input.\n");
+	}
+	else
+	{	
+		GEL_TextOut("PLLs configured to utilize crystal.\n");
+	}
+
+	// if CFGCHIP3[ASYNC3_CLKSRC] == 1
+	if ( (CFGCHIP3 & (1<<4)) == 0 )
+	{
+		GEL_TextOut("ASYNC3 = PLL0_SYSCLK2\n");
+	}
+	else
+	{	
+		GEL_TextOut("ASYNC3 = PLL1_SYSCLK2\n");
+	}
+	
+	GEL_TextOut("\n");
+	GEL_TextOut("NOTE:  All clock frequencies in following PLL sections are based\n");	
+	GEL_TextOut("off OSCIN = %d MHz.  If that value does not match your hardware\n",,,,, OSCIN_FREQ);
+	GEL_TextOut("you should change the #define in the top of the gel file, save it,\n");
+	GEL_TextOut("and then reload.\n");
+
+	GEL_TextOut("\n");
+	GEL_TextOut("---------------------------------------------\n");
+	GEL_TextOut("|              PLL0 Information             |\n");
+	GEL_TextOut("---------------------------------------------\n");	
+	GEL_TextOut("\n");
+	
+	// Uncomment to see intermediate clock calculations
+	//GEL_TextOut("PLL0_PREDIV = %d MHz\n",,,,, pll0clk_prediv);
+	//GEL_TextOut("PLL0_PLLOUT = %d MHz\n",,,,, pll0clk_pllout);
+	//GEL_TextOut("PLL0_PLLOUT_POSTDIV = %d MHz\n",,,,, pll0clk_pllout_postdiv);
+	//GEL_TextOut("PLL0_PLLEN = %d MHz\n",,,,, pll0clk_pllen);
+	
+	GEL_TextOut("PLL0_SYSCLK1 = %d MHz\n",,,,, pll0clk_sysclk1);
+	GEL_TextOut("PLL0_SYSCLK2 = %d MHz\n",,,,, pll0clk_sysclk2);
+	GEL_TextOut("PLL0_SYSCLK3 = %d MHz\n",,,,, pll0clk_sysclk3);
+	GEL_TextOut("PLL0_SYSCLK4 = %d MHz\n",,,,, pll0clk_sysclk4);
+	GEL_TextOut("PLL0_SYSCLK5 = %d MHz\n",,,,, pll0clk_sysclk5);
+	GEL_TextOut("PLL0_SYSCLK6 = %d MHz\n",,,,, pll0clk_sysclk6);
+	GEL_TextOut("PLL0_SYSCLK7 = %d MHz\n",,,,, pll0clk_sysclk7);
+	
+	if ( (pll0clk_sysclk1 / pll0clk_sysclk2) != 2 )
+	{
+		GEL_TextOut("Error: PLL0_SYSCLK2 must equal PLL0_SYSCLK1 / 2\n");
+	}
+
+	if ( (pll0clk_sysclk1 / pll0clk_sysclk4) != 4 )
+	{
+		GEL_TextOut("Error: PLL0_SYSCLK4 must equal PLL0_SYSCLK1 / 4\n");
+	}
+
+	if ( (pll0clk_sysclk1 / pll0clk_sysclk6) != 1 )
+	{
+		GEL_TextOut("Error: PLL0_SYSCLK6 must equal PLL0_SYSCLK1 / 1\n");
+	}
+
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{
+		GEL_TextOut("\n");
+		GEL_TextOut("---------------------------------------------\n");
+		GEL_TextOut("|              PLL1 Information             |\n");
+		GEL_TextOut("---------------------------------------------\n");	
+		GEL_TextOut("\n");
+		
+		// Uncomment to see intermediate clock calculations
+		//GEL_TextOut("PLL1_PLLOUT = %d MHz\n",,,,, pll1clk_pllout);
+		//GEL_TextOut("PLL1_PLLOUT_POSTDIV = %d MHz\n",,,,, pll1clk_pllout_postdiv);
+		//GEL_TextOut("PLL1_PLLEN = %d MHz\n",,,,, pll1clk_pllen);
+		
+		GEL_TextOut("PLL1_SYSCLK1 = %d MHz\n",,,,, pll1clk_sysclk1);
+		GEL_TextOut("PLL1_SYSCLK2 = %d MHz\n",,,,, pll1clk_sysclk2);
+		GEL_TextOut("PLL1_SYSCLK3 = %d MHz\n",,,,, pll1clk_sysclk3);
+	}
+}
+
+menuitem "Diagnostics"
+hotmenu Print_PSC_Status()
+{
+	unsigned int *pPSC0_MDSTAT = (unsigned int*)0x01C10800;
+	unsigned int *pPSC1_MDSTAT = (unsigned int*)0x01E27800;
+	
+	// Device in use
+	unsigned int arm_dsp, rom_id, revision0;
+	Configure_Memory_Map();
+	arm_dsp = ((ARM_ROM_ID & 0xFF) == 0x6B) ? 1 : 0;
+	rom_id = (arm_dsp) ? ARM_ROM_ID : DSP_ROM_ID;
+	revision0 = ((rom_id & 0xFF000000) >>24) - 48; 
+
+	GEL_TextOut("\n");
+	GEL_TextOut("---------------------------------------------\n");
+	GEL_TextOut("|              PSC0 Information             |\n");
+	GEL_TextOut("---------------------------------------------\n");	
+	GEL_TextOut("\n");	
+
+	GEL_TextOut("State Decoder:\n");
+	GEL_TextOut(" 0 = SwRstDisable (reset asserted, clock off)\n");
+	GEL_TextOut(" 1 = SyncReset (reset assered, clock on)\n");
+	GEL_TextOut(" 2 = Disable (reset de-asserted, clock off)\n");
+	GEL_TextOut(" 3 = Enable (reset de-asserted, clock on)\n");
+	GEL_TextOut(">3 = Transition in progress\n");
+	GEL_TextOut("\n");		
+	
+	GEL_TextOut("Module 0:	EDMA3CC (0)        STATE = %d\n",,,,, (pPSC0_MDSTAT[0] & 0x3F));
+	GEL_TextOut("Module 1:	EDMA3 TC0          STATE = %d\n",,,,, (pPSC0_MDSTAT[1] & 0x3F));
+	GEL_TextOut("Module 2:	EDMA3 TC1          STATE = %d\n",,,,, (pPSC0_MDSTAT[2] & 0x3F));
+	GEL_TextOut("Module 3:	EMIFA (BR7)        STATE = %d\n",,,,, (pPSC0_MDSTAT[3] & 0x3F));
+	GEL_TextOut("Module 4:	SPI 0              STATE = %d\n",,,,, (pPSC0_MDSTAT[4] & 0x3F));
+	GEL_TextOut("Module 5:	MMC/SD 0           STATE = %d\n",,,,, (pPSC0_MDSTAT[5] & 0x3F));
+	GEL_TextOut("Module 6:	AINTC              STATE = %d\n",,,,, (pPSC0_MDSTAT[6] & 0x3F));
+	GEL_TextOut("Module 7:	ARM RAM/ROM        STATE = %d\n",,,,, (pPSC0_MDSTAT[7] & 0x3F));
+	GEL_TextOut("Module 9:	UART 0             STATE = %d\n",,,,, (pPSC0_MDSTAT[9] & 0x3F));
+	GEL_TextOut("Module 10:	SCR 0 (BR0/1/2/8)  STATE = %d\n",,,,, (pPSC0_MDSTAT[10] & 0x3F));
+	GEL_TextOut("Module 11:	SCR 1 (BR4)        STATE = %d\n",,,,, (pPSC0_MDSTAT[11] & 0x3F));
+	GEL_TextOut("Module 12:	SCR 2 (BR3/5/6)    STATE = %d\n",,,,, (pPSC0_MDSTAT[12] & 0x3F));
+	GEL_TextOut("Module 13:	PRUSS              STATE = %d\n",,,,, (pPSC0_MDSTAT[13] & 0x3F));
+	GEL_TextOut("Module 14:	ARM                STATE = %d\n",,,,, (pPSC0_MDSTAT[14] & 0x3F));
+	GEL_TextOut("Module 15:	DSP                STATE = %d\n",,,,, (pPSC0_MDSTAT[15] & 0x3F));	
+		
+	GEL_TextOut("\n");
+	GEL_TextOut("---------------------------------------------\n");
+	GEL_TextOut("|              PSC1 Information             |\n");
+	GEL_TextOut("---------------------------------------------\n");	
+	GEL_TextOut("\n");	
+	
+	GEL_TextOut("State Decoder:\n");
+	GEL_TextOut(" 0 = SwRstDisable (reset asserted, clock off)\n");
+	GEL_TextOut(" 1 = SyncReset (reset assered, clock on)\n");
+	GEL_TextOut(" 2 = Disable (reset de-asserted, clock off)\n");
+	GEL_TextOut(" 3 = Enable (reset de-asserted, clock on)\n");
+	GEL_TextOut(">3 = Transition in progress\n");
+	GEL_TextOut("\n");	
+	
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{
+		GEL_TextOut("Module 0:	EDMA3CC (1)        STATE = %d\n",,,,, (pPSC1_MDSTAT[0] & 0x3F));
+	}
+	
+	GEL_TextOut("Module 1:	USB0 (2.0)         STATE = %d\n",,,,, (pPSC1_MDSTAT[1] & 0x3F));
+	GEL_TextOut("Module 2:	USB1 (1.1)         STATE = %d\n",,,,, (pPSC1_MDSTAT[2] & 0x3F));
+	GEL_TextOut("Module 3:	GPIO               STATE = %d\n",,,,, (pPSC1_MDSTAT[3] & 0x3F));
+	GEL_TextOut("Module 4:	UHPI               STATE = %d\n",,,,, (pPSC1_MDSTAT[4] & 0x3F));
+	GEL_TextOut("Module 5:	EMAC               STATE = %d\n",,,,, (pPSC1_MDSTAT[5] & 0x3F));
+	
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 6:	DDR2 and SCR F3    STATE = %d\n",,,,, (pPSC1_MDSTAT[6] & 0x3F));
+	}
+	else
+	{	// OMAP-L137 and variants
+		GEL_TextOut("Module 6:	EMIFB (BR20)       STATE = %d\n",,,,, (pPSC1_MDSTAT[6] & 0x3F));
+	}
+
+	GEL_TextOut("Module 7:	MCASP0 + FIFO      STATE = %d\n",,,,, (pPSC1_MDSTAT[7] & 0x3F));
+	
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 8:	SATA               STATE = %d\n",,,,, (pPSC1_MDSTAT[8] & 0x3F));
+	}
+	else
+	{	// OMAP-L137 and variants
+		GEL_TextOut("Module 8:	MCASP1 + FIFO      STATE = %d\n",,,,, (pPSC1_MDSTAT[8] & 0x3F));
+	}	
+
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 9:	VPIF               STATE = %d\n",,,,, (pPSC1_MDSTAT[9] & 0x3F));
+	}
+	else
+	{	// OMAP-L137 and variants
+		GEL_TextOut("Module 9:	MCASP2 + FIFO      STATE = %d\n",,,,, (pPSC1_MDSTAT[9] & 0x3F));
+	}
+	
+	GEL_TextOut("Module 10:	SPI 1              STATE = %d\n",,,,, (pPSC1_MDSTAT[10] & 0x3F));
+	GEL_TextOut("Module 11:	I2C 1              STATE = %d\n",,,,, (pPSC1_MDSTAT[11] & 0x3F));
+	GEL_TextOut("Module 12:	UART 1             STATE = %d\n",,,,, (pPSC1_MDSTAT[12] & 0x3F));
+	GEL_TextOut("Module 13:	UART 2             STATE = %d\n",,,,, (pPSC1_MDSTAT[13] & 0x3F));
+
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 14:	MCBSP0 + FIFO      STATE = %d\n",,,,, (pPSC1_MDSTAT[14] & 0x3F));
+	}
+
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 15:	MCBSP1 + FIFO      STATE = %d\n",,,,, (pPSC1_MDSTAT[15] & 0x3F));
+	}
+	
+	GEL_TextOut("Module 16:	LCDC               STATE = %d\n",,,,, (pPSC1_MDSTAT[16] & 0x3F));
+	GEL_TextOut("Module 17:	eHRPWM (all)       STATE = %d\n",,,,, (pPSC1_MDSTAT[17] & 0x3F));
+	
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 18:	MMC/SD 1           STATE = %d\n",,,,, (pPSC1_MDSTAT[18] & 0x3F));
+	}
+
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 19:	UPP                STATE = %d\n",,,,, (pPSC1_MDSTAT[19] & 0x3F));
+	}
+
+	GEL_TextOut("Module 20:	eCAP (all)         STATE = %d\n",,,,, (pPSC1_MDSTAT[20] & 0x3F));
+	
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 21:	EDMA3 TC2          STATE = %d\n",,,,, (pPSC1_MDSTAT[21] & 0x3F));
+	}
+	else
+	{	// OMAP-L137 and variants
+		GEL_TextOut("Module 21:	eQEP 0/1           STATE = %d\n",,,,, (pPSC1_MDSTAT[21] & 0x3F));
+	}
+
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 24:	SCR-F0 Br-F0       STATE = %d\n",,,,, (pPSC1_MDSTAT[24] & 0x3F));
+	}
+	else
+	{	// OMAP-L137 and variants
+		GEL_TextOut("Module 24:	SCR8 (Br15)        STATE = %d\n",,,,, (pPSC1_MDSTAT[24] & 0x3F));
+	}
+
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 25:	SCR-F1 Br-F1       STATE = %d\n",,,,, (pPSC1_MDSTAT[25] & 0x3F));
+	}
+	else
+	{	// OMAP-L137 and variants
+		GEL_TextOut("Module 25:	SCR7 (Br12)        STATE = %d\n",,,,, (pPSC1_MDSTAT[25] & 0x3F));
+	}
+
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 26:	SCR-F2 Br-F2       STATE = %d\n",,,,, (pPSC1_MDSTAT[26] & 0x3F));
+	}
+	else
+	{	// OMAP-L137 and variants
+		GEL_TextOut("Module 26:	SCR12 (Br18)       STATE = %d\n",,,,, (pPSC1_MDSTAT[26] & 0x3F));
+	}
+	
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 27:	SCR-F6 Br-F3       STATE = %d\n",,,,, (pPSC1_MDSTAT[27] & 0x3F));
+		GEL_TextOut("Module 28:	SCR-F7 Br-F4       STATE = %d\n",,,,, (pPSC1_MDSTAT[28] & 0x3F));
+		GEL_TextOut("Module 29:	SCR-F8 Br-F5       STATE = %d\n",,,,, (pPSC1_MDSTAT[29] & 0x3F));
+		GEL_TextOut("Module 30:	Br-F7 (DDR Contr)  STATE = %d\n",,,,, (pPSC1_MDSTAT[30] & 0x3F));
+	}
+
+	if ((revision0 % 2) == 0) // OMAP-L138 and pin-for-pin variants only
+	{	
+		GEL_TextOut("Module 31:	L3 RAM, SCR-F4, Br-F6 STATE = %d\n",,,,, (pPSC1_MDSTAT[31] & 0x3F));
+	}
+	else
+	{	// OMAP-L137 and variants
+		GEL_TextOut("Module 31:	L3 RAM (Br13)      STATE = %d\n",,,,, (pPSC1_MDSTAT[31] & 0x3F));
+	}
+		
+}
+
+Configure_Memory_Map()
+{
+	GEL_MapAddStr( 0xFFFD0000, 0, 0x00010000, "R|W|AS4", 0 );   // ARM Local ROM
+	GEL_MapAddStr( 0x11700000, 0, 0x00100000, "R|W|AS4", 0 );   // DSP L2 ROM
+	GEL_MapAddStr( 0x01C10000, 0, 0x00001000, "R|W|AS4", 0 );   // PSC 0
+    GEL_MapAddStr( 0x01C11000, 0, 0x00001000, "R|W|AS4", 0 );   // PLL Controller 0
+    GEL_MapAddStr( 0x01E1A000, 0, 0x00001000, "R|W|AS4", 0 );   // PLL Controller 1
+    GEL_MapAddStr( 0x01E27000, 0, 0x00001000, "R|W|AS4", 0 );   // PSC 1
+}

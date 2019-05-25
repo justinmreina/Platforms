@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<libs>
+	<lib>${CC26XXWARE}/driverlib/bin/ccs/driverlib.lib</lib>
+	<lib>libc.a</lib>
+</libs>

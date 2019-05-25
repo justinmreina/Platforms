@@ -1,0 +1,45 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="C:\Work\clearcase\gagan_swapps_snap\dsp_swapps\signalProcessingLibs\c64plus\dsplib\example\fft_example\"
+ProjectType=Executable
+CPUFamily=TMS320C64XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Tool="XDC"
+Config="Debug"
+Config="Debug_elf"
+
+[Source Files]
+Source="..\..\src\DSP_fft16x16\gen_twiddle_fft16x16.c"
+Source="..\..\src\DSP_fft16x32\gen_twiddle_fft16x32.c"
+Source="..\..\src\DSP_fft32x32\gen_twiddle_fft32x32.c"
+Source="fft_example.c"
+Source="Readme.txt"
+Source="lnk.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -fr"$(Proj_dir)\Debug" -i"$(Proj_dir)\..\..\include" -i"$(Proj_dir)\..\..\src\DSP_fft16x16" -i"$(Proj_dir)\..\..\src\DSP_fft16x32" -i"$(Proj_dir)\..\..\src\DSP_fft32x32" -d"_DEBUG" -mv6400+
+
+["Linker" Settings: "Debug"]
+Options=-c -l"..\..\lib\dsplib64plus.lib" -l"rts64plus.lib" -m".\Debug\fft_example.map" -o".\Debug\fft_example.out" -w -x
+
+["Readme.txt" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["lnk.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["Compiler" Settings: "Debug_elf"]
+Options=--abi=eabi -g -fr"$(Proj_dir)\Debug_elf" -i"$(Proj_dir)\..\..\include" -i"$(Proj_dir)\..\..\src\DSP_fft16x16" -i"$(Proj_dir)\..\..\src\DSP_fft16x32" -i"$(Proj_dir)\..\..\src\DSP_fft32x32" -d"_DEBUG" -mv6400+
+
+["Linker" Settings: "Debug_elf"]
+Options=-c -l"..\..\lib\dsplib64plus_elf.lib" -l"rts64plus_elf.lib" -m".\Debug_elf\fft_example.map" -o".\Debug_elf\fft_example.out" -w -x
+
+["Readme.txt" Settings: "Debug_elf"]
+ExcludeFromBuild=true
+
+["lnk.cmd" Settings: "Debug_elf"]
+LinkOrder=1

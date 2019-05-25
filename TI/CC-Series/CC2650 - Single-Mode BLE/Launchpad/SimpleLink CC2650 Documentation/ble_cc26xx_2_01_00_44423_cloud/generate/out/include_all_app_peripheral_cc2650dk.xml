@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<includes>
+	<include>${TI_RTOS_DRIVERS_BASE}/ti/boards/SRF06EB/CC2650EM_7ID</include>
+</includes>

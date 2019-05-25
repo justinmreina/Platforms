@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\adc_cont_dma_seq_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\adc_cpu_poll_single_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\adc_extra_int_single_cc254x.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

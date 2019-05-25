@@ -1,0 +1,228 @@
+//***********************************************************************************//
+// 1.1 TI-RTOS Workshop Series - Introduction										 //
+//***********************************************************************************//
+	all materials associated with this workshop are located here -
+	http://processors.wiki.ti.com/index.php/TI-RTOS_Workshop
+
+	10 Chapters
+		1. Welcome
+		2. Intro to CCS
+		3. Intro to TI-RTOS Kernel
+		4. Configuring the Kernel (SYS-BIOS, Cfg File, Hwi/Swi/Task/Idle Thread Types)
+		5. Using Hwi (HW Interrupts)
+		6. Using Swi (SW Interrupts)
+		7. Using Clk Module/Fxns
+		8. Using Tasks (and semaphores)
+		9. Inter-thread Comm (task-task, sw-sw, semaphores, mailboxes, queues, mutexes. 
+		   priorities)
+		10. Dynamic Mem
+
+
+//***********************************************************************************//
+// 1.2 TI-RTOS Workshop Series 1 of 10 - Welcome									 //
+//***********************************************************************************//
+	Setting the table for entire workshop, discuss TI portfolio and TI-RTOS support
+
+	This video focuses on the kernel itself
+
+	Tiva C Series, our 'all-around microcontroller'
+
+	TI-RTOS has no royalties
+
+	I like to think of TI-RTOS as an SDK, a bunch of sw that helps you develop stuff ;0
+	
+	TI-RTOS supports Inter-Process Communication
+	TI-RTOS supports CC3000 Wi-Fi, Networking, USB, Serial & DriverLib
+	TI-RTOS supports the FAT Filesystem
+	
+	The Kernel is named SYS/BIOS
+	
+	Each DriverLib (e.g. TivaWare) has an 'OS-friendly' version, each of which is used by TI-RTOS
+	
+	http://processors.wiki.ti.com/index.php/Hands-On_Training_for_TI_Embedded_Processors
+	http://processors.wiki.ti.com/index.php/TI-RTOS_Workshop
+
+	You can port the TI-RTOS to CC Series MCU's
+	
+	//Lab 1 - Load & Run a .OUT File(TM4C123GH6PM)
+
+//***********************************************************************************//
+// 1.3 TI-RTOS Workshop Series 2 of 10 - Using Code Composer Studio					 //
+//***********************************************************************************//
+
+	TI Wares
+		- Low-level driver libraries
+		- Peripheral Programming Interface
+		- Tool-chain agnostic C code
+		
+	TI-RTOS
+		- Sys/BIOS (the real-time kernel)
+		- TI Wares
+		- Libraries and Examples
+		- TI-RTOS SDK
+		- IAR Support
+	
+	Hint: To avoid confusion, always create both Linked Path & Build Path variables with the same name!
+		Project Properties ->Resource->Linked Resources
+		Project Properties->Build->List
+	
+	Variables can be either Project Scoped or Workspace Scoped
+		vars.ini contains path variables - auto sets WORKSPACE level vars
+
+//***********************************************************************************//
+// 1.4  TI-RTOS Workshop Series 3 of 10 - TI-RTOS Concepts & Intro to Kernel		 //
+//***********************************************************************************//
+	UIA, System Analyzer, BIOS Env discussions
+	
+	Quiz at end of chapter 3 here
+	
+	An OS is really just a collection of services & libraries that enable applications for development. 'library of services'
+	
+	Scheduling, thread types & clocks provided
+	
+	Memory management (stack, heap, cache)
+	
+	Synchronization (semaphores, mutexes, mailboxes, etc.)
+	
+	RTOS - "Real-time O/S" - provide common services but WITHOUT disturbing the real-time nature of the system
+	
+	TI-RTOS (SYS/BIOS) is a PRE-EMPTIVE scheduler. This means the highest priority thread queued up is ALWAYS RUN FIRST
+	
+	Time slicing is not inherently supported, highest priority always runs, careful your lower priority threads may then be missed!
+	
+	The kernel is EVENT-DRIVEN. The kernel will only run if it has been called (e.g. 'Swi_post()')
+	
+	The kernel is OBJECT BASED
+	
+	Options		
+		//Solution #1: Super Loop - 100% CPU, Tasks block, service conflicting and priority ignored.
+		//			   both run at the same loop frequency
+		while(1) {
+			audio_routine();
+			keypad_rouine();
+		}
+	
+		//if audio@100kHz & keypad@10Hz this won't work, done.
+		//timer based then for this?
+	
+		//Solution #2: Timers Solution - Timer ISR
+		TimerA_ISR() {
+			audio_routine();	//T=10us, Comp=5us, Usage=50%
+		}
+		
+		TimerB_ISR() {
+			keypad_rouine();	//T=100ms, Comp=1ms, Usage=1%
+		}
+		
+		main() {
+			for(;;);			//Total Usage = 51%
+		}
+	
+		//B will block A as no nesting is configured here. There is no tracking!
+		//A could pre-empt B and this would work
+	
+		//Solution #3: Nested Interrupts, Priority Solution
+	
+		//Top priority disables nesting
+		//Other priorities only enable priorities above them
+		
+		//Q: what happens when the priority structure changes, if someone is added? All of the others must update to reflect! :)
+				
+		When nested interrupts occur, the processing and algorithm is done IN the ISR! Note the requirement or consideration of Context save & restore here in this processing segment!
+		
+		What if we could seperate the PROCESS form the rest of the ISR??
+			*avoid nesting here if possible
+			*keep hard-time constraints or reqs to the ISR though
+			*perform in an Swi you then call!
+			*here global ints disabled much less!
+			*This is was the BIOS Scheduler is all about...
+			
+		
+		//Solution #4: BIOS Scheduler
+		Audio_ISR() {
+			read_sample();
+			post_audio();		//Post the Audio Swi for BIOS to handle
+		}
+		
+		Keypad_ISR() {
+			read_keypad();
+			post_keypad();;		//Post the Keypad Swi for BIOS to handle
+		}
+		
+		main() {
+			init();
+			BIOS_start();		//never exits here, begins operation
+		}
+		
+		//Solution #4 decouples the HW & Peripheral system context & state from the Software & User context & state!
+			*this makes interrupts much shorter, kind of their whole point! :)
+		
+	'Thread' vs. 'Function'
+		*Function - set of instructions the produces a result (no priority)
+		*Thread   - function that runs within a specific context (priority,stack, etc.)
+		
+		*a function could run in ANY thread type
+		
+	'Tasks' - 4th SYS/BIOS Thread Type
+		*Usually enabled to run by posting a 'semaphore' (task signaling mechanism)
+		*Designed to run concurrently
+	
+	TI-RTOS Priorities (Hwi->Swi->Task->Idle)
+	
+	Tasks are designed to run concurrently
+		Run, then pause or block until ready to proceed (e.g. data is ready)
+		
+	Comparison(Swi vs. Task)
+		A Swi is like opening a file, editing then closing it
+		A Task is like having multiple windows open, but only ONE is active at a time
+		A Semaphore is similar to the 'click' that activates a window or a file
+	
+	Tasks are just a function that runs in a while(1) loop, which waits for a control flow signal to run (semaphore typically)
+	
+	Tasks have their own private stack
+	
+	Each thread type has its own Memory Mgmt, RT Analysis, Clock/Timer & Synchronization, and will each be covered later (Ch 4-9)
+	
+	BIOS is object oriented, better encapsulation & seperation, easy to maintain
+	
+	How do you create a Swi object? You could create it in C (hehe...), or use TI-RTOS in GUI(Static or Script) or C Code(Dynamic)
+		*Most people create them statically
+		*BIOS does not care which you choose!
+	
+	The debug & analysis tools for TI-RTOS are superb, wow
+		CPU Load Graph, wow
+		
+	Inside CCS, go to Help menu for 'SYS/BIOS->API reference', and you can see all the function calls used and needed for TI-RTOS!
+	
+	Ch.3 Quiz: http://software-dl.ti.com/trainingTTO/trainingTTO_public_sw/TI_RTOS_Vi
+			   deos/CHAPTER_3_QUIZ/CHAPTER_3_QUIZ.html 
+	
+	<complete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

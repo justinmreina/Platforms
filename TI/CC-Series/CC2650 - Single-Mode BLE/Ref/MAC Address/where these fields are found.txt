@@ -1,0 +1,63 @@
+MAC
+	FCFG1_O_MAC_BLE_0 + FCFG1_BASE
+	FCFG1_O_MAC_BLE_1 + FCFG1_BASE
+
+UUID
+	
+Name
+	
+
+<others>
+
+
+<notes>
+
+2400h FCFG_BANK Internal Section 7.9.1.112
+ 
+2E8h MAC_BLE_0 MAC BLE Address 0 Section 9.2.2.1.44
+2ECh MAC_BLE_1 MAC BLE Address 1 Section 9.2.2.1.45
+
+
+<SmartRF Flash Programmer 2 Claim>
+	Direct Report Out
+	 24 71 89 08 26 04 h (247189082604h)
+ 	Heh?
+ 	 04 26 08 89 71 24  (backwards!)
+	@Address 0x02e8 - 0x020D (of 'Info Page')
+	FCFG at 0x50001000 (see Table 3-2)
+	So, look to:
+	
+	0x500012e8 - 0x5000120D (FCFG1_MAC_BLE_0 & FCFG1_MAC_BLE_1)
+	
+	Stack em up BLE_1[15:00]|BLE_0[31:0]
+	This is your address!
+	
+	0x500012E8 FCFG1_MAC_BLE_0
+		89082604
+	0x500012EC FCFG1_MAC_BLE_1
+		FFFF2471
+	
+<SensorTag App Inspect>
+	App Store Version: 0x589BFECE46CF (iPhone's MAC Address)
+	   Source Version: 0x589BFECE46CF
+<CCS MAC Inspect>
+	#include <inc/hw_fcfg1.h>
+        volatile uint32_t *ble0_ptr = FCFG1_O_MAC_BLE_0 + FCFG1_BASE;
+        volatile uint32_t *ble1_ptr = FCFG1_O_MAC_BLE_1 + FCFG1_BASE;
+        volatile uint8_t  *ble_ptr  = FCFG1_O_MAC_BLE_0 + FCFG1_BASE;
+
+        volatile uint32_t ble0 = *ble0_ptr;
+        volatile uint32_t ble1 = *ble1_ptr;
+
+		volatile uint8_t bleResult[6];
+		
+        for(int i=0; i<6; i++) {
+            bleResult[i] = ble_ptr[5-i];
+        }
+
+        bleArr = 0;
+
+
+<Opens>
+	Generate working CCS read code and consider posting
+	Try LabVIEW code, with both options!

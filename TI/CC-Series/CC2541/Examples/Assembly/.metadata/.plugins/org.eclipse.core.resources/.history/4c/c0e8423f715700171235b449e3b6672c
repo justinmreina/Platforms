@@ -1,0 +1,64 @@
+/************************************************************************************************************************************/
+/** @file       main.c
+ *  @brief      x
+ *  @details	x
+ *
+ *  @target     Texas Instruments CC2541F128
+ *  @board      all
+ *
+ *  @author     Justin Reina, Firmware Engineer
+ *  @created	6/22/17
+ *  @last rev	6/22/17
+ *
+ *
+ *  @section 	BLE Stack Vocabulary
+ *      ARC - Advanced Remote Control
+ *      ST - Sensor Tag
+ *
+ *  @section 	Locations of HAL reference (in prog)
+ *      BLE-Stack 1.4.2.2/Components/hal/target/CC2541ST/hal_board_cfg.h
+ *      BLE-Stack 1.4.2.2/Components/hal/target/CC2541ST/hal_led.c
+ *
+ *  @section	Opens
+ *      Assembly inline
+ *      Assembly file
+ *      GPIO Read
+ *      GPIO ISR
+ *      PWM out
+ *
+ *  @section	Legal Disclaimer
+ *      All contents of this source file and/or any other related source files are the explicit property of Justin Reina. Do not 
+ *      distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
+#include "globals.h"
+
+
+/************************************************************************************************************************************/
+/** @fcn        int main(void)
+ *  @brief      x
+ *  @details    x
+ *
+ *  @note       fclk observed at approx.
+ *  @misc       SFR(  P1DIR     ,  0xFE  )   //  Port 1 Direction  
+ */
+/************************************************************************************************************************************/
+int main(void) {
+
+	asm(" NOP");
+        
+//        P1DIR |= BIT0;
+        asm(" ORL 0xFE, #0x01");                                           /* in progress, not compiling!                          */
+        
+//        for(;;) {
+//          P1_0 ^= BIT0;
+//        }
+asm(" XRL P1, #0x01");
+asm(" XRL P1, #0x01");
+asm(" XRL P1, #0x01");
+asm(" XRL P1, #0x01");
+asm(" XRL P1, #0x01");
+//        SJMP("last");
+             
+}
+

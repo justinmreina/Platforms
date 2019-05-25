@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configurations XML_version="1.2" id="configurations_0">
+    <configuration XML_version="1.2" id="Spectrum Digital XDS510USB Emulator_0">
+        <instance XML_version="1.2" desc="Spectrum Digital XDS510USB Emulator_0" href="connections/SD510USB_Connection.xml" id="Spectrum Digital XDS510USB Emulator_0" xml="SD510USB_Connection.xml" xmlpath="connections"/>
+        <connection XML_version="1.2" id="Spectrum Digital XDS510USB Emulator_0">
+            <instance XML_version="1.2" href="drivers/sdgoicepickusb_c.xml" id="drivers" xml="sdgoicepickusb_c.xml" xmlpath="drivers"/>
+            <instance XML_version="1.2" href="drivers/sdgo674xpusb.xml" id="drivers" xml="sdgo674xpusb.xml" xmlpath="drivers"/>
+            <platform XML_version="1.2" id="platform_0">
+                <instance XML_version="1.2" desc="LCDKC6748_0" href="boards/lcdkc6748.xml" id="LCDKC6748_0" xml="lcdkc6748.xml" xmlpath="boards"/>
+            </platform>
+        </connection>
+    </configuration>
+</configurations>

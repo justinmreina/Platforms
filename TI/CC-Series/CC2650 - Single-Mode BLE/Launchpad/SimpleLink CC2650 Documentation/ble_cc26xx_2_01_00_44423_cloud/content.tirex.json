@@ -1,0 +1,717 @@
+[
+   {
+       "name": "CC2650-LAUNCHXL",
+       "categories": ["Development Tools"],
+       "location": "./Projects/ble/ProjectZero/project0_resources/index.html",
+       "resourceType": "categoryInfo"
+   },
+   {
+       "name": "CC2650MA-BOOSTXL",
+       "categories": ["Development Tools"],
+       "location": "./Projects/ble/ProjectZero/project0_resources/BOOSTXL-CC2650MA.html",
+       "resourceType": "categoryInfo"
+   },
+   {
+     "name": "User's Guide",
+     "categories": ["Development Tools", "Documents"],
+     "description": "",
+     "devtools": ["CC2650MA-BOOSTXL"],
+     "devices": ["CC2650"],
+     "location": "./Projects/ble/ProjectZero/project0_resources/BOOSTXL-CC2650MA.html",
+     "resourceType": "file"
+   },
+   {
+      "name": "Quick Start Guide",
+      "resourceType": "web.page",
+      "location": "http://www.ti.com/lit/pdf/swru451",
+      "devices": ["CC2650"],
+      "devtools": ["CC2650-LAUNCHXL"],
+      "categories": ["Development Tools", "Documents"]
+   },
+   {
+      "name": "SensorTag",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "weblink",
+      "devices": [
+         "CC2650"
+      ],
+      "link": "http://www.ti.com/sensortag",
+      "devtools": [
+         "CC2650 SensorTag"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Documents"
+         ]
+      ]
+   },
+   {
+     "name": "Meet the CC2650 Launchpad",
+     "categories": ["Development Tools", "Documents"],
+     "description": "Introducing the CC2650 Launchpad",
+     "devtools": ["CC2650-LAUNCHXL"],
+     "devices": ["CC2650"],
+     "location": "./Projects/ble/./ProjectZero/project0_resources/index.html",
+     "resourceType": "file"
+   },
+   {
+     "name": "CC2650-LAUNCHXL Project Zero",
+     "categories": ["Development Tools", "Documents"],
+     "description": "Getting started with Project Zero on CC2650-LAUNCHXL",
+     "devtools": ["CC2650-LAUNCHXL"],
+     "devices": ["CC2650"],
+     "location": "./Projects/ble/./ProjectZero/project0_resources/prz/index.html",
+     "resourceType": "file"
+   },
+   {
+      "name": "CC2650 LaunchPad Bluetooth Smart User's Guide",
+      "resourceType": "web.page",
+      "location": "http://processors.wiki.ti.com/index.php/CC2650_LaunchPad_User%27s_Guide_for_Bluetooth_Smart",
+      "devices": ["CC2650"],
+      "devtools": ["CC2650-LAUNCHXL"],
+      "categories": ["Development Tools", "Documents"]
+   },
+   {
+      "name": "CC2640 Bluetooth Low Energy Software Developer's Guide",
+      "resourceType": "web.page",
+      "location": "http://www.ti.com/lit/pdf/swru393",
+      "devices": ["CC2650"],
+      "devtools": ["CC2650-LAUNCHXL"],
+      "categories": ["Development Tools", "Documents"]
+   },
+   {
+      "name": "CC2650-LAUNCHXL Schematic",
+      "resourceType": "file",
+      "location": "./Documents/LAUNCHXL-CC2650_1_1_1 Schematic.pdf",
+      "devices": ["CC2650"],
+      "devtools": ["CC2650-LAUNCHXL"],
+      "categories": ["Development Tools", "Documents", "Design Files"]
+   },
+   {
+      "name": "Project Zero",
+       "categories": ["Development Tools", "CC2650-LAUNCHXL", "Examples"],
+       "description": "<div style='margin-right: 1em;'><p>These are the Application and Stack projects for Project Zero.</p><ul><li>Importing the Application project to CCS Cloud should also import the Stack project. <ul><li>Note that both must be built and downloaded to the device - The Stack project only needs to be downloaded on first run.</li></ul></li><li>Please see the <a href='/tirex/content/cc26xx_bluetooth_smart/cc26xx_bluetooth_smart__2.01.00.44423/Projects/ble/ProjectZero/project0_resources/prz/index.html#/?collapsetree='>CC2650-LAUNCHXL Project Zero</a> page for an overview of the software.</li><li>If you want to download the project and import it into CCS Desktop, please use the <b>Download All</b> button as indicated below<br><img src='/tirex/content/cc26xx_bluetooth_smart/cc26xx_bluetooth_smart__2.01.00.44423/Projects/ble/ProjectZero/project0_resources/images/download_all.png'/></li></ul></div>",
+       "image": "./Projects/ble/ProjectZero/project0_resources/prz/images/CC2650LP.png",
+       "resourceType": "categoryInfo"
+   },
+   {
+      "link": "./Projects/ble/./ProjectZero/CC26xx/CCS/Cloud/ProjectZeroApp_CC2650LAUNCHXL.projectspec",
+      "name": "ProjectZeroApp",
+      "tags": [
+         "CC2650",
+         "TI-RTOS",
+         "TIRTOS",
+         "CC2650 SensorTag",
+         "CC2650DK"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": ["CC2650-LAUNCHXL"],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "Project Zero"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "Project Zero Application Project"
+   },
+   {
+      "link": "./Projects/ble/./ProjectZero/CC26xx/CCS/Cloud/ProjectZeroStack_CC2650LAUNCHXL.projectspec",
+      "name": "ProjectZeroStack",
+      "tags": [
+         "CC2650",
+         "TI-RTOS",
+         "TIRTOS",
+         "CC2650 SensorTag",
+         "CC2650DK"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": ["CC2650-LAUNCHXL"],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "Project Zero"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "Project Zero Stack Project"
+   },
+   {
+      "link": "./Projects/ble/./SimpleBLEPeripheral/CC26xx/CCS/Cloud/SimpleBLEPeripheral.projectspec",
+      "name": "SimpleBLEPeripheralApp",
+      "tags": [
+         "CC2650",
+         "TI-RTOS",
+         "TIRTOS",
+         "CC2650 SensorTag",
+         "CC2650DK"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "Simple BLE Peripheral"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "Simple BLE Peripheral Application Project"
+   },
+   {
+      "link": "./Projects/ble/./SimpleBLEBroadcaster/CC26xx/CCS/Cloud/SimpleBLEBroadcaster.projectspec",
+      "name": "SimpleBLEBroadcasterApp",
+      "tags": [
+         "CC2650",
+         "TI-RTOS",
+         "TIRTOS",
+         "CC2650 SensorTag",
+         "CC2650DK"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "Simple BLE Broadcaster"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "Simple BLE Broadcaster Application Project"
+   },
+   {
+      "link": "./Projects/ble/./SimpleBLEBroadcaster/CC26xx/CCS/Cloud/SimpleBLEBroadcasterStack.projectspec",
+      "name": "SimpleBLEBroadcasterStack",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "Simple BLE Broadcaster"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "Simple BLE Broadcaster Stack Project"
+   },
+   {
+      "name": "CC2640 Bluetooth Low Energy Software Developers Guide",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "file",
+      "devices": [
+         "CC2650"
+      ],
+      "link": "./Documents/swru393.pdf",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Documents"
+         ]
+      ]
+   },
+   {
+      "link": "./Projects/ble/./SimpleBLECentral/CC26xx/CCS/Cloud/SimpleBLECentral.projectspec",
+      "name": "SimpleBLECentralApp",
+      "tags": [
+         "CC2650",
+         "TI-RTOS",
+         "TIRTOS",
+         "CC2650 SensorTag",
+         "CC2650DK"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "Simple BLE Central"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "Simple BLE Central Application Project"
+   },
+   {
+      "link": "./Projects/ble/./SimpleBLEPeripheral/CC26xx/CCS/Cloud/SimpleBLEPeripheralStack.projectspec",
+      "name": "SimpleBLEPeripheralStack",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "Simple BLE Peripheral"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "Simple BLE Peripheral Stack Project"
+   },
+   {
+      "name": "TI Cloud SensorTag Demo",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "weblink",
+      "devices": [
+         "CC2650"
+      ],
+      "link": "http://processors.wiki.ti.com/index.php/CCS_Cloud_SensorTag_Demo",
+      "devtools": [
+         "CC2650 SensorTag"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples"
+         ]
+      ]
+   },
+   {
+      "link": "./Projects/ble/./SimpleBLECentral/CC26xx/CCS/Cloud/SimpleBLECentralStack.projectspec",
+      "name": "SimpleBLECentralStack",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "Simple BLE Central"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "Simple BLE Central Stack Project"
+   },
+   {
+      "name": "BLE Wiki",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "weblink",
+      "devices": [
+         "CC2650"
+      ],
+      "link": "http://www.ti.com/ble-wiki",
+      "devtools": [
+         "CC2650 SensorTag"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Documents"
+         ]
+      ]
+   },
+   {
+      "link": "./Projects/ble/./SensorTag/CC26xx/CCS/Cloud/SensorTag.projectspec",
+      "name": "SensorTagApp",
+      "tags": [
+         "CC2650",
+         "TI-RTOS",
+         "TIRTOS",
+         "CC2650 SensorTag",
+         "CC2650DK"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650 SensorTag"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "SensorTag"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "SensorTag Application Project"
+   },
+   {
+      "link": "./Projects/ble/./SensorTag/CC26xx/CCS/Cloud/SensorTagStack.projectspec",
+      "name": "SensorTagStack",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650 SensorTag"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "SensorTag"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "SensorTag Stack Project"
+   },
+   {
+      "content": "Because the workspace is split into two projects (Application and Stack), there is a specific sequence for compilation and download. <br>1.\tImport ( <img src='icns/cloudCube.svg' height='12'> ) Application projects to CCS Cloud \u2013 this automatically imports the associated stack project<br>2.\tIn CCS Cloud, Build ( <img src='icns/build.png'/> ) the Application projects \u2013 this automatically builds the Stack project if needed.<br>3.\tRun ( <img src='icns/run.png'/> ) first the Stack project then Run Application project to get both binaries downloaded to the device.<br><br> This procedure is only needed for the initial download and whenever the Stack project is modified. As long as the Stack project is not modified, these steps only need to be performed for the Application project.",
+      "name": "HID Emulated Keyboard",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "overview",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "icon": "./Projects/common/ResourceExplorer/ccs/ble/./../../../../ble/./../common/ResourceExplorer/ccs/ble/bluetooth_icon.png"
+   },
+   {
+      "name": "CC2640 Bluetooth Low Energy Software Developers Guide",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "file",
+      "devices": [
+         "CC2650"
+      ],
+      "link": "./Documents/swru393.pdf",
+      "devtools": [
+         "CC2650 SensorTag"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Documents"
+         ]
+      ]
+   },
+   {
+      "name": "SensorTag Quickstart Cloud",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "weblink",
+      "devices": [
+         "CC2650"
+      ],
+      "link": "https://quickstart.internetofthings.ibmcloud.com",
+      "devtools": [
+         "CC2650 SensorTag"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples"
+         ]
+      ]
+   },
+   {
+      "content": "Because the workspace is split into two projects (Application and Stack), there is a specific sequence for compilation and download. <br>1.\tImport ( <img src='icns/cloudCube.svg' height='12'> ) Application projects to CCS Cloud \u2013 this automatically imports the associated stack project<br>2.\tIn CCS Cloud, Build ( <img src='icns/build.png'/> ) the Application projects \u2013 this automatically builds the Stack project if needed.<br>3.\tRun ( <img src='icns/run.png'/> ) first the Stack project then Run Application project to get both binaries downloaded to the device.<br><br> This procedure is only needed for the initial download and whenever the Stack project is modified. As long as the Stack project is not modified, these steps only need to be performed for the Application project.",
+      "name": "Simple BLE Broadcaster",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "overview",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "icon": "./Projects/common/ResourceExplorer/ccs/ble/./../../../../ble/./../common/ResourceExplorer/ccs/ble/bluetooth_icon.png"
+   },
+   {
+      "content": "Because the workspace is split into two projects (Application and Stack), there is a specific sequence for compilation and download. <br>1.\tImport ( <img src='icns/cloudCube.svg' height='12'> ) Application projects to CCS Cloud \u2013 this automatically imports the associated stack project<br>2.\tIn CCS Cloud, Build ( <img src='icns/build.png'/> ) the Application projects \u2013 this automatically builds the Stack project if needed.<br>3.\tRun ( <img src='icns/run.png'/> ) first the Stack project then Run Application project to get both binaries downloaded to the device.<br><br> This procedure is only needed for the initial download and whenever the Stack project is modified. As long as the Stack project is not modified, these steps only need to be performed for the Application project.",
+      "name": "Simple BLE Peripheral",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "overview",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "icon": "./Projects/common/ResourceExplorer/ccs/ble/./../../../../ble/./../common/ResourceExplorer/ccs/ble/bluetooth_icon.png"
+   },
+   {
+      "content": "Because the workspace is split into two projects (Application and Stack), there is a specific sequence for compilation and download. <br>1.\tImport ( <img src='icns/cloudCube.svg' height='12'> ) Application projects to CCS Cloud \u2013 this automatically imports the associated stack project<br>2.\tIn CCS Cloud, Build ( <img src='icns/build.png'/> ) the Application projects \u2013 this automatically builds the Stack project if needed.<br>3.\tRun ( <img src='icns/run.png'/> ) first the Stack project then Run Application project to get both binaries downloaded to the device.<br><br> This procedure is only needed for the initial download and whenever the Stack project is modified. As long as the Stack project is not modified, these steps only need to be performed for the Application project.",
+      "name": "Simple BLE Central",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "overview",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "icon": "./Projects/common/ResourceExplorer/ccs/ble/./../../../../ble/./../common/ResourceExplorer/ccs/ble/bluetooth_icon.png"
+   },
+   {
+      "content": "Because the workspace is split into two projects (Application and Stack), there is a specific sequence for compilation and download. <br>1.\tImport ( <img src='icns/cloudCube.svg' height='12'> ) Application projects to CCS Cloud \u2013 this automatically imports the associated stack project<br>2.\tIn CCS Cloud, Build ( <img src='icns/build.png'/> ) the Application projects \u2013 this automatically builds the Stack project if needed.<br>3.\tRun ( <img src='icns/run.png'/> ) first the Stack project then Run Application project to get both binaries downloaded to the device.<br><br> This procedure is only needed for the initial download and whenever the Stack project is modified. As long as the Stack project is not modified, these steps only need to be performed for the Application project.",
+      "name": "SensorTag",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "overview",
+      "devtools": [
+         "CC2650 SensorTag"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "icon": "./Projects/common/ResourceExplorer/ccs/ble/./../../../../ble/./../common/ResourceExplorer/ccs/ble/bluetooth_icon.png"
+   },
+   {
+      "name": "BLE Wiki",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "weblink",
+      "devices": [
+         "CC2650"
+      ],
+      "link": "http://www.ti.com/ble-wiki",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Documents"
+         ]
+      ]
+   },
+   {
+      "link": "./Projects/ble/./HIDEmuKbd/CC26xx/CCS/Cloud/HIDEmuKbd.projectspec",
+      "name": "HIDEmuKbdApp",
+      "tags": [
+         "CC2650",
+         "TI-RTOS",
+         "TIRTOS",
+         "CC2650 SensorTag",
+         "CC2650DK"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "HID Emulated Keyboard"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "HID Emulated Keyboard Application Project"
+   },
+   {
+      "link": "./Projects/ble/./HIDEmuKbd/CC26xx/CCS/Cloud/HIDEmuKbdStack.projectspec",
+      "name": "HIDEmuKbdStack",
+      "tags": [
+         "CC2650",
+         "BLE",
+         "Bluetooth",
+         "Bluetooth low energy",
+         "Bluetooth Smart"
+      ],
+      "resourceType": "project.ccs",
+      "devtools": [
+         "CC2650DK_7ID"
+      ],
+      "actions": [
+         "import"
+      ],
+      "categories": [
+         [
+            "Development Tools",
+            "Examples",
+            "HID Emulated Keyboard"
+         ]
+      ],
+      "devices": [
+         "CC2650"
+      ],
+      "description": "HID Emulated Keyboard Stack Project"
+   }
+]

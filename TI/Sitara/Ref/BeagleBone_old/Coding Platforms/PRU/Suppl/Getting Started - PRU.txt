@@ -1,0 +1,1 @@
+http://processors.wiki.ti.com/index.php/PRU-ICSS_Getting_Started_Guide- Installed PRU Tools in CCSv6 (CCS App Center)- Installed 'PRU Code Generation Tools v2.1.2' 		http://software-dl.ti.com/codegen/non-esd/downloads/download.htm#PRU	- 

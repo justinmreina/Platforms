@@ -1,0 +1,4 @@
+http://askubuntu.com/questions/341810/add-user-to-group-which-can-access-network-interfaces
+
+root@beaglebone:~# gpasswd -a jmreina netdev
+Adding user jmreina to group netdev

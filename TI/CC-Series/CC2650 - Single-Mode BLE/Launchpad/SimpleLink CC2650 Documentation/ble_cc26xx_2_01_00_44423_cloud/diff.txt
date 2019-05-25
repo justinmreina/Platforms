@@ -1,0 +1,14 @@
+9c9
+<        "name": "CC2650 SensorTag",
+---
+>        "name": "CC2650MA-BOOSTXL",
+12a13,21
+>    },
+>    {
+>      "name": "User's Guide",
+>      "categories": ["Development Tools", "Documents"],
+>      "description": "",
+>      "devtools": ["CC2650MA-BOOSTXL"],
+>      "devices": ["CC2650"],
+>      "location": "./Projects/ble/ProjectZero/project0_resources/BOOSTXL-CC2650MA.html",
+>      "resourceType": "file"

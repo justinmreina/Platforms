@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+{% set comma = joiner(", ") %}
+<projectSpec>
+    <project
+        name="{{projectname}}"
+        device="CC2650F128"
+        connection="{{debuggerConnection}}"
+        toolChain="TI"
+        linkerCommandFile="cc26x0f128.cmd"
+        compilerBuildOptions="{%for d in compileroptions -%}{{d}} {% endfor %} -mv7M3 --code_state=16 --abi=eabi -me -g --gcc --gen_func_subsections=on  --display_error_number --diag_warning=255 --diag_wrap=off
+        {% for d in defines -%}-D{{d.expression}}
+        {% endfor %}
+        {% for i in includes -%}-I{{i.path}}
+        {% endfor %}"
+        linkerBuildOptions="{% for l in libraries %}-l{{l.path}} {% endfor %} -x {% for o in linkeroptions %}{{o}} {% endfor %}"
+        description="{{description}}"
+        launchWizard="false"
+        {% for attr in projectAttributes %}{{attr}}
+        {% endfor %}
+        {%if projectrefs%}references="{% for ref in projectrefs %}{{ comma() }}{{ref}}{% endfor %}"{% endif %}>
+
+        {% if isTIRTOS %}
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.TIRTOSsimplelink:2.13.0.06"/>
+        <property name="xdcToolsVersion" value="3.31.01.33"/>
+        {% endif %}
+        <property name="target" value="ti.targets.arm.elf.M3"/>
+        <property name="platform" value="ti.platforms.simplelink:CC2650F128"/>
+        <property name="buildProfile" value="release"/>
+        <property name="isHybrid" value="true"/>
+        <property name="configuroOptions" value="--compileOptions &quot;${COMPILER_FLAGS} &quot; "/>
+
+        {% for var in pathvars -%}
+        <pathVariable name="{{var.name}}" path="{{var.path}}" scope="{{var.scope}}"></pathVariable>
+        {%endfor %}
+
+        {% for file in files -%}
+        <file path="{{file.source}}" openOnCreation="{{file.openOn}}" excludeFromBuild="{{file.exclude}}" action="{{file.action}}" targetDirectory="{{file.target}}" createVirtualFolders="{{file.virtual}}">
+        </file>
+        {% endfor -%}
+    </project>
+</projectSpec>

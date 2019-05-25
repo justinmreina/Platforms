@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>DATA=</define>
+	<define>FLASH_ROM_BUILD</define>
+	<define>HALNODEBUG</define>
+	<define>INCLUDE_AES_DECRYPT</define>
+	<define>NEAR_FUNC=</define>
+	<define>OSAL_CBTIMER_NUM_TASKS=1</define>
+	<define>POWER_SAVING</define>
+	<define>xDEBUG_ENC</define>
+	<define>xDEBUG_GPIO</define>
+	<define>xDEBUG_SW_TRACE</define>
+	<define>xTESTMODES</define>
+</defines>

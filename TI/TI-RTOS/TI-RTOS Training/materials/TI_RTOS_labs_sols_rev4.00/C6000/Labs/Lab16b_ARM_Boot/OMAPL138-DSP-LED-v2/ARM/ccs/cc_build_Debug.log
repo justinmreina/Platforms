@@ -1,0 +1,14 @@
+----------------------  OMAPL138-DSP-LED-ARM.pjt - Debug  ----------------------
+[ARM9_handler.asm] "C:\Program Files\Texas Instruments\TMS470 Code Generation Tools 4.6.4\bin\cl470" -g -pdsw225 -fr"C:/boot_examples/OMAPL138-DSP-LED/ARM/ccs/../Debug" -i"C:/boot_examples/OMAPL138-DSP-LED/ARM/ccs/../include" -d"_DEBUG" -me -mv5e --abi=ti_arm9_abi -@"../ccs/Debug.lkf" "ARM9_handler.asm"
+
+[ARM9_initstack.asm] "C:\Program Files\Texas Instruments\TMS470 Code Generation Tools 4.6.4\bin\cl470" -g -pdsw225 -fr"C:/boot_examples/OMAPL138-DSP-LED/ARM/ccs/../Debug" -i"C:/boot_examples/OMAPL138-DSP-LED/ARM/ccs/../include" -d"_DEBUG" -me -mv5e --abi=ti_arm9_abi -@"../ccs/Debug.lkf" "ARM9_initstack.asm"
+
+[ARM9_intvecs.asm] "C:\Program Files\Texas Instruments\TMS470 Code Generation Tools 4.6.4\bin\cl470" -g -pdsw225 -fr"C:/boot_examples/OMAPL138-DSP-LED/ARM/ccs/../Debug" -i"C:/boot_examples/OMAPL138-DSP-LED/ARM/ccs/../include" -d"_DEBUG" -me -mv5e --abi=ti_arm9_abi -@"../ccs/Debug.lkf" "ARM9_intvecs.asm"
+
+[main.c] "C:\Program Files\Texas Instruments\TMS470 Code Generation Tools 4.6.4\bin\cl470" -g -pdsw225 -fr"C:/boot_examples/OMAPL138-DSP-LED/ARM/ccs/../Debug" -i"C:/boot_examples/OMAPL138-DSP-LED/ARM/ccs/../include" -d"_DEBUG" -me -mv5e --abi=ti_arm9_abi -@"../ccs/Debug.lkf" "main.c"
+
+[Linking...] "C:\Program Files\Texas Instruments\TMS470 Code Generation Tools 4.6.4\bin\cl470" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

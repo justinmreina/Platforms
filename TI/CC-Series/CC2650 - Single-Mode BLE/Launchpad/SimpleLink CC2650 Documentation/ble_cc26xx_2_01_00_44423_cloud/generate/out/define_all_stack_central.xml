@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>DEBUG</define>
+	<define>ICALL_RAM0_ADDR=0x200043C4</define>
+	<define>ICALL_STACK0_ADDR=0x0000B000</define>
+	<define>ccs</define>
+	<define>xPM_DISABLE_PWRDOWN</define>
+	<define>xTEST_BLEBOARD</define>
+</defines>

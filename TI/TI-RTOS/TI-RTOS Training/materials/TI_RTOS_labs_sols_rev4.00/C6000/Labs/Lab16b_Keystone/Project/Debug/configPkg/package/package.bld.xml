@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="configPkg" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/keystone_flash_p674.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="C:/SYSBIOSv4/Labs/Lab11b_Keystone/Project/keystone_flash.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/keystone_flash_p674.mak" src="package.bld"/>
+        <srcFile name="package/cfg/keystone_flash_p674.o674.dep" src="package/cfg/keystone_flash_p674.c"/>
+        <srcFile name="package/cfg/keystone_flash_p674.dep" src="package/cfg/keystone_flash_p674.cfg"/>
+        <srcFile name="package/cfg/keystone_flash.x674.mak" src="package.bld"/>
+        <srcFile name="package/rel/configPkg.tar.dep" src="package/rel/configPkg.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.C674"
+            version="ti.targets.C674{1,0,7.3,1"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="674"
+            rootDir="C:/CCStudio_v5.1.0/ccsv5/tools/compiler/c6000"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="keystone_flash"
+        pname="keystone_flash.p674"
+        target="ti.targets.C674"
+        platform="evmc6748_FLASH"
+        profile="release"
+        isPartial="false"
+        xCfgScript="package/cfg/keystone_flash_p674.cfg"
+        xCfgPrefix="package/cfg/keystone_flash_p674"
+        cfgScript="C:/SYSBIOSv4/Labs/Lab11b_Keystone/Project/keystone_flash.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="keystone_flash"
+        pname="keystone_flash.x674"
+        target="ti.targets.C674"
+        platform="evmc6748_FLASH"
+        profile="release"
+        xCfgScript="package/cfg/keystone_flash_p674.cfg"
+        xCfgPrefix="package/cfg/keystone_flash_p674"
+        cfgScript="C:/SYSBIOSv4/Labs/Lab11b_Keystone/Project/keystone_flash.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="keystone_flash.x674"
+        args=""
+        groupName="keystone_flash.x674"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="configPkg"
+        pname="configPkg.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

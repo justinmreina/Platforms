@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\rnd_adc_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\rnd_rf_cc254x.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

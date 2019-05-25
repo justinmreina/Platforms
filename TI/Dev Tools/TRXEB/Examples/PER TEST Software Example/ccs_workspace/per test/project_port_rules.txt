@@ -1,0 +1,30 @@
+@brief 		the following rules will be used 100% with no modifications to succesfully import this project from IAR into CCS
+@note 		WTF TI, who uses IAR these days. wtf/waaa...
+
+@date 		6/10/17
+@author 	Justin Reina
+
+@section 	Rules
+	1. Code Block Disablement
+	
+		#ifdef BLOCKA
+		<code>
+		...
+		#endif
+		
+	2. Line Code Disablement
+	
+		Prefix line with '//' by using Ctrl+'/'
+		
+	3. Directory Structure
+	
+		Brought over in completion at beginning, with no mods. Held in place with 'empty.txt'
+		
+	4. Files
+	
+		Brought over as needed. Final goal is 100% transfer, with no odifications unless required (e.g. asm(" NOP") instead of
+		asm("NOP"))
+		
+@section 	Misc Port Choices
+	All files are ended with (2) CRLF
+	All functions and code blocks are seperated with (2) CRLF

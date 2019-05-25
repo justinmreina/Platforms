@@ -1,0 +1,110 @@
+/************************************************************************************************************************************/
+/** @file       main.c
+ *  @brief      x
+ *  @details	x
+ *
+ *  @target     Texas Instruments CC2541F128
+ *  @board      all
+ *
+ *  @author     Justin Reina, Firmware Engineer
+ *  @created	6/22/17
+ *  @last rev	6/22/17
+ *
+ *
+ *  @section 	BLE Stack Vocabulary
+ *      ARC - Advanced Remote Control
+ *      ST - Sensor Tag
+ *
+ *  @section    Reference
+ *      Tx: spl_master_send.c
+ *
+ *  @section 	Locations of HAL reference (in prog)
+ *      BLE-Stack 1.4.2.2/Components/hal/target/CC2541ST/hal_board_cfg.h
+ *      BLE-Stack 1.4.2.2/Components/hal/target/CC2541ST/hal_led.c
+ *
+ *  @section	Opens
+ *      spi.c:spi_gpio_init()
+ *      spi.c:spi_init()
+ *      spi.c:spi_transmit(uint8_t value)
+ *
+ *  @section	Legal Disclaimer
+ *      All contents of this source file and/or any other related source files are the explicit property of Justin Reina. Do not 
+ *      distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
+#include "globals.h"
+
+
+/************************************************************************************************************************************/
+/** @fcn        int main(void)
+ *  @brief      x
+ *  @details    x
+ *
+ *  @note       P1.0 connects to RF1.6 on the EMK breakout & P7.6 on the TrxEB, named 'P1_5'
+ */
+/************************************************************************************************************************************/
+int main(void) {
+
+    uint8_t txValue = 0x00;                                                 /* 8-bit SPI tx val, wraps at UINT8_MAX                 */
+
+    //Init
+    sys_init();
+
+    for(;;) {
+        // Write byte to USART0 buffer (transmit data).
+        U0DBUF = txValue++;
+
+        // Check if byte is transmitted.
+        while(!(U0CSR & U0CSR_TX_BYTE));
+
+        // Clear transmit byte status.
+        U0CSR &= ~U0CSR_TX_BYTE;
+    }
+}
+
+
+/************************************************************************************************************************************/
+/** @fcn        void sys_init(void)
+ *  @brief      init system on boot
+ *  @details    x
+ */
+/************************************************************************************************************************************/
+void sys_init(void) {
+
+
+    //******************************************************************************************************************************//
+    //                                                      CLOCK                                                                   //
+    //******************************************************************************************************************************//
+    CLKCONCMD = (CLKCONCMD & ~(CLKCON_OSC | CLKCON_CLKSPD)) | CLKCON_CLKSPD_32M;        // Set to HS XOSC, no pre-scaling           */
+    while (CLKCONSTA & CLKCON_OSC);                                         /* Wait until clock source has changed                  */
+
+    
+    //******************************************************************************************************************************//
+    //                                                       I/O                                                                    //
+    // @brief     Port and pins used by USART0 operating in SPI-mode are                                                            //
+    //              MISO (MI): P0_2                                                                                                 //
+    //              MOSI (MO): P0_3                                                                                                 //
+    //              SSN (SS) : P0_4                                                                                                 //
+    //              SCK (C)  : P0_5                                                                                                 //
+    //                                                                                                                              //
+    // @details   These pins can be set to function as peripheral I/O to be be used by USART0 SPI. Note however, when SPI is in     //
+    //            master mode, only MOSI, MISO, and SCK should be configured as peripheral I/O's. If the external slave device      //
+    //            requires a SSN, then the master can control the ext SSN by using one of its GPIO pin as output                    //
+    //                                                                                                                              //
+    //******************************************************************************************************************************//
+    spi_gpio_init();
+
+    // Configure P1_0 as GPIO output for debug
+    P1SEL &= BIT0;      // GPIO.
+    P1DIR |= BIT0;      // Output.
+
+
+    //******************************************************************************************************************************//
+    //                                                       SPI                                                                    //
+    //******************************************************************************************************************************//
+    spi_init();
+
+
+    return;
+}
+

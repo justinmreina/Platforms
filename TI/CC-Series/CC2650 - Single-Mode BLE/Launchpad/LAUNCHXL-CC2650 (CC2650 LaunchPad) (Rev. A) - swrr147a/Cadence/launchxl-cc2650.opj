@@ -1,0 +1,106 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (File ".\launchxl-cc2650.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420")
+    (NoModify)
+    (Board_sim_option "VHDL_flow")
+    ("Create Allegro Netlist" "TRUE")
+    ("Allegro Netlist Directory"
+       "C:\KHT\WORK\CC2650_LAUNCHPAD\LAUNCHXL-CC2650_1_2_0\LAUNCHXL-CC2650_1_2_0_CADENCE\ALLEGRO")
+    ("View Allegro Netlist Files" "FALSE")
+    ("Allegro Netlist Create DCF File" "FALSE")
+    ("Update Allegro Board" "FALSE")
+    ("Allegro Netlist Output Board File" "allegro\LAUNCHXL-CC2650.brd")
+    ("Allegro Netlist Remove Etch" "FALSE")
+    ("Allegro Netlist Place Changed Component" "ALWAYS_REPLACE")
+    ("Allegro Netlist Open Board in Allegro" "ALLEGRO")
+    ("Allegro Setup Backup Versions" "3")
+    ("Allegro Setup Output Warnings" "TRUE")
+    ("Allegro Setup Ignore Constraints" "FALSE")
+    ("Allegro Setup Part Type Length" "31")
+    ("Allegro Netlist Combine Property String" "PCB Footprint")
+    ("Allegro Netlist Ignore Fixed Property" "FALSE")
+    ("Allegro Netlist User Defined Property" "FALSE")
+    (Netlist_TAB "0"))
+  (Folder "Outputs"
+    (File ".\allegro\pstxnet.dat"
+      (Type "Report")
+      (DisplayName "pstxnet.dat"))
+    (File ".\allegro\pstxprt.dat"
+      (Type "Report")
+      (DisplayName "pstxprt.dat"))
+    (File ".\allegro\pstchip.dat"
+      (Type "Report")
+      (DisplayName "pstchip.dat"))
+    (Sort User)
+    (File ".\launchxl-cc2650.prp"
+      (Type "Report")
+      (DisplayName "LAUNCHXL-CC2650.PRP")))
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    (CE_LABEL
+      (FullPartName "CE_LABEL.Normal")
+      (LibraryName "X:\SYMBOLS\PCB.OLB")
+      (DeviceIndex "0"))
+    (LABEL_Pb-free_V1
+      (FullPartName "LABEL_Pb-free_V1.Normal")
+      (LibraryName "X:\SYMBOLS\PCB.OLB")
+      (DeviceIndex "0"))
+    (MECH_SHUNT_JUMPER
+      (FullPartName "MECH_SHUNT_JUMPER.Normal")
+      (LibraryName "X:\SYMBOLS\MECHANIC.OLB")
+      (DeviceIndex "0"))
+    (CONN_COAX_1_1_P_2MH_V1
+      (FullPartName "CONN_COAX_1_1_P_2MH_V1.Normal")
+      (LibraryName "X:\SYMBOLS\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (RESISTOR
+      (FullPartName "RESISTOR.Normal")
+      (LibraryName "X:\SYMBOLS\RESISTOR.OLB")
+      (DeviceIndex "0"))
+    (OFFPAGELEFT-R
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (OFFPAGELEFT-L
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (CONN_HEADER_2X11_P_S
+      (FullPartName "CONN_HEADER_2X11_P_S.Normal")
+      (LibraryName "X:\SYMBOLS\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (CONN_HEADER_3_P_S
+      (FullPartName "CONN_HEADER_3_P_S.Normal")
+      (LibraryName "X:\SYMBOLS\CONNECTOR.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\launchxl-cc2650.dsn")
+      (Path "Design Resources" ".\launchxl-cc2650.dsn" "CC2650 LaunchPad")
+      (Path "Outputs"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 250 0 902"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -30 50 1388 50 632")
+        (Scroll "-190 0")
+        (Zoom "103")
+        (Occurrence "/"))
+      (Path
+         "C:\KHT\WORK\CC2650_LAUNCHPAD\LAUNCHXL-CC1650_1_3_0\CADENCE\LAUNCHXL-CC2650.DSN")
+      (Schematic "CC2650 LaunchPad")
+      (Page "1_CC2650RF")))
+  (MPSSessionName "a0190588")
+  (ISPCBBASICLICENSE "false"))

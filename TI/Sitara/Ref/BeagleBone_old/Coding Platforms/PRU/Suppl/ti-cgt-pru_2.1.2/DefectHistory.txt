@@ -1,0 +1,1368 @@
+PRU C/C++ CODE GENERATION TOOLS
+2.1.2 November 2015
+Defect History
+
+-------------------------------------------------------------------------------
+Table of Contents
+-------------------------------------------------------------------------------
+1. Defects fixed in PRU Code Generation Tools release 2.1.2
+2. Defects fixed in PRU Code Generation Tools release 2.1.1
+3. Defects fixed in PRU Code Generation Tools release 2.1.0
+4. Current Known Issues
+
+
+===============================================================================
+1. Defects fixed in PRU Code Generation Tools release 2.1.2
+===============================================================================
+
+The following 19 defects were fixed in PRU Code Generation Tools release
+2.1.2, released November 2015.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050834
+-------------------------------------------------------------------------------
+
+Summary            : Assembler doesn't generate relocation entry for weak
+                     symbol
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : Assembler
+
+Release Notes:
+  The assembler may not generate a relocation entry for a weak symbol. This may
+  result in a call being permanently bound to the local definition.
+
+Workaround:
+  Use --gen_func_subsections.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051602
+-------------------------------------------------------------------------------
+
+Summary            : Parser may seg fault on template arguments with !
+                     operator
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  If the parser encounters a template argument of the form !foo, it may
+  segmentation fault. This behavior is related to GNU mode and may be
+  avoided with the --strict_ansi option.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0 - 2.1.1
+
+Workaround:
+  Using the --strict_ansi option will avoid this behavior. If this is not
+  possible, changing template arguments of the form !foo to 0==foo will
+  also avoid this behavior.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051668
+-------------------------------------------------------------------------------
+
+Summary            : Using -o4 with cout or cin will cause an incompatible
+                     types error
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : Runtime Support Libraries (RTS)
+
+Release Notes:
+  Link time optimization may cause an incompatible types error with C++
+  code that uses iostream. This is caused by how the standard streams
+  (cout, cin, etc) are initialized.
+  
+  Defect occurs in PRU Compiler versions: 2.1.0 - 2.1.1
+
+Workaround:
+  Don't use link time optimization with iostream.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051708
+-------------------------------------------------------------------------------
+
+Summary            : Loop downcounter may be mistakenly typed too small
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : Optimizer
+
+Release Notes:
+  When optimized, a loop may be restructured to use a downcounter,
+  essentially of the form "while (--i)". However, in some cases, the
+  downcounter may receive a type that is too small. In particular, if the
+  loop may run for more iterations than MAX_INT, all iterations may not
+  execute.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0 - 2.1.1
+
+Workaround:
+  Lower the level of optimization.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051740
+-------------------------------------------------------------------------------
+
+Summary            : AP modified before V4 saved, potentially corrupting the
+                     stack pointer
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  When compiling a function with a large frame for Thumb2 mode, the compiler
+  can generate a frame allocation sequence that uses AP as a temporary
+  register, corrupting the frame pointer (V4).
+  
+  Defect occurs in PRU Compiler versions: 2.1.0 - 2.1.1
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051762
+-------------------------------------------------------------------------------
+
+Summary            : Dot expression adding align(64) computes hugely
+                     incorrect size
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : ELF Linker
+
+Release Notes:
+  When computing the size to be added for a dot expression (e.g. ". +=
+  align(64)"), the linker may mistakenly compute a large value and fail to place
+  the section:
+  
+  "lnk.cmd", line 56: error: program will not fit into available memory.
+  placement with alignment fails for section ".foo" size 0x0 . Available
+  memory ranges:
+  BMEM size: 0x2000000 unused: 0x1ff8ff0 max hole: 0x1ff8ff0
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0 - 2.1.1
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051809
+-------------------------------------------------------------------------------
+
+Summary            : "if (P) X=A; else X=B;" may compile incorrectly when A
+                     and B are 0/1 and P is 0/1 with a side effect
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  "if (P) X=A; else X=B;" may compile incorrectly when A and B are either 0
+  or 1, P is known to return only 0 and 1, and P has side effect (eg, it is
+  a function that modifies a global variable and then returns 0 or 1).
+  The compiler tries to reduce the IF to a simpler form like "X=P", but it
+  does so via an intermediate form that uses P twice, which is incorrect
+  when P has side effects.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0 - 2.1.1
+
+Workaround:
+  Typically such an IF is equivalent to "X=P" or "X=!P"; write it that way
+  to avoid the problem. Adding statements to either arm of the IF can also
+  help.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052014
+-------------------------------------------------------------------------------
+
+Summary            : Cannot read files with inode > 4B
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  Large file support (LFS) was not previously provided. The would result in
+  messages such as "could not open source file" on some files on some file
+  systems when one of the file attributes, such as the inode, cannot be
+  represented in 32 bits.
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052114
+-------------------------------------------------------------------------------
+
+Summary            : Windows Stack Size for Parser Should be Raised
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : Parser
+
+Release Notes:
+  By default, the parser only allows 64 pending template instantiations. By
+  using the --pending_instantiations option, more may be allowed. While it is
+  very unlikely to overflow the stack when parsing with the default maximum of
+  64 levels of recursion in a template instantiation, raising the limit may lead
+  to a stack overflow. This will occur at lower values for --
+  pending_instantiations on Windows since the default stack size is 1MB. On
+  Linux, this behavior may still occur but only at higher values since the most
+  common default stack size for user applications on Linux is 8MB.
+
+Workaround:
+  There are at least two options:
+  1. On Windows, if you have Visual Studio available, the stack for an
+     executable may be raised with editbin. For example, to raise the stack to
+     8MB for the acpia6x parser, you would use:
+     editbin /stack:8388608 acpia6x.exe
+  2. Use the linux toolchain. The default stack is much higher. Even if that
+     limit is reached, the soft limit for the stack size of user applications
+     may be raised with ulimit. For example, to raise the stack to 16MB, you
+     would use:
+     ulimit -S -s 16384
+     (This could be placed in the startup script, such as .bashrc)
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052144
+-------------------------------------------------------------------------------
+
+Summary            : RTS libraries do not get automatically built if the
+                     library is missing (Mac OS X)
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : Runtime Support Libraries (RTS)
+
+Release Notes:
+  On Mac OS X, the RTS lib does not get auto generated if it is missing like it
+  does on Windows/Linux. mklib, which is responsible for building the libraries,
+  is not currently supported on Mac OS X.
+
+Workaround:
+  Copy the libraries from a Windows/Linux machine.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052212
+-------------------------------------------------------------------------------
+
+Summary            : PRU does not issue a NOP between writing the source
+                     registers of the MAC unit and reading the result
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  This bug occurs when the MAC instructions are used in a hardware loop block.
+
+Workaround:
+  The workaround is to use the --silicon_version=2 option. This option will
+  prevent the compiler from using the hardware loop instruction.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052238
+-------------------------------------------------------------------------------
+
+Summary            : Strong function symbol removed from linked ICODE with
+                     -o4
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : ELF Linker
+
+Release Notes:
+  At --opt_level=4, weak symbols will be used when a strong symbol should be
+  preferred.
+
+Workaround:
+  Use --opt_level=3 or below.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052257
+-------------------------------------------------------------------------------
+
+Summary            : Use of --opt_level=4 causes link to fail with message
+                     symbol "name" redeclared with incompatible type
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+Duplicate Defects  : SDSCM00050982
+
+Release Notes:
+  When using -O4 optimization, the linker would sometimes incorrectly emit a
+  "redeclared with incompatible type" error for global symbols declared with
+  types that are at some depth defined with structs (or classes, or unions) with
+  anonymous members.
+
+Workaround:
+  Change all anonymous members of the types involved to have an explicit name.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052265
+-------------------------------------------------------------------------------
+
+Summary            : Flexible array with initializer not handle correctly
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  Zero-length arrays is a GCC extension supported by TI compilers. The zero-
+  length array extension also defines static initialization of C99 flex arrays.
+  Static initialization of flex arrays should work in C99 mode when GCC
+  extensions are enabled. Although the parser accepted these initializations,
+  they were not output in assembly.
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052281
+-------------------------------------------------------------------------------
+
+Summary            : ARM Parser Segfaults on OSX at Template Class
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : Parser
+Duplicate Defects  : SDSCM00052282
+
+Release Notes:
+  Parsers built for OSX may segmentation fault upon encountering a template.
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052301
+-------------------------------------------------------------------------------
+
+Summary            : Linker crashes when --ecc:ecc_error is used
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : Linker
+
+Release Notes:
+  The --ecc:ecc_error option is used to inject errors into ecc information. The
+  option takes the location of memory with ecc coverage and translates that
+  location to the location of the corresponding ecc information. However, the
+  translation from the program address to the ecc address was incorrect which
+  could lead to unexpected errors, changing unexpected information, or even a
+  segmentation fault in the linker.
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052339
+-------------------------------------------------------------------------------
+
+Summary            : demangler --output option does not work at all
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : Demangler (dem)
+
+Release Notes:
+  The --output option of armdem does not work at all. You will always get the
+  error message ">> Cannot open output file '(null)'"
+
+Workaround:
+  armdem file.asm > file.dis
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052375
+-------------------------------------------------------------------------------
+
+Summary            : In some instances, compiler computes 64-bit add
+                     incorrectly
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  The instruction combinations ADD/ADC, SUB/SUC, and RSB/RSC which are
+  used to implement 64 bit arithmetic may be scheduled in reverse order
+  for PRU compilers 2.1.* and newer. This behavior may cause incorrect
+  results for operations in which the operands are large enough that the
+  carry bit must be used.
+
+Workaround:
+  If more than 32 bits of precision are needed, there is no workaround.
+  Otherwise, using 32 bit integers will avoid this issue.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00052397
+-------------------------------------------------------------------------------
+
+Summary            : Optimizer crashes on unreachable integer divide-by-zero
+
+Fixed in           : 2.1.2
+Severity           : S2 - Major
+Affected Component : Optimizer
+
+Release Notes:
+  The optimizer crashes on an unreachable integer divide-by-zero. INTERNAL
+  ERROR: c:\drives\i\C2000\V64~1.6\compiler\cgtools\bin\opt2000.exe experienced
+  a segmentation fault
+
+Workaround:
+  None.
+
+
+===============================================================================
+2. Defects fixed in PRU Code Generation Tools release 2.1.1
+===============================================================================
+
+The following 16 defects were fixed in PRU Code Generation Tools release
+2.1.1, released March 2015.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050103
+-------------------------------------------------------------------------------
+
+Summary            : Buffer the output of warning and error messages to
+                     facilitate better error reporting during parallel
+                     compilation
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Classification     : Enhancement
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  The added --buffer_diagnostics option may be used to force compiler
+  diagnostics to be printed by line instead of by character. This will
+  reduce mangling of diagnostics when multiple instances of the compiler
+  are ran in parallel.
+  
+  Defect occurs in PRU Compiler versions: 2.1.0
+
+Workaround:
+  Workaround is to manually buffer the compiler output using a script or
+  with the --write_diagnostics_file option.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050764
+-------------------------------------------------------------------------------
+
+Summary            : Bound function has incorrect address in DWARF debug info
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+Duplicate Defects  : SDSCM00049433
+
+Release Notes:
+  The TI compiler allows a function to be bound to a specific address,
+  usually with "#pragma location". There was a bug in the way the TI
+  assembler recorded the DWARF debugging information for a bound
+  function that corrupted the DWARF debugging information. This would
+  cause CCS to report "no source available" when stepping attempting to
+  step into such a function.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0
+
+Workaround:
+  Set a breakpoint at the bound function and run to it, rather than
+  attempting to step into it.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050959
+-------------------------------------------------------------------------------
+
+Summary            : SIGSSEGV when using % in an option argument
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : Shell
+
+Release Notes:
+  In some cases, the compiler passes user-created identifiers directly to a
+  function which behaves like printf without using a format string. If the
+  user's identifier contains any printf-special characters, the compiler may
+  crash.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0
+
+Workaround:
+  Don't use any printf-special characters like % in a compiler argument
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050992
+-------------------------------------------------------------------------------
+
+Summary            : The optimizer should not make a symbol an alias if it
+                     has either the location or code_section pragmas applied.
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : Compiler Consultant (ci)
+
+Release Notes:
+  For a reason external to the expression of the program, the user relies
+  on function X being at a particular address A. The only method the user
+  has to do this is to put the function in its own special subsection and
+  place it at A in the linker command file.
+
+Workaround:
+  Available workarounds are to:
+  
+  1. Reduce the optimization level to -o2.
+  2. If using a COFF abi, you can move the functions into separate files.
+  3. Add an __asm("NOP") to the function which will prevent an alias from
+     being created.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051004
+-------------------------------------------------------------------------------
+
+Summary            : Compiler emits a reference to a symbol without declaring
+                     it in assembly.
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+Duplicate Defects  : SDSCM00051049
+
+Release Notes:
+  Under some circumstances, a constant global variable with a constant
+  initialiser may be miscompiled in a way that causes an undefined-symbol error
+  in the assembler.
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051097
+-------------------------------------------------------------------------------
+
+Summary            : Output section splitting creates a zero-length section
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : ELF Linker
+
+Release Notes:
+  In certain rare cases, the linker might split an output section into
+  several output sections such that one of them had zero length. The
+  linker really ought not to create split zero-length sections, as it
+  doesn't improve the linkability of the program. This can only happen
+  if one of the input sections is of zero length.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0
+
+Workaround:
+  1) Do not split the section in question. 2) Change the zero-length
+     section so that it has at least one more byte.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051128
+-------------------------------------------------------------------------------
+
+Summary            : Alias missed on address of local passed as function
+                     argument
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : Optimizer
+Duplicate Defects  : SDSCM00047553
+
+Release Notes:
+  In certain cases, the compiler may produce incorrect code when a local
+  variable whose address is passed to a function is then modified by the
+  function, such as in the following example (where y is the affected local
+  written by modf()):
+  
+  double f(double x)
+  {
+      double y = 0.;
+      if(modf(x, &y) < 0.)
+          return y - 1;
+      else
+          return y;
+  }
+
+Workaround:
+  Use the -ma (--aliased_variables) option.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051212
+-------------------------------------------------------------------------------
+
+Summary            : MSP 4.4.0 changes to _lock.h declaration of _nop(void)
+                     instead of _nop() breaking driverlib
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : Runtime Intrinsics
+
+Release Notes:
+  MSP 4.4.0 RTS file _lock.h changed prototype for _nop() to _nop(void) which
+  errors in parser for driverlib projects.
+
+Workaround:
+  Update _lock.h in the rts source folder, rename the library you are using, and
+  it will automatically be rebuilt during next compile.
+  
+  To find compiler install location, click on project properties and click on:
+  Resource->Linked Resources
+  The "Path Variable" will have an entry for:
+  CG_TOOL_ROOT c:\install_location\ccsv6\tools\compiler\msp430_4.3.4
+  Within above folder look for:
+  .\lib\src\_lock.h
+  .\include\_lock.h
+  
+  Edit both of above files and change below line 47:
+  _CODE_ACCESS void _nop(void);
+  to remove void argument and instead be:
+  _CODE_ACCESS void _nop();
+  
+  Rename the library you are using with suffix .old:
+  .\lib\rtsx_lc_sd_eabi.lib
+  change to a temp name
+  .\lib\rtsx_lc_sd_eabi.lib.old
+  
+  Rebuild your project and the rts should automatically rebuild.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051241
+-------------------------------------------------------------------------------
+
+Summary            : Output section splitting creates a zero-length section
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : ELF Linker
+
+Release Notes:
+  In certain rare cases, the linker might split an output section into
+  several output sections such that one of them had zero length. The
+  linker really ought not to create split zero-length sections, as it
+  doesn't improve the linkability of the program. This can only happen
+  if one of the input sections is of zero length.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0
+
+Workaround:
+  1) Do not split the section in question. 2) Change the zero-length
+     section so that it has at least one more byte.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051261
+-------------------------------------------------------------------------------
+
+Summary            : The exception handling (_eh) version of runtime library
+                     is not automatically built when --exceptions option is
+                     enabled
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : Runtime Support Libraries (RTS)
+
+Release Notes:
+  The exception handling (_eh) version of runtime library is not
+  automatically built for projects that have --exceptions option enabled.
+  This results in "undefined symbol" linker errors due to the incorrect rts
+  library being linked in. This is caused by a missing build attribute in
+  assembly files. This may be confirmed by examining the assembly for
+  "Tag_Exceptions".
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0
+
+Workaround:
+  You can build the library manually. In a command terminal, browse to the lib
+  dir of the code gen folder (ex. C:\ti\ccsv6\tools\compiler\c2000_6.2.7\lib)
+  and run the following command:
+  
+  > set PATH=%PATH%;C:\ti\ccsv6\tools\compiler\c2000_6.2.7\bin
+  > mklib --pattern=rts2800_eh.lib --index=libc.a --
+  > install_to=C:/ti/ccsv6/tools/compiler/c2000_6.2.7/lib
+  
+  Update the paths to the CGT folder to match your install.
+  
+  Change the library name that is passed to the --patter option to build
+  the other libraries for floating point (rts2800_fpu32_eh.lib) or large memory
+  model (rts2800_ml_eh.lib).
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051312
+-------------------------------------------------------------------------------
+
+Summary            : Linker mistakenly issues output section warning
+                     diagnostic for sections pre-bound to hard coded
+                     addresses
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+Duplicate Defects  : SDSCM00051310
+
+Release Notes:
+  The warning is incorrectly issued for bound sections. Bound sections,
+  created by the location pragma, are created by default by the linker, but
+  since this is part of the implementation the linker should not issue a
+  warning.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0
+
+Workaround:
+  Ignore the warning
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051464
+-------------------------------------------------------------------------------
+
+Summary            : If a host image file is the first object file on the
+                     command line, the linker will issue an ABI
+                     incompatibility error
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+Duplicate Defects  : SDSCM00051482
+
+Release Notes:
+  If a host image file generated by the hex utility is included before
+  any other files, the linker will emit an error such as:
+  error: ABI version of "arm.obj" (5) is incompatible with
+  "ti_load_image.obj" (0).
+  
+  Defect occurs in PRU Compiler versions: 2.1.0
+
+Workaround:
+  Reorder the inputs to armcl so that a host image file is not the first
+  input.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051472
+-------------------------------------------------------------------------------
+
+Summary            : Conditionals that use shift operator may be optimized
+                     out
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : Optimizer
+
+Release Notes:
+  Shift operations in conditional statements may be optimized out, treating
+  the result as 0. This will result in the entire conditional block being
+  removed. NOTE: Intrinsics that perform shifts may be affected. In the
+  observed test case, a shift was not explicitly used -- the C6x intrinsic
+  _extu, which performs two shifts, was affected.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0
+
+Workaround:
+  This behavior may be avoided by lowering the optimization level to -o1 or
+  -o0. Moving the conditional check result to a variable so that the shift
+  is not in the conditional may in some cases also avoid this behavior.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051555
+-------------------------------------------------------------------------------
+
+Summary            : The instruction LDI R3, ((0x4<<8) | (0x2<<1))
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  The instruction LDI R3, ((0x4<<8) | (0x2<<1)) causes assembly errors. This is
+  legal syntax that should be supported by the assembler.
+
+Workaround:
+  Removing the parenthesis around the shift operations allows the instruction
+  to assemble.
+  
+   LDI R3, (0x4<<8 | 0x2<<1)
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051621
+-------------------------------------------------------------------------------
+
+Summary            : Redeclaring extern "C" function as static causes parser
+                     to hang
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : Parser
+
+Release Notes:
+  Redeclaring an extern "C" function function as static may cause the
+  parser to hang. For example:
+  
+  extern "C" namespace N {
+      extern void foo();
+      void bar();
+      static inline void foo() {}
+  }
+  
+  will result in the parser hanging due to the redeclaration of foo().
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2, 2.1.0
+
+Workaround:
+  Use consistent function declarations.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00051629
+-------------------------------------------------------------------------------
+
+Summary            : Compiler seg faults in C++ copy constructor call
+
+Fixed in           : 2.1.1
+Severity           : S2 - Major
+Affected Component : Parser
+
+Release Notes:
+  This segmentation fault may occur in calls to copy constructors. For
+  example: new CLASS( myCLASS );
+  
+  Defect occurs in PRU Compiler versions: 2.1.0
+
+Workaround:
+  In some cases, using a different ABI option may avoid this error.
+  However, the most safe option is to avoid the use of a copy constructor.
+
+
+===============================================================================
+3. Defects fixed in PRU Code Generation Tools release 2.1.0
+===============================================================================
+
+The following 15 defects were fixed in PRU Code Generation Tools release
+2.1.0, released October 2014.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00045417
+-------------------------------------------------------------------------------
+
+Summary            : bool and _Bool are not defined correctly in strict ANSI
+                     C mode
+
+Fixed in           : 2.1.0
+Severity           : S3 - Minor
+Affected Component : C/C++ Compiler (cl)
+Duplicate Defects  : SDSCM00048227, SDSCM00048226
+
+Release Notes:
+  The size and type of "bool" and "_Bool" must be the same in all modes
+  so that declarations of the same object in different modules are
+  compatible. However, in strict ANSI C89 mode, stdbool.h defines _Bool
+  as "unsigned int," which means a C++ module using bool and a C module
+  including stdbool.h and using bool are using incompatible types.
+  
+  _Bool and stdbool.h are C99 features, so a strictly-conforming C89
+  program does not use them, but the TI compiler provides them as an
+  extension. This would cause a problem when attempting to mix C++
+  files and C files which both declare
+  
+  The ARM EABI Procedure Call Standard for the ARM Architecture (ARM IHI
+  0042D) section 7.1.1 ("Arithmetic Types") requires that both C++ bool
+  and C99 _Bool be unsigned byte types. However, the TI toolset does
+  not conform to that requirement.
+
+Workaround:
+  The compiler and library now agree on a single definition of bool and
+  _Bool in all modes; its format is equivalent to "unsigned char."
+  Unfortunately, this represents a backward incompatibility with older
+  object files which match all of these conditions:
+  
+  - C source code
+  - includes stdbool.h
+  - compiled in strict C89 mode (the default in older compilers)
+  - module interface uses type _Bool or bool (i.e. a global variable,
+    function argument, or function return value of type derived from
+    bool, or struct containing a type derived from bool.)
+  
+  To work around the problem, either recompile with the latest version
+  of the compiler, or ensure that you aren"t using any _Bool or bool
+  objects in the module interface.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00048498
+-------------------------------------------------------------------------------
+
+Summary            : MISRA-C rule 12.8 incorrectly reported for an expression
+                     like ((uint32_t)2U << 8U);
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : Parser
+
+Release Notes:
+  A violation warning for the MISRA 12.8 rule was reported for the
+  expression: ((uint32_t)2U << 8U);
+  
+  The MISRA 12.8 rule states that "The right-hand operand of a shift
+  operator shall lie between zero and one less than the width in bits of
+  the underlying type of the left-hand operand". The underlying type is
+  determined by section 6.10 of the MISRA Guidelines. For a literal it is
+  defined as being the smallest type of the same sign that can represent
+  the literal, so for 2U the type is unsigned char. In that case the
+  diagnostic is correct. However, the cast to uint32_t should make the
+  underlying type unsigned int, making the operation legal.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00049271
+-------------------------------------------------------------------------------
+
+Summary            : INTERNAL ERROR results when building code that uses
+                     features from C++ testing framework
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+Duplicate Defects  : SDSCM00050480
+
+Release Notes:
+  The compiler correctly handles const variables that are referenced in a
+  program using templates.
+
+Workaround:
+  declare VAR as "extern const int VAR = 1;"
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00049326
+-------------------------------------------------------------------------------
+
+Summary            : RTTI is enabled by default with no way to disable it. 
+                     For C++ code, this can cause data size to double.
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  For COFF executables, when --rtti is not used, the compiler will suppress RTTI
+  information, leaving the executable file a bit smaller.
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00049603
+-------------------------------------------------------------------------------
+
+Summary            : C Initialization records are created for NOLOAD sections
+
+Fixed in           : 2.1.0
+Severity           : S3 - Minor
+Affected Component : ELF Linker
+
+Release Notes:
+  A NOLOAD output section is not allocated in the executable file created
+  by the linker. If RAM model is used as the initialization method, the section
+  will not be initialized by the loader since it is not allocated in memory. If
+  ROM model is used it will be initialized because the linker creates
+  initialization records in the .cinit section even if the section is marked
+  NOLOAD This is a bug.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1
+
+Workaround:
+  Specify the type as NOINIT in addition to NOLOAD
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00049859
+-------------------------------------------------------------------------------
+
+Summary            : Compiler fails with INTERNAL ERROR message
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  The attached test case fails with this message ...
+  
+  INTERNAL ERROR: armacpia experienced a segmentation fault
+  while processing function startExciteSequence file file.c line 441
+  
+  This is a serious problem. Please contact Customer
+  Support with this message and a copy of the input file
+  and help us to continue to make the tools more robust.
+  
+  
+  >> Compilation failure
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00049997
+-------------------------------------------------------------------------------
+
+Summary            : Loop with volatile loop control expression removed
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  In some cases, the optimizer can remove apparently-empty loops that have
+  a loop test which compares the loop control variable with a volatile
+  value. This is not legal; the volatile value could change, so the loop
+  must be left in the code.
+  
+  Defect occurs in PRU Compiler versions: 1.2.0B1, 2.0.0B1 - 2.0.0B2
+
+Workaround:
+  Declare the loop counter variable as volatile
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050014
+-------------------------------------------------------------------------------
+
+Summary            : Missing copyright notice on mklib.c source
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : Runtime Support Libraries (RTS)
+
+Release Notes:
+  The source code for mklib (mklib.c) is part of the product but lacks a
+  proper copyright statement. This file should have the same copyright
+  as the other TI-generated source files in the RTS library source code.
+  
+  Defect occurs in PRU Compiler versions: 1.2.0B1, 2.0.0B1 - 2.0.0B2
+
+Workaround:
+  Not applicable
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050023
+-------------------------------------------------------------------------------
+
+Summary            : SIGSEGV when using pragma on a template function
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : Parser
+
+Release Notes:
+  The compiler may emit an internal error (SIGSEGV) when the user attempts
+  to apply a pragma to a template class function.
+  
+  Defect occurs in PRU Compiler versions: 1.2.0B1, 2.0.0B1 - 2.0.0B2
+
+Workaround:
+  Do not apply any pragma to a template function. Move the function
+  outside the template class.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050243
+-------------------------------------------------------------------------------
+
+Summary            : Scary but harmless warning:  FAILURE in
+                     mark_use_of_function_local_static()
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : Optimizer
+
+Release Notes:
+  Compiling for C++ and using -pm or -o4 may produce a warning like
+  
+  FAILURE in mark_use_of_function_local_static()
+  fname1: __sti
+  fname2: __sti_
+  symbol: _$P$T62$2$1
+  
+  This warning, despite its dramatic wording, is harmless. The compiler
+  will build the program just as it should, and the warning does not
+  indicate any change in behavior. It's a debugging message that should
+  not have been visible outside the development team.
+  
+  Defect occurs in PRU Compiler versions: 1.2.0B1, 2.0.0B1 - 2.0.0B2
+
+Workaround:
+  Avoid -pm or -o4. But the warning doesn't indicate any change of the
+  compiler's behavior, so you might as well ignore it.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050520
+-------------------------------------------------------------------------------
+
+Summary            : strip crashes on files with more than 64k sections
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : Strip Utility
+
+Release Notes:
+  The strip utility will abnormally terminate if its input is an ELF
+  file with more than 64k sections (actually exactly 0xff00), and its
+  output would be less than 64k sections.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2
+
+Workaround:
+  Don't strip the file
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050713
+-------------------------------------------------------------------------------
+
+Summary            : Optimization level -o3 inlines weak function body
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : Optimizer
+
+Release Notes:
+  A function declared as weak may be inlined, which is incorrect because
+  the linker may override the weak definition later.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B1 - 2.0.0B2
+
+Workaround:
+  Use the FUNC_CANNOT_INLINE pragma to directly inhibit inlining.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050763
+-------------------------------------------------------------------------------
+
+Summary            : Only the C6000 compiler accepts the GCC builtin function
+                     __builtin_constant_p
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  Error emitted that GNU __builtin_constant_p function not supported.
+
+Workaround:
+  None.
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050826
+-------------------------------------------------------------------------------
+
+Summary            : PRU NOP is encoded as ADD r0.b0, r0.b0, r0.b0, which is
+                     not a NOP
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  NOP was being encoded incorrectly.
+  
+  Defect occurs in PRU Compiler versions: 2.0.0B2
+
+Workaround:
+  Use AND r0.b0,r0.b0,r0.b0 instead of NOP
+
+-------------------------------------------------------------------------------
+FIXED SDSCM00050971
+-------------------------------------------------------------------------------
+
+Summary            : PRU compiler mistakenly issues error diagnostics when
+                     building with --opt_level=4
+
+Fixed in           : 2.1.0
+Severity           : S2 - Major
+Affected Component : C/C++ Compiler (cl)
+
+Release Notes:
+  No Information Available; please see defect details.
+
+Workaround:
+  None.
+
+
+===============================================================================
+4. Current Known Issues
+===============================================================================
+
+The following 8 known issues exist for PRU Code Generation Tools release
+2.1.2 as of November 2015.
+
+-------------------------------------------------------------------------------
+KNOWN ISSUE SDSCM00008543
+-------------------------------------------------------------------------------
+
+Summary            : Forward reference in .space generates an internal error
+Affected Component : Assembler
+
+Description:
+  If you attempt to assemble:
+  
+     .space 0+a
+   b
+   a .set 1
+  
+  the assembler will generate an internal error.
+  
+  This happens with v3.83 and v4.1.0B1 on Solaris.
+  
+  If you change the code to:
+  
+     .space a
+   b
+   b .set 1
+  
+  the correct error message is generated, 'Absolute, well-defined integer value
+  expected'.
+
+-------------------------------------------------------------------------------
+KNOWN ISSUE SDSCM00014430
+-------------------------------------------------------------------------------
+
+Summary            : calloc doesn't check arguments to make sure the
+                     requested size is reasonable
+Affected Component : Runtime Support Libraries (RTS)
+
+Description:
+  The function calloc() is required to return a pointer to memory representing
+  "nelem" copies of "size" bytes, or NULL if the request cannot be satisfied.
+  However, for some values of "nelem" and "size" (specifically when the result
+  of nelem*size wraps around), calloc can return a pointer to an object that is
+  not large enough, rather than NULL.
+  
+  For example, on a 32-bit target, if the user calls calloc(0x00010001,
+  0x00010001), even though each argument by itself is reasonable, the request
+  cannot be satisfied because the product is 0x000100020001, which exceeds
+  size_t. (Note that we cannot check for overflow by checking if the product is
+  less than either argument, which is commonly done for unsigned addition.)
+  Arguably, we can try to claim that it is undefined behavior to make a call to
+  calloc where the product would exceed size_t, but there doesn't seem to be
+  anything in the standard which says so.
+  
+  The problem is worse on 16-bit targets, where calloc(0x0101, 0x0101) is enough
+  to overflow size_t. It may not be obvious to the user that this overflows.
+  
+  Another concern is that it is hard to figure out whether a multiplication will
+  overflow without having a double-width multiply available.
+
+-------------------------------------------------------------------------------
+KNOWN ISSUE SDSCM00018691
+-------------------------------------------------------------------------------
+
+Summary            : Linker gives misleading warning when dot expressions
+                     used in SECTION directive for .stack section
+Affected Component : Linker
+
+Description:
+  Linker gives the warning:
+  
+  warning: creating ".stack" section with default size of 0x800; use the -stack
+  option to change the default size
+  
+  even when the application does not link in boot code from RTS lib.
+  
+  A linker command file is used that contains a specialized SECTION directive
+  for the ".stack" section. Because of a series of ". += <number>" assignments
+  in the section spec, the linker is forced to increase the size of the .stack
+  section to 0xc00. The linker is doing the correct thing by making a .stack
+  section large enough to accommodate the dot expressions, but the diagnostic is
+  misleading, as 0x800 isn't the final size of the .stack section.
+
+-------------------------------------------------------------------------------
+KNOWN ISSUE SDSCM00040934
+-------------------------------------------------------------------------------
+
+Summary            : Structure is not initialized correctly when using -o2 or
+                     -o3 optimization
+Affected Component : Optimizer
+
+Description:
+  There is a problem with the initialization of a structure using symbols
+  generated in the linker command file. We use symbols generated in the linker
+  cmd file using the dot operator. These symbols are used as an initial value
+  for a class/struct with a constructor. In our case we want the difference of
+  two addresses that the linker generates.
+  
+  When using optimization -o2 or -o3, the compiler generates .cinit entries
+  instead of the constructor call. In those .init-entries it doesn't use the
+  difference of the addresses; instead it uses the first symbol.
+  
+  When turning off optimization or using lower level of opt than -o2, the
+  constructor calls are generated and the struct is initialized correctly.
+
+-------------------------------------------------------------------------------
+KNOWN ISSUE SDSCM00046695
+-------------------------------------------------------------------------------
+
+Summary            : FP rounding error, 1 ULP makes P70590.c fail
+Affected Component : Runtime Support Libraries (RTS)
+
+Description:
+  IEEE-754 requires exact rounding for float addition.
+  
+  GCC gets 4056cf03 290a0f79
+  const folding gets 4056cf03 290a0f79
+  C6000 RTS gets 4056cf03 290a0f79
+  C6740 simulator gets 4056cf03 290a0f78
+  C6600 simulator gets 4056cf03 290a0f78
+  
+  correct answer is ????
+
+-------------------------------------------------------------------------------
+KNOWN ISSUE SDSCM00050131
+-------------------------------------------------------------------------------
+
+Summary            : Local struct with non-constant initializer treated as
+                     static scope variable
+Affected Component : Parser
+
+Description:
+  We've discovered a problem where the C++ compiler places a local structure
+  variable not on the stack but in the data segment, as if it was a static
+  structure. The problem is especially insidious because the issue will only
+  have an impact on re-entrance.
+  
+  The problem seems to occur only for C++ files, and only if the structure
+  initializer list contains a variable. Constant initializer lists do not
+  trigger the issue.
+  
+  The structure in the first function will be allocated on the stack, but the
+  structure in the second will be compiled as if it was declared static.
+
+-------------------------------------------------------------------------------
+KNOWN ISSUE SDSCM00052163
+-------------------------------------------------------------------------------
+
+Summary            : The PRU Compiler Guide states that we do not provide
+                     floating point emulation routines for PRU. This is
+                     wrong.
+Affected Component : C/C++ Compiler (cl)
+
+Description:
+  Under the description for --fp_mode, the guide says:
+  
+  * Note that the PRU does not provide hardware floating point support
+    or floating point emulation routines.
+  
+  This is wrong. We do provide floating point emulation routines.
+
+-------------------------------------------------------------------------------
+KNOWN ISSUE SDSCM00052468
+-------------------------------------------------------------------------------
+
+Summary            : Code generation pass of PRU seg faults
+Affected Component : C/C++ Compiler (cl)
+
+Description:
+  For reasons unknown, the codegen pass seg faults on the attached test
+  case. Once the reason is known, please update the headline and Customer
+  Update fields.
+

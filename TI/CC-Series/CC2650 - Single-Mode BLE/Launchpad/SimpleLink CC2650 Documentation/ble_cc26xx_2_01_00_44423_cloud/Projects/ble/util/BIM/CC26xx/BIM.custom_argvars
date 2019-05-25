@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<iarUserArgVars>
+  <group active="true" name="CC26xx TI-RTOS">
+    <variable>
+      <name>TI_RTOS_DRIVERS_BASE</name>
+      <value>C:\ti\tirtos_simplelink_2_11_01_09\packages</value>
+    </variable>
+    <variable>
+      <name>CC26XXWARE</name>
+      <value>C:\ti\tirtos_simplelink_2_11_01_09\products\cc26xxware_2_20_06_14829</value>
+    </variable>
+    <variable>
+      <name>XDCROOT</name>
+      <value>C:\ti\xdctools_3_30_06_67_core</value>
+    </variable>
+    <variable>
+      <name>XDCPATH</name>
+      <value>C:\ti\tirtos_simplelink_2_11_01_09\products\bios_6_41_02_41\packages</value>
+    </variable>
+  </group>
+</iarUserArgVars>
+
+

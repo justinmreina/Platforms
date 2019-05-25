@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<includes>
+	<include>${PROJECT_IMPORT_LOC}/../../Source/Stack</include>
+	<include>${TI_BLE_SDK_BASE}/Components/ble/ROM</include>
+	<include>${TI_BLE_SDK_BASE}/Components/npi</include>
+	<include>${TI_BLE_SDK_BASE}/Components/services/aes/CC26xx</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/common/npi/npi_np/CC26xx/Stack</include>
+</includes>

@@ -1,0 +1,69 @@
+[
+   {
+      "name": "CC2650 SensorTag",
+       "image": "./Projects/common/ResourceExplorer/ccs/ble/SensorTag.jpg",
+       "description": "The new SensorTag <a target='_blank' href='http://www.ti.com/ww/en/internet_of_things/iot-overview.html' >IoT</a> kit invites you to realize your cloud-connected product idea. The new SensorTag includes 10 low-power MEMS sensors in a tiny red package. And it is expandable with DevPacks to make it easy to add your own sensors or actuators. <br><br>The SensorTag is supported by CCS Cloud together with <a target='_blank' href='http://www.ti.com/tool/cc-devpack-debug'>Debug DevPack</a>. Connect the Debug DevPack and compile the SensorTag firmware with CCS Cloud and start experimenting with your own SensorTag firmware without installing any development tools.<br><br>Connect to the cloud with Bluetooth&reg; Smart and get your sensor data online in 3 minutes. The SensorTag is ready to use right out the box with an iOS and Android app, with no programming experience required to get started.<br><br>The new SensorTag is based on the CC2650 wireless MCU, offering 75% lower power consumption than previous Bluetooth Smart products. This allows the SensorTag to be battery powered, and offer years of battery lifetime from a single coin cell battery.",
+       "devices": [
+            "CC2650"
+       ],
+	"connections" : ["TIXDS110_Connection.xml"]
+   },
+   {
+      "name": "CC2650-LAUNCHXL",
+      "description": "CC2650 LaunchPad",
+      "image": "./Projects/common/ResourceExplorer/ccs/ble/CC2650_LaunchPad.png",
+      "devices": ["CC2650"],
+      "connections" : ["TIXDS110_Connection.xml"]
+   },
+   {
+      "name": "CC2650MA-BOOSTXL",
+      "description": "CC2650 Bluetooth Low Energy module BoosterPack",
+      "image": "./Projects/common/ResourceExplorer/ccs/ble/BOOSTXL-CC2650MA_front.png",
+      "devices": ["CC2650"],
+      "connections" : ["TIXDS110_Connection.xml"]
+   },
+   {
+      "name": "CC2650DK_7ID",
+      "description": "The SimpleLink&trade; CC2650 Development Kit includes all the hardware you need to start evaluating the SimpleLink Wireless MCU ultra-low power platform. The CC2650 device included in this kit is the superset device of the family, so it can also be used to evaluate the <a target='_blank' href='http://www.ti.com/product/cc2640'>SimpleLink Bluetooth&reg; Smart CC2640 wireless MCU </a> and the <a target='_blank' href='http://www.ti.com/product/cc2630'>ZigBee&reg;/6LoWPAN CC2630 wireless MCU.</a><br><br>The kit includes two SmartRF06 evaluation boards, two CC2650 evaluation modules, two micro USB cables and a getting started guide.<br><br>The CC2650 evaluation module contains the wireless MCU and shows a variant of the RF layout using the 7x7 package, internal bias and differential RF output (variant 7ID). The board is equipped with a high performing PCB antenna, but you can easily attach an SMA connector to connect the radio to external test equipment.",
+      "image": "./Projects/common/ResourceExplorer/ccs/ble/CC2650DK.jpg",
+       "devices": [
+            "CC2650"
+       ],
+	"connections" : ["TIXDS100v3_Dot7_Connection.xml"]
+   },
+   {
+      "name": "CC1310DK_7XD",
+      "description": "The SimpleLink Sub-1 GHz CC1310 development kit includes all the hardware you need to start evaluating with the SimpleLink ultra-low power wireless MCU platform. <br><br>The CC1310DK is a bundle consisting of:<br><ul><li>1 x CC1310EMK-7XD-7793. This is the CC1310 evaluation module kit which contains two boards with the wireless MCU and RF layout using the 7x7 mm package, external bias and differential RF output (variant 7XD). The frequency range is 779 to 930 MHz (variant 7793).</li><br><li>2 x SMARTRF06EBK. The SmartRF06 evaluation board is the mother board for the CC1310 evaluation module. It is specifically designed for running radio performance tests and for developing software. The board is equipped with an on-board XDS100v3 debugger, LCD, buttons, LEDs, debugger and sensors, making it suitable for developing demo applications.</li></ul><br>The CC1310 devices on the evaluation boards are preprogrammed with an easy to use test application which can be used to test the practical range of the radio.",
+      "image": "./Projects/common/ResourceExplorer/ccs/ble/CC1310DK.jpg",
+       "devices": [
+            "CC1310"
+       ],
+	"connections" : ["TIXDS100v3_Dot7_Connection.xml"]
+   },
+   {
+      "name": "CC2650DK_4XS",
+      "devices": ["CC2650"],
+      "connections" : ["TIXDS100v3_Dot7_Connection.xml"]
+   },
+   {
+      "name": "CC2650DK_5XD",
+      "devices": ["CC2650"],
+      "connections" : ["TIXDS100v3_Dot7_Connection.xml"]
+   },
+   {
+      "name": "CC1310-LAUNCHXL",
+      "devices": [
+	        "CC1310"],
+      "connections" : ["TIXDS110_Connection.xml"]
+   },
+   {
+      "name": "CC1350-LAUNCHXL",
+      "devices": ["CC1350"],
+      "connections" : ["TIXDS110_Connection.xml"]
+   },
+   {
+      "name": "CC1350 SensorTag",
+      "devices": ["CC1350"],
+      "connections" : ["TIXDS110_Connection.xml"]
+   }
+]

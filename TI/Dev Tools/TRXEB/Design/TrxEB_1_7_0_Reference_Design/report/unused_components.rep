@@ -1,0 +1,37 @@
+--------------------------------------------------------------------------------
+                            Unused Components Report
+
+                     CADSTAR Design Editor Version 11.0.0.4
+
+Design:     C:\Development\subversion\Projects\025107_CC112xDK\3_Design\TrxEB\TrxEB_v1_7_0\cadstar\TRXEB_1_7_0.scm
+
+Design Title:
+TrxEB - SmartRF Transceiver Evaluation Board
+
+Date:      20. juli 2011
+Time:      11:02
+
+--------------------------------------------------------------------------------
+
+Unused Elements
+
+  No unused elements to report.
+
+Sheet: Top level
+
+
+Unconnected Components
+
+  FM1 is not connected
+  FM2 is not connected
+  FM3 is not connected
+  FM4 is not connected
+  FM5 is not connected
+  FM6 is not connected
+
+Unallocated Parts
+
+  No unallocated parts to report.
+--------------------------------------------------------------------------------
+                                 End of report
+--------------------------------------------------------------------------------

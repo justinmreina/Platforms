@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<includes>
+	<include>${PROJECT_IMPORT_LOC}/../../Source/Application</include>
+	<include>${PROJECT_LOC}/Application</include>
+	<include>${PROJECT_LOC}/ICallBLE</include>
+	<include>${PROJECT_LOC}/Startup</include>
+	<include>${TI_BLE_SDK_BASE}/Components/applib/heap</include>
+	<include>${TI_BLE_SDK_BASE}/Components/services/sdata</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/Profiles/Roles/CC26xx</include>
+</includes>

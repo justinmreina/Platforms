@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\idle_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\pm1_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\pm3_cc254x.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

@@ -1,0 +1,129 @@
+--------------------------------------------------------------------------------
+                              Board Status Report
+
+                     CADSTAR Design Editor Version 11.0.0.4
+
+Design:     C:\Development\subversion\Projects\025107_CC112xDK\3_Design\TrxEB\TrxEB_v1_7_0\cadstar\TRXEB_1_7_0.pcb
+
+Design Title:
+TrxEB - SmartRF Transceiver Evaluation Board
+
+Date:      24. august 2011
+Time:      14:26
+
+--------------------------------------------------------------------------------
+                                               Min            Max          Total
+Number of components                           157              5            162
+Number of Testpoints                             9              3             12
+Area of components (sq.cm)                  70.286         21.689         91.974
+Component/board density                         64             20             84
+Number of equivalent 16 pin ICs                 45                            45
+Area per equivalent IC (sq.cm)               2.428                         2.428
+
+--------------------------------------------------------------------------------
+                                              Area       X length       Y length
+                                           (sq.cm)           (cm)           (cm)
+Board outline                              109.250         11.500          9.500
+
+--------------------------------------------------------------------------------
+                                               All       Min       Max     Total
+Number of pads                                 121       610         3       734
+Number of Testpoint pads                         6         3         3        12
+
+--------------------------------------------------------------------------------
+Layer pair codes              Number of vias
+
+(Through Hole)                       514
+
+Total                                514
+
+--------------------------------------------------------------------------------
+                                    Nets    Mixed width nets         Connections
+Total number                         175                  26                 550
+
+--------------------------------------------------------------------------------
+                                             Unrouted Unrouted  Stapled   Routed
+                                                Conns Segments    Conns Segments
+Widths
+
+Signal 12/8                                                           1     2316
+VCC 50/25                                                    1        4      347
+GND 50/25                                                            41      460
+
+Total                                                        1       46     3123
+
+--------------------------------------------------------------------------------
+                     Component                      Unrouted     Route     Route
+Layer                   Copper    Copper Teardrops  Segments  Segments    Length
+                                                                            (cm)
+Title Drawing 1                                                       
+Title Drawing 2                                                       
+Panel Drawing                                                         
+Mechanical Drawing                                                    
+Letter Drill Drawing                                                  
+Doc1                                                                  
+Doc2                                                                  
+No tracks                                                             
+No vias                                                               
+Top Profiling Plated                                                  
+Top Profiling Non-Pl                                                  
+Top Placement                                                         
+Top Assembly                                                          
+Top Glue Spot                                                         
+Top Paste                                                             
+Top silk                                                              
+Top Solder Resist                                                     
+1                           30                                    1603   421.237
+2                                     40                           299    81.444
+3                                      4                           509   220.629
+4                                                          1       712   469.994
+Bottom Solder Resist                                                  
+Bottom silk                                                           
+Bottom Paste                                                          
+Bottom Glue Spot                                                      
+Bottom Assembly                                                       
+Bottom Placement                                                      
+thm_power_b                                                           
+Unassigned                                                            
+Total                       30        44                   1      3123  1193.303
+
+--------------------------------------------------------------------------------
+Layer                     Text    Errors   Figures     Areas Templates
+Title Drawing 1              6                              
+Title Drawing 2              5                              
+Panel Drawing                                               
+Mechanical Drawing                                          
+Letter Drill Drawing         2                              
+Doc1                                             2          
+Doc2                                                        
+No tracks                                                   
+No vias                                                     
+Top Profiling Plated                                        
+Top Profiling Non-Pl                                        
+Top Placement                2                              
+Top Assembly                 2                              
+Top Glue Spot                1                              
+Top Paste                    2                              
+Top silk                   106                  14          
+Top Solder Resist            2                              
+1                            2         1                    
+2                            2         1                             1
+3                            2         1                             3
+4                            2         1                    
+Bottom Solder Resist         2                              
+Bottom silk                  5                              
+Bottom Paste                 2                              
+Bottom Glue Spot             2                              
+Bottom Assembly              2                              
+Bottom Placement             2                              
+thm_power_b                                                 
+Unassigned                                                  
+Total                      151         4        16                   4
+
+--------------------------------------------------------------------------------
+                                               All       Min       Max     Total
+Number of test lands                                                  
+
+--------------------------------------------------------------------------------
+                                 End of report
+--------------------------------------------------------------------------------

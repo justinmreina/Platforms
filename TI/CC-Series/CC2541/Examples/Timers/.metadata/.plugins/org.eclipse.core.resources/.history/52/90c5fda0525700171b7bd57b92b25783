@@ -1,0 +1,19 @@
+/**
+ * test
+ */
+int main(void) {
+	int i = 0;
+	i++;
+
+	if(i++) {
+		asm(" NOP");
+		asm(" NOP");
+		asm(" NOP");
+		asm(" NOP");
+		asm(" NOP");
+	}
+
+	return 0;
+}
+
+

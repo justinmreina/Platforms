@@ -1,0 +1,1 @@
+LAUNCHXL-CC2650.brd

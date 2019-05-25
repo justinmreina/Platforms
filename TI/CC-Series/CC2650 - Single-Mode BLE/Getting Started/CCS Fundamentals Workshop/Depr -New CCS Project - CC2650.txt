@@ -1,0 +1,48 @@
+@note 	just use template, these instructions are in it in doc/!
+
+
+the Wireless Connectivity team recommends using the BLE stack and CC26xxWare as starting point for working with this device
+
+I can tell you how to get a successful build of Hello World (using the files from CC26xxWare) but cannot guarantee it will work as I have not tested it. 
+
+I would strongly urge you to start instead with BLE examples or even TI-RTOS examples referenced in the Fundamentals Workshop for CC2650
+
+
+//-----------------------------------------------------------------------------------------------//
+//									Manual Build												 //
+//-----------------------------------------------------------------------------------------------//
+To build Hello World, you can do the following (assuming you already have CC26xxWare installed):
+
+- copy the file startup_ccs.c from /startup_files folder in CC26xxWare to your CCS project
+- Under Project Properties->Build->Compiler->Include Options, add the path to your CC26xxWare installation to --include_path (eg: "C:\ti\CC26xxWARE\cc26xxware_2_20_06_14829")
+- Under  Project Properties->Build->Linker->File Search Path, add driverlib.lib to --library option, and add the path to driverlib.lib to --search_path option (eg: "C:\ti\CC26xxWARE\cc26xxware_2_20_06_14829\driverlib\bin\ccs")
+
+Hope this helps.
+
+//-----------------------------------------------------------------------------------------------//
+//									    Options												     //
+//-----------------------------------------------------------------------------------------------//
+Options
+	- Manual Generation
+	- TI-RTOS Examples from Workshop
+	
+//-----------------------------------------------------------------------------------------------//
+//						          Justin's Manual Build										     //
+//-----------------------------------------------------------------------------------------------//
+- New CCS Project
+	*CC2650F128
+	*TI v17.3.0.STS
+	*Empty Project (with main.c)
+- Copy Startup
+	*startup_ccs.c from C:\ti\lib\tirtos_cc13xx_cc26xx_2_20_01_08\products\
+	 cc26xxware_2_24_02_17393\startup_files
+- Update Project Properties
+	*Build->Compiler->Include Options, add the path to your CC26xxWare installation to 
+	 --include_path (eg: "C:\ti\lib\tirtos_cc13xx_cc26xx_2_20_01_08\products\
+	 cc26xxware_2_24_02_17393")
+- Add Driverlib	
+	*Build->Linker->File Search Path, add driverlib.lib to --library option
+	*and add the path to driverlib.lib to --search_path option (eg: "C:\ti\lib\
+	 tirtos_cc13xx_cc26xx_2_20_01_08\products\cc26xxware_2_24_02_17393\driverlib\bin\ccs")
+
+

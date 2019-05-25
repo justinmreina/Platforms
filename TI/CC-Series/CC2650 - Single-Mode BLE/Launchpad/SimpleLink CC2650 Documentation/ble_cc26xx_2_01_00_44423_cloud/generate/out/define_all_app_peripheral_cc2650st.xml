@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>FACTORY_IMAGE</define>
+	<define>FEATURE_OAD</define>
+	<define>FEATURE_REGISTER_SERVICE</define>
+	<define>GAPROLE_TASK_STACK_SIZE=550</define>
+	<define>GATT_TI_UUID_128_BIT</define>
+	<define>HEAPMGR_SIZE=2872</define>
+	<define>ICALL_MAX_NUM_ENTITIES=11</define>
+	<define>ICALL_MAX_NUM_TASKS=8</define>
+	<define>ICALL_RAM0_ADDR=0x20004460</define>
+	<define>ICALL_STACK0_ADDR=0x0000F000</define>
+	<define>TI_DRIVERS_I2C_INCLUDED</define>
+	<define>TI_DRIVERS_PIN_INCLUDED</define>
+	<define>TI_DRIVERS_SPI_INCLUDED</define>
+</defines>

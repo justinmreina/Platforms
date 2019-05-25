@@ -1,0 +1,3 @@
+<linkeroptions>
+<linkeroption>--unused_section_elimination=on --compress_dwarf=on --entry_point=startup_entry --diag_suppress=16002-D --diag_suppress=10247-D --diag_suppress=10325-D</linkeroption>
+</linkeroptions>

@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<project>
+	<name>SimpleBLEBroadcasterStack</name>
+	<isTIRTOS>false</isTIRTOS>
+	<compileroptions include="..\..\..\..\..\..\generate\out\compileroptions_stack_cloud.xml"/>
+	<pathvars include="..\..\..\..\..\..\generate\out\pathvars.xml"/>
+	<linkeroptions include="..\..\..\..\..\..\generate\out\linkeroptions_stack.xml"/>
+	<attributes include="..\..\..\..\..\..\generate\out\attributes_stack.xml"/>
+	<debuggerConnection>TIXDS100v3_Dot7_Connection.xml</debuggerConnection>
+	<linkeroptions>
+		<linkeroption>--define=ICALL_STACK0_ADDR=0x00017000</linkeroption>
+		<linkeroption>--define=ICALL_RAM0_ADDR=0x20004668</linkeroption>
+	</linkeroptions>
+	<compileroptions>
+		<compileroption>--cmd_file=${PROJECT_IMPORT_LOC}/../../IAR/Stack/CC2640/buildConfig.opt</compileroption>
+	</compileroptions>
+	<files include="..\..\..\..\..\..\generate\out\file_all.xml" level="0"/>
+	<files include="..\..\..\..\..\..\generate\out\file_all_stack.xml" level="1"/>
+	<files include="..\..\..\..\..\..\generate\out\file_all_stack_nonconn.xml" level="2"/>
+	<files include="..\..\..\..\..\..\generate\out\file_all_stack_nonconn_cc2650dk.xml" level="3"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all.xml" level="0"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all_stack.xml" level="1"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all_stack_nonconn.xml" level="2"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all_stack_nonconn_cc2650dk.xml" level="3"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all.xml" level="0"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all_stack.xml" level="1"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all_stack_nonconn.xml" level="2"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all_stack_nonconn_cc2650dk.xml" level="3"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all.xml" level="0"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all_stack.xml" level="1"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all_stack_nonconn.xml" level="2"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all_stack_nonconn_cc2650dk.xml" level="3"/>
+	<files>
+		<file>
+			<source>TI_BLE_SDK_BASE/Projects/ble/Libraries/CC26xx/IAR/CC2640/bin/CC2640_BLE_bcast_FlashROM.a</source>
+			<target>LIB</target>
+			<action>link</action>
+			<exclude>false</exclude>
+		</file>
+	</files>
+	<includes/>
+	<defines>
+		<define>ICALL_RAM0_ADDR=0x20004668</define>
+	</defines>
+	<libs>
+		<lib>${TI_BLE_SDK_BASE}/Projects/ble/Libraries/CC26xx/IAR/CC2640/bin/CC2640_BLE_bcast_FlashROM.a</lib>
+	</libs>
+</project>

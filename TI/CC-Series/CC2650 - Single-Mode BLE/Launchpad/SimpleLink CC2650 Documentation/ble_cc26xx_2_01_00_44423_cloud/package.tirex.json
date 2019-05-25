@@ -1,0 +1,14 @@
+[
+    {
+	"id": "cc26xx_sdk",      
+	"name": "CC26xx Bluetooth Smart",
+	"image": "./SL-ULP-platform-chip.png",
+  	"version": "2.01.00.44423",
+      	"license": "./license.txt",
+	"dependencies": [
+		{"packageId": "tirtos_simplelink", "version" : "2.13.00.06", "require": "optional"},
+		{"packageId": "xdctools", "version" : "3.31.01.33", "require": "optional"}],
+        "allowPartialDownload": "false",
+      	"description": "Quicken your development time with CC26xx Bluetooth Smart package, a tool for navigating the available resources that support CC2650 devices. Using this GUI or clicking through the folder tree to the left, we offer code examples, documentation and other resources - all at the tip of your fingers <br><br> See <a target='_blank' href='http://www.ti.com/lsds/ti/wireless_connectivity/bluetooth_bluetooth-ble/overview.page?baseDir=C:/ti/simplelink/ble_cc26xx_2_00_00-41884-alpha-0.8.3/Projects/ble'>TI Bluetooth / Bluetooth Low Energy Solutions </a> and <a target='_blank' href='http://www.ti.com/ble-wiki'>BLE Wiki</a> for more information <br><br> <a target='_blank' href='http://www.ti.com/ble-forum'>BLE E2E Forum</a>"
+    }
+]

@@ -1,0 +1,10 @@
+[Autorun]
+shellexecute=START.htm
+icon=Docs\beagle.ico
+label=BeagleBone Getting Started
+action=Open BeagleBone Getting Started Guide
+
+[DeviceInstall]
+DriverPath=Drivers\Windows\src\files\RNDIS
+DriverPath=Drivers\Windows\src\files\FTDI
+DriverPath=Drivers\Windows\src\files\CDCACM

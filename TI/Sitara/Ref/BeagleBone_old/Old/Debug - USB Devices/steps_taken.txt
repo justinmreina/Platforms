@@ -1,0 +1,51 @@
+Core Instructions - https://beagleboard.org/getting-started
+
+0. System Powered Down, MicroSD taken out
+
+1. Download Fresh Image 
+
+	https://beagleboard.org/latest-images
+	Jessie 8.4 for Beaglebone (https://debian.beagleboard.org/images/bone-debian-8.4-lxqt-4gb-armhf-2016-05-13-4gb.img.xz)
+	
+2. Used 7-Zip to Extract image(.img) from Step 1 (.img.gz)
+
+3. Plugged in MicroSD to computer, quick format through Windows
+
+4. Write of .img from Step 1/2 into MicroSD in Step 3 using 'Win32 Disk Imager'. MD5 Hash included
+
+5. MicroSD ejected from PC, installed into BeagleBone Black (powered down)
+
+x. The hub is plugged in, then the USB devices
+
+	forum ref: "#1 connect USB Hub (mouse & keyboard)"
+	
+x. USER/BOOT button held then Power installed so the BBB boots from the MicroSD. Power only released once the LEDs begin sporadically blinking and no longer constant
+
+	form ref: "#2 connect Power, with USER/BOOT depressed"
+	
+x. USB installed to PC. Wait for File Explorer to recognize the BBB (J:/)
+
+	forum ref: "#3 connect PC USB"
+
+8. PuTTY connection established, logged in as root
+
+9. Run 'tightvncserver' from PuTTY terminal. "New 'X' desktop is beaglebone:1". Leave PuTTY open and minimized
+
+10. Run 'TightVNC Viewer' from PC. Connect to "192.168.7.2:1" with default options configured
+
+12. Run 'lsusb' which reports the following as expected
+
+	root@beaglebone:~# lsusb
+	Bus 001 Device 003: ID 0000:0538  
+	Bus 001 Device 004: ID 060b:0595 Solid Year 
+	Bus 001 Device 002: ID 05e3:0608 Genesys Logic, Inc. USB-2.0 4-Port HUB
+	Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+13. The mouse (Device 003) and keyboard (Device 004) do not work!
+
+Hardware:
+	Keyboard - SolidTek KB-595BU Black USB Wired Mini Keyboard (http://www.newegg.com/Product/Product.aspx?Item=N82E16823111015)
+	
+	Mouse - inland 07233 USB Optical Mouse (http://www.newegg.com/Product/Product.aspx?Item=N82E16826206004)
+	
+	Hub - IOGEAR GUH285W6 4-port Hi-Speed USB 2.0 Hub (http://www.newegg.com/Product/Product.aspx?Item=N82E16817399093)

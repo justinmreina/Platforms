@@ -1,0 +1,38 @@
+evmc6748_TTO.zip: Platform.xdc
+Platform.xdc:
+evmc6748_TTO.zip: Platform.xs
+Platform.xs:
+evmc6748_TTO.zip: config.bld
+config.bld:
+evmc6748_TTO.zip: package/.vers_b150
+package/.vers_b150:
+evmc6748_TTO.zip: package/.vers_g180
+package/.vers_g180:
+evmc6748_TTO.zip: package/.vers_r170
+package/.vers_r170:
+evmc6748_TTO.zip: package/.xdc-x14
+package/.xdc-x14:
+evmc6748_TTO.zip: package/build.cfg
+package/build.cfg:
+evmc6748_TTO.zip: package/evmc6748_TTO.ccs
+package/evmc6748_TTO.ccs:
+evmc6748_TTO.zip: package/evmc6748_TTO.class
+package/evmc6748_TTO.class:
+evmc6748_TTO.zip: package/evmc6748_TTO.java
+package/evmc6748_TTO.java:
+evmc6748_TTO.zip: package/evmc6748_TTO.sch
+package/evmc6748_TTO.sch:
+evmc6748_TTO.zip: package/package.bld.xml
+package/package.bld.xml:
+evmc6748_TTO.zip: package/package.defs.h
+package/package.defs.h:
+evmc6748_TTO.zip: package/package.ext.xml
+package/package.ext.xml:
+evmc6748_TTO.zip: package/package.rel.dot
+package/package.rel.dot:
+evmc6748_TTO.zip: package/package_evmc6748_TTO.c
+package/package_evmc6748_TTO.c:
+evmc6748_TTO.zip: package.bld
+package.bld:
+evmc6748_TTO.zip: package.xdc
+package.xdc:

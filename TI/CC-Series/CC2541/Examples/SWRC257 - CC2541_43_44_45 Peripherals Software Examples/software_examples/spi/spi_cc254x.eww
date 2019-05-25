@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\spi_master_receive_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\spi_master_send_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\spi_slave_receive_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\spi_slave_receive_isr_cc254x.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\spi_slave_send_cc254x.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

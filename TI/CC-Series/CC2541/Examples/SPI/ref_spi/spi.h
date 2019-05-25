@@ -1,0 +1,40 @@
+#ifndef SPI_H_
+#define SPI_H_
+
+
+//Project Definitions
+#define chip    (2541)                                                      /* required for IAR headers                             */
+
+
+//Define Symbols for cleaner review in code, values D.C
+#ifdef USING_ECLIPSE
+    #include "components/ioCC2541_jmr.h"                                    /* all SFR register defs from header                    */
+#endif
+
+
+//Libraries
+#include <stdint.h>
+
+
+//Processor
+#include "ioCC2541.h"                   /* @src C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\8051\inc\ioCC2541.h       */
+#include "components/ioCC254x_bitdef.h"
+#include "components/hal_types.h"
+
+
+//Project
+#include "globals.h"
+
+
+//Globals
+extern void spi_transmit(uint8_t value);
+
+extern void spi_init(void);
+extern void spi_gpio_init(void);
+
+// These values will give a baud rate of approx. 2.00 Mbps at 32 MHz system clock
+#define SPI_BAUD_M      (0)
+#define SPI_BAUD_E      (15)
+
+
+#endif /* SPI_H_ */

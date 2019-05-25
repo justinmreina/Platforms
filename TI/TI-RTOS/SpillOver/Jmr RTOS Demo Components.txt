@@ -1,0 +1,23 @@
+System
+- Keypad
+- Audio + Filtering
+- Servo Mtr Ctrl (PWM)
+- LEDs
+- Delayed Responses (e.g. 1sec after key-press, 10ms after servo move)
+- Comm (UART, SPI, I2C, LAN, USB, ext comm like BT, etc.)
+- FW Objects
+- Swi Posting
+
+
+RTOS Services
+- Priorities
+- Pre-Emption
+- Threads
+- Clocks, Scheduling
+- Memory Management (Stack, Heap, Cache)
+- RT Analysis, Logs
+- Synchronization (Semaphores, Mutexes, Events, Queues, Mailboxes, etc.)
+- Malloc
+- Nested interrupts & interactions
+- Hwi/Swi decoupling and nature (BIOS, etc.)
+- Task/Swi semaphore triggering examples

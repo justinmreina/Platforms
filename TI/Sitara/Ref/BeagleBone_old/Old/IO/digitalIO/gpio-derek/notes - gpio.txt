@@ -1,0 +1,15 @@
+https://www.youtube.com/watch?v=SaIpz00lE84
+
+5.22.16
+
+3.3V pins, low current available
+
+all GPIO can be in or out
+
+Mode7 makes it a GPIO, this is shown in header pinouts section of ref doc (gpio[0])
+
+gpio1[] is offset by 32. E.G. gpio1[5] is adressed as 32+5 -> 37
+
+//steps
+	cd /sys/kernel/debug
+	cd omap_mux				(this is empty for me)

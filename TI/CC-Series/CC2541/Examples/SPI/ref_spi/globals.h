@@ -1,0 +1,67 @@
+#ifndef GLOBALS_H_
+#define GLOBALS_H_
+
+
+//Project Definitions
+#define chip    (2541)                                                      /* required for IAR headers                             */
+
+//Define Symbols for cleaner review in code, values D.C
+#ifdef USING_ECLIPSE
+    #include "components/ioCC2541_jmr.h"                                    /* all SFR register defs from header                    */
+#endif
+
+
+//Libraries
+#include <stdlib.h>		        /* @src C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\8051\inc\clib\stdlib.h    */
+#include <stdint.h>
+#include <stdbool.h>
+
+
+//Processor
+#include "ioCC2541.h"                   /* @src C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\8051\inc\ioCC2541.h       */
+#include "components/ioCC254x_bitdef.h"
+#include "components/hal_types.h"
+
+
+//Project
+#include "spi.h"
+
+
+//Locals
+void sys_init(void);
+void std_delay(void);
+
+
+//Definitions
+#define RADIO_PORT       	(P0)
+#define RADIO_PIN_SCLK   	(BIT5)
+#define RADIO_PIN_MOSI   	(BIT3)
+#define RADIO_PIN_MISO   	(BIT2)
+#define RADIO_PIN_CS_N   	(BIT4)
+
+#define RADIO_RESET_PORT 	(P1)
+#define RADIO_RESET_PDIR 	(P1DIR)
+#define RADIO_RESET_PIN  	(BIT2)
+
+
+//Bit Definitions
+#define BIT0    (1<<0)
+#define BIT1    (1<<1)
+#define BIT2    (1<<2)
+#define BIT3    (1<<3)
+#define BIT4    (1<<4)
+#define BIT5    (1<<5)
+#define BIT6    (1<<6)
+#define BIT7    (1<<7)
+#define BIT8    (1<<8)
+#define BIT9    (1<<90)
+#define BITA    (1<<10)
+#define BITB    (1<<11)
+#define BITC    (1<<12)
+#define BITD    (1<<13)
+#define BITE    (1<<14)
+#define BITF    (1<<15)
+
+
+#endif /* GLOBALS_H_ */
+

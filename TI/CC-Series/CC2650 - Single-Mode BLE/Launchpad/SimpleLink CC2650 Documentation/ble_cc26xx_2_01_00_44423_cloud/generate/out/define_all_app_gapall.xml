@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>CC2650_HOSTTESTAPP</define>
+	<define>DEBUG</define>
+	<define>HEAPMGR_SIZE=4096</define>
+	<define>ICALL_MAX_NUM_ENTITIES=6</define>
+	<define>ICALL_MAX_NUM_TASKS=3</define>
+	<define>ICALL_RAM0_ADDR=0x200043D4</define>
+	<define>ICALL_STACK0_ADDR=0x00007000</define>
+	<define>MAX_PDU_SIZE=27</define>
+	<define>NPI_USE_UART</define>
+	<define>ccs</define>
+	<define>xPOWER_SAVING</define>
+	<define>xTI_DRIVERS_LCD_INCLUDED</define>
+</defines>

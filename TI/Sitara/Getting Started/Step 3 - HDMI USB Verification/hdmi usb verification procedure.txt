@@ -1,0 +1,16 @@
+- Powered Down
+
+- Plug in USB
+
+- Plug in HDMI
+
+- Hold USER/BOOT
+
+- Plug in PSU
+
+- Wait for LEDs to start flashing
+
+- Release
+
+- Validate display is on and that mouse/keyboard work!
+

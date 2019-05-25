@@ -1,0 +1,78 @@
+/************************************************************************************************************************************/
+/** @file       x
+ *  @brief      x
+ *  @details    x
+ *
+ *  @target     x
+ *  @board      x
+ *
+ *  @author     Justin Reina, Firmware Engineer, Misc. Company
+ *  @created    x
+ *  @last rev   x
+ *
+ *
+ *  @notes      x
+ *
+ *  @section    Opens
+ *          none current
+ *
+ *  @section    Legal Disclaimer
+ *          All contents of this source file and/or any other Misc. Product related source files are the explicit property of
+ *          Misc. Company. Do not distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
+#include "spi.h"
+
+
+
+
+/************************************************************************************************************************************/
+/** @fcn        void spi_init(void)
+ *  @brief      x
+ *  @details    x
+ */
+/************************************************************************************************************************************/
+void spi_init(void) {
+
+    // Set USART to SPI mode and Master mode.
+    U0CSR &= ~(U0CSR_MODE | U0CSR_SLAVE);
+
+    // Set:
+    // - mantissa value
+    // - exponent value
+    // - clock phase to be centered on first edge of SCK period
+    // - negative clock polarity (SCK low when idle)
+    // - bit order for transfers to LSB first
+    U0BAUD = SPI_BAUD_M;
+    U0GCR = (U0GCR & ~(U0GCR_BAUD_E | U0GCR_CPOL | U0GCR_CPHA | U0GCR_ORDER)) | SPI_BAUD_E;
+
+    // Clear SSN, the SPI slave is active when SSN is low.
+    P0_4 = 0;
+
+    // Clear SSN, the SPI slave is active when SSN is low.
+    P1_0 = 0;
+
+    return;
+}
+
+
+/************************************************************************************************************************************/
+/** @fcn        void spi_gpio_init(void)
+ *  @brief      x
+ *  @details    x
+ */
+/************************************************************************************************************************************/
+void spi_gpio_init(void) {
+
+    // Configure USART0 for Alternative 1 => Port P0 (PERCFG.U0CFG = 0).
+    PERCFG = (PERCFG & ~PERCFG_U0CFG) | PERCFG_U0CFG_ALT1;
+
+    // Give priority to USART 0 over Timer 1 for port 0 pins.
+    P2DIR &= P2DIR_PRIP0_USART0;
+
+    // Set pins 2, 3 and 5 as peripheral I/O and pin 4 as GPIO output.
+    P0SEL = (P0SEL & ~BIT4) | BIT5 | BIT3 | BIT2;
+    P0DIR |= BIT4;
+
+    return;
+}

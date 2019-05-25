@@ -1,0 +1,6 @@
+-z -c -heap0x2000 -m"../Debug/OMAPL138-DSP-LED-ARM.map" -o"../Debug/OMAPL138-DSP-LED-ARM.out" -stack0x2000 -w -x -i"C:/Program Files/Texas Instruments/TMS470 Code Generation Tools 4.6.4/lib"
+"C:\boot_examples\OMAPL138-DSP-LED\ARM\src\linker.cmd"
+"C:\boot_examples\OMAPL138-DSP-LED\ARM\Debug\ARM9_handler.obj"
+"C:\boot_examples\OMAPL138-DSP-LED\ARM\Debug\ARM9_initstack.obj"
+"C:\boot_examples\OMAPL138-DSP-LED\ARM\Debug\ARM9_intvecs.obj"
+"C:\boot_examples\OMAPL138-DSP-LED\ARM\Debug\main.obj"

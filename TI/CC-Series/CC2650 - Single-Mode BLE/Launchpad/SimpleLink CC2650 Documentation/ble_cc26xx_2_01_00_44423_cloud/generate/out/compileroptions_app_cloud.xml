@@ -1,0 +1,3 @@
+<compileroptions>
+	<compileroption>-O4 --opt_for_speed=0</compileroption>
+</compileroptions>

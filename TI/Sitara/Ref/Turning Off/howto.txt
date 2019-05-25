@@ -1,0 +1,9 @@
+- NEVER simply unplug a running system
+	*would you for your PC? Same deal here, don't do it!
+	
+Options:
+	- Hold Power for 8 seconds until system & LEDs off
+	- from terminal use "shutdown -h" (book recommended)
+	- from terminal use "sudo poweroff" (my research)
+	
+

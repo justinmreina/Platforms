@@ -1,0 +1,34 @@
+{
+  "name": "newapptest",
+  "description": "martinTest",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "new",
+    "app",
+    "test"
+  ],
+  "authors": [
+    "martins"
+  ],
+  "license": "mit",
+  "homepage": "dev.ti.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-header-panel": "PolymerElements/paper-header-panel#~1.0.5",
+    "polymer": "Polymer/polymer#1.1.0",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.0.6",
+    "iron-image": "PolymerElements/iron-image#~1.0.2",
+    "paper-styles": "PolymerElements/paper-styles#~1.0.12",
+    "paper-material": "PolymerElements/paper-material#~1.0.3"
+  }
+}

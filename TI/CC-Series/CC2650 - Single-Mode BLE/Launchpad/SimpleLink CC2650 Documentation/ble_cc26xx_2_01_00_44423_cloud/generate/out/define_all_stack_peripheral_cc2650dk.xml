@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>ICALL_RAM0_ADDR=0x200043E8</define>
+	<define>ICALL_STACK0_ADDR=0x0000E000</define>
+</defines>

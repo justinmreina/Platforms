@@ -1,0 +1,11 @@
+CCS->Resource Explorer Classic->SimpleLink Academy 1.11->Bluetooth low energy->Projects->Project Zero->App CC2650 LaunchPad
+
+@step 	1 -> Import the example projec into CCS-
+
+@step 	2 -> Set to current compiler, ensure all linked resources are correctly located
+
+@step	3 -> Test Launch
+
+@step 	4 -> Test BLE Scan (BLE Device Monitor)
+
+@status		run and checked on 5/22/17 and passed

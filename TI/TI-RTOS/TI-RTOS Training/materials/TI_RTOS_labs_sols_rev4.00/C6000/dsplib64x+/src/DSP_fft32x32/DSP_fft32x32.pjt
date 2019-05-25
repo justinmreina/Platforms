@@ -1,0 +1,49 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="C:\TI\CCS\DSPLIB\C64plus\DSP_fft32x32\"
+ProjectType=Executable
+CPUFamily=TMS320C64XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+Config="Release_elf"
+
+
+[Source Files]
+Source="DSP_fft32x32.c"
+Source="DSP_fft32x32_cn.c"
+Source="DSP_fft32x32_d.c"
+Source="DSP_fft32x32_sa.sa"
+Source="gen_twiddle_fft32x32.c"
+Source="lnk.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -k -s -as -fr"$(Proj_dir)\Debug" -d"_DEBUG" -d"__TI_EABI__=0" -mw -mv6400+ --consultant
+
+["Compiler" Settings: "Release"]
+Options=-k -o3 -fr"$(Proj_dir)\Release" -d"__TI_EABI__=0" -mw -mv6400+
+
+["Compiler" Settings: "Release_elf"]
+Options==--abi=eabi -k -o3 -fr"$(Proj_dir)\Release_elf" -mw -mv6400+
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\DSP_fft32x32.map" -o".\Debug\DSP_fft32x32.out" -w -x
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\DSP_fft32x32.map" -o".\Release\DSP_fft32x32.out" -w -x
+
+["Linker" Settings: "Release_elf"]
+Options=-c -m".\Release_elf\DSP_fft32x32.map" -o".\Release_elf\DSP_fft32x32.out" -w -x
+
+["lnk.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["lnk.cmd" Settings: "Release"]
+LinkOrder=1
+
+["lnk.cmd" Settings: "Release_elf"]
+LinkOrder=1

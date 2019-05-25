@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<project>
+	<name>SimpleBLEPeripheral</name>
+	<isTIRTOS>true</isTIRTOS>
+	<compileroptions include="..\..\..\..\..\..\generate\out\compileroptions_app_cloud.xml"/>
+	<pathvars include="..\..\..\..\..\..\generate\out\pathvars.xml"/>
+	<linkeroptions include="..\..\..\..\..\..\generate\out\linkeroptions_app.xml"/>
+	<attributes include="..\..\..\..\..\..\generate\out\attributes_app.xml"/>
+	<debuggerConnection>TIXDS100v3_Dot7_Connection.xml</debuggerConnection>
+	<linkeroptions>
+		<linkeroption>--define=ICALL_STACK0_ADDR=0x0000E000</linkeroption>
+		<linkeroption>--define=ICALL_RAM0_ADDR=0x200043E8</linkeroption>
+	</linkeroptions>
+	<projectrefs>
+		<ref boundary="true">SimpleBLEPeripheralStack</ref>
+	</projectrefs>
+	<files include="..\..\..\..\..\..\generate\out\file_all.xml" level="0"/>
+	<files include="..\..\..\..\..\..\generate\out\file_all_app.xml" level="1"/>
+	<files include="..\..\..\..\..\..\generate\out\file_all_app_peripheral.xml" level="2"/>
+	<files include="..\..\..\..\..\..\generate\out\file_all_app_peripheral_cc2650dk.xml" level="3"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all.xml" level="0"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all_app.xml" level="1"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all_app_peripheral.xml" level="2"/>
+	<includes include="..\..\..\..\..\..\generate\out\include_all_app_peripheral_cc2650dk.xml" level="3"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all.xml" level="0"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all_app.xml" level="1"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all_app_peripheral.xml" level="2"/>
+	<defines include="..\..\..\..\..\..\generate\out\define_all_app_peripheral_cc2650dk.xml" level="3"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all.xml" level="0"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all_app.xml" level="1"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all_app_peripheral.xml" level="2"/>
+	<libs include="..\..\..\..\..\..\generate\out\lib_all_app_peripheral_cc2650dk.xml" level="3"/>
+	<files>
+		<file>
+			<source>../../../../Profiles/OAD/CC26xx/ext_flash_layout.h</source>
+			<target>PROFILES</target>
+			<action>copy</action>
+			<exclude>false</exclude>
+		</file>
+		<file>
+			<source>../../../../Profiles/OAD/CC26xx/oad.h</source>
+			<target>PROFILES</target>
+			<action>copy</action>
+			<exclude>false</exclude>
+		</file>
+		<file>
+			<source>../../../../Profiles/OAD/CC26xx/oad_target.h</source>
+			<target>PROFILES</target>
+			<action>copy</action>
+			<exclude>false</exclude>
+		</file>
+		<file>
+			<source>../../../../Profiles/SimpleProfile/CC26xx/simpleGATTprofile.c</source>
+			<target>PROFILES</target>
+			<action>copy</action>
+			<exclude>false</exclude>
+		</file>
+		<file>
+			<source>../../../../Profiles/SimpleProfile/simpleGATTprofile.h</source>
+			<target>PROFILES</target>
+			<action>copy</action>
+			<exclude>false</exclude>
+		</file>
+		<file>
+			<source>../../IAR/Config/ccfg_appBLE.c</source>
+			<target>Startup</target>
+			<action>copy</action>
+			<exclude>false</exclude>
+		</file>
+		<file>
+			<source>../../Source/Application/simpleBLEPeripheral.c</source>
+			<target>Application</target>
+			<action>copy</action>
+			<exclude>false</exclude>
+		</file>
+		<file>
+			<source>../../Source/Application/simpleBLEPeripheral.h</source>
+			<target>Application</target>
+			<action>copy</action>
+			<exclude>false</exclude>
+		</file>
+		<file>
+			<source>TI_BLE_SDK_BASE/Projects/ble/common/cc26xx/board_lcd.c</source>
+			<target>Application</target>
+			<action>link</action>
+			<exclude>false</exclude>
+		</file>
+		<file>
+			<source>TI_BLE_SDK_BASE/Projects/ble/common/cc26xx/board_lcd.h</source>
+			<target>Application</target>
+			<action>link</action>
+			<exclude>false</exclude>
+		</file>
+	</files>
+	<includes>
+		<include>${TI_BLE_SDK_BASE}/Projects/ble/Profiles/SimpleProfile</include>
+		<include>${TI_BLE_SDK_BASE}/Projects/ble/Profiles/SimpleProfile/CC26xx</include>
+	</includes>
+	<defines>
+		<define>GAPROLE_TASK_STACK_SIZE=520</define>
+		<define>ICALL_MAX_NUM_TASKS=3</define>
+		<define>SBP_TASK_STACK_SIZE=700</define>
+		<define>TI_DRIVERS_LCD_INCLUDED</define>
+		<define>TI_DRIVERS_SPI_DMA_INCLUDED</define>
+	</defines>
+	<libs/>
+</project>

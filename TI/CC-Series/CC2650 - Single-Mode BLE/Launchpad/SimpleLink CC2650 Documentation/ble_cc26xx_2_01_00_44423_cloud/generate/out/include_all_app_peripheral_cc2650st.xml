@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<includes>
+	<include>${PROJECT_IMPORT_LOC}/../../Source/Application/Board_patch/CC26XXST_0120</include>
+	<include>${PROJECT_IMPORT_LOC}/../../Source/Application/Board_patch/Devices</include>
+	<include>${PROJECT_IMPORT_LOC}/../../Source/Application/Board_patch/Interfaces</include>
+	<include>${PROJECT_LOC}/Board/Devices</include>
+	<include>${PROJECT_LOC}/Board/Interfaces</include>
+	<include>${TI_BLE_SDK_BASE}/Components/icall/ports/tirtos</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/Profiles/Keys</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/Profiles/OAD/CC26xxST</include>
+	<include>${TI_BLE_SDK_BASE}/Projects/ble/Profiles/SensorProfile/CC26xx</include>
+</includes>

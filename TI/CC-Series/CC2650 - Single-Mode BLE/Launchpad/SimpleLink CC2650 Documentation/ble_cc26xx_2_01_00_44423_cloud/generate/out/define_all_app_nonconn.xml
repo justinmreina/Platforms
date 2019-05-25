@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<defines>
+	<define>DEBUG</define>
+	<define>ICALL_MAX_NUM_ENTITIES=6</define>
+	<define>ICALL_MAX_NUM_TASKS=3</define>
+	<define>ICALL_STACK0_ADDR=0x00017000</define>
+	<define>POWER_SAVING</define>
+	<define>TI_DRIVERS_LCD_INCLUDED</define>
+	<define>TI_DRIVERS_SPI_DMA_INCLUDED</define>
+	<define>ccs</define>
+</defines>

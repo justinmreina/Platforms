@@ -1,0 +1,174 @@
+******************************************************************************
+                  TMS470 Linker PC v4.6.4                      
+******************************************************************************
+>> Linked Thu Apr 21 14:10:31 2011
+
+OUTPUT FILE NAME:   <../Debug/OMAPL138-DSP-LED-ARM.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 80013cb4
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SHAREDRAM             80010000   00010000  00003de0  0000c220  RWIX
+  SDRAM                 c0000000   20000000  00000000  20000000  RWIX
+  ARMRAM                ffff0000   00002000  00000030  00001fd0  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.fiqstack 
+*          0    80010000    00001000     UNINITIALIZED
+                  80010000    00001000     ARM9_initstack.obj (.fiqstack)
+
+.irqstack 
+*          0    80011000    00001000     UNINITIALIZED
+                  80011000    00001000     ARM9_initstack.obj (.irqstack)
+
+.svcstack 
+*          0    80012000    00001000     UNINITIALIZED
+                  80012000    00001000     ARM9_initstack.obj (.svcstack)
+
+.stack     0    80013000    00000800     UNINITIALIZED
+                  80013000    00000800     --HOLE--
+
+.text      0    80013800    0000055c     
+                  80013800    00000180     rtsv5_A_le_tiarm9.lib : memcpy32.obj (.text)
+                  80013980    000000c8     main.obj (.text)
+                  80013a48    000000a8     rtsv5_A_le_tiarm9.lib : auto_init.obj (.text)
+                  80013af0    00000080     ARM9_handler.obj (.text)
+                  80013b70    00000078     rtsv5_A_le_tiarm9.lib : exit.obj (.text)
+                  80013be8    00000074     ARM9_initstack.obj (.text)
+                  80013c5c    00000058     rtsv5_A_le_tiarm9.lib : cpy_tbl.obj (.text)
+                  80013cb4    00000044                           : boot.obj (.text)
+                  80013cf8    00000024                           : _lock.obj (.text)
+                  80013d1c    00000020                           : args_main.obj (.text)
+                  80013d3c    00000020                           : icall32.obj (.text)
+
+.cinit     0    80013d5c    00000064     
+                  80013d5c    00000018     main.obj (.cinit)
+                  80013d74    00000018     rtsv5_A_le_tiarm9.lib : _lock.obj (.cinit)
+                  80013d8c    00000018                           : exit.obj (.cinit)
+                  80013da4    0000000c                           : boot.obj (.cinit)
+                  80013db0    0000000c                           : stkdepth_vars.obj (.cinit)
+                  80013dbc    00000004     --HOLE-- [fill = 0]
+
+.bss       0    80013dc0    00000020     UNINITIALIZED
+                  80013dc0    00000008     main.obj (.bss)
+                  80013dc8    00000008     rtsv5_A_le_tiarm9.lib : _lock.obj (.bss)
+                  80013dd0    00000008                           : exit.obj (.bss)
+                  80013dd8    00000004                           : boot.obj (.bss)
+                  80013ddc    00000004                           : stkdepth_vars.obj (.bss)
+
+.intvecs   0    ffff0000    00000030     
+                  ffff0000    00000030     ARM9_intvecs.obj (.intvecs)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+80013dc0   .bss
+80013800   .text
+80013b70   C$$EXIT
+80013800   C_MEMCPY
+80013b48   FIQ_handler
+80013d3c   IND_CALL
+ffff0000   INT_VECS
+80013b24   IRQ_handler
+80013b18   NOPRIV
+80013af0   SWI_handler
+80013dc0   _SYS_REGS
+80013800   __STACK_END
+00000800   __STACK_SIZE
+00000001   __TI_args_main
+80013a48   __TI_auto_init
+ffffffff   ___binit__
+80013dc0   ___bss__
+ffffffff   ___c_args__
+80013d5c   ___cinit__
+80013de0   ___end__
+80013d5c   ___etext__
+ffffffff   ___pinit__
+80013800   ___text__
+80013d1c   __args_main
+80013dd0   __cleanup_ptr
+80013dd4   __dtors_ptr
+80013dc8   __lock
+80013d10   __nop
+80013d04   __register_lock
+80013cf8   __register_unlock
+80013000   __stack
+80013dcc   __unlock
+80013b78   _abort
+80013cb4   _c_int00
+80013c5c   _copy_in
+80013b84   _exit
+80013be8   _init_stack
+80013980   _main
+80013ddc   _main_func_sp
+80013dc4   _psc0Regs
+80013dd8   _stkchk_called
+ffffffff   binit
+80013d5c   cinit
+80013de0   end
+80013d5c   etext
+ffffffff   pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000001   __TI_args_main
+00000800   __STACK_SIZE
+80013000   __stack
+80013800   .text
+80013800   C_MEMCPY
+80013800   __STACK_END
+80013800   ___text__
+80013980   _main
+80013a48   __TI_auto_init
+80013af0   SWI_handler
+80013b18   NOPRIV
+80013b24   IRQ_handler
+80013b48   FIQ_handler
+80013b70   C$$EXIT
+80013b78   _abort
+80013b84   _exit
+80013be8   _init_stack
+80013c5c   _copy_in
+80013cb4   _c_int00
+80013cf8   __register_unlock
+80013d04   __register_lock
+80013d10   __nop
+80013d1c   __args_main
+80013d3c   IND_CALL
+80013d5c   ___cinit__
+80013d5c   ___etext__
+80013d5c   cinit
+80013d5c   etext
+80013dc0   .bss
+80013dc0   _SYS_REGS
+80013dc0   ___bss__
+80013dc4   _psc0Regs
+80013dc8   __lock
+80013dcc   __unlock
+80013dd0   __cleanup_ptr
+80013dd4   __dtors_ptr
+80013dd8   _stkchk_called
+80013ddc   _main_func_sp
+80013de0   ___end__
+80013de0   end
+ffff0000   INT_VECS
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[46 symbols]

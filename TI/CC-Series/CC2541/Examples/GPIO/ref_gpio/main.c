@@ -1,0 +1,61 @@
+/************************************************************************************************************************************/
+/** @file       main.c
+ *  @brief      x
+ *  @details	x
+ *
+ *  @target     Texas Instruments CC2541F128
+ *  @board      all
+ *
+ *  @author     Justin Reina, Firmware Engineer
+ *  @created	6/22/17
+ *  @last rev	6/22/17
+ *
+ *
+ *  @section 	BLE Stack Vocabulary
+ *      ARC - Advanced Remote Control
+ *      ST - Sensor Tag
+ *
+ *  @section 	Locations of HAL reference (in prog)
+ *      BLE-Stack 1.4.2.2/Components/hal/target/CC2541ST/hal_board_cfg.h
+ *      BLE-Stack 1.4.2.2/Components/hal/target/CC2541ST/hal_led.c
+ *
+ *  @section	Opens
+ *      GPIO Read
+ *      GPIO ISR
+ *      PWM out
+ *
+ *  @section	Legal Disclaimer
+ *      All contents of this source file and/or any other related source files are the explicit property of Justin Reina. Do not 
+ *      distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
+#include "globals.h"
+
+
+/************************************************************************************************************************************/
+/** @fcn        int main(void)
+ *  @brief      x
+ *  @details    x
+ *
+ *  @note       fclk observed at approx.
+ */
+/************************************************************************************************************************************/
+int main(void) {
+  
+        P0DIR |= BIT7;
+        
+	for(;;) {         
+          P0 ^= BIT7;                                                       /* works                                                */
+          P0 ^= BIT7;
+          
+          P0 ^= BIT6;                                                       /* does nothing                                         */
+          P0 ^= BIT6;
+
+          P0_7  = 0;
+          P0_7  = 1;                                                        /* TI recommended syntax                                */
+          P0_7  = 0;
+          P0_7  = 2;                                                        /* no effect                                            */
+        }
+}
+
+

@@ -1,0 +1,17 @@
+\t (00:00:01) allegro 16.6 S019 (v16-6-112BG) Windows 32
+\t (00:00:01)     Journal start - Tue Sep 08 15:45:36 2015
+\t (00:00:01)         Host=LTA0190588A User=a0190588 Pid=40040 CPUs=4
+\t (00:00:01) 
+\t (00:00:06) Opening existing design...
+\d (00:00:06) Database opened: C:/kht/work/LAUNCHXL-CC2650_1_0_0/LAUNCHXL-CC2650_1_0_0_Cadence/Allegro/LAUNCHXL-CC2650.brd
+\i (00:00:07) trapsize 657
+\i (00:00:07) trapsize 638
+\i (00:00:07) trapsize 661
+\i (00:00:07) trapsize 661
+\i (00:00:08) generaledit 
+\i (00:08:45) pick grid 248.490 304.447
+\t (00:08:45) last pick:  248.500  304.400
+\i (00:08:49) opencd C:/kht/work/CC1310_launchpad/LAUNCHPAD_CC1310_1_0_0/LAUNCHXL-CC1310_1_0_0_Cadence/Allegro/LAUNCHXL-CC1310.brd 
+\t (00:08:49) Opening existing design...
+\i (00:08:49) trapsize 63
+\t (00:08:50)     Journal end - Tue Sep 08 15:54:25 2015

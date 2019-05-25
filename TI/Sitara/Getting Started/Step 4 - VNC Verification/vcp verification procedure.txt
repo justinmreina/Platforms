@@ -1,0 +1,34 @@
+https://www.youtube.com/watch?v=Z-XbJNKx4gk
+
+[X] 1. Install TightVNC Client (PC)
+
+[X] 2. Setup Network Connection
+	   (http://ofitselfso.com/BeagleNotes/HowToConnectBeagleboneBlackToTheInternetViaUSB.php)
+
+		You will need to perform Step 2 each time you power up the BBB
+		
+		'sudo /sbin/route add default gw 192.168.7.1'
+		
+		Navigate to Network Connections in Windows and open Properties for PC's network connection
+		
+		*We need to share this connection with the Beaglebone Black (the Linux USB Ethernet/RNDIS Gadget connection)
+		
+		Go to Sharing tab, select "Allow other...". select Ethernet adapter for 'Linux USB Ethernet/RNDIS Gadget'
+		
+		Open the BBB's network connection now and navigate to 'TCP/IPv4'. Change IP address to "192.168.7.1"
+		
+		ping 8.8.8.8 for validation!!
+		
+		now add nameserver 8.8.8.8 to /etc/resolv.conf. This actually allows network access for apt-get update to work!
+
+[X] 3. Install VNC4Server Server (BBB)
+
+	sudo apt-get install vnc4server
+	
+	launched from terminal. password set is labtecZX
+	
+	connect from PC with 192.168.7.2:1
+	
+	done!
+	
+	

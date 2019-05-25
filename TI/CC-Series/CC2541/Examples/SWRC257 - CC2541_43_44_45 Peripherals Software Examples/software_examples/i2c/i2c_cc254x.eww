@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\i2c_master_receive.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\i2c_master_send.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\i2c_slave_receive.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\i2c_slave_send.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

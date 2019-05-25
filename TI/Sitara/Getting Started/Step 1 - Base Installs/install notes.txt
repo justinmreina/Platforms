@@ -1,0 +1,49 @@
+Procedure Followed: https://beagleboard.org/getting-started#update
+
+[X] Step 0: Micro-SD Formatted (3.31GB, FAT32, 4096 bytes, Label: 'BBB-Micro', Quick Format: deselect)
+
+	*Reinsert the Micro-SD into powered down BBB afterward
+
+[X] Step 1: Plug in your USB
+
+	*Confirm approximate LED operation
+
+[X] Step 2: Install the drivers
+
+[X] Step 3: Browse to your Beagle
+
+	http://192.168.7.2/bone101/Support/bone101/
+
+[X] Step 4: Download the latest software (Step #1)
+
+	Download: The file you download will have an .img.xz extention. This is a compressed sector-by-sector image of the SD card
+
+	Picked 'Jessie for BeagleBone via microSD card', 'Debian 8.4 2016-05-13 4GB SD LXQT'
+
+	->bone-debian-8.4-lxqt-4gb-armhf-2016-05-13-4gb.img.xz
+
+[X] Step 5: Decompress the .img image file from the .img.xz file with 7-Zip (Step #3)
+	Open With... -> 7-Zip (7zFM.exe)
+	'Extract' the .img file from menu bar ('-')
+
+[X] Step 6: Install 'Image Write for Windows'
+	https://sourceforge.net/projects/win32diskimager/files/latest/download
+
+	(if installed, Windows search for the application 'Win32DiskImager')
+
+
+[X] Step 7: Connect SD card to your computer, flash it with Win32! (Step #6)
+	MD5 Selected after Image File was selected
+	Write, 'Yes' on Damage ok confirmation
+	Wait. Forever for completion...
+	Eject, then install to powered down BBB
+
+[X] Step 8: Apply Power to BBB
+	USB & PSU Disconnected
+	HDMI is connected to powered on display
+	MicroSD is installed
+	Hold USER/BOOT (S2)
+	Apply PSU
+
+	Wait for steady ON of all (4) LEDs, then off momentarily then they all flash. The HDMI display should be on and logged in. The mouse and keyboard will not work
+
