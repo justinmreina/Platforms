@@ -1,0 +1,13 @@
+* Remove unused PHY modes (TURBO etc.)
+* Remove unused MIMO PS code.
+* Cleanup node flags.
+* Remove FastFrame code.
+* Fix various bugs in management frame transmission.
+* Fix duration calculation.
+* Fix packet type calculation.
+* Enable CAB queue for UB94/95.
+* Fix sequence number assignment.
+* Remove vendor-specific hacks.
+* Add TX completion for multicast packets.
+* Various code cleanups.
+* Reduce credit size for UB94/95 to 45.

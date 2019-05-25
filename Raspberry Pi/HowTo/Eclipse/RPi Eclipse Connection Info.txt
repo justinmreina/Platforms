@@ -1,0 +1,12 @@
+Connection Information
+	Connection name: <your choice, for display>
+	Host: rasperrypi-jmr1, rasperrypi-jmr2
+	User: pi
+	Password based authentication: Misc-WWC
+	Port: 22
+	Timeout: 0
+	use login shell: Checked
+	Login shell command: /bin/bash -l -c '{0}'
+	SSH Proxy Settings: Locak
+	Enter a local or remote command: <empty>
+	

@@ -1,0 +1,35 @@
+src: http://www.gurucoding.com/en/raspberry_pi_eclipse/index.php
+
+
+[X]1. Buy Binary Files of the Cross-Compiler
+	http://www.gurucoding.com/en/buy_binaries.php
+
+	Windows-to-RaspberryPi Cross-Compiler for Raspbian/Debian Jessie (2016)	
+	Order ID: PRI170123-4247-20156
+	Download URL (Precompiled Binary Files):
+	  https://sites.fastspring.com/primeexpert/order/dl/PRI170123-4247-54163F
+	Support email: support@gurucoding.com
+
+	
+[X]2. Install new Eclipse copy into M:\sw\rpi-elipse\
+	'Installing Eclipse And Plugins'
+	http://www.gurucoding.com/en/raspberry_pi_eclipse/installing_eclipse.php
+
+
+[X]3. Unpack Raspberry Pi cross-compiler into M:\sw\rpi-elipse\rpi-cross-toolchain
+
+	This folder should contain arm-linux-gnueabi, arm-linux-gnueabihf and mingw-make subfolders
+
+	Create M:\sw\rpi-eclipse\workspace folder
+
+	
+4. Follow instructions 7 - 17 on web link
+
+
+5. Configure Raspberry Pi for use here
+	http://www.gurucoding.com/en/raspberry_pi_eclipse/configuring_raspberry_pi.p
+	hp
+
+
+6. Follow the instructions on the site... ;0!
+

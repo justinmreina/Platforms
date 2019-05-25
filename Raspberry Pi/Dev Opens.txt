@@ -1,0 +1,51 @@
+//***************************************************************************//
+//							Code Device									  	 //
+//***************************************************************************//
+Ref Code
+	- ref_files (File I/O examples)
+	- ref_gui (Basic Window, Text Box, LED, Button, etc.!)  :)
+	- ref_gpio close (in, isr, pwm)
+	- ref_timers
+	- ref_uart, i2c, spi
+	- ref_bt (core!)
+	- ref_usb
+	- ref_lan
+	- ref_os (explore!)
+	- search raspberry examples online
+		- store relevant
+		- generate MyWorkspace content when relevant
+GUI
+	- All ;0!
+
+Memory Examples
+	- Writing to FLASH
+	- Writing to MicroSD
+
+GPIO Demos
+	- Base I/O Examples
+	- Toggle based on Remote User Access
+	- Output Timed Signal
+	- Output PWM
+	- Input Interrupt Response (led toggle?)
+
+Timer Demos
+	- Serial Console Timed Response in Timer Interrupt
+	- Some form of PWM
+	
+Comm Demos
+	- SPI
+	- UART
+	- I2C
+	
+Bluetooth Demos
+	- Connect to a Device, log it's data stream to file
+	- Connect to a Device, send it some sensor data
+	
+Wi-Fi Demos
+	- Provide a Web API to Remote User
+	- Provide a Serial Console to Remote User
+	
+LAN Demos
+	- Provide a Web API to Remote User
+	- Provide a Serial Console to Remote User
+

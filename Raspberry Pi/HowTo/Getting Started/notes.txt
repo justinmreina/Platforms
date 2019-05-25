@@ -1,0 +1,13 @@
+Listed on Box - 'Raspberry Pi 3 - Model B'
+
+Getting Started
+For information on how to download the latest operating system and to view the Getting Started Guide, please visit: www.designspark.com/raspberrypi
+
+
+This article is relevant for all Raspberry Pi Models.
+    A Case 
+    Operating System - (NOOB's Recommended for most users)
+    USB Keyboard & USB Mouse
+    Ethernet Cable or WiFi Adapter (to connect to the Internet/Network) - Pi 3 has integrated Wireless LAN
+    Cable to your Monitor or TV (HDMI recommended)
+    Power Supply (Note Pi 3 has a new Power Supply)

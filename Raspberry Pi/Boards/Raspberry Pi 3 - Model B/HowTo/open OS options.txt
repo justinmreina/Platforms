@@ -1,0 +1,31 @@
+Try These
+	Win10 IOT Core OS
+	RISC OS
+
+Explore These
+	FreeRTOS
+	uCos?
+	Machinoid
+	PebbleBay (http://www.pebblebay.com/raspberry-pi-embedded/)
+	Pinet
+	Libreelec
+	OSMC
+	BitThunder
+	ChibiOS/RT (http://www.stevebate.net/chibios-rpi/GettingStarted.html)
+	
+General Discussion
+	(http://www.hongkiat.com/blog/pi-operating-systems/)
+	
+	This lists
+	1) Raspbian
+	2) Ubuntu MATE
+	3) Snappy Ubuntu
+	4) Pidora
+	5) Linutop
+	6) SARPi
+	7) Arch Linux ARM
+	8) Gentoo Linux
+	9) FreeBSD
+	10) Kali Linux
+	11) RISC OS Pi
+

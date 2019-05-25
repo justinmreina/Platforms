@@ -1,0 +1,7 @@
+it is open and available. I could not get a PuTTy-RPi<->PuTTy-PC verification, need to debug further-
+
+1. use oscope to find out who isn't talking
+2. get both talking
+3. validate form and rate of data streams
+4. figure out what is the configuration issue here preventing this to work. System? PuTTy? Wiring? ...
+

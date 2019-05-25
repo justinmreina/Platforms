@@ -1,0 +1,555 @@
+//*******************************************************************************************************************//
+// 								  RP3 Installation Procedure (1/22/17) 										   		 //
+//																													 //
+// @target 		Raspberry Pi 3 - Model B r1.2 (RPi 3)												 	 			 //
+// @topic 		Getting Started Procedure & Guide - From Scratch										 			 //
+//																													 //
+// @author 		Justin Reina																			 			 //
+// @revision	2/9/17																					 			 //
+// @created 	1/31/17																								 //
+//																													 //
+// @duration	(start: 1:42pm, end:?)																				 //
+//																													 //
+// @web	 	https://www.raspberrypi.org/products/raspberry-pi-3-model-b/											 //
+// 																													 //
+//*******************************************************************************************************************//
+Note: This took a staggeringly long time to figure out, generate and get working. Several hours over multiple weeks,
+and several full redos thus the generation of such a file as this. Respect the time taken to get here, and the ease
+which this file then produces! :)
+
+
+//----------------------------------------------Pre-Configuration----------------------------------------------------//
+[] 1. Unbox Raspberry Pi 3 (Model B V1.2 2015)
+	*Add Heat Sink
+	*Locate SD Card (tgt: 8GB, 64GB max)
+
+
+[] 2. Clean the MicroSD
+	Grab all active code & files
+
+	src: http://www.howtogeek.com/170794/ask-htg-how-can-i-reclaim-the-full-capacity-of-an-sd-card/
+	Use diskpart to resize the SD Card to full capacity
+		list volume, select volume XYZ, clean, create partition primary, exit
+		*it will be of '0' size until formatted in the next step
+
+	Use File Explorer to format (Windows FAT32, Default Alloc Size, Volume Label JMR_RPI1/JMR_RPI2, Quick Format)
+	
+	All drives ejected, physically labeled
+
+	Use SDFormatter V4.0 to clean SD, Full/Off, Label: 'JMR_RPI1/2'
+
+	Eject
+
+
+[] 3. Unplug Raspberry Pi
+	All cables & drives (except USB kbrd/mouse), any sequence
+
+
+//------------------------------------------------Given Instructions-------------------------------------------------//
+[] 4. Download the latest recommended OS (Raspbian)
+	http://www.raspberrypi.org/downloads
+
+	Currently Trying 'Raspbian Jessie with PIXEL - Image with PIXEL desktop based on Debian Jessie'
+	Version: January 2017
+	Release date: 2017-01-11
+	Kernel version: 4.4
+	Release notes: http://downloads.raspberrypi.org/raspbian/release_notes.txt
+	File: 2017-01-11-raspbian-jessie.zip
+
+
+[] 5. Extract IMG from Zip (7-Zip, .img file out)
+	loc: D:\Documents\Ref\Platforms\Raspberry Pi\Boards\Raspberry Pi 3 - Model B\HowTo\OS Installation\rpi-latest_full
+	R.C. in 7-Zip, '7-Zip->Extract here', or 'R.C->Open With'
+
+
+[] 6. Write IMG to MicroSD
+	Insert MicroSD ('F:\')
+	Use Win32DiskImager
+		Image File:/rpi-latest_full/2017-01-11-raspbian-jessie.img
+		Device: [F:\]
+	Press 'Write', approve the warning message
+	This takes awhile, patience! :)	<- ~7 min
+
+	
+[] 7. Adjust Display output to fill entire display
+	https://www.raspberrypi.org/forums/viewtopic.php?f=46&t=47152
+
+	config.txt:10
+		disable_overscan=1
+
+	config.txt:21-22
+		framebuffer_width=800 (for RPi Touchscreen, 1920 for desktop HDMI)
+		framebuffer_height= 480 (for RPi Touchscreen, 1080 for desktop HDMI)
+
+
+[] 8. Boot the Raspberry Pi, confirm new image boots
+	a) Eject MicroSD from PC, insert into powered down RPi
+	b) Connect the LAN & HDMI to powered display
+	c) Power on the RPi via USB-Power
+	d) After ~2 seconds, display turns on, and reboots into PIXEL Raspbian
+	e) sudo shutdown now
+
+
+//----------------------------------------------Supplement Customizations--------------------------------------------//
+[] 10. Fix the keyboard layout
+	http://blog.initialstate.com/messed-up-rpi-keyboard/
+	
+	sudo nano /etc/default/keyboard
+	Change to XKBLAYOUT="us"
+
+
+[] 11. Raspi-Config Configuration
+	sudo raspi-config
+
+	Change User Password
+		2 Change User Password
+		Pswd: 'Misc - WC'
+		User: 'pi' by default
+	Enable SSH 
+		https://pimylifeup.com/raspberry-pi-ftp/
+		->Advanced Options->SSH: Enable
+	Expand the Filesystem
+		1 Expand Filesystem
+		<Finish>
+		"Would you like to reboot now?" <Yes>
+
+
+[] 12. Increase Screen Size (1920x1080 is desktop monitor, 800x480 is Portable Display)
+	https://www.webtechgadgetry.com/make-raspberry-pi-use-full-resolution-monitor/
+	
+	cvt 800 480 60		(1920 1080 60 for desktop hdmi)
+
+
+[] 13. Move Menubar to bottom of screen
+	http://raspberrypi.stackexchange.com/questions/29319/move-menu-bar-to-the-bottom-of-the-screen
+	
+	Right click the menu bar and choose a new position in the Geometry tab of 'Panel Settings'.
+	Settings: Bottom-Left, 0 Margin, 100%/30px/30px
+
+	Panel Settings->Advanced->Automatic hiding->Checked
+
+[] 14. Clean up Menu Bar
+	LXDE LXPanel 0.7.2 (lxde.org)
+	
+	Right-Click Application Launch Bar, select 'Application Launch Bar Settings'
+	Remove all items not wanted
+
+
+[] 15. Clean up File Explorer
+	remove directories in user root (pi) of Public/ python_games/ Music/ Pictures/ Videos/ Templates/ (only leave Desktop/ Documents/ Downloads/)
+
+
+[] 16. Unplug LAN and Connect Wi-Fi to AP (else apt-get wont work)
+	note: you may need to unplug LAN then reboot for AP scan to work
+
+
+[] 18. Change Terminal Font
+	Terminal->Edit->Preferences->Style->Terminal Font:Monospace:14
+
+
+[] 19. Set 'hostname'
+	https://thepihut.com/blogs/raspberry-pi-tutorials/19668676-renaming-your-raspberry-pi-the-hostname
+
+	sudo nano /etc/hostname
+
+	"raspberrypi-jmr#num"  (e.g. 'raspberrypi-jmr2')
+	
+	sudo nano /etc/hosts
+
+	"127.0.1.1 raspberrypi-jmr#num" (e.g. '127.0.1.1 raspberrypi-jmr2')
+
+	Once you have rebooted your Pi, all other computers on your network should see it with the new hostname over LAB.  On the Pi itself, you can check your hostname by issuing the following command in a terminal window:
+		hostname
+
+	Shutdown
+
+
+[] 20. Update terminal default size (full-screen)
+	Edit application file (/usr/share/raspi-ui-overrides/applications/lxterminal.desktop:160)
+		Exec=lxterminal --geometry=51x19 (this is for RPi display, 173x45 for desktop HDMI)
+	Note - this is the closest approximate to full screen for desktop HDMI available and not noticeable
+
+
+[] 21. Set your IP, in prep for remote code development over LAN
+	- Assign static IP address to Raspberry Pi by editing /etc/network/interfaces with nano. Example configuration:
+	auto lo	
+	iface lo inet loopback
+
+	iface eth0 inet static
+		address 192.168.1.130		<- tab indent is required or doesn't work!
+		netmask 255.255.255.0
+		gateway 192.168.1.1
+
+		allow-hotplug wlan0
+		iface wlan0 inet manual
+			wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+			
+		iface default inet dhcp
+
+		note - needs a reboot to take effect
+
+
+[] 22. Set the ethernet IP (misc ref - http://elinux.org/Configuring_a_Static_IP_address_on_your_Raspberry_Pi)
+	Pre: plugged LAN cables
+
+	sudo nano /etc/dhcpcd.conf
+
+	Add
+		interface eth0
+		static ip_address=192.168.1.130/24
+		static routers=192.168.1.1
+		static domain_name_servers=192.168.1.1
+
+	reboot
+
+	Confirm Ping works in both directions btwn PC & RPi	
+		*start by trying from RPi to init its network conn
+		*note: a reboot may be required
+
+
+[] 23. Enable FTP access from PC
+	http://www.gurucoding.com/en/raspberry_pi_eclipse/configuring_raspberry_pi.php
+
+	C:\Windows\system32\drivers\etc\hosts:19: '192.168.1.130 raspberrypi-jmr'
+
+	Validate: Use 'cmd' with "ping raspberrypi-jmr" to make sure "hosts" file was saved properly
+
+	Try logging into the Raspberry Pi using PuTTY. If PuTTY doesn't work, there's no point in trying to configure WinSCP
+		*takes over a minute to enter your pswd
+
+	Use WinSCP with SFTP for 'pi' at the pswd 'Misc - WC' on port 21 for connection
+
+
+
+[] 24. Copy over MyWorkspaces\
+		src: D:\Documents\Ref\Platforms\Raspberry Pi\Boards\Raspberry Pi 3 - Model B\Ref\Gcc\MyWorkspaces_RPiStart.zip
+		dest: /home/pi/Documents/MyWorkspaces
+
+[] 25. Cleanup start menu
+	https://wiki.debian.org/GnomeMenus
+	sudo apt-get install menu
+	sudo apt-get install menu-xdg
+	sudo apt-get install menu-l10n
+	
+	Open Preferences->Main Menu Editor, clean it up!
+	
+
+[] 26. Install Code Dev Libraries (all sudo)
+	nano
+	scite
+	gitk
+	libc6 libc6-dev (glibc)
+	libconfig-dev libconfig++-dev
+	pango (libpango1.0-dev libcogl-pango20-dbg, libcogl-pango20)
+	cairo (libcairo2-dev libcairo2)
+	atk (libatk1.0*)
+	build-essential
+ 	gtk+-2.0 libgtk-3* libgtk2.0-dev
+	libfelix-shell-java (1.4.3-1) (not sure why I listed this one... meh)
+	default-jre default-jdk icedtea-plugin (java dev)
+	update
+	upgrade
+	reboot <- this whole listing takes approx ? min
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+//									Add WiringPi & Bluetooth														 //
+// @ref http://lifehacker.com/everything-you-need-to-set-up-bluetooth-on-the-raspberr-1768482065					 //
+// @tut http://docs.cubieboard.org/tutorials/common/development/bluez_programming									 //
+//-------------------------------------------------------------------------------------------------------------------//
+[]27. WiringPi Install Prep
+	$ apt-get purge wiringpi
+	$ sudo apt-get install git-core
+	$ sudo apt-get update
+	$ sudo apt-get upgrade		<- takes awhile
+	reboot
+
+[]28. Source Control for /usr/include
+	sudo git init
+
+	
+[]30. WiringPi Update/Install
+	src: http://wiringpi.com/download-and-install/
+
+	(ST)To obtain WiringPi using GIT: (what jmr uses)
+		$ cd
+		$ git clone git://git.drogon.net/wiringPi
+
+	(TGT) If you have already used the clone operation for the first time, then (used)
+		$ cd ~/wiringPi
+		$ git pull origin
+		
+	(ALT) To build/install there is a new simplified script: (used)
+		$ cd ~/wiringPi
+		$ ./build
+
+	Test wiringPi’s installation (confirmed)
+		$ gpio -v
+		$ gpio readall
+		$ gpio read 0		<- returns "0" for low input on GPIO0, "1" for high
+
+	(Justin Add by example online)
+	Copy /wiringPi/wiringPi/libWiringPi.so.2.39 to /wiringPi/wiringPi/libWiringPi.so!
+	update .gitignore (remove lines 1-3, .so/.lib/...)
+	checkin as new commit
+
+	(Note)
+	The build (*.so/*.o) contents are now in /home/pi/wiringPi/wiringPi on the RPi
+
+	$ sudo apt-get update <- for wiringPi, just cause :)
+
+	
+[] 32. Enable Bluetooth in Debian
+
+	Raspbian->BT->Make Discoverable (then it appears at pc by user name, 'raspberrypi-jmr')
+
+	Validate from Terminal
+		pi@raspberrypi-jmr:~ $ sudo bluetoothctl
+		[NEW] Controller B8:27:EB:1E:D7:89 raspberrypi-jmr [default]
+		[bluetooth]# agent on
+		Agent registered
+		[bluetooth]# default-agent
+		Default agent request successful
+		[bluetooth]# scan on
+		Discovery started
+		[CHG] Controller B8:27:EB:1E:D7:89 Discovering: yes		<- pauses here for 20s to a min or two,
+		[NEW] Device 00:1B:10:00:10:22 JMR-ENGR-PC				   while just showing [bl]# below... grrr...
+		[NEW] Device 00:56:CD:EE:EC:81 Justin's iPhone
+		[NEW] Device B4:18:D1:E9:F5:A6 Dora’s iMac
+		[NEW] Device 00:1D:4F:99:DB:F7 00-1D-4F-99-DB-F7
+		[CHG] Device 00:1D:4F:99:DB:F7 LegacyPairing: no
+		[CHG] Device 00:1D:4F:99:DB:F7 Name: Dan Reim’s iMac
+		[CHG] Device 00:1D:4F:99:DB:F7 Alias: Dan Reim’s iMac
+		[bluetooth]# 
+
+[] 33. Install Bluetooth dev libraries - Get Bluetooth Libraries (Linux Ones)
+		src: http://docs.cubieboard.org/tutorials/common/development/bluez_programming
+		sudo apt-get install bluez libbluetooth-dev libbluetooth3 libbluetooth3-dbg
+
+[]		ensure the default gateway is corect (for me, Wi-Fi as follows):
+		sudo route add default gw 10.1.10.1 dev wlan0
+	
+[]		the steps listed by ref
+		sudo apt-get update
+		sudo apt-get upgrade -y
+		sudo apt-get dist-upgrade -y
+		sudo rpi-update
+		sudo reboot
+
+[]		Raspbian GUI click the Bluetooth icon in the lower-right hand corner
+		Add devices much like you would from any other desktop computer
+		Adding devices from the command line isn’t quite so obvious though.
+
+
+//-----------------------------------------Steps to enable and use VNC--------------------------------------------------//
+[] 34. Enable VNC Server
+	src: https://www.raspberrypi.org/documentation/remote-access/vnc/
+
+	//RPi VNC Server (RealVNC)
+	- By default VNC Server from RealVNC gives you remote access to your Raspberry Pi's graphical desktop
+
+	- You can also use VNC Server to gain visual remote access to your Pi if it headless or not running a graphical desktop, via a virtual desktop. See Creating a virtual desktop below.
+
+	[]	sudo raspi-config
+		Enable VNC Server by doing the following:
+		Interfacing Options -> VNC -> Yes
+
+	[]	ifconfig (to confirm your IP as 192.168.1.130, as 'inet addr')
+	
+	[]	login, using Username: "pi" Password: 'Misc - WC', Remember password: Checked
+		*note: a reboot is required for this to take effect
+
+	[]	Done!	
+
+
+//---------------------------------Confirm WiringPi & Bluetooth are working-----------------------------------------//
+[] 35. Validate Libraries Installed
+	dir: D:\Documents\Ref\Platforms\Raspberry Pi\Boards\Raspberry Pi 3 - Model B\Ref\Gcc\Confirmation 
+		 Projects - WiringPi & BT.zip
+	
+	[]	WiringPi
+		Grab gpio code from 'dir' listed above and compile, run and validate
+	
+	[]	Bluetooth
+		Grab gpio code from 'dir' listed above and compile, run and validate
+
+[] 36. Eclipse Install
+	http://www.gurucoding.com/en/raspberry_pi_eclipse/index.php
+	
+	sudo apt-get install eclipse <- takes approx 9:30 min
+	(+4:15) Note: Eclipse take 4:15 to open for the first time ('eclipse &')
+
+	//install CDT (C/C++)
+	sudo apt-get install eclipse-cdt eclipse-cdt-autotools eclipse-cdt-launch-remote <- takes approx 9:32 min
+
+	(>10m) Perform on set of Update Checks, Help->Check for Updates (catches up & ensures network cfg set)
+		http://download.eclipse.org/eclipse/updates/3.8
+		http://download.eclipse.org/tools/cdt/releases/8.6
+
+
+//--------------------------------------RDP Development in Eclipse on PC---------------------------------------------//
+// @src		http://www.gurucoding.com/en/raspberry_pi_eclipse/index.php												 //
+// @note	code dev is damn slow onboard, and limited in screen size!												 //
+// @note	following the instructions on link above, recorded here as well											 //
+
+[]37. Get Eclipse (PC)
+	- install a seperate, new copy of Eclipse 
+		*suggested storage loc of zip: D:\Documents\MyInstalls\Eclipse\rpi-eclipse
+		*suggested install loc: M:\sw\rpi-eclipse
+		*I used Eclipse IDE for C/C++ Developers  64-bit
+		*eclipse-cpp-neon-2-win32-x86_64.zip
+	
+	- unpack eclipse directly to M:\sw\rpi-eclipse
+	
+	- link to start menu for this eclipse (cust logo)
+	
+	- set default workspace
+		*D:\Documents\MyWorkspaces\Eclipse\RaspberryPi
+
+	- Help->Check for Updates
+	
+	- Setup Perspectives in Toolbar (C/C++, Debug, Git, RemSys Explorer)
+	
+[] 38. Purchase & Store Cross-Compiler
+	- purchase windows cross-compiler
+		*suggested storage loc of zip: D:\Documents\MyInstalls\Eclipse\rpi-eclipse
+		*windows-to-raspberry-pi-cc-jessie.zip
+
+
+[]39. Install Cross-Compilation Toolchain
+	- unpack the downloaded toolchain above to:
+		*M:\sw\rpi-eclipse\rpi-cross-toolchain
+		*note: toss all subdirs of /gcc-4.9.2-glibc-2.19 up one level into rpi-cross-toolchain/. meh...
+		*src ctrl it also
+
+	- install "Mobile and Device Development" ->"C/C++ GCC Cross Compiler Support", "C/C++ Remote Launch", "Remote System Explorer End-User Runtime" and "Remote System Explorer User Actions"
+
+	- confirm compilation works (something like ref_file, no libs (wiringPi/bt/etc.)
+		*can't actually deploy until step 36 below
+
+		
+[] 40. Set up GDB for remote access
+	Enter the following commands in terminal:
+
+		cd /home/pi
+		mkdir remote-debugging
+		cd remote-debugging
+		touch .gdbinit
+		exit
+
+	Upload the file 
+		src: M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\usr\bin\gdbserver
+		dst: /home/pi/remote-debugging/gdbserver
+
+		chmod 777 gdbserver
+		chmod +x gdbserver
+		
+	Source Control /home/pi/remote-debugging
+	
+	set /home/pi/remote-debugging/gdbserver with exec permissions (chmod +x /home/pi/remote-debugging/gdbserver)
+	sudo chmod +x /home/pi/remote-debugging/gdbserver
+	
+	test & validate a compiled project on the PC now works, and sits on the RPi! :)
+		New->C Project, 'Hello World', "Hello World ANSI C Project", "Cross GCC"
+		Source - Blank
+		cross prefix: arm-linux-gnueabihf-
+		cross path: M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\bin;M:\sw\rpi-eclipse\rpi-cross-toolchain\mingw-make
+		Open "C/C++ Build"->"Settings"->"Tool Settings"->"Cross Settings"->Path, make sure is "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\bin;M:\sw\rpi-eclipse\rpi-cross-toolchain\mingw-make". 
+		Open "C/C++ Build"->"Settings"->"Tool Settings"->"Cross GCC Compiler->Includes->Include paths is 		
+		Add "wiringPi" and "bluetooth" to Cross GCC->Libraries->Libaries
+		Add "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib", 	
+			"M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib\bluetooth" and "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib\wiringPi" to Gross GCC Linker->Libraries->Library Search Path
+		Append "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\bin;M:\sw\rpi-eclipse\rpi-cross-toolchain\mingw-
+		make;" to C/C++ Build->Environment->variables to set->PATH
+		You may copy and paste it for your convenience (select with mouse, Ctrl+C, Ctrl+V). Click "OK" when done (note - no quotes in actual path entry!) 
+		Apply, Build
+
+		Note: if you get "Exec format error", you are likely trying the wrong file (e.g. 'main.o', not just 'main')
+
+		Store as Archive (and working executable) to 'D:\Documents\Ref\Platforms\Raspberry Pi\Boards\Raspberry Pi 3 - Model B\HowTo\Working Remote-Eclipse Project'
+
+
+//------------------------------------WiringPi Development in Eclipse on PC---------------------------------------------//
+[] 42. Enable Remote Cross-Compiler to use WiringPi
+	Copy all headers(.h) and libraries(.o/.so) from new wiringPi build to Windows
+	src: /home/pi/wiringPi/wiringPi
+	dst: "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib\wiringPi"
+
+	Copy 'libwiringPi.so.2.32' to 'libwiringPi.so' (new, separate file...)
+
+	Copy over gdbserver
+	src: M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\usr\bin
+	dst: /home/pi/remote-debugging/gdbserver
+	
+[] 43. Sample WiringPi Project (HelloGPIO)
+	New C Project using steps above. Confirm it works (rcom & local deployments)
+	
+	Main->Remote Absolute File Path
+		/home/pi/remote-debugging/HelloGPIO
+	
+	Main->Commands to execute before application
+		chmod 777 /home/pi/remote-debugging/HelloGPIO
+		
+	Debugger->GDB Debugger
+		M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\bin\arm-linux-gnueabihf-gdb.exe
+
+	Debuger->Gdbserver Settings->Gdbserver path
+		/home/pi/remote-debugging/gdbserver
+
+	Copy all headers(.h) and libraries(.o/.so) from new wiringPi build to Windows
+		src: /home/pi/wiringPi/wiringPi
+		to "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib\wiringPi"
+
+	Copy 'libwiringPi.so.2.32' to 'libwiringPi.so' (new, separate file...)
+		src ctrl it on completion on the Win machine	
+
+	Update project references
+		Compiler->Includes->Include Paths
+			"M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib"
+		Linker->Libraries->Libraries
+			wiringpi
+		Linker->Libraries->Library search path
+			"M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib\wiringPi"
+			"M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib"
+
+
+[] 44. Sample Bluetooth Application
+	Copy all headers(.h) and libraries(.o/.so) from new bluetooth build to Windows
+		src: /usr/include/bluetooth (.h) and  /usr/lib/arm-linux-gnueabihf/libbluetooth.so/*.3/*.3.17.11 (note: grabbed all cause not sure which to grab... ;)
+		to "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib\bluetooth"
+
+	Update project references
+		Linker->Libraries->Libraries
+			bluetooth
+		Linker->Libraries->Library search path
+			"M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib\bluetooth"
+
+			
+[] 45. Confirm it all works, one last time
+	Goal: Repeat full generate, from scratch. uses libraries too (wiringPi & bluetooth)
+
+	Use instructions above in Step 36 with name 'HelloWorld_Final', including WiringPi and Bluetooth libraries as listed above.
+
+	Store a Zip of the working project to WorkByDay/
+
+
+[]46. Make the template project (RPi3_Template_Project)
+	Generate a Template with the Above Steps, and name this project 'RPi3 Template Project'
+		include os/delay.c, os/time.c, os/log.c
+		
+	uses a simple use of WiringPi and bluetooth for simple reference example and validation of compilation of both libraries
+
+	Final Storage Loc: D:\Documents\Ref\Platforms\Raspberry Pi\Boards\Raspberry Pi 3 - Model B\Ref\Eclipse\Templates\
+	
+	Copy it to active workspace in 'Templates\' dir
+	
+	Confirm a new project creation from this works
+
+	
+[] 47. Snapshots Dir (final working copy)
+	Take & store SD card img to PC, save as Archived/SD/jmr_rpi_bak5.img
+	Use Win32DiskImager ('Read') -> 'jmr_rpi_bak7.img'  <- (takes approx 6:45min)
+
+
+Post: Now the RPi is full on ready for dev, and can be restored to new at any time with re-flashing Snapshot #5
+

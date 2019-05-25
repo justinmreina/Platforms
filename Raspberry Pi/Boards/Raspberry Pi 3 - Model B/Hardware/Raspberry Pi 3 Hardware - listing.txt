@@ -1,0 +1,24 @@
+ref: https://www.raspberrypi.org/magpi/raspberry-pi-3-specs-benchmarks/
+	
+	Raspberry Pi 3 - Model B (not B+!)
+	
+	Broadcom BCM2837
+	CPU: 1.2 GHz 4x ARM Cortex-A53
+	GPU: Broadcom VideoCore IV
+	RAM: 1GB LPDDR2 (900 MHz)
+	Net: 10/100 Ethernet
+	Wifi: 2.4GHz 802.11n wireless
+	BT:  Bluetooth 4.1 Classic, Bluetooth Low Energy
+	Storage: microSD
+	GPIO: 40-pin header, populated
+	Ports: HDMI
+		   3.5mm analogue audio-video jack
+		   (4) USB 2.0
+		   Ethernet
+		   Camera Serial Interface (CSI)
+		   Display Serial Interface (DSI)
+		   
+	Chips
+		BT/Wi-Fi: BCM4348
+		USB/LAN:  SMSC LAN9514
+

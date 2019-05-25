@@ -1,0 +1,54 @@
+Use the same exact install file to get started! The 'RPi 3 Getting Started Notes' are then also followed, with any deviations listed below
+
+Pre:
+	Start: Getting Started on Model B, #ed49915a5c19787a854d0544ed8aa961f4c4a4bb
+
+[X] 1. Flash to SD
+	IMG: 'D:\Documents\Ref\Platforms\Raspberry Pi\Archived\SD\jmr_rpi_bak7_1.img to SD\jmr_rpi_bak7_1.img'
+
+
+[X] 2. Set IP and hostname
+	raspberrypi-jmrz1, 192.168.1.140
+	raspberrypi-jmrz2, 192.168.1.150
+	
+	reboot
+
+
+[X] 3. Wi-Fi config
+	src - http://askubuntu.com/questions/216066/installing-driver-for-netgear-wna1100-wifi-adapter-ubuntu-server-12-04
+
+	You need both files there; htc_9271.fw and htc_7010.fw. Both are mentioned in:
+		modinfo ath9k_htc
+
+	Terminal:
+		cd Desktop   <--or wherever the downloaded files are
+		sudo cp htc_9271.fw /lib/firmware
+		sudo cp htc_7010.fw /lib/firmware
+
+	Unload and reload the driver:
+		sudo modprobe -r ath9k_htc && sudo modprobe ath9k_htc
+
+
+[X] 4. Updates
+	sudo apt-get update
+	sudo apt-get upgrade -y
+	sudo apt-get dist-upgrade -y
+	sudo rpi-update
+
+	reboot (with BT-USB already plugged in)
+
+
+[X] 5. BT config
+	$sudo apt-get install bluetooth bluez blueman <- not sure if needed
+	$sudo reboot 								  <- not sure if needed
+	$sudo systemctl start bluetooth 			  <- not sure if needed
+	$bluetoothctl
+		agent on
+		default-agent
+		scan on									  <- Sometimes doesn't work on RPiZ, not sure why
+	$hcitool scan
+
+[X] 6. Snapshots Dir (final working copy)
+	Take & store SD card img to PC, save as Archived/SD/jmr_rpi_bak7_1z.img
+	Use Win32DiskImager ('Read') -> 'jmr_rpi_bak7_1z.img'  <- (takes approx 6:45min)
+

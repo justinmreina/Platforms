@@ -1,0 +1,38 @@
+http://elinux.org/RPi_Serial_Connection (1/27/17)
+	headers: http://elinux.org/RPi_Low-level_peripheralss
+
+- RPi serial port consists of TxD/RxD made available on the GPIO header
+	*TxD: UART0_TXD (TXD0, BCMGPIO14, P1-08)
+	*RxD: UART0_RXD (RXD0, BCMGPIO15, P1-10)
+
+- Use the Adafruit Cable (#954) "USB to Serial Cable for Raspberry Pi"
+	https://www.adafruit.com/products/954
+
+- Connect as follows
+	https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/conn
+	ect-the-lead
+	Plugs in as follows:
+	  Red: +5V (only iff RPi is powered by cable!)
+	Black: Gnd J8.6
+	White: TxD J8.8cm
+	Green: RxD J8.10
+
+	If you do decide to power the Pi from the console cable, DO NOT attach the Pi's USB power adapter. If you would rather power the Pi from your USB power adapter then leave the Red lead from the Serial lead un attached.
+	
+	Enable the Serial Port on RPi (raspi-config)
+		Interface Options->Serial->enable remote
+	
+	In terminal, just enter 'pi', press Enter then enter the pswd 'Misc - WC' to connect
+
+- Connecting over a com port connection to C-code application you generated
+	
+	Disable Console Access to the Serial Port (raspi-config)
+		Interfacing Options->Serial->login over serial? No, reboot
+	
+	Validate with PuTTy, from remote PC (COM9, 9600 baud likely)
+	
+	Find a tutorial and work from there
+	
+	It appears the Broadcom BCM2837 onboard serial port is /dev/ttyAMA0?
+	The console gets /dev/tty0@serial0/115200 based on /boot/cmdline.txt:1, not sure...
+	

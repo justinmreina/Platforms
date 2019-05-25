@@ -1,0 +1,5 @@
+https://medium.com/@mos3abof/how-to-install-firefox-on-debian-jessie-90fa135e9e9#.cngfkwm5o
+
+//for Debian Jesse
+	doesn't work...
+

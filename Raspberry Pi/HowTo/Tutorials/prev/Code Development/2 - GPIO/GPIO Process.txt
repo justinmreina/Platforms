@@ -1,0 +1,23 @@
+Use WiringPi to interact with GPIO in C for the Raspberry Pi Model B (http://wiringpi.com/)
+
+Note
+	We are using the Raspberry Pi 3 Model B2 Version 1.2 (2015)
+
+	
+>>Main Site
+	http://wiringpi.com/
+
+	
+>>References
+	RPi3 Main:   https://www.raspberrypi.org/products/raspberry-pi-3-model-b/
+	RPi3 Pinout: http://wiringpi.com/pins/
+
+
+>>Install Procedure
+
+
+>>Pinouts
+
+
+>>API
+

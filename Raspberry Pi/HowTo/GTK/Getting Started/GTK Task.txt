@@ -1,0 +1,15 @@
+1. 600x300 window with title "LED Flasher"
+
+2. Grey Background
+
+3. Text Box for "Text to File"
+
+4. Button "Save to File"
+
+5. LED with title "LED"
+
+6. Button with label "Toggle LED"
+
+7. On Button "Toggle LED" press the LED toggles
+
+8. On Button "Text to File" a pop-up window appears asking to select a file save path, then saves "Text to File" to a new file there

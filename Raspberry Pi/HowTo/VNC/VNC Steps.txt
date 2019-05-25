@@ -1,0 +1,17 @@
+//-----Steps to enable and use VNC (1/27/17)-----//
+	src: https://www.raspberrypi.org/documentation/remote-access/vnc/
+
+//RPi VNC Server (RealVNC)
+	- By default VNC Server from RealVNC gives you remote access to your Raspberry Pi's graphical desktop
+
+	- You can also use VNC Server to gain visual remote access to your Pi if it headless or not running a graphical desktop, via a virtual desktop. See Creating a virtual desktop below.
+	
+	sudo raspi-config
+		Enable VNC Server by doing the following:
+		Interfacing Options -> VNC -> Yes
+
+	ifconfig (to confirm your IP as 192.168.1.130)
+	
+	login, using Username: "pi" Password: 'Misc - WC', Remember password: Checked
+	
+	Done!	

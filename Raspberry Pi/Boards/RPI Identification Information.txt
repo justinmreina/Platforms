@@ -1,0 +1,12 @@
+RPI1: Raspberry Pi 3 Model B V1.2
+	ip:   192.168.1.120
+	host: raspberrypi-jmr1
+	BT Address: B8:27:EB:1E:D7:89 (raspberrypi-jmr1)
+
+
+RPI2: Raspberry Pi 3 Model B V1.2
+	ip:   192.168.1.130
+	host: raspberrypi-jmr2
+	BT AddressL B8:27:EB:1A:BF:F7 (raspberrypi-jmr2)
+
+

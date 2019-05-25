@@ -1,0 +1,13 @@
+pkg-config allows a user to share installed libraries(--libs) and build configuration(--cflags) with the gcc compiler.
+	
+	/usr/share/doc/pkg-config
+
+For the simplest example:
+
+	gcc -o main.o main.c 'pkg-config --cflags --libs myCustomName'
+
+works when pkg-config finds the file XYZ at ABC holding the following contents:
+
+	gcc -o main.o main.c $(pkg-config --cflags justin)		<- this tosses justin.pc's contents for "Cflags:" onto the compilation!
+
+

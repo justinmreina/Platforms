@@ -1,0 +1,446 @@
+//*******************************************************************************************************************//
+// 								  RP3 Installation Procedure (1/22/17) 										   		 //
+//																													 //
+// @target 	Raspberry Pi 3 - Model B r1.2 (RPi 3)																 	 //
+// @topic 	Getting Started Procedure & Guide - From Scratch														 //
+//																													 //
+// @author 	Justin Reina																							 //
+// @date 	1/23/17																									 //
+//																													 //
+// @web	 	https://www.raspberrypi.org/products/raspberry-pi-3-model-b/											 //
+// 																													 //
+//*******************************************************************************************************************//
+Note: This took a staggeringly long time to figure out, generate and get working. Several hours over multiple weeks,
+and several full redos thus the generation of such a file as this. Respect the time taken to get here, and the ease
+which this file then produces! :)
+
+//----------------------------------------------Pre-Configuration----------------------------------------------------//
+[X]1. Clean the MicroSD
+	Grab all active code & files
+
+	src: http://www.howtogeek.com/170794/ask-htg-how-can-i-reclaim-the-full-capacity-of-an-sd-card/
+	Use diskpart to resize the SD Card to full capacity
+		list volume, select volume XYZ, clean, create partition primary, exit
+		*it will be of '0' size until formatted in the next step
+
+	Use File Explorer to format (Windows FAT32, Default Alloc Size, Volume Label JMR_RPI1/JMR_RPI2, Quick Format)
+	
+	All drives ejected, physically labeled
+
+	Use SDFormatter V4.0 to clean SD, Full/Off, Label: 'JMR_RPI1/2'
+
+	Eject
+
+
+[X]2. Unplug Raspberry Pi
+	All cables & drives (except USB kbrd/mouse), any sequence
+	
+
+//------------------------------------------------Given Instructions-------------------------------------------------//
+[X] 3. Download the latest recommended OS (Raspbian)
+	http://www.raspberrypi.org/downloads
+
+	Currently Trying 'Raspbian Jessie with PIXEL - Image with PIXEL desktop based on Debian Jessie'
+	Version: January 2017
+	Release date: 2017-01-11
+	Kernel version: 4.4
+	Release notes: http://downloads.raspberrypi.org/raspbian/release_notes.txt
+	File: 2017-01-11-raspbian-jessie.zip
+
+
+[X]4. Extract IMG from Zip (7-Zip, .img file out)
+	R.C. in 7-Zip, '7-Zip->Extract here', or 'R.C->Open With'
+
+
+[X]5. Write IMG to MicroSD
+	Insert MicroSD ('F:\')
+	Use Win32DiskImager
+		Image File:/rpi-latest_full/2017-01-11-raspbian-jessie.img
+		Device: [F:\]
+	Press 'Write', approve the warning message
+	This takes awhile, patience! :)
+
+	
+[X]6. Adjust Display output to fill entire display
+	https://www.raspberrypi.org/forums/viewtopic.php?f=46&t=47152
+
+	config.txt:10
+		disable_overscan=1
+
+	config.txt:21-22
+		framebuffer_width=1920
+		framebuffer_height=1080
+
+
+[X]7. Boot the Raspberry Pi, confirm new image boots
+	a) Eject MicroSD from PC, insert into powered down RPi
+	b) Connect the LAN & HDMI to powered display
+	c) Power on the RPi via USB-Power
+	d) After ~2 seconds, display turns on, and reboots into PIXEL Raspbian
+
+[X]8. Snapshots Dir #1
+	Take & store SD card img to PC, save as Archived/SD/jmr_rpi_bak1.img
+	Use Win32DiskImager ('Read') -> 'jmr_rpi_bak1.img'  <- (takes approx 6:45min)
+
+
+//----------------------------------------------Supplement Customizations--------------------------------------------//
+[X]8. Change User Password
+	sudo raspi-config
+	2 Change User Password
+	Pswd: 'Misc - WC'
+	User: 'pi' by default
+
+
+[X]9. Enable SSH
+	https://pimylifeup.com/raspberry-pi-ftp/
+    sudo raspi-config
+    ->Advanced Options->SSH: Enable
+
+
+[X]10. Expand the Filesystem
+	sudo raspi-config
+	1 Expand Filesystem
+	<Finish>
+	"Would you like to reboot now?" <Yes>
+
+
+[X]11. Increase Screen Size (1920x1080 is current monitor)
+	https://www.webtechgadgetry.com/make-raspberry-pi-use-full-resolution-monitor/
+	
+	cvt 1920 1080 60
+
+
+[X]12. Move Menubar to bottom of screen	
+	http://raspberrypi.stackexchange.com/questions/29319/move-menu-bar-to-the-bottom-of-the-screen
+	
+	Right click the menu bar and choose a new position in the Geometry tab of 'Panel Settings'.
+	Settings: Bottom-Left, 0 Margin, 100%/30px/30px
+
+
+[X]13. Clean up Menu Bar
+	LXDE LXPanel 0.7.2 (lxde.org)
+	
+	Right-Click Application Launch Bar, select 'Application Launch Bar Settings'
+	Remove all items not wanted
+
+
+[X]14. Clean up File Explorer
+	remove directories in user root (pi) of Music/ Pictures/ Videos/ Templates/ (only leave Desktop/ Documents/ Downloads/)
+
+[X]15. Unplug LAN and Connect Wi-Fi to AP (else apt-get wont work)
+
+[X]16. Install Addtnl SW
+	sudo apt-get update
+	sudo apt-get install nano
+	sudo apt-get install scite
+	sudo apt-get install gitk
+
+	sudo apt-get install eclipse <- takes approx 9:30 min
+		(+4:15) Note: Eclipse take 4:15 to open for the first time ('eclipse &')
+
+[X]17. Fix the keyboard layout
+	http://blog.initialstate.com/messed-up-rpi-keyboard/
+	
+	sudo nano /etc/default/keyboard
+	Change to XKBLAYOUT="us"
+	Then reboot
+
+
+[X]18. Change Terminal Font
+	Terminal->Edit->Preferences->Style->Terminal Font:Monospace:14
+
+
+[!]19. Firefox
+	Tried posted instructions at debian.mozilla.com and got "E: The value 'jessie-backports' is invalid", not able to complete
+
+[X]20. Eclipse Stuff
+	http://www.gurucoding.com/en/raspberry_pi_eclipse/index.php
+	
+	//install CDT (C/C++)
+	sudo apt-get install eclipse-cdt eclipse-cdt-autotools eclipse-cdt-launch-remote <- takes approx 9:32 min
+
+	(>10m) Perform on set of Update Checks, Help->Check for Updates (catches up & ensures network cfg set)
+!!!!!!!!*gave up on updates, come back before leave!!!
+
+
+[X]21. Set 'hostname'
+	https://thepihut.com/blogs/raspberry-pi-tutorials/19668676-renaming-your-raspberry-pi-the-hostname
+
+	sudo nano /etc/hostname
+
+	"raspberrypi-jmr"
+
+	sudo nano /etc/hosts
+
+	"127.0.1.1 raspberrypi-jmr"
+
+	Once you have rebooted your Pi, all other computers on your network should see it with the new hostname.  On the Pi itself, you can check your hostname by issuing the following command in a terminal window:
+		hostname
+
+	Shutdown
+
+[X]22. Update terminal default size (full-screen)
+	Edit application file (/usr/share/raspi-ui-overrides/applications/lxterminal.desktop:160)
+		Exec=lxterminal --geometry=173x45
+	Note - this is the closest approximate to full screen available and not noticeable
+
+[X]23. Set the ethernet IP
+	Pre: plugged LAN cables
+
+	sudo nano /etc/dhcpcd.conf
+	
+	Add
+		interface eth0
+		static ip_address=192.168.1.130/24
+		static routers=192.168.1.1
+		static domain_name_servers=192.168.1.1
+
+	reboot
+	
+	Confirm Ping works in both directions btwn PC & RPi	
+		*start by trying from RPi to init its network conn
+
+[X]24. Enable FTP access from PC
+	http://www.gurucoding.com/en/raspberry_pi_eclipse/configuring_raspberry_pi.php
+	
+	C:\Windows\system32\drivers\etc\hosts:19: '192.168.1.130 raspberrypi-jmr'
+
+	Validate: Use 'cmd' with "ping raspberrypi-jmr" to make sure "hosts" file was saved properly
+
+	Try logging into the Raspberry Pi using PuTTY. If PuTTY doesn't work, there's no point in trying to configure WinSCP
+		*takes over a minute to enter your pswd
+
+	Use WinSCP with SFTP for 'pi' at the pswd 'Misc - WC' on port 21 for connection
+
+
+[!]25. Cleanup start menu (!could not get to work...)
+	https://wiki.debian.org/GnomeMenus
+	sudo apt-get install menu
+	sudo apt-get install menu-xdg
+	sudo apt-get install menu-l10n
+	update-menus 
+
+
+[X]26. Install Code Dev Libraries
+	x11vnc
+	gitk
+	libc6 libc6-dev (glibc)
+	libconfig-dev libconfig++-dev	
+	pango (libpango1.0-dev libcogl-pango20-dbg, libcogl-pango20)
+	cairo (libcairo2-dev libcairo2)
+	atk (libatk1.0*)
+	gtk+-2.0
+	build-essential
+	libgtk2.0-dev			<- this all takes approx 6:30 min
+	
+//-------------------------------------------------------------------------------------------------------------------//
+//<pre-workout today> I stopped here. Not sure if this is how we want to do wiringpi, but pretty sure. not sure how  //
+// this plays in with that other 'wiringPi-master' you had earlier for the successful Cross-Compilation, but they are//
+// most likely the exact same! :)																				 	 //
+//																													 //
+// @key		this is simple, just check build output, check for libwiringpi.o :)!									 //
+//-------------------------------------------------------------------------------------------------------------------//
+[X]27. WiringPi Install Prep
+	$ apt-get purge wiringpi
+	$ sudo apt-get install git-core
+	$ sudo apt-get update
+	$ sudo apt-get upgrade		<- takes awhile
+	reboot
+
+[X]28. Source Control for /usr/include
+	sudo shutdown now (post)
+
+
+[X]29. Snapshots Dir #2
+	Take & store SD card img to PC, save as Archived/SD/jmr_rpi_bak2.img
+	Use Win32DiskImager ('Read') -> 'jmr_rpi_bak2.img'  <- (takes approx 6:45min)
+
+
+[X]30. WiringPi Update/Install
+	src: http://wiringpi.com/download-and-install/
+
+	(ST)To obtain WiringPi using GIT: (what jmr uses)
+		$ cd
+		$ git clone git://git.drogon.net/wiringPi
+
+	(TGT) If you have already used the clone operation for the first time, then (used)
+		$ cd ~/wiringPi
+		$ git pull origin
+		
+	(ALT) To build/install there is a new simplified script: (used)
+		$ cd ~/wiringPi
+		$ ./build
+
+	Test wiringPi’s installation (confirmed)
+		$ gpio -v
+		$ gpio readall
+		$ gpio read 0		<- returns "0" for low input on GPIO0, "1" for high
+
+	(Justin Add by example online)
+	Copy /libWiringPi.so.2.39 to /libWiringPi.so!
+
+	(Note)
+	The build (*.so/*.o) contents are now in /home/pi/wiringPi/wiringPi on the RPi
+
+	$ sudo apt-get update <- for wiringPi, just cause :)
+
+
+[X]31. Snapshots Dir #3
+	Take & store SD card img to PC, save as Archived/SD/jmr_rpi_bak3.img
+	Use Win32DiskImager ('Read') -> 'jmr_rpi_bak3.img'  <- (takes approx 6:45min)
+
+
+//--------------------------------------RDP Development in Eclipse on PC---------------------------------------------//
+// @src		http://www.gurucoding.com/en/raspberry_pi_eclipse/index.php												 //
+// @note	code dev is damn slow onboard, and limited in screen size!												 //
+// @note	following the instructions on link above, recorded here as well											 //
+
+[X]32. Get Eclipse
+	- install a seperate, new copy of Eclipse 
+		*suggested storage loc of zip: D:\Documents\MyInstalls\Eclipse\rpi-eclipse
+		*suggested install loc: M:\sw\rpi-eclipse
+		*I used Eclipse IDE for C/C++ Developers  64-bit
+		*eclipse-cpp-neon-2-win32-x86_64.zip
+	
+	- unpack eclipse directly to M:\sw\rpi-eclipse
+	
+	- link to start menu for this eclipse (cust logo)
+	
+	- set default workspace
+		*D:\Documents\MyWorkspaces\Eclipse\RaspberryPi
+
+
+[X]33. Purchase & Store Cross-Compiler
+	- purchase windows cross-compiler
+		*windows-to-raspberry-pi-cc-jessie.zip
+
+
+[X]34. Install Cross-Compilation Toolchain
+	- unpack the downloaded toolchain above to:
+		*M:\sw\rpi-eclipse\rpi-cross-toolchain
+		*note: toss all subdirs of gcc-4.9.2-glibc-2.19 up one level into rpi-cross-toolchain/. meh...
+		
+	- install "Mobile and Device Development" ->"C/C++ GCC Cross Compiler Support", "C/C++ Remote Launch", "Remote System Explorer End-User Runtime" and "Remote System Explorer User Actions"
+
+
+[X]35. Remote Code Development over LAN
+	- Assign static IP address to Raspberry Pi by editing /etc/network/interfaces with nano. Example configuration:
+		auto lo
+
+		iface lo inet loopback
+		iface eth0 inet static
+		address 192.168.1.50
+		netmask 255.255.255.0
+		gateway 192.168.1.1
+
+		allow-hotplug wlan0
+		iface wlan0 inet manual
+		wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+		iface default inet dhcp
+
+
+[X]33. Set up GDB for remote access
+	Enter the following commands in terminal:
+
+		cd /home/pi
+		mkdir remote-debugging
+		cd remote-debugging
+		touch .gdbinit
+		exit
+
+	Upload the file 
+		src: M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\usr\bin\gdbserver
+		dst: /home/pi/remote-debugging/gdbserver
+
+	set /home/pi/remote-debugging/gdbserver with exec permissions (chmod +x /home/pi/remote-debugging/gdbserver)
+	sudo chmod +x /home/pi/remote-debugging/gdbserver
+	
+	test & validate a compiled project on the PC now works, and sits on the RPi! :)
+		New->C Project, 'Hello World', "Hello World ANSI C Project", "Cross GCC"
+		cross prefix: arm-linux-gnueabihf-
+		cross path: M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf
+		Open "C/C++ Build"->"Settings"->"Tool Settings"->"Cross Settings"->Path is "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\bin;M:\sw\rpi-eclipse\rpi-cross-toolchain\mingw-make". You may copy and paste it for your convenience (select with mouse, Ctrl+C, Ctrl+V). Click "OK" when done (note - no quotes in actual path entry!) 
+		
+		Note: if you get "Exec format error", you are likely trying the wrong file (e.g. 'main.o', not just 'main')
+		
+		Store as Archive (and working executable) to 'D:\Documents\Ref\Platforms\Raspberry Pi\Boards\Raspberry Pi 3 - Model B\HowTo\Working Remote-Eclipse Project'
+
+[X]34. Snapshots Dir #4
+	Take & store SD card img to PC, save as Archived/SD/jmr_rpi_bak4.img
+	Use Win32DiskImager ('Read') -> 'jmr_rpi_bak4.img'  <- (takes approx 6:45min)
+
+//------------------------------------WiringPi Development in Eclipse on PC---------------------------------------------//
+[X]35. Enable Remote Cross-Compiler to use WiringPi
+	Copy all headers(.h) and libraries(.o/.so) from new wiringPi build to Windows
+	src: /home/pi/wiringPi/wiringPi
+	dst: "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib\wiringPi"
+
+	Copy 'libwiringPi.so.2.32' to 'libwiringPi.so' (new, separate file...)
+
+	Copy over gdbserver
+	src: M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\usr\bin
+	dst: /home/pi/remote-debugging/gdbserver
+	
+[X]36. Sample WiringPi Project (HelloGPIO)
+	New C Project using steps above. Confirm it works (rcom & local deployments)
+	
+	Main->Remote Absolute File Path
+		/home/pi/remote-debugging/HelloGPIO
+	
+	Main->Commands to execute before application
+		chmod 777 /home/pi/remote-debugging/HelloGPIO
+		
+	Debugger->GDB Debugger
+		M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\bin\arm-linux-gnueabihf-gdb.exe
+
+	Debuger->Gdbserver Settings->Gdbserver path
+		/home/pi/remote-debugging/gdbserver
+
+	Copy all headers(.h) and libraries(.o/.so) from new wiringPi build to Windows
+		src: /home/pi/wiringPi/wiringPi-master
+		to "M:\sw\rpi-eclipse\rpi-cross-toolchain\arm-linux-gnueabihf\lib\wiringPi"
+
+	Copy 'libwiringPi.so.2.32' to 'libwiringPi.so' (new, separate file...)
+		src ctrl it on completion on the Win machine	
+
+	Update project references
+		Compiler->Includes->Include Paths
+			"M:/sw/rpi-eclipse/rpi-cross-toolchain/arm-linux-gnueabihf/lib"
+		Linker->Libraries->Libraries
+			wiringpi
+		Linker->Libraries->Library search path
+			"M:/sw/rpi-eclipse/rpi-cross-toolchain/arm-linux-gnueabihf/lib/wiringPi"
+			"M:/sw/rpi-eclipse/rpi-cross-toolchain/arm-linux-gnueabihf/lib"
+
+[X]37. Make the template project (RPi3 Template Project)
+	uses working use of WiringPi, for simple reference example and validation of compilation using WiringPi
+
+	Final Storage Loc: D:\Documents\Ref\Platforms\Raspberry Pi\Boards\Raspberry Pi 3 - Model B\Ref\Eclipse\Templates\
+	
+	Copy it to active workspace in 'Templates\' dir
+	
+	Confirm a new project creation from this works
+
+
+[X]38. Snapshots Dir #5
+	Take & store SD card img to PC, save as Archived/SD/jmr_rpi_bak5.img
+	Use Win32DiskImager ('Read') -> 'jmr_rpi_bak5.img'  <- (takes approx 6:45min)
+
+
+//-----------------------------------------Steps to enable and use VNC--------------------------------------------------//
+	src: https://www.raspberrypi.org/documentation/remote-access/vnc/
+
+	//RPi VNC Server (RealVNC)
+	- By default VNC Server from RealVNC gives you remote access to your Raspberry Pi's graphical desktop
+
+	- You can also use VNC Server to gain visual remote access to your Pi if it headless or not running a graphical desktop, via a virtual desktop. See Creating a virtual desktop below.
+	
+	sudo raspi-config
+		Enable VNC Server by doing the following:
+		Interfacing Options -> VNC -> Yes
+
+	ifconfig (to confirm your IP as 192.168.1.130)
+	
+	login, using Username: "pi" Password: 'Misc - WC', Remember password: Checked
+	
+	Done!	
